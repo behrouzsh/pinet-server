@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" ng-app="plnApplication">
+<meta charset="UTF-8">
+<title>PiNET</title>
+<!--<base href="/">-->
+
+<head>
+    <!--<base href="/">-->
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PiNET server is a server for mapping and annotaion of protein peptides"/>
+    <meta name="keywords" content="pinet-server.org, LINCS, Proteomics, peptide search, peptide annotation"/>
+    <meta name="author" content="Behrouz Shamsaei"/>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/mdb.min.css">-->
+    <!-- Custom  CSS -->
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="css/AB.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="css/tabs22.css">
+    <link rel="stylesheet" href="css/outerTabs.css">
+    <link rel="stylesheet" href="css/volcano.css">
+    <!--<link rel="stylesheet" href="css/vartical-nav.css">-->
+    <link rel="stylesheet" href="css/d3.parcoords.css">
+
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+    <!-- pinet logo -->
+    <link rel="shortcut icon"
+          href="images/pinet-logo2.png"/>
+
+    <!--This one for showing picture in select tabs-->
+    <!-- jquery for uploading file -->
+    <!--<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/volcano.js"></script>
+    <!-- Magnific Popup -->
+    <!--<script src="js/jquery.magnific-popup.min.js"></script>-->
+    <!--<script src="js/magnific-popup-options.js"></script>-->
+
+    <!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
+    <script src="js/jquery.style.switcher.js"></script>
+    <script>
+        $(function () {
+            $('#colour-variations ul').styleSwitcher({
+                defaultThemeId: 'theme-switch',
+                hasPreview: false,
+                cookie: {
+                    expires: 30,
+                    isManagingLoad: true
+                }
+            });
+            $('.option-toggle').click(function () {
+                $('#colour-variations').toggleClass('sleep');
+            });
+        });
+    </script>
+    <!-- End demo purposes only -->
+
+    <!-- Main JS (Do not remove) -->
+    <!--<script src="js/main.js"></script>-->
+
+    <!--
+    INFO:
+    jQuery Cookie for Demo Purposes Only.
+    The code below is to toggle the layout to boxed or wide
+    -->
+    <script src="js/jquery.cookie.js"></script>
+    <script>
+        $(function () {
+
+            if ($.cookie('layoutCookie') != '') {
+                $('body').addClass($.cookie('layoutCookie'));
+            }
+
+            $('a[data-layout="boxed"]').click(function (event) {
+                event.preventDefault();
+                $.cookie('layoutCookie', 'boxed', {expires: 7, path: '/'});
+                $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
+            });
+
+            $('a[data-layout="wide"]').click(function (event) {
+                event.preventDefault();
+                $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
+                $.removeCookie('layoutCookie', {path: '/'}); // remove the value of our cookie 'layoutCookie'
+            });
+        });
+    </script>
+
+
+    <!-- JavaScript -->
+    <!--<script src="lib/jquery/jquery-2.1.4.min.js" type="application/javascript"></script>-->
+
+
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
+            });
+        });
+        //        $('[data-toggle="tooltip"]').tooltip({
+        //            trigger : 'hover'
+        //        })
+    </script>
+    <script>
+        //$('li a').tooltip(options)
+        $(document).ready(function () {
+            $('li a').tooltip({
+                trigger: 'hover'
+            });
+            $('a').tooltip({
+                trigger: 'hover'
+            })
+        });
+
+    </script>
+    <!-- jquery for uploading file -->
+    <!--<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>-->
+    <!-- AngularJS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular/angular-touch.js"></script>
+
+
+    <script src="bower_components/angular/angular-animate.js"></script>
+    <script src="bower_components/angular/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <script src="https://rawgit.com/angular-slider/angularjs-slider/master/dist/rzslider.js"></script>
+    <!--<style src="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css"></style>-->
+    <link rel='stylesheet' href='https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js"></script>
+    <!--<script src="bower_components/angular/rzslider.js"></script>-->
+    <!--<link rel="stylesheet" ; href="css/rzslider.less">-->
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>-->
+    <script src="bower_components/https/angular-strap.js" data-semver="v2.3.8"></script>
+    <script src="bower_components/https/angular-strap.tpl.js" data-semver="v2.3.8"></script>
+    <script src="bower_components/https/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script>
+    <!-- Bootstrap JS -->
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+    <!--This is for the table-->
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    <link rel="stylesheet" ; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+
+    <!-- dirPagination JS -->
+    <script src="bower_components/bootstrap/dist/js/dirPagination.js"></script>
+
+
+    <script src="bower_components/https/angular-filter.min.js"></script>
+
+    <!--<script src="https://d3js.org/d3-selection.v1.min.js"></script>-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+    <!--<script src="http://d3js.org/d3.v3.js"></script>-->
+    <!--This is for downloading the table data-->
+    <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+    <!--This is for showing figures in the select-->
+    <!--<script src="bower_components/ddslick/jquery.ddslick.min.js"></script>-->
+    <script src="http://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+
+
+    <!--This is for downloading the table data-->
+    <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+
+    <!--This is for downloading the table data in xlsx files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+
+    <!--&lt;!&ndash;plotly&ndash;&gt;&ndash;&gt;-->
+
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+
+    <!--This is for parallel coordianates-->
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>-->
+    <script src="js/d3.svg.multibrush.js"></script>
+    <script src="js/d3.parcoords.js"></script>
+    <!--<script src="js/d3.divgrid.js"></script>-->
+
+
+    <!--For translating SVG to canvas-->
+    <script type="text/javascript" src="bower_components/canvg/rgbcolor.js"></script>
+    <script type="text/javascript" src="bower_components/canvg/StackBlur.js"></script>
+    <script type="text/javascript" src="bower_components/canvg/canvg.js"></script>
+    <script src="bower_components/canvg/canvas-toBlob.js"></script>
+    <script src="bower_components/canvg/FileSaver.min.js"></script>
+    <!---->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>-->
+    <!--<script src="js/pie/d3pie.min.js"></script>-->
+    <!-- PLN Angular -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <!-- Ng-tags-input-->
+    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+
+
+    <!--This is for the google analytics-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-101774139-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        $(function () {
+            $("#btpepOrGene1").click(function () {
+//                $(this).attr("active", "active");
+                $(this).attr("disabled", "disabled");
+//                $("#btpepOrGene2").removeAttr("active");
+                $("#btpepOrGene2").removeAttr("disabled");
+            });
+
+            // if you want first button to be disabled when second button is clicked
+            $("#btpepOrGene2").click(function () {
+//                $(this).class("active", "active");
+                $(this).attr("disabled", "disabled");
+//                $("#btpepOrGene1").removeAttr("active");
+                $("#btpepOrGene1").removeAttr("disabled");
+            });
+        });
+    </script>
+    <!--This is for the tooltip on mouse over of navbar-->
+    <!--<script>-->
+    <!--$(document).ready(function () {-->
+    <!--$('[data-toggle="tooltip"]').tooltip();-->
+    <!--});-->
+    <!--</script>-->
+
+
+    <meta charset="utf-8">
+
+    <base href="/">
+</head>
+
+<body>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<div ng-controller="MainCtrl as ctrl">
+
+    <div class="splash fade-in" ng-show="ctrl.showSplash" ng-model="ctrl.showSplash">
+        <h1 class="splash-title fade-in">PiNET</h1>
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 0">
+        <h2 class="splash-title2 fade-in">Annotate Peptides with PiNET.</h2>
+    </div>
+
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 1">
+            <h2 class="splash-title2 fade-in">Annotate PTM/Proteins with PiNET.</h2>
+        </div>
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 2">
+            <h2 class="splash-title2 fade-in">Annotate Genes with PiNET.</h2>
+        </div>
+
+        <!--<h2 class="splash-title4 fade-in">Start With</h2>-->
+        <div style="background:transparent;">
+            <div class="splash-title5 fade-in "> Start with:
+
+                <!--<span  class="onerow">-->
+
+
+                <div id="breadcrumbNav2" style="margin-top: 20px">
+                    <div id="arrowBar2">
+                        <!-- Notice the lack of #borderTop2 and #borderBottom2 in this example since border is applied entirely to #arrowBar2 instead. -->
+
+                        <!-- The very first crumb has a different "foo" style since this crumb has no arrow tail -->
+                        <!--<a href="#Wonderful">     <span class="AB2rotate color0"><span class="myButton"><span class="AB2text0">Peptides</span></span></span></a>-->
+
+                        <a href="javascript:void(0);" ng-click="ctrl.peptideOrProteinsOrGenes=0" href="#"
+                           title="Enter Peptides for Annotation"> <span
+                                class="AB2rotate1 color0"><span class="AB2rotateReset"><span
+                                class="AB2text0">Peptides2Proteins</span></span></span></a>
+
+                        <a href="javascript:void(0);" ng-click="ctrl.peptideOrProteinsOrGenes=1" href="#"
+                           title="Enter PTM Proteins for Annotation"> <span
+                                class="AB2rotate2 color1"><span class="AB2rotateReset"><span
+                                class="AB2text1">PTMs2Modifiers</span></span></span></a>
+
+                        <a href="javascript:void(0);" ng-click="ctrl.peptideOrProteinsOrGenes=2" href="#"
+                           title="Enter Gene names for Annotation"> <span
+                                class="AB2rotate3 color2"><span class="AB2rotateReset"><span
+                                class="AB2text2">Proteins2Pathways</span></span></span></a>
+
+                        <a href="javascript:void(0);" style="pointer-events: none; cursor: default;"
+                           title="piNET, A Versatile Platform for Downstream Analysis and Visualization of Proteomics Data."> <span
+                                class="AB2rotate4 color3"><span class="AB2rotateReset"><span
+                                class="AB2text3">piNET</span></span></span></a>
+
+
+                        <!--<a href="#Wonderful" >     <span class="AB2rotate1 "><span class="AB2rotateReset"><span class="AB2text1">Peptides</span></span></span></a>-->
+
+                        <!--<a href="#CSS3">          <span class="AB2rotate2 "><span class="AB2rotateReset"><span class="AB2text1">Proteins</span></span></span></a>-->
+                        <!--<a href="#Accessibility"> <span class="AB2rotate3 "><span class="AB2rotateReset"><span class="AB2text2">Pathways</span></span></span></a>-->
+
+                        <!--<a href="#Breadcrumb">    <span class="AB2rotate4 "><span class="AB2rotateReset"><span class="AB2text3">LINCS</span></span></span></a>-->
+
+
+                    </div>
+                </div>
+
+                <!--<a href="javascript:void(0);" ng-click="ctrl.peptideOrGenes=true"-->
+                <!--style="text-decoration:none;"-->
+                <!--ng-stuniprotrl.peptideOrGenes && {'font-weight': 'bold'}">&nbsp;A set of protein peptides</a>-->
+                <!--/-->
+                <!--<a href="javascript:void(0);" ng-click="ctrl.peptideOrGenes=false"-->
+                <!--style="text-decoration:none;"-->
+                <!--ng-style="!ctrl.peptideOrGenes && {'font-weight': 'bold'}">A set of genes</a>-->
+                <!--</span>-->
+            </div>
+        </div>
+
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 0" style=" background:transparent;">
+
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+                <div class="splash-title5 fade-in onerow2"> Enter peptides or use the list of
+                </div>
+                <a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToP100Peptides('table')"
+                   ng-style="{'font-weight': 'bold'}">
+                    LINCS P100 peptides</a> or try the list of
+
+                <a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToGCPPeptides('table')"
+                   ng-style="{'font-weight': 'bold'}">
+                    LINCS GCP peptides&nbsp;
+                </a>
+
+                <hr/>
+                <div class="form-group col-sm-4" style="padding-left: 0px;">
+
+                    <!--<span style="float:left">-->
+
+                    <!--<a href="javascript:void(0);" ng-click="ctrl.formatInput=false"-->
+                    <!--style="text-decoration:none;"-->
+                    <!--ng-style="!ctrl.formatInput && {'font-weight': 'bold'}">Mass Difference</a>-->
+                    <!--/-->
+                    <!--<a href="javascript:void(0);" ng-click="ctrl.formatInput=true"-->
+                    <!--style="text-decoration:none;"-->
+                    <!--ng-style="ctrl.formatInput && {'font-weight': 'bold'}">Shorthand Notation</a>-->
+                    <!--</span>-->
+                    <label style="padding-bottom: 10px;">Input Peptides&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="Input peptide PTMs can be either in the shorthand or mass difference notations.">
+                        </span>
+                        <br/>
+                    </label>
+
+
+                    <div style="padding-top:8px; padding-bottom:10px;">
+                        <!--<div ng-if="!ctrl.formatInput">-->
+                        <textarea class="form-control" style="background:transparent;" rows="5"
+                                  ng-model="ctrl.textArea">
+
+                            </textarea>
+                        <!--</div>-->
+
+                        <!--<div ng-if="ctrl.formatInput">-->
+                        <!--<textarea class="form-control " style="background:transparent;" rows="5"-->
+                        <!--ng-model="ctrl.textArea"></textarea>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+
+                <div class="form-group col-sm-3 col-sm-offset-0">
+                    <label style="padding-bottom: 24px;">Motifs&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">
+
+                        </span>
+
+
+                        <br/>
+                    </label>
+                    <div class=" list-responsive-vertical3" style=" word-wrap:break-word;" id="div3">
+                        <div ng-repeat="motif in ctrl.parsedMotifs track by $index">{{motif}}<br/></div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-3 col-sm-offset-0">
+                    <label style="padding-bottom: 12px;">Modifications&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">
+
+                    </span>
+                    </label>
+                    <div class="list-responsive-vertical2" style="word-wrap:break-word;" id="div4">
+                        <div ng-repeat="modification in ctrl.parsedModificationsFormatter track by $index">
+                            {{modification}}<br/></div>
+                    </div>
+
+                </div>
+
+                <div class="form-group col-sm-2 col-sm-offset-0" style="position: relative">
+                    <label style="padding-bottom: 10px;">Abundance&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="This is the abundance of peptides separated by space from each peptide, if not inserted, it is assumed to be 'NA'.">
+                        </span>
+                        <br/>
+                    </label>
+                    <div class="list-responsive-vertical2" style="word-wrap:break-word;" id="div2">
+                        <div ng-repeat="abundance in ctrl.peptideAbundance track by $index">
+                            {{abundance | limitTo:6}}
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+                <hr/>
+                <h2 class="splash-title2 fade-in">Notes</h2>
+                <h2 class="splash-title8 fade-in" style="text-align: left">Peptide2Protein workflow can be used to map peptide moieties
+                    with post-translational modifications (PTMs) into proteins using
+                    a fast peptide to protein matching and PTM meta-data harmonization.
+                    Use the options below to select the reference proteome and other parameters.
+                    <br/>
+                    <br/>
+                    While the PTMs2Modifires and Proteins2Pathways tabs can be used as stand-alone modules, using Peptides2Proteins
+                    tab will update the input for further analysis in these two tabs (PTMs2Modifires and Proteins2Pathways) based on the
+                    Peptide to PTM and Protein/Gene mappings.
+                    <br/>
+                    <br/>
+                    The values associated with peptides are arithmetically assigned to mapped proteins, since this mapping is not
+                    always a one-to-one mapping and multiple proteins can share the same peptide or one protein can contain multiple input
+                    peptides. These values can be modified by users in the corresponding tabs as input.
+                    <br/>
+                    <br/>
+                    For interactive submission, please limit the number of peptides to hundreds.
+                    <br/>
+                    <br/>
+                    Please follow the convention in provided examples for the input syntax.
+
+
+                </h2>
+
+                <div class="bs-callout bs-callout-default" style="text-align: left">
+                    <h4>
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                        <h2 class="splash-title9 fade-in">
+                        For Annotation of a List of Peptides:
+                        </h2>
+                    </h4>
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/peptideToProtein" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/peptideToProtein</a>
+                    <br/>
+                    <br/>
+                    <!--<h4>-->
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                    <h2 class="splash-title9 fade-in">
+                        For Annotation of a List of Peptides and Insert the Peptides with Values:
+
+                    </h2>
+                    <h2 class="splash-title10 fade-in">
+                        Please note the URL encodes as {:%7B, }:%7D, +:%2B, [:%5B, ]:%5D
+
+                    </h2>
+
+                    <!--</h4>-->
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/peptideToProtein?list=IYQ%5BpY%5DIQSR%5B%2B42%5D 1.3,%5BaK%5DAYSFCGTVEY(UNIMOD:21)MAP -2.14" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/peptideToProtein?list=IYQ[pY]IQSR[+42] 1.3,[aK]AYSFCGTVEY(UNIMOD:21)MAP -2.14</a>
+                    <!--</h2>-->
+
+                </div>
+            </div>
+            <!--<a ng-click="changeSplashAndGoToPeptide()" class="splash-arrow fade-in" href="#" title="Submit"><img-->
+                    <!--src="images/down-arrow.png"-->
+                    <!--alt=""/></a>-->
+        </div>
+
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 1" style="padding-top: 20px; background:transparent;">
+
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+                <!--<div class="splash-title4 fade-in onerow2"> Enter-->
+                <!--<a href="javascript:void(0);" ng-click="ctrl.showGeneInSplash=false"-->
+                <!--style="text-decoration:none;"-->
+                <!--ng-style="!ctrl.showGeneInSplash && {'font-weight': 'bold'}" class="onerow2">Gene Names</a>-->
+                <!--/-->
+                <!--<a href="javascript:void(0);" ng-click="ctrl.showGeneInSplash=true"-->
+                <!--style="text-decoration:none;"-->
+                <!--ng-style="ctrl.showGeneInSplash && {'font-weight': 'bold'}" class="onerow2">PTM/Proteins</a>.-->
+
+                <!--</div>-->
+                <!--&lt;!&ndash;<a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToP100Genes('table')"&ndash;&gt;-->
+                <!--&lt;!&ndash;ng-style="{'font-weight': 'bold'}">&ndash;&gt;-->
+                <!--&lt;!&ndash;Gene Names&nbsp;&ndash;&gt;-->
+                <!--&lt;!&ndash;</a> or&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToP100Genes('table')"&ndash;&gt;-->
+                <!--&lt;!&ndash;ng-style="{'font-weight': 'bold'}">&ndash;&gt;-->
+                <!--&lt;!&ndash;PTM/Proteins.&nbsp;&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<br/>-->
+                <div class="onerow3">
+                    Try The List of
+
+                    <a href="javascript:void(0);" class="onerow3" ng-click="ctrl.changeToP100PTMs('table')"
+                       ng-style="{'font-weight': 'bold'}">
+                        LINCS P100 Associated PTM/Proteins&nbsp;
+                    </a>
+
+                </div>
+
+                <hr/>
+
+
+                <div class=" form-group col-sm-4" style="padding-left: 0px;">
+                    <div class="horizontal-scroll" style=padding-bottom:10px;">
+                        <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
+                        <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>
+                        <label style="padding-bottom: 24px;">Enter PTM/Proteins&nbsp;
+                            <br/>
+                        </label>
+
+
+                        <!--<span style="float:left">-->
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
+                        <!--</span>-->
+                        <div>
+
+
+                                        <textarea class="form-control" rows="5"
+                                                  ng-model="ctrl.inputMassPtmProteins"
+                                                  style="background:transparent;"></textarea>
+                            <!--console.log()-->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class=" form-group col-sm-3 col-sm-offset-0">
+                    <label style="padding-bottom: 14px;">Proteins&nbsp;
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                        <!--data-delay='{"show":"0", "hide":"100"}'-->
+                        <!--data-toggle="tooltip"-->
+                        <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                        <!--</span>-->
+
+
+                        <!--<br/>-->
+                    </label>
+                    <!--{{ctrl.parsedPTMProteins}}-->
+                    <div class=" list-responsive-vertical2" style="word-wrap:break-word;" id="div11">
+                        <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
+                        <span ng-repeat="parsedPTMProtein in ctrl.parsedPTMProteins track by $index">
+                        {{parsedPTMProtein}}<br/></span>
+                        <!--<span ng-repeat="parsedPTMProtein in ctrl.parsedPTMProteins ">-->
+                                <!--{{parsedPTMProtein}}-->
+                                <!--<br/>-->
+                            <!--</span>-->
+                    </div>
+                </div>
+
+                <div class=" form-group col-sm-3 col-sm-offset-0">
+                    <label style="padding-bottom: 24px;">PTM&nbsp;
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                        <!--data-delay='{"show":"0", "hide":"100"}'-->
+                        <!--data-toggle="tooltip"-->
+                        <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+
+                        <!--</span>-->
+
+                    </label>
+                    <br/>
+                    <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12">
+                        <div ng-repeat="parsedPTM in ctrl.parsedPTMs ">
+                                <span ng-repeat="PTM in parsedPTM ">
+                                    {{PTM}}&nbsp;&nbsp;
+                                </span>
+
+                            <!--{{ctrl.parsedPTMs}}-->
+                            <!--<div ng-repeat="parsedPTMItem in parsedPTM ">-->
+                            <!--{{parsedPTMItem}}</div> &nbsp;-->
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class=" form-group col-sm-2 col-sm-offset-0">
+                    <label style="padding-bottom: 10px;">Abundance&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="This is the abundance of PTM/Proteins separated by space from the PTM/Proteins, if not inserted, it is assumed to be 'NA'.">
+                </span>
+                        <br/>
+                    </label>
+                    <div class="list-responsive-vertical2" style="word-wrap:break-word;" id="div12-1">
+                        <div ng-repeat="abundance in ctrl.proteinAbundance track by $index">
+                            {{abundance | limitTo:6}}
+                            <br/>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!--<a ng-click="changeSplashAndGoToProtein()" class="splash-arrow fade-in" href="#" title="Submit"><img-->
+                        <!--src="images/down-arrow.png"-->
+                        <!--alt=""/>-->
+                <!--</a>-->
+            </div>
+
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+                <hr/>
+                <h2 class="splash-title2 fade-in">Notes</h2>
+                <h2 class="splash-title8 fade-in" style="text-align: left">PTMs2Modifiers workflow can be used to map and visualize upstream
+                    modifying enzymes that target post-translational modification (PTM)
+                    sites in query proteins. These PTM sites are mapped automatically
+                    from peptide moieties with PTMs when using the Peptide2Protein workflow.
+                    <br/>
+                    <br/>
+                    For interactive submission, please limit the number of PTM/Proteins to hundreds.
+                    <br/>
+                    <br/>
+                    Please follow the convention in provided examples for the input syntax.
+                </h2>
+
+                <div class="bs-callout bs-callout-default" style="text-align: left">
+                    <h4>
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                        <h2 class="splash-title9 fade-in">
+                            For Annotation of a List of PTM/Proteins:
+                        </h2>
+                    </h4>
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/ptmToModifier" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/ptmToModifier</a>
+                    <br/>
+                    <br/>
+                    <!--<h4>-->
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                    <h2 class="splash-title9 fade-in">
+                        For Annotation of a List of PTM/Proteins and Insert the PTM/Proteins:
+
+                    </h2>
+                    <h2 class="splash-title10 fade-in">
+                        In the following example the list of 'Q9Y463{[Y+80%5D@273} 2.11,Q13627{[Y+80]@321} 3.122,P51812{[S+80]@369} -1.92 is' sent for the query in the URL. Please note the URL encodes as {:%7B, }:%7D, +:%2B, [:%5B, ]:%5D
+
+                    </h2>
+
+                    <!--</h4>-->
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/ptmToModifier?list=Q9Y463%7B%5BY%2B80%5D@273%7D 2.11,Q13627%7B%5BY%2B80%5D@321%7D 3.122,P51812%7B%5BS%2B80%5D@369%7D -1.92" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/ptmToModifier?list=Q9Y463%7B%5BY%2B80%5D@273%7D 2.11,Q13627%7B%5BY%2B80%5D@321%7D 3.122,P51812%7B%5BS%2B80%5D@369%7D -1.92</a>
+                    <!--</h2>-->
+
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-show="ctrl.peptideOrProteinsOrGenes == 2" style="padding-top: 20px; background:transparent;">
+
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+
+                <div class="onerow3">
+                    Try The List of
+
+                    <a href="javascript:void(0);" class="onerow3" ng-click="ctrl.changeToP100Genes('table')"
+                       ng-style="{'font-weight': 'bold'}">
+                        LINCS P100 Associated Genes&nbsp;
+                    </a>
+
+                </div>
+
+                <hr/>
+
+
+                <div class=" form-group col-sm-4" style="padding-left: 0px;">
+                    <div class="horizontal-scroll" style=padding-bottom:10px;">
+                        <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
+                        <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>
+                        <label style="padding-bottom: 24px;">Enter genes&nbsp;
+                            <br/>
+                        </label>
+
+
+                        <!--<span style="float:left">-->
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
+                        <!--</span>-->
+                        <div>
+
+                                <textarea class="form-control" style="background:transparent;" rows="5"
+                                          ng-model="ctrl.genes"></textarea>
+                            <!--console.log()-->
+                        </div>
+
+                    </div>
+
+
+                    <!--<a class="nav navbar-nav" style="padding-bottom: 12px;" href="/pln/modification.html" target="_blank">Input Format Description</a>-->
+                    <div style="float:left;">
+                            <span>
+
+                                <p>
+                                &nbsp;<span style='color:blue'>{{ctrl.numberOfAllValidGenes}}</span> out of {{ctrl.numberOfAllInputGenes}} input genes are valid genes.
+                                </p>
+                                <span ng-if="ctrl.flagFoundNPCG">
+                                    &nbsp;Not valid genes are:
+                                    <span style='color:blue'>
+                                        <div ng-repeat="nonValid in ctrl.nonValidGenes">{{nonValid}}&nbsp</div>
+                                    </span>
+                                    Gene name identification is case sensitive, Try other names of these genes or copy and paste the gene names again!
+                                </span>
+
+                            </span>
+                    </div>
+                </div>
+
+
+                <div class=" form-group col-sm-2 col-sm-offset-0">
+                    <label style="padding-bottom: 24px;">Gene Symbols&nbsp;
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                        <!--data-delay='{"show":"0", "hide":"100"}'-->
+                        <!--data-toggle="tooltip"-->
+                        <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                        <!--</span>-->
+
+
+                        <br/>
+                    </label>
+                    <div class=" list-responsive-vertical2" style="word-wrap:break-word;" id="div5">
+                        <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
+                        <span ng-repeat="item in ctrl.inputGeneInfo track by $index">{{item.symbol}}<br/></span>
+                    </div>
+                </div>
+
+                <div class=" form-group col-sm-4 col-sm-offset-0">
+                    <label style="padding-bottom: 24px;">Gene Names&nbsp;
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                        <!--data-delay='{"show":"0", "hide":"100"}'-->
+                        <!--data-toggle="tooltip"-->
+                        <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+
+                        <!--</span>-->
+                        <br/>
+                    </label>
+                    <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div6">
+                        <span ng-repeat="item in ctrl.inputGeneInfo track by $index">{{item.name}}<br/></span>
+                    </div>
+
+                </div>
+
+
+                <div class=" form-group col-sm-2 col-sm-offset-0">
+                    <label style="padding-bottom: 10px;">Abundance&nbsp;
+                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                              data-delay='{"show":"0", "hide":"100"}'
+                              data-toggle="tooltip"
+                              title="This is the abundance of genes separated with space from the gene names, if not inserted, it is assumed to be 'NA'.">
+                </span>
+                        <br/>
+                    </label>
+                    <div class="list-responsive-vertical2" style="word-wrap:break-word;" id="div10-1">
+                        <div ng-repeat="abundance in ctrl.geneAbundance track by $index">
+                            {{abundance| limitTo:6}}
+                            <br/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<a ng-click="changeSplashAndGoToPathway()" class="splash-arrow fade-in" href="#" title="Submit"><img-->
+                        <!--src="images/down-arrow.png"-->
+                        <!--alt=""/>-->
+                <!--</a>-->
+            </div>
+            <div class=" container-fluid " style="width: 100%; max-width:1000px;">
+                <hr/>
+                <h2 class="splash-title2 fade-in">Notes</h2>
+                <h2 class="splash-title8 fade-in" style="text-align: left">Protein2Pathway workflow can be used to analyze and visualize protein
+                    (and thus gene) level data in terms of pathway enrichment analysis,
+                    pathway membership, upstream/downstream kinase network, and concordance
+                    with LINCS signatures.
+                    <br/>
+                    <br/>
+                    For interactive submission, please limit the number of Genes to hundreds.
+                    <br/>
+                    <br/>
+                    Please follow the convention in provided examples for the input syntax.
+                </h2>
+
+                <div class="bs-callout bs-callout-default" style="text-align: left">
+                    <h4>
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                        <h2 class="splash-title9 fade-in">
+                            For Annotation of a List of Genes:
+                        </h2>
+                    </h4>
+
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/proteinToPathway" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/proteinToPathway</a>
+                    <br/>
+                    <br/>
+                    <!--<h4>-->
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                    <h2 class="splash-title9 fade-in">
+                        For Annotation of a List of Genes and Insert the Values:
+
+                    </h2>
+                    <h2 class="splash-title10 fade-in">
+                        In the following example the list of OCIAD1 0.11,NCOR2 -1.2,ZC3HC1 3.122,RPS6KA3
+                        0.01,PDPK1 1.09,PDPK2P -0.92,HN1 1.76,BRAF -1.922,TP53 -2.542 is sent for
+                        the query in the URL.
+
+                    </h2>
+                    <!--<h2 class="splash-title10 fade-in">-->
+                        <!--Please note the URL encodes as {:%7B, }:%7D, +:%2B, [:%5B, ]:%5D-->
+
+                    <!--</h2>-->
+
+                    <!--</h4>-->
+
+                    <!--<h2 >-->
+                    <a href="http://eh3.uc.edu/pinet/proteinToPathway?list=OCIAD1 0.11,NCOR2 -1.2,ZC3HC1 3.122,RPS6KA3
+                    0.01,PDPK1 1.09,PDPK2P -0.92,HN1 1.76,BRAF -1.922,TP53 -2.542" target="_blank" class="splash-title7 fade-in">
+                        http://eh3.uc.edu/pinet/proteinToPathway?list=OCIAD1 0.11,NCOR2 -1.2,ZC3HC1 3.122,RPS6KA3
+                        0.01,PDPK1 1.09,PDPK2P -0.92,HN1 1.76,BRAF -1.922,TP53 -2.542</a>
+                    <!--</h2>-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div ng-show="!ctrl.showSplash " ng-model="ctrl.showSplash">
+
+
+        <div class="container">
+
+
+            <div ng-view></div>
+        </div>
+
+        <!--<div class="container" style="margin-top: 100px">-->
+        <!--</div>-->
+        <!--This is for the other pages in the navbar-->
+
+        <footer class="footer">
+
+            <div class="container-fluid" style="background-color: black; ">
+                <div class="container" style="background-color: black">
+
+                    <!--<div class="row">-->
+                    <div class="col-md-12" style="padding-top: 15px;">
+                        <div class="form-group col-sm-6" style="padding-left: 0px;">
+                            <!--<p class="fh5co-left">-->
+                            <p class="fh5co-left" style="color:whitesmoke;font-size: 15px">
+                                piNET, A Versatile Platform for Downstream Analysis and Visualization of Proteomics
+                                Data.
+                            </p>
+                            <br/>
+                            <span style="color: #e8f4f7">&copy; 2016 <a href="http://lincs-dcic.org/" target="_blank">DATA COORDINATION AND INTEGRATION CENTER.</a></span>
+                            <br/>
+                            <span class="fh5co-right" style="color: #e8f4f7">Developed within NIH funded <a
+                                    href="http://www.lincsproject.org/" target="_blank">LINCS</a> project.
+                                </span>
+                        </div>
+                        <div class="form-group col-sm-4" style="padding-left: 0px;">
+
+                            <p class="fh5co-left" style="color:whitesmoke;font-size: 15px">
+                                LINCS Tools
+                            </p>
+                            <br/>
+                            <span> <a href="http://ilincs.org/" target="_blank">iLINCS</a></span>
+                            <br/>
+                            <span> <a href="http://lincsproteomics.org/" target="_blank">LINCS Proteomics</a></span>
+                            <br/>
+                            <span> <a href="http://pilincs.org/" target="_blank">piLINCS</a></span>
+                            <br/>
+                            <span> <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">LINCS Data Portal</a></span>
+                            <br/>
+                            <span> <a href="http://amp.pharm.mssm.edu/Enrichr/" target="_blank">Enrichr</a></span>
+                            <br/>
+
+                        </div>
+                        <div class="form-group col-sm-2" style="padding-left: 0px;">
+                            <!--</p>-->
+                            <!--<p class="fh5co-right">-->
+                            <p class="fh5co-left" style="color:whitesmoke;font-size: 15px">
+                                Support
+                            </p>
+                            <br/>
+                            <span>
+                            <a href="mailto:behrouz.shamsaei@uc.edu?subject=Support">
+                                Contact</a>
+
+                            </span>
+                        </div>
+                        <!--</p>-->
+                    </div>
+                    <!--</div>-->
+                </div>
+            </div>
+
+
+        </footer>
+
+
+    </div>
+    <!--End of container-->
+
+
+</div>
+<!--End of !ctrl.showSplash-->
+
+
+<!--</div>-->
+
+<!--End of controller->-->
+
+<!--End of showSplash-->
+
+<!--</div>-->
+</body>
+</html>

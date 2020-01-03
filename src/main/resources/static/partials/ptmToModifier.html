@@ -1,0 +1,2002 @@
+<!--<head>-->
+<!--<script src="js/controllers.js"></script>-->
+<!--</head>-->
+<!--<div ng-init="retrieveGenesAndPtm()">-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="align-content: center">
+        <div class="container" style="display:table; margin: 0 auto;">
+
+
+            <div id="breadcrumbNav3" style="display:table; margin: 0 auto;">
+
+
+                <div id="arrowBar3" ng-model="ctrl.siteVisit">
+
+                    <a href="javascript:void(0);" ng-click="goToAbout()"> <span
+                            class="AB3rotate1 color0"><span class="AB3rotateReset">
+                                    <span class="AB3text1">
+                                        <!--<span-->
+                                        <!--style="background: url(images/pathway.png); width:200px; height:50px;"/>-->
+                                        Help
+                                </span></span></span></a>
+
+
+                    <a href="javascript:void(0);" ng-click="goToPeptideToProtein();">
+
+                                    <span class="AB3rotate2 color1">
+                                        <span class="AB3rotateReset">
+                                            <span class="AB3text2">
+                                                Peptides2Proteins
+
+                                            </span>
+                                        </span>
+                                    </span>
+                    </a>
+                    <!--ng-click="ctrl.peptideOrGenes=false"-->
+                    <a href="javascript:void(0);" ng-click="goToPtmToModifier();">
+
+                                <span
+                                        class="AB3rotate3 color2"><span class="AB3rotateReset"><span
+                                        class="AB3text3">PTMs2Modifiers
+
+                                </span></span></span></a>
+                    <a href="javascript:void(0);" ng-click="goToProteinToPathway()">
+
+                                    <span
+                                            class="AB3rotate4 color3"><span class="AB3rotateReset"><span
+                                            class="AB3text4">Proteins2Pathways
+
+                                </span></span></span></a>
+
+
+                    <a href="javascript:void(0);" style="pointer-events: none;"> <span
+                            class="AB3rotate5 color4" style="pointer-events: none;"><span
+                            class="AB3text5">{{ctrl.siteVisit.all}} Submissions
+ <br/>
+{{ctrl.siteVisit.apiall/1000 | number : 1}}K API Calls
+                                </span></span></a>
+
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<br/>
+
+<div style="padding-top: 50px;padding-bottom: 20px;">
+    <!-- Tab 1 -->
+
+
+    <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
+    <div class="container"
+         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">
+        <div class="well col-sm-12" style="border-color: black;background-color: #cccccc">
+            <span>
+                PTMs2Modifiers workflow can be used to map and visualize upstream
+                modifying enzymes that target post-translational modification (PTM)
+                sites in query proteins. These PTM sites are mapped automatically
+                from peptide moieties with PTMs when using the Peptide2Protein workflow.
+            </span>
+            <hr/>
+            <div class="col-sm-8">
+                Enter Uniprot protein IDs with PTM sites specified using PSIMOD,
+                UNIMOD, mass difference or shorthand notations and their (optional)
+                abundance values.
+                Enter Proteins/PTM Proteins or for example try the list of
+                <a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToP100PTMs('table')"
+                   ng-style="{'font-weight': 'bold'}">
+                    LINCS P100 associated PTM Proteins&nbsp;
+                </a><span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                          data-delay='{"show":"0", "hide":"100"}'
+                          data-toggle="tooltip"
+                          title="This example shows the effect of Staurosporine on the PTM proteins, which is a potent, non-selective
+                inhibitor of protein kinases, including protein kinase C.">
+                                    </span>
+                PTM/Proteins can be separated by comma,
+                semi-colon or new line.
+            </div>
+
+            <div class="form-group col-sm-4" style="padding-left: 0px;">
+                <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span
+                    style="font-weight: bold">Select Organism</span>
+                <br/>
+                <form>
+                    <div id='type'>
+                        <input type="radio" id="homosapiens" name="r3" value="9606"/>
+                        <label for="homosapiens" style="font-weight: normal"><span></span>Homo
+                            Sapiens</label>
+                        <p>
+                            <input type="radio" id="mouse" name="r3" value="10090"/>
+                            <label for="mouse" style="font-weight: normal"><span></span>Mus Musculus</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="rat" name="r3" value="10116"/>
+                            <label for="rat" style="font-weight: normal"><span></span>Rattus
+                                Norvegicus</label>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid" style="padding-top: 10px;">
+
+        <div class="well col-sm-12">
+
+            <!--<a style="text-decoration: none;">-->
+            <!--<a class= "collapse in" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; ">-->
+
+            <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog"></span> &nbsp;-->
+            <!--Enter Gene/Phosphogenes or for example try the list of-->
+            <!--<button class="btn btn-primary " ng-click="ctrl.changeToP100('table')">-->
+            <!--LINCS P100 data set&nbsp;-->
+            <!--</button>-->
+            <!--. Gene names should be sparated by comma, semi-colon or new line.-->
+            <!--<hr/>-->
+
+            <div class=" form-group col-sm-4" style="padding-left: 0px;">
+                <div class="horizontal-scroll" style=padding-bottom:10px;">
+                    <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>-->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Mass Diff. /
+                        Shorthand PTM/Proteins Info
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog  modal-lg">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">PTM/Protein Mass Difference / Shorthand Notation
+                                        Information</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="bs-callout bs-callout-primary">
+                                        <p>This table shows the different Post Translational Modifications (PTMs) that
+                                            may occur in each amino acid.
+                                            The shorthand and mass difference notations for the modifications are also
+                                            provided with an
+                                            example. <span style="font-weight:bold">The shorthand notation is case sensitive.</span>
+                                        </p>
+                                    </div>
+
+
+                                    <div class="panel panel-default">
+                                        <table class="table table-striped table-bordered">
+
+                                            <caption>Shorthand Notation Table</caption>
+                                            <tr>
+                                                <th>Modification</th>
+                                                <th>Identifier</th>
+                                                <th>Amino Acids</th>
+                                                <th>Diff. Avg.</th>
+                                                <th>Shorthand Example</th>
+                                                <th>Mass Difference Example</th>
+                                                <th>UNIMOD/PSI-MOD Ids</th>
+                                            </tr>
+                                            <!--<tr>-->
+                                            <!--<td>Any PTM/Any Amino-Acid@110</td>-->
+                                            <!--<td></td>-->
+                                            <!--<td></td>-->
+                                            <!--<td></td>-->
+                                            <!--Uniprottein[..@110]</td>-->
+                                            <!--<td></td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                            <!--<td>Specific PTM/Any Amino-Acid@110</td>-->
+                                            <!--<td></td>-->
+                                            <!--<td></td>-->
+                                            <!--<td></td>-->
+                                            <!--Uniprottein[ac.@110]</td>-->
+                                            <!--<td></td>-->
+                                            <!--</tr>-->
+                                            <tr>
+                                                <td>Acetylation</td>
+                                                <td>a</td>
+                                                <td>"K", "A", "M", "S", "T", "G", "R", "V", "C", "D", "Y", "P", "E"</td>
+                                                <td>42.037</td>
+                                                <td>Protein{[aK]@110}</td>
+                                                <td>Protein{K[+42.037]@110}</td>
+                                                <td></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Methylation</td>
+                                                <td>me</td>
+                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                    "G"
+                                                </td>
+                                                <td>14.027</td>
+                                                <td>Protein{[meK]@110}</td>
+                                                <td>Protein{K[+14.027]@110}</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>DiMethylation</td>
+                                                <td>me2</td>
+                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                    "G"
+                                                </td>
+                                                <td>28.05</td>
+                                                <td>Protein{[me2K]@110}</td>
+                                                <td>Protein{K[+28.05]@110}</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>TriMethylation</td>
+                                                <td>me3</td>
+                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                    "G"
+                                                </td>
+                                                <td>42.08</td>
+                                                <td>Protein{[me3K]@110}</td>
+                                                <td>Protein{K[+42.08]@110}</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phosphorylation</td>
+                                                <td>p</td>
+                                                <td>"T", "S", "Y", "H", "D", "P", "R", "C", "M", "N", "G", "A", "K"</td>
+                                                <td>79.98</td>
+                                                <td>Protein{[pT]@110}</td>
+                                                <td>Protein{T[+79.98]@110}</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>C-Glycosylation</td>
+                                                <td>cg</td>
+                                                <td>"W"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[cgW]@110}</td>
+                                                <td></td>
+                                                <td></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>S-Glycosylation</td>
+                                                <td>sg</td>
+                                                <td>"C"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[sgC]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>O-Glycosylation</td>
+                                                <td>og</td>
+                                                <td>"T", "S"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[ogT]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>N-Glycosylation</td>
+                                                <td>ng</td>
+                                                <td>"N"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[ngN]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>S-Nitrosylation</td>
+                                                <td>sn</td>
+                                                <td>"C"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[snC]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Myristoylation</td>
+                                                <td>my</td>
+                                                <td>"K", "G", "C"</td>
+                                                <td>210.36</td>
+                                                <td>Protein{[myC]@110}</td>
+                                                <td>Protein{C[+210.36]@110}</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sumoylation</td>
+                                                <td>su</td>
+                                                <td>"K"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[suK]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ubiquitination</td>
+                                                <td>ub</td>
+                                                <td>"K", "S", "C"</td>
+                                                <td>varies</td>
+                                                <td>Protein{[ubK]@110}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--<label style="padding-bottom: 24px;">Enter PTM/Proteins&nbsp;-->
+                    <!--<br/>-->
+                    <!--</label>-->
+
+
+                    <!--<span style="float:left">-->
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
+                    <!--</span>-->
+                    <div style="padding-top:8px;">
+
+                            <textarea class="form-control" rows="5"
+                                      ng-model="ctrl.inputMassPtmProteins"></textarea>
+                        <!--console.log()-->
+                    </div>
+
+                </div>
+
+
+                Delimiter: &nbsp;
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox4" value="option2" checked="true"
+                           disabled="true"> comma
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox5" value="option1" checked="true"
+                           disabled="true">
+                    semi-colon
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox6" value="option3" checked="true"
+                           disabled="true"> new line
+                </label>
+                <!--<a class="nav navbar-nav" style="padding-bottom: 12px;" href="/pln/modification.html" target="_blank">Input Format Description</a>-->
+                <!--<div style="float:left;">-->
+                <!--<span>-->
+                <!--<hr/>-->
+                <!--<p>-->
+                <!--&nbsp;<span style='color:blue'>{{ctrl.numberOfAllValidGenes}}</span> out of {{ctrl.numberOfAllInputGenes}} input genes are common with Homo Sapiens.-->
+                <!--</p>-->
+
+                <!--<span ng-show="ctrl.flagFoundNPCG" >-->
+                <!--<a href="#" title="{{ctrl.nonValidGenes}}">Mouse over to see the non conforming genes with Homo Sapiens genes</a>-->
+
+                <!--</span>-->
+
+
+                <!--<span ng-if="ctrl.flagFoundNPCG">-->
+                <!--&nbsp;Not valid genes are:-->
+                <!--<span style='color:blue'>-->
+                <!--<div ng-repeat="nonValid in ctrl.nonValidGenes">{{nonValid}}&nbsp</div>-->
+                <!--</span>-->
+                <!--Gene name identification is case sensitive, Try other names of these genes or copy and paste the gene names again!-->
+                <!--</span>-->
+
+                <!--</span>-->
+                <!--</div>-->
+            </div>
+
+
+            <div class=" form-group col-sm-2 col-sm-offset-0">
+                <label style="padding-bottom: 15px;margin-left: -10px;">Proteins&nbsp;
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                    <!--data-delay='{"show":"0", "hide":"100"}'-->
+                    <!--data-toggle="tooltip"-->
+                    <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                    <!--</span>-->
+
+
+                    <!--<br/>-->
+                </label>
+                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div11">
+                    <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
+                    <span ng-repeat="parsedPTMProtein in ctrl.parsedPTMProteins track by $index">
+                        {{parsedPTMProtein}}<br/></span>
+                </div>
+            </div>
+
+            <div class=" form-group col-sm-4 col-sm-offset-0">
+                <label style="padding-bottom: 15px;margin-left: -10px;">Post Translational Modification&nbsp;
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                    <!--data-delay='{"show":"0", "hide":"100"}'-->
+                    <!--data-toggle="tooltip"-->
+                    <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+
+                    <!--</span>-->
+                    <br/>
+                </label>
+                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12">
+                    <div ng-repeat="parsedPTM in ctrl.parsedPTMs ">
+                        <span ng-repeat="PTM in parsedPTM ">
+                        {{PTM}}&nbsp;&nbsp;
+                        </span>
+
+                        <!--{{ctrl.parsedPTMs}}-->
+                        <!--<div ng-repeat="parsedPTMItem in parsedPTM ">-->
+                        <!--{{parsedPTMItem}}</div> &nbsp;-->
+                    </div>
+                </div>
+
+            </div>
+
+            <div class=" form-group col-sm-2 col-sm-offset-0">
+                <label style="padding-bottom: 15px; margin-left: -10px;">Abundance&nbsp;
+                    <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                          data-delay='{"show":"0", "hide":"100"}'
+                          data-toggle="tooltip"
+                          title="This is the abundance of PTM/Proteins separated by space from the PTM/Proteins, if not inserted, it is assumed to be 'NA'.">
+                </span>
+                    <br/>
+                </label>
+                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12-1">
+                    <div ng-repeat="abundance in ctrl.proteinAbundance track by $index">
+                        {{abundance | limitTo:6}}
+                        <br/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <button style="float:right" class="btn btn-primary col-sm-offset-3" ng-show=" ctrl.showPtmSubmit"
+                        ng-click="ctrl.onSubmitPtm('table')">
+                    Submit &nbsp;
+                    <span ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">
+                         <span class="glyphicon glyphicon-refresh glyphicon-spin">
+
+                                </span>
+                        <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+                    </span>
+                </button>
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<p>ptmWaiting:{{ctrl.ptmWaiting}}</p>-->
+                <!--<p>phosphoWaiting:{{ctrl.phosphoWaiting}}</p>-->
+                <!--<p>phosphoError:{{!ctrl.phosphoError}}</p>-->
+                <!--<p>ptmError:{{!ctrl.ptmError}}</p>-->
+
+
+                <!--<div ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">-->
+
+
+                <!--<div class="progress-bar-striped" id="progress2">-->
+                <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
+                <!--aria-valuenow="60" aria-valuemin="20" aria-valuemax="100"-->
+                <!--ng-style="{width : getPtmPercentage() + '%'  }">-->
+                <!--<b>{{getPtmPercentage()}}%</b>-->
+                <!--&lt;!&ndash;ng-style="{width : getPercentage() + '%'  }">&ndash;&gt;-->
+                <!--&lt;!&ndash;<b>{{getPercentage()}}%</b>&ndash;&gt;-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+
+        </div>
+        <!--<div>{{ctrl.showGeneSubmit}}-->
+        <!--{{ctrl.showPtmSubmit}}</div>-->
+
+        <div ng-show="ctrl.showPhosphoGeneNetwork ">
+
+            <div class="well col-sm-12"
+                 style="background-color: transparent; border-color: #999999" ng-show="ctrl.showPhosphoGeneNetwork">
+                <h4>Network Representation of Targeted PTMs/Proteins</h4>
+                <div class="tabPanel-widget">
+                    <label for="tab-1" tabindex="0"></label>
+                    <input id="tab-1" type="radio" name="tabs" aria-hidden="true">
+                    <h2>
+                        <!--<a href="https://research.bioinformatics.udel.edu/iptmnet/"-->
+                           <!--target="_blank" style="color: #b5cde1">iPTMnet</a> Network of Targeted PTMs-->
+                        iPTMnet
+                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw">
+
+                            </span>
+                        </span>
+                    </h2>
+
+                    <div class="container"
+                         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+                        <!--<div class="well col-sm-12" style="background-color: transparent; border-color: #999999">-->
+
+                        <div class="well well-sm" style="background-color: #c9c9c9">
+
+                            <div class="bs-callout bs-callout-primary">
+                                <p><a href="https://research.bioinformatics.udel.edu/iptmnet/"
+                                      target="_blank">iPTMnet</a> is a bioinformatics resource for integrated
+                                    understanding of protein
+                                    post-translational modifications (PTMs) in systems biology context. iPTMnet
+                                    is used here to extract known relationships between post-translationally modified
+                                    (PTM)
+                                    sites and enzymes, such kinases or acetyl transferases etc., targeting those sites,
+                                    as
+                                    represented by edges in the graph. Nodes representing individual sites are color
+                                    coded to
+                                    indicate their abundance, if provided.
+                                </p>
+                            </div>
+
+                            <div ng-show="ctrl.phosphoError" style="color: red">
+                                <p>
+                                    Error in obtaining the iPTMnet network, please try again later!
+                                </p>
+                            </div>
+
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+                                <button class="btn btn-primary "
+                                        ng-click="makePtmGraph(ctrl.ptmNetwork, ctrl.ptmProteinToAbundanceMap)">Show
+                                    Network of Targeted PTM/Proteins via iPTMnet
+                                </button>
+                                <!--<button class="btn btn-primary "-->
+                                        <!--ng-click="hidePtmGraph()">Hide-->
+                                <!--</button>-->
+                            </div>
+                        </div>
+
+                        <div ng-show="ctrl.showPtmGraph">
+                            <div ng-show="ctrl.showPtmGeneNetworkProcessed">
+                                <div class="well">
+                                    <h4>Mapping of iPTMnet for Targeted PTM/Proteins
+                                        <span ng-show="!ctrl.showPtmGeneNetworkProcessed && !ctrl.ptmError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                            </span>
+                                    </h4>
+                                    <div class="bs-callout bs-callout-primary">
+                                        <p>This table shows the enzymes that targets the PTM/Protein.
+                                        </p>
+                                    </div>
+
+
+                                    <!--</div>-->
+
+                                    <!--<div ng-show="ctrl.phosphoError">-->
+                                    <!--<p>-->
+                                    <!--Error in obtaining the kinases to targeted Phosphosite network, please try again-->
+                                    <!--later!-->
+                                    <!--</p>-->
+                                    <!--</div>-->
+
+                                    <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+
+                                    <!--<div class="well" ng-show="true">-->
+                                    <button class="btn btn-primary " ng-click="exportiPTMNetMappings()">Download Table
+                                    </button>
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>PTM/Protein</th>
+                                            <!--<th>validity</th>-->
+                                            <th>PTM</th>
+                                            <th>Amino Acid</th>
+                                            <th>Site</th>
+                                            <th>Type</th>
+                                            <th>Enzyme</th>
+                                            <th>Score</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!--<tbody pagination-id="metaData22">-->
+                                        <tr dir-paginate="gene in ctrl.PTM_table | filter:search | orderBy:'-blosum50ScorePercent' | itemsPerPage:10 "
+                                            pagination-id="metaData221">
+                                            <!--<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                            <td>{{gene.PTMProtein}}</td>
+                                            <!--<td>{{gene.valid}}</td>-->
+                                            <td>{{gene.PTM}}</td>
+                                            <td>{{gene.amino}}</td>
+                                            <td>{{gene.site}}</td>
+                                            <td>{{gene.type}}</td>
+                                            <td>{{gene.enzyme}}</td>
+                                            <td>{{gene.score}}</td>
+
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls
+                                            pagination-id="metaData221"
+                                            max-size="10"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                    </dir-pagination-controls>
+                                    <!--<dir-pagination-controls-->
+                                    <!--max-size="10"-->
+                                    <!--direction-links="true"-->
+                                    <!--boundary-links="true" >-->
+                                    <!--</dir-pagination-controls>-->
+                                </div>
+                                <br/>
+                                <!--</div>-->
+                            </div>
+
+
+                            <div ng-show="ctrl.showPtmGeneNetworkProcessed">
+
+                                <!--<select-->
+                                <!--ng-model="selectedphosphoPathways"-->
+                                <!--ng-change="changedPhosphoValue(selectedphosphoPathways)"-->
+                                <!--ng-options="x.value for x in phosphoOptions">-->
+                                <!--</select>-->
+                                <!--<hr/>-->
+                                <!--<button>-->
+                                <!--<a id="download3" href="#">Download SVG-->
+                                <!--</a>-->
+                                <!--</button>-->
+                                <br/>
+
+                                <div id="chart4" style="max-width: 100vw;overflow-x: auto;">
+
+                                    <div>
+                                        <button class="btn1" id='force4'>
+
+                                    <span style="color:#1c3448;" class="fa fa-random"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement force layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn2" id='circularView4'>
+
+                                    <span style="color:#1c3448;" class="fa fa-circle-o"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement circular layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn3" id='parallelView4'>
+
+                                    <span style="color:#1c3448;" class="fa fa-align-justify"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Rearrange nodes in columns">
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
+                                        <!--<i class='fa fa-map-o'></i>-->
+                                        <!--</button>-->
+                                        <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
+                                        <!--<i class='fa fa-dot-circle-o'></i>-->
+                                        <!--</button>-->
+                                        <button class="btn6" id='download-png4'>
+
+                                    <span style="color:#1c3448;" class="fa fa-download"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="download as PNG">
+                                    </span>
+                                        </button>
+
+                                        <button class="btn7" id='question4'>
+                                            <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
+                                            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+                                            <!--<a  href="#"  title="Submit">-->
+                                            <!--<i class='fa fa-question-circle'></i>-->
+                                            <!--</a>-->
+                                            <span style="color:#1c3448;" class="fa fa-question-circle"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Query Gene Set is colored based on input abundance values based on the legend,
+                                        Red nodes: phosphorylation enzymes(kinases),
+                                        Green: acetylation enzymes, Pink: methylation enzymes,
+                                        Olive: C-Glycosylation, Navy: Myristoylation,
+                                        Purple: N-Glycosylation, Aqua: O-Glycosylation,
+                                        Beige: S-Glycosylation, Brown: S-Nitrosylation,
+                                        DarkRed: Sumoylation, Orange: Ubiquitination.
+                                        Dashed border for input nodes shows no connection, and solid border
+                                        reflects at least one connection to a known or unknown enzyme.
+                                        Based on the provided table the targeting enzyme might not be known.">
+
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn8" id='drug1'-->
+                                        <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-eyedropper'></i>-->
+                                        <!--</button>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <!--<div id="chart3"></div>-->
+                        </div>
+
+                    </div>
+                    <label for="tab-2" tabindex="0"></label>
+                    <input id="tab-2" type="radio" name="tabs" aria-hidden="true">
+                    <h2>
+                        <!--<a href="https://signor.uniroma2.it/" target="_blank" style="color: #b5cde1">SIGNOR</a> Network of Targeted-->
+                        <!--PTM/Proteins-->
+
+                        SIGNOR
+                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                        </span>
+
+                    </h2>
+                    <div class="container"
+                         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+
+                        <!--<div class="well col-sm-12" style="background-color: transparent; border-color: #999999">-->
+                        <!--<div ng-show="ctrl.showGeneNetwork">-->
+                        <div class="well well-sm" style="background-color: #c9c9c9">
+                            <!--<h4>Enrichment Analysis-->
+
+                            <!--<span ng-show="!showGeneEnrichmentProcessed && !enrichmentError">-->
+                            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+                            <!--</span>-->
+
+                            <!--</h4>-->
+                            <div class="bs-callout bs-callout-primary">
+                                <p><a href="https://signor.uniroma2.it/" target="_blank">SIGNOR</a>, the SIGnaling
+                                    Network Open Resource, organizes and stores in a structured format
+                                    signaling information published in the scientific literature.
+                                </p>
+                            </div>
+
+                            <div ng-show="enrichmentError">
+                                <p style="color: steelblue"> Error in obtaining the SIGNOR network, please try again
+                                    later!
+                                </p>
+
+
+                                <!--<button class="btn btn-primary "-->
+                                <!--ng-click="tryEnrichmentGraph()">Try Again-->
+                                <!--</button>-->
+                            </div>
+
+
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+                                <button class="btn btn-primary "
+                                        ng-click="makeSignorGraph(ctrl.signor_Network, ctrl.ptmProteinToAbundanceMap)">
+                                    Show
+                                    Network of Targeted PTM/Proteins via SIGNOR
+                                </button>
+                                <!--<button class="btn btn-primary "-->
+                                        <!--ng-click="hideSignorGraph()">Hide-->
+                                <!--</button>-->
+                            </div>
+
+
+                        </div>
+
+
+                        <div ng-show="ctrl.showSignorGraph">
+                            <div ng-show="ctrl.showSignorGeneNetworkProcessed">
+                                <div class="well">
+                                    <h4>Mapping of Signor for Targeted PTM/Proteins
+                                        <span ng-show="!ctrl.showSignorGeneNetworkProcessed && !ctrl.signorError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                            </span>
+                                    </h4>
+                                    <div class="bs-callout bs-callout-primary">
+                                        <p>This table shows the enzymes that target the PTM/Protein.
+                                        </p>
+                                    </div>
+
+
+                                    <!--</div>-->
+
+                                    <!--<div ng-show="ctrl.phosphoError">-->
+                                    <!--<p>-->
+                                    <!--Error in obtaining the kinases to targeted Phosphosite network, please try again-->
+                                    <!--later!-->
+                                    <!--</p>-->
+                                    <!--</div>-->
+
+                                    <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+
+                                    <!--<div class="well" ng-show="true">-->
+                                    <button class="btn btn-primary " ng-click="exportSignorMappings()">Download Table
+                                    </button>
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+
+
+                                            <!--signorTableJson.put("PTMProtein", inputphosphoProteinUpper);-->
+                                            <!--signorTableJson.put("effect", effect);-->
+                                            <!--signorTableJson.put("mechanism", mechanism);-->
+                                            <!--signorTableJson.put("id", id);-->
+                                            <!--signorTableJson.put("enzyme", enzyme);-->
+                                            <!--signorTableJson.put("target", inputGene);-->
+
+
+                                            <th>PTM/Protein</th>
+                                            <!--<th>validity</th>-->
+                                            <th>PTM</th>
+                                            <th>Effect</th>
+                                            <th>Mechanism</th>
+                                            <th>Enzyme</th>
+                                            <th>Id</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!--<tbody pagination-id="metaData22">-->
+                                        <tr dir-paginate="gene in ctrl.signor_table | filter:search | itemsPerPage:10 "
+                                            pagination-id="metaData2221">
+                                            <!--<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                            <td>{{gene.PTMProtein}}</td>
+                                            <!--<td>{{gene.valid}}</td>-->
+                                            <td>{{gene.target}}</td>
+                                            <td>{{gene.effect}}</td>
+                                            <td>{{gene.mechanism}}</td>
+                                            <td>{{gene.enzyme}}</td>
+                                            <td>
+                                                <a class="tabled"
+                                                   ng-href="https://signor.uniroma2.it/relation_result.php?id={{gene.id}}"
+                                                   target="_blank">
+
+                                                    {{gene.id}}
+                                                </a>
+                                            </td>
+
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls
+                                            pagination-id="metaData2221"
+                                            max-size="10"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                    </dir-pagination-controls>
+                                    <!--<dir-pagination-controls-->
+                                    <!--max-size="10"-->
+                                    <!--direction-links="true"-->
+                                    <!--boundary-links="true" >-->
+                                    <!--</dir-pagination-controls>-->
+                                </div>
+                                <br/>
+                                <!--</div>-->
+                            </div>
+
+
+                            <div ng-show="ctrl.showSignorGeneNetworkProcessed">
+
+                                <!--<select-->
+                                <!--ng-model="selectedphosphoPathways"-->
+                                <!--ng-change="changedPhosphoValue(selectedphosphoPathways)"-->
+                                <!--ng-options="x.value for x in phosphoOptions">-->
+                                <!--</select>-->
+                                <!--<hr/>-->
+                                <!--<button>-->
+                                <!--<a id="download3" href="#">Download SVG-->
+                                <!--</a>-->
+                                <!--</button>-->
+                                <br/>
+
+                                <div id="chart6" style="max-width: 100vw;overflow-x: auto;">
+
+                                    <div>
+                                        <button class="btn1" id='force6'>
+
+                                    <span style="color:#1c3448;" class="fa fa-random"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement force layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn2" id='circularView6'>
+
+                                    <span style="color:#1c3448;" class="fa fa-circle-o"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement circular layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn3" id='parallelView6'>
+
+                                    <span style="color:#1c3448;" class="fa fa-align-justify"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Rearrange nodes in columns">
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
+                                        <!--<i class='fa fa-map-o'></i>-->
+                                        <!--</button>-->
+                                        <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
+                                        <!--<i class='fa fa-dot-circle-o'></i>-->
+                                        <!--</button>-->
+                                        <button class="btn6" id='download-png6'>
+
+                                    <span style="color:#1c3448;" class="fa fa-download"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="download as PNG">
+                                    </span>
+                                        </button>
+
+                                        <button class="btn7" id='question6'>
+                                            <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
+                                            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+                                            <!--<a  href="#"  title="Submit">-->
+                                            <!--<i class='fa fa-question-circle'></i>-->
+                                            <!--</a>-->
+                                            <span style="color:#1c3448;" class="fa fa-question-circle"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Query Gene Set is colored based on input abundance values based on the legend,
+                                        Red nodes: phosphorylation enzymes(kinases),
+                                        Green: acetylation enzymes, Pink: methylation enzymes,
+                                        Olive: C-Glycosylation, Navy: Myristoylation,
+                                        Purple: N-Glycosylation, Aqua: O-Glycosylation,
+                                        Beige: S-Glycosylation, Brown: S-Nitrosylation,
+                                        DarkRed: Sumoylation, Orange: Ubiquitination,
+                                        Black: Protein-Protein Interaction.
+                                        Blue and red edges reflect down and up regulation activity, respectively.
+                                        Dashed border for input nodes shows no connection, and solid border
+                                        reflects at least one connection.
+                                        ">
+
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn8" id='drug1'-->
+                                        <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-eyedropper'></i>-->
+                                        <!--</button>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <!--<div id="chart3"></div>-->
+                        </div>
+                        <!--</div>-->
+
+
+                        <!--</div>-->
+
+                    </div>
+                    <label for="tab-3" tabindex="0"></label>
+                    <input id="tab-3" type="radio" name="tabs" aria-hidden="true">
+                    <h2>
+                        <!--<a href=https://www.phosphosite.org/homeAction.action" target="_blank" style="color: #b5cde1">PhosphoSitePlus</a>-->
+                        <!--Network of-->
+                        <!--Targeted Phosphosites-->
+
+                        PhosphoSitePlus
+                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                    </span>
+                    </h2>
+                    <div class="container"
+                         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+                        <!--<div class="well col-sm-12" style="background-color: transparent; border-color: #999999">-->
+
+                        <!--<div ng-show="ctrl.showGeneNetwork">-->
+
+                        <!--<div class="well">-->
+                        <div class="well well-sm" style="background-color: #c9c9c9">
+                            <!--<h4>Pathway Membership-->
+
+
+                            <!--<span ng-show="!showGeneNetworkProcessed && !genePathwayError">-->
+
+                            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+                            <!--</span>-->
+
+                            <!--</h4>-->
+                            <div class="bs-callout bs-callout-primary">
+                                <p> Phosphorylation site-specific kinase network (PSSKN) shows connections between
+                                    kinases
+                                    and their target sites in query peptides/proteins.<br/>
+                                    Solid lines in the graph represent known relations between
+                                    kinases and their target sites (in Known_Kinase_TargetGene),
+                                    whereas dashed lines represent predicted relationships using consensus sequences
+                                    derived from PhosphoSitePlus. Two different prediction modes can be used, based
+                                    on Position Weight Matrices for consensus motifs
+                                    (Known+Predicted_Probability_Kinase_TargetGene),
+                                    or simply using sequence similarity between known targets and query peptides
+                                    (Known+Predicted_Blosum50_Kinase_TargetGene), with the latter providing predictions
+                                    even when very few examples of known phosphorylation sites are available.
+                                </p>
+                            </div>
+
+
+                            <div ng-show="genePathwayError">
+                                <p style="color: steelblue"> Error in obtaining the Kinase-Gene network network, please
+                                    try again later.
+                                </p>
+
+
+                                <!--<button class="btn btn-primary "-->
+                                <!--ng-click="tryEnrichmentGraph()">Try Again-->
+                                <!--</button>-->
+                            </div>
+
+                            <div ng-show="ctrl.phosphoError" style="color: red">
+                                <p>
+                                    Error in obtaining the Kinase-Gene network network, please try again later!
+                                </p>
+                            </div>
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+                                <button class="btn btn-primary "
+                                        ng-click="makePhosphoGraph(ctrl.phosphoNetwork, ctrl.ptmProteinToAbundanceMap )">
+                                    Show Kinase Network for
+                                    Phosphorylated Genes
+                                </button>
+                                <!--<button class="btn btn-primary "-->
+                                        <!--ng-click="hidePhosphoGraph()">Hide-->
+                                <!--</button>-->
+                            </div>
+
+                        </div>
+
+
+                        <div ng-show="ctrl.showPhosphoGraph">
+
+
+                            <div ng-show="ctrl.showPhosphoGeneNetwork">
+                                <div class="well">
+                                    <h4>Mapping Kinases to Targeted Phosphosite
+
+                                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                            </span>
+                                    </h4>
+                                    <div class="bs-callout bs-callout-primary">
+                                        <p>This table shows the known and predicted kinases targeting the input PTM
+                                            proteins. The kinases shown here
+                                            are based on the known kinases in the phosphositePlus and predicted kinases
+                                            based on the blosum50 similarity score
+                                            of the phosphosite sequence and known kinase target sequences.
+                                        </p>
+                                    </div>
+
+
+                                    <!--</div>-->
+
+                                    <div ng-show="ctrl.phosphoError" style="color: red">
+                                        <p>
+                                            Error in obtaining the kinases to targeted Phosphosite network, please try
+                                            again
+                                            later!
+                                        </p>
+                                    </div>
+
+                                    <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+
+                                    <!--<div class="well" ng-show="true">-->
+                                    <button class="btn btn-primary " ng-click="exportPhosphositePlusMappings()">Download
+                                        Table
+                                    </button>
+
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>PTM/Protein</th>
+                                            <!--<th>PTM</th>-->
+                                            <th>Amino Acid</th>
+                                            <th>Sequence</th>
+                                            <th>Kinase</th>
+                                            <th>Kinase Organism</th>
+
+                                            <th>Kinase Target Sequence</th>
+                                            <!--<th>Type</th>-->
+                                            <th>Blosum50 Score</th>
+                                            <!--<th>max blosum50</th>-->
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!--<tbody pagination-id="metaData22">-->
+                                        <tr dir-paginate="gene in ctrl.blosum50Table | filter:search | orderBy:'-blosum50ScorePercent' | itemsPerPage:10 "
+                                            pagination-id="metaData222">
+                                            <!--<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                            <td>{{gene.phosphoGene}}</td>
+                                            <!--<td>{{gene.ptm}}</td>-->
+                                            <td>{{gene.amino}}</td>
+                                            <td>
+                                                <!--<div class="list-responsive-vertical" style="word-wrap:break-word;">-->
+                                                {{gene.geneSequence.slice(0,7)}}<span style='color:red'>{{gene.geneSequence.slice(7,8)}}</span>{{gene.geneSequence.slice(8,gene.geneSequence.length)}}
+                                                <!--</div>-->
+
+                                                <!--{{gene.geneSequence}}-->
+                                            </td>
+                                            <td>{{gene.kinase}}</td>
+                                            <td>{{gene.kinaseOrganism}}</td>
+
+                                            <td>
+                                                {{gene.kinasePeptide.slice(0,7)}}<span style='color:red'>{{gene.kinasePeptide.slice(7,8)}}</span>{{gene.kinasePeptide.slice(8,gene.kinasePeptide.length)}}
+                                                <!--{{gene.kinasePeptide}}-->
+                                            </td>
+                                            <!--<td>{{gene.valid}}</td>-->
+                                            <td>{{gene.blosum50ScorePercent}}/{{gene.blosum50MaxScore}}</td>
+                                            <!--<td>{{gene.blosum50MaxScore}}</td>-->
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls
+                                            pagination-id="metaData222"
+                                            max-size="10"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                    </dir-pagination-controls>
+                                    <!--<dir-pagination-controls-->
+                                    <!--max-size="10"-->
+                                    <!--direction-links="true"-->
+                                    <!--boundary-links="true" >-->
+                                    <!--</dir-pagination-controls>-->
+                                </div>
+                                <br/>
+                                <!--</div>-->
+                            </div>
+
+
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+
+                                <select
+                                        ng-model="selectedphosphoPathways"
+                                        ng-change="changedPhosphoValue(selectedphosphoPathways)"
+                                        ng-options="x.value for x in phosphoOptions">
+                                </select>
+                                <hr/>
+                                <!--<button>-->
+                                <!--<a id="download3" href="#">Download SVG-->
+                                <!--</a>-->
+                                <!--</button>-->
+                                <br/>
+
+                                <div id="chart3" style="max-width: 100vw;overflow-x: auto;" >
+
+                                    <div>
+                                        <button class="btn1" id='force3'>
+
+                                    <span style="color:#1c3448;" class="fa fa-random"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement force layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn2" id='circularView3'>
+
+                                    <span style="color:#1c3448;" class="fa fa-circle-o"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Implement circular layout">
+                                    </span>
+                                        </button>
+                                        <button class="btn3" id='parallelView3'>
+
+                                    <span style="color:#1c3448;" class="fa fa-align-justify"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="Rearrange nodes in columns">
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
+                                        <!--<i class='fa fa-map-o'></i>-->
+                                        <!--</button>-->
+                                        <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
+                                        <!--<i class='fa fa-dot-circle-o'></i>-->
+                                        <!--</button>-->
+                                        <button class="btn6" id='download-png3'>
+
+                                    <span style="color:#1c3448;" class="fa fa-download"
+                                          data-delay='{"show":"0", "hide":"100"}'
+                                          data-toggle="tooltip"
+                                          title="download as PNG">
+                                    </span>
+                                        </button>
+
+                                        <button class="btn7" id='question3'>
+                                            <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
+                                            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+                                            <!--<a  href="#"  title="Submit">-->
+                                            <!--<i class='fa fa-question-circle'></i>-->
+                                            <!--</a>-->
+                                            <span style="color:#1c3448;" class="fa fa-question-circle"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Query Gene Set is colored based on input abundance values based on the legend,
+                                        Red nodes: phosphorylation enzymes(kinases).">
+
+                                    </span>
+                                        </button>
+                                        <!--<button class="btn8" id='drug1'-->
+                                        <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-eyedropper'></i>-->
+                                        <!--</button>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <!--<div id="chart3"></div>-->
+                        </div>
+                        <!--</div>-->
+
+
+                        <!--</div>-->
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!--<div ng-show="ctrl.showPhosphoGeneNetwork">-->
+            <!--<div class="well well-sm" style="background-color: #c9c9c9">-->
+            <!--<h4>Network of Targeted PTM/Proteins via <a href="https://research.bioinformatics.udel.edu/iptmnet/"-->
+            <!--target="_blank">iPTMnet</a>-->
+
+
+            <!--<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p> iPTMnet is a bioinformatics resource for integrated understanding of protein-->
+            <!--post-translational modifications (PTMs) in systems biology context. iPTMnet-->
+            <!--is used here to extract known relationships between post-translationally modified (PTM)-->
+            <!--sites and enzymes, such kinases or acetyl transferases etc., targeting those sites, as-->
+            <!--represented by edges in the graph. Nodes representing individual sites are color coded to-->
+            <!--indicate their abundance, if provided.-->
+            <!--</p>-->
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.phosphoError" style="color: red">-->
+            <!--<p>-->
+            <!--Error in obtaining the iPTMnet network, please try again later!-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="makePtmGraph(ctrl.ptmNetwork, ctrl.ptmProteinToAbundanceMap)">Show-->
+            <!--Network of Targeted PTM/Proteins via iPTMnet-->
+            <!--</button>-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="hidePtmGraph()">Hide-->
+            <!--</button>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGraph">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGeneNetwork">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+            <!--&lt;!&ndash;<h4>Mapping Kinases to Targeted Phosphosite&ndash;&gt;-->
+            <!--&lt;!&ndash;<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">&ndash;&gt;-->
+
+            <!--<div ng-show="ctrl.showPtmGraph">-->
+            <!--<div ng-show="ctrl.showPtmGeneNetworkProcessed">-->
+            <!--<div class="well">-->
+            <!--<h4>Mapping of iPTMnet for Targeted PTM/Proteins-->
+            <!--<span ng-show="!ctrl.showPtmGeneNetworkProcessed && !ctrl.ptmError">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p>This table shows the enzymes that targets the PTM/Protein.-->
+            <!--</p>-->
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.phosphoError">&ndash;&gt;-->
+            <!--&lt;!&ndash;<p>&ndash;&gt;-->
+            <!--&lt;!&ndash;Error in obtaining the kinases to targeted Phosphosite network, please try again&ndash;&gt;-->
+            <!--&lt;!&ndash;later!&ndash;&gt;-->
+            <!--&lt;!&ndash;</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="well" ng-show="true">&ndash;&gt;-->
+            <!--<button class="btn btn-primary " ng-click="exportiPTMNetMappings()">Download Table-->
+            <!--</button>-->
+            <!--<table class="table table-striped table-bordered">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>PTM/Protein</th>-->
+            <!--&lt;!&ndash;<th>validity</th>&ndash;&gt;-->
+            <!--<th>PTM</th>-->
+            <!--<th>Amino Acid</th>-->
+            <!--<th>Site</th>-->
+            <!--<th>Type</th>-->
+            <!--<th>Enzyme</th>-->
+            <!--<th>Score</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--&lt;!&ndash;<tbody pagination-id="metaData22">&ndash;&gt;-->
+            <!--<tr dir-paginate="gene in ctrl.PTM_table | filter:search | orderBy:'-blosum50ScorePercent' | itemsPerPage:10 "-->
+            <!--pagination-id="metaData221">-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">&ndash;&gt;-->
+            <!--<td>{{gene.PTMProtein}}</td>-->
+            <!--&lt;!&ndash;<td>{{gene.valid}}</td>&ndash;&gt;-->
+            <!--<td>{{gene.PTM}}</td>-->
+            <!--<td>{{gene.amino}}</td>-->
+            <!--<td>{{gene.site}}</td>-->
+            <!--<td>{{gene.type}}</td>-->
+            <!--<td>{{gene.enzyme}}</td>-->
+            <!--<td>{{gene.score}}</td>-->
+
+
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--<dir-pagination-controls-->
+            <!--pagination-id="metaData221"-->
+            <!--max-size="10"-->
+            <!--direction-links="true"-->
+            <!--boundary-links="true">-->
+            <!--</dir-pagination-controls>-->
+            <!--&lt;!&ndash;<dir-pagination-controls&ndash;&gt;-->
+            <!--&lt;!&ndash;max-size="10"&ndash;&gt;-->
+            <!--&lt;!&ndash;direction-links="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;boundary-links="true" >&ndash;&gt;-->
+            <!--&lt;!&ndash;</dir-pagination-controls>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<br/>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+
+
+            <!--<div ng-show="ctrl.showPtmGeneNetworkProcessed">-->
+
+            <!--&lt;!&ndash;<select&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-model="selectedphosphoPathways"&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-change="changedPhosphoValue(selectedphosphoPathways)"&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-options="x.value for x in phosphoOptions">&ndash;&gt;-->
+            <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a id="download3" href="#">Download SVG&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<br/>-->
+
+            <!--<div id="chart4">-->
+
+            <!--<div>-->
+            <!--<button class="btn1" id='force4'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-random"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement force layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn2" id='circularView4'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-circle-o"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement circular layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn3" id='parallelView4'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-align-justify"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Rearrange nodes in columns">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-map-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-dot-circle-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<button class="btn6" id='download-png4'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-download"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="download as PNG">-->
+            <!--</span>-->
+            <!--</button>-->
+
+            <!--<button class="btn7" id='question4'>-->
+            <!--&lt;!&ndash;title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  href="#"  title="Submit">&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<span style="color:#1c3448;" class="fa fa-question-circle"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Query Gene Set is colored based on input abundance values based on the legend,-->
+            <!--Red nodes: phosphorylation enzymes(kinases),-->
+            <!--Green: acetylation enzymes, Pink: methylation enzymes,-->
+            <!--Olive: C-Glycosylation, Navy: Myristoylation,-->
+            <!--Purple: N-Glycosylation, Aqua: O-Glycosylation,-->
+            <!--Beige: S-Glycosylation, Brown: S-Nitrosylation,-->
+            <!--DarkRed: Sumoylation, Orange: Ubiquitination.">-->
+
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn8" id='drug1'&ndash;&gt;-->
+            <!--&lt;!&ndash;title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-eyedropper'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+
+            <!--</div>-->
+
+
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;<div id="chart3"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.showPhosphoGeneNetwork">-->
+            <!--<div class="well well-sm" style="background-color: #c9c9c9">-->
+            <!--<h4>Network of Targeted PTM/Proteins via <a href="https://signor.uniroma2.it/" target="_blank">Signor</a>-->
+
+
+            <!--<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p> SIGNOR, the SIGnaling Network Open Resource, organizes and stores in a structured format-->
+            <!--signaling information published in the scientific literature.-->
+            <!--</p>-->
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.phosphoError" style="color: red">-->
+            <!--<p>-->
+            <!--Error in obtaining the Signor network, please try again later!-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="makeSignorGraph(ctrl.signor_Network, ctrl.ptmProteinToAbundanceMap)">Show-->
+            <!--Network of Targeted PTM/Proteins via SIGNOR-->
+            <!--</button>-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="hideSignorGraph()">Hide-->
+            <!--</button>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGraph">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGeneNetwork">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="well">&ndash;&gt;-->
+            <!--&lt;!&ndash;<h4>Mapping Kinases to Targeted Phosphosite&ndash;&gt;-->
+            <!--&lt;!&ndash;<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">&ndash;&gt;-->
+
+            <!--<div ng-show="ctrl.showSignorGraph">-->
+            <!--<div ng-show="ctrl.showSignorGeneNetworkProcessed">-->
+            <!--<div class="well">-->
+            <!--<h4>Mapping of Signor for Targeted PTM/Proteins-->
+            <!--<span ng-show="!ctrl.showSignorGeneNetworkProcessed && !ctrl.signorError">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p>This table shows the enzymes that target the PTM/Protein.-->
+            <!--</p>-->
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.phosphoError">&ndash;&gt;-->
+            <!--&lt;!&ndash;<p>&ndash;&gt;-->
+            <!--&lt;!&ndash;Error in obtaining the kinases to targeted Phosphosite network, please try again&ndash;&gt;-->
+            <!--&lt;!&ndash;later!&ndash;&gt;-->
+            <!--&lt;!&ndash;</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="well" ng-show="true">&ndash;&gt;-->
+            <!--<button class="btn btn-primary " ng-click="exportSignorMappings()">Download Table-->
+            <!--</button>-->
+            <!--<table class="table table-striped table-bordered">-->
+            <!--<thead>-->
+            <!--<tr>-->
+
+
+            <!--&lt;!&ndash;signorTableJson.put("PTMProtein", inputphosphoProteinUpper);&ndash;&gt;-->
+            <!--&lt;!&ndash;signorTableJson.put("effect", effect);&ndash;&gt;-->
+            <!--&lt;!&ndash;signorTableJson.put("mechanism", mechanism);&ndash;&gt;-->
+            <!--&lt;!&ndash;signorTableJson.put("id", id);&ndash;&gt;-->
+            <!--&lt;!&ndash;signorTableJson.put("enzyme", enzyme);&ndash;&gt;-->
+            <!--&lt;!&ndash;signorTableJson.put("target", inputGene);&ndash;&gt;-->
+
+
+            <!--<th>PTM/Protein</th>-->
+            <!--&lt;!&ndash;<th>validity</th>&ndash;&gt;-->
+            <!--<th>PTM</th>-->
+            <!--<th>Effect</th>-->
+            <!--<th>Mechanism</th>-->
+            <!--<th>Enzyme</th>-->
+            <!--<th>Id</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--&lt;!&ndash;<tbody pagination-id="metaData22">&ndash;&gt;-->
+            <!--<tr dir-paginate="gene in ctrl.signor_table | filter:search | itemsPerPage:10 "-->
+            <!--pagination-id="metaData2221">-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">&ndash;&gt;-->
+            <!--<td>{{gene.PTMProtein}}</td>-->
+            <!--&lt;!&ndash;<td>{{gene.valid}}</td>&ndash;&gt;-->
+            <!--<td>{{gene.target}}</td>-->
+            <!--<td>{{gene.effect}}</td>-->
+            <!--<td>{{gene.mechanism}}</td>-->
+            <!--<td>{{gene.enzyme}}</td>-->
+            <!--<td>-->
+            <!--<a class="tabled"-->
+            <!--ng-href="https://signor.uniroma2.it/relation_result.php?id={{gene.id}}"-->
+            <!--target="_blank">-->
+
+            <!--{{gene.id}}-->
+            <!--</a>-->
+            <!--</td>-->
+
+
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--<dir-pagination-controls-->
+            <!--pagination-id="metaData2221"-->
+            <!--max-size="10"-->
+            <!--direction-links="true"-->
+            <!--boundary-links="true">-->
+            <!--</dir-pagination-controls>-->
+            <!--&lt;!&ndash;<dir-pagination-controls&ndash;&gt;-->
+            <!--&lt;!&ndash;max-size="10"&ndash;&gt;-->
+            <!--&lt;!&ndash;direction-links="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;boundary-links="true" >&ndash;&gt;-->
+            <!--&lt;!&ndash;</dir-pagination-controls>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<br/>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+
+
+            <!--<div ng-show="ctrl.showSignorGeneNetworkProcessed">-->
+
+            <!--&lt;!&ndash;<select&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-model="selectedphosphoPathways"&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-change="changedPhosphoValue(selectedphosphoPathways)"&ndash;&gt;-->
+            <!--&lt;!&ndash;ng-options="x.value for x in phosphoOptions">&ndash;&gt;-->
+            <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a id="download3" href="#">Download SVG&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<br/>-->
+
+            <!--<div id="chart6">-->
+
+            <!--<div>-->
+            <!--<button class="btn1" id='force6'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-random"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement force layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn2" id='circularView6'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-circle-o"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement circular layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn3" id='parallelView6'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-align-justify"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Rearrange nodes in columns">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-map-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-dot-circle-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<button class="btn6" id='download-png6'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-download"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="download as PNG">-->
+            <!--</span>-->
+            <!--</button>-->
+
+            <!--<button class="btn7" id='question6'>-->
+            <!--&lt;!&ndash;title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  href="#"  title="Submit">&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<span style="color:#1c3448;" class="fa fa-question-circle"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Query Gene Set is colored based on input abundance values based on the legend,-->
+            <!--Red nodes: phosphorylation enzymes(kinases),-->
+            <!--Green: acetylation enzymes, Pink: methylation enzymes,-->
+            <!--Olive: C-Glycosylation, Navy: Myristoylation,-->
+            <!--Purple: N-Glycosylation, Aqua: O-Glycosylation,-->
+            <!--Beige: S-Glycosylation, Brown: S-Nitrosylation,-->
+            <!--DarkRed: Sumoylation, Orange: Ubiquitination,-->
+            <!--Black: Protein-Protein Interaction.">-->
+
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn8" id='drug1'&ndash;&gt;-->
+            <!--&lt;!&ndash;title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-eyedropper'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+
+            <!--</div>-->
+
+
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;<div id="chart3"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.showPhosphoGeneNetwork">-->
+            <!--<div class="well well-sm" style="background-color: #c9c9c9">-->
+            <!--<h4>Kinases to Targeted Phosphosite via <a-->
+            <!--href=https://www.phosphosite.org/homeAction.action" target="_blank">PhosphoSitePlus</a>-->
+
+
+            <!--<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p> Phosphorylation site-specific kinase network (PSSKN) shows connections between kinases-->
+            <!--and their target sites in query peptides/proteins.<br/>-->
+            <!--Solid lines in the graph represent known relations between-->
+            <!--kinases and their target sites (in Known_Kinase_TargetGene),-->
+            <!--whereas dashed lines represent predicted relationships using consensus sequences-->
+            <!--derived from PhosphoSitePlus. Two different prediction modes can be used, based-->
+            <!--on Position Weight Matrices for consensus motifs-->
+            <!--(Known+Predicted_Probability_Kinase_TargetGene),-->
+            <!--or simply using sequence similarity between known targets and query peptides-->
+            <!--(Known+Predicted_Blosum50_Kinase_TargetGene), with the latter providing predictions-->
+            <!--even when very few examples of known phosphorylation sites are available.-->
+
+            <!--</p>-->
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.phosphoError" style="color: red">-->
+            <!--<p>-->
+            <!--Error in obtaining the Kinase-Gene network network, please try again later!-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="makePhosphoGraph(ctrl.phosphoNetwork, ctrl.ptmProteinToAbundanceMap )">-->
+            <!--Show Kinase Network for-->
+            <!--Phosphorylated Genes-->
+            <!--</button>-->
+            <!--<button class="btn btn-primary "-->
+            <!--ng-click="hidePhosphoGraph()">Hide-->
+            <!--</button>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div ng-show="ctrl.showPhosphoGraph">-->
+
+
+            <!--<div ng-show="ctrl.showPhosphoGeneNetwork">-->
+            <!--<div class="well">-->
+            <!--<h4>Mapping Kinases to Targeted Phosphosite-->
+
+            <!--<span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">-->
+            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+            <!--</span>-->
+            <!--</h4>-->
+            <!--<div class="bs-callout bs-callout-primary">-->
+            <!--<p>This table shows the known and predicted kinases targeting the input PTM-->
+            <!--proteins. The kinases shown here-->
+            <!--are based on the known kinases in the phosphositePlus and predicted kinases-->
+            <!--based on the blosum50 similarity score-->
+            <!--of the phosphosite sequence and known kinase target sequences.-->
+            <!--</p>-->
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--<div ng-show="ctrl.phosphoError" style="color: red">-->
+            <!--<p>-->
+            <!--Error in obtaining the kinases to targeted Phosphosite network, please try again-->
+            <!--later!-->
+            <!--</p>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="well" ng-show="true">&ndash;&gt;-->
+            <!--<button class="btn btn-primary " ng-click="exportPhosphositePlusMappings()">Download Table-->
+            <!--</button>-->
+
+            <!--<table class="table table-striped table-bordered">-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>PTM/Protein</th>-->
+            <!--&lt;!&ndash;<th>PTM</th>&ndash;&gt;-->
+            <!--<th>Amino Acid</th>-->
+            <!--<th>Sequence</th>-->
+            <!--<th>Kinase</th>-->
+            <!--<th>Kinase Organism</th>-->
+
+            <!--<th>Kinase Target Sequence</th>-->
+            <!--&lt;!&ndash;<th>Type</th>&ndash;&gt;-->
+            <!--<th>Blosum50 Score</th>-->
+            <!--&lt;!&ndash;<th>max blosum50</th>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--&lt;!&ndash;<tbody pagination-id="metaData22">&ndash;&gt;-->
+            <!--<tr dir-paginate="gene in ctrl.blosum50Table | filter:search | orderBy:'-blosum50ScorePercent' | itemsPerPage:10 "-->
+            <!--pagination-id="metaData222">-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">&ndash;&gt;-->
+            <!--<td>{{gene.phosphoGene}}</td>-->
+            <!--&lt;!&ndash;<td>{{gene.ptm}}</td>&ndash;&gt;-->
+            <!--<td>{{gene.amino}}</td>-->
+            <!--<td>-->
+            <!--&lt;!&ndash;<div class="list-responsive-vertical" style="word-wrap:break-word;">&ndash;&gt;-->
+            <!--{{gene.geneSequence.slice(0,7)}}<span style='color:red'>{{gene.geneSequence.slice(7,8)}}</span>{{gene.geneSequence.slice(8,gene.geneSequence.length)}}-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;{{gene.geneSequence}}&ndash;&gt;-->
+            <!--</td>-->
+            <!--<td>{{gene.kinase}}</td>-->
+            <!--<td>{{gene.kinaseOrganism}}</td>-->
+
+            <!--<td>-->
+            <!--{{gene.kinasePeptide.slice(0,7)}}<span style='color:red'>{{gene.kinasePeptide.slice(7,8)}}</span>{{gene.kinasePeptide.slice(8,gene.kinasePeptide.length)}}-->
+            <!--&lt;!&ndash;{{gene.kinasePeptide}}&ndash;&gt;-->
+            <!--</td>-->
+            <!--&lt;!&ndash;<td>{{gene.valid}}</td>&ndash;&gt;-->
+            <!--<td>{{gene.blosum50ScorePercent}}/{{gene.blosum50MaxScore}}</td>-->
+            <!--&lt;!&ndash;<td>{{gene.blosum50MaxScore}}</td>&ndash;&gt;-->
+
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--<dir-pagination-controls-->
+            <!--pagination-id="metaData222"-->
+            <!--max-size="10"-->
+            <!--direction-links="true"-->
+            <!--boundary-links="true">-->
+            <!--</dir-pagination-controls>-->
+            <!--&lt;!&ndash;<dir-pagination-controls&ndash;&gt;-->
+            <!--&lt;!&ndash;max-size="10"&ndash;&gt;-->
+            <!--&lt;!&ndash;direction-links="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;boundary-links="true" >&ndash;&gt;-->
+            <!--&lt;!&ndash;</dir-pagination-controls>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<br/>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+
+
+            <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+
+            <!--<select-->
+            <!--ng-model="selectedphosphoPathways"-->
+            <!--ng-change="changedPhosphoValue(selectedphosphoPathways)"-->
+            <!--ng-options="x.value for x in phosphoOptions">-->
+            <!--</select>-->
+            <!--<hr/>-->
+            <!--&lt;!&ndash;<button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a id="download3" href="#">Download SVG&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<br/>-->
+
+            <!--<div id="chart3">-->
+
+            <!--<div>-->
+            <!--<button class="btn1" id='force3'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-random"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement force layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn2" id='circularView3'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-circle-o"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Implement circular layout">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--<button class="btn3" id='parallelView3'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-align-justify"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Rearrange nodes in columns">-->
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-map-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-dot-circle-o'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--<button class="btn6" id='download-png3'>-->
+
+            <!--<span style="color:#1c3448;" class="fa fa-download"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="download as PNG">-->
+            <!--</span>-->
+            <!--</button>-->
+
+            <!--<button class="btn7" id='question3'>-->
+            <!--&lt;!&ndash;title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  href="#"  title="Submit">&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<span style="color:#1c3448;" class="fa fa-question-circle"-->
+            <!--data-delay='{"show":"0", "hide":"100"}'-->
+            <!--data-toggle="tooltip"-->
+            <!--title="Query Gene Set is colored based on input abundance values based on the legend,-->
+            <!--Red nodes: phosphorylation enzymes(kinases).">-->
+
+            <!--</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="btn8" id='drug1'&ndash;&gt;-->
+            <!--&lt;!&ndash;title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<i class='fa fa-eyedropper'></i>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+
+            <!--</div>-->
+
+
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;<div id="chart3"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <div class="well col-sm-12"
+                 style="background-color: transparent; border-color: #999999">
+
+
+                <div class="panel panel-default" ng-show="true">
+
+
+                    <div class="well well-sm" style="background-color: #c9c9c9">
+                        <h4>More Analysis</h4>
+                    </div>
+                    <button class="btn btn-primary " ng-click="goToPeptideToProtein()">
+                        Go To Peptides2Proteins &nbsp; <i class='fa fa-angle-double-left'></i>
+                    </button>
+                    <button class="btn btn-primary " ng-click="goToProteinToPathway()">
+                        <i class='fa fa-angle-double-right'></i>&nbsp;Go To Proteins2Pathways
+                    </button>
+
+
+                    <!--<div id="breadcrumbNav1" style="display:table; margin: 0 auto;">-->
+                    <!--<div id="arrowBar1">-->
+
+
+                    <!--<a href="javascript:void(0);" ng-click="goToPeptideToProtein();"-->
+                    <!--style="pointer-events: none;">-->
+
+                    <!--<span class="AB1-1 color1">-->
+                    <!--&lt;!&ndash;<span class="AB4rotateReset">&ndash;&gt;-->
+                    <!--<span class="AB1text2">-->
+                    <!--Peptides2Proteins-->
+
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                    <!--</span>-->
+                    <!--</span>-->
+                    <!--</a>-->
+
+                    <!--&lt;!&ndash;<a href="javascript:void(0);" ng-click="goToProteinToPathway();">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<span&ndash;&gt;-->
+                    <!--&lt;!&ndash;class="AB4rotate3 color2"><span class="AB4rotateReset"><span&ndash;&gt;-->
+                    <!--&lt;!&ndash;class="AB4text3">Proteins2Pathways&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</span></span></span></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="javascript:void(0);" ng-click="goToPathwayToPerturbation()" style="pointer-events: none;">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<span&ndash;&gt;-->
+                    <!--&lt;!&ndash;class="AB4rotate4 color3"><span class="AB4rotateReset"><span&ndash;&gt;-->
+                    <!--&lt;!&ndash;class="AB4text4">Pathways2Perturbations&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</span></span></span></a>&ndash;&gt;-->
+
+
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                    <!--&lt;!&ndash;<span style="float:left">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button style="background: url(images/pathway.png); width:140px; height:35px;" ng-click="customNavigateApi(ctrl.geneIdList)">See the enrichment API</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span style="float:left">&ndash;&gt;-->
+                    <!--<span>-->
+                    <!--<button style="background: url(images/pathway.png); width:200px; height:50px;"-->
+                    <!--ng-click="customNavigateGraphics(ctrl.geneIdList)">-->
+
+                    <!--</button>-->
+                    <!--</span>-->
+
+                </div>
+
+                <!--<div class="container" ng-show="ctrl.showOutput && !ctrl.waiting">-->
+                <!--<br/>-->
+                <!--<h3>From Pathways to LINCS data (Under Construction)</h3>-->
+                <!--<hr/>-->
+                <!--</div>-->
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<!--</div>-->
+
+
+
+
+

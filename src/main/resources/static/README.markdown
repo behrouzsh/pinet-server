@@ -1,0 +1,42 @@
+# d3 export demo
+This is a proof-of-concept demo for saving d3js graphics as PDF/PNG/SVG files.
+
+## Objective
+CGI takes incoming SVG serialization.
+Use graphics toolkit to open SVG serialization as input, output PNG or PDF as
+output.
+
+This perl implementation just performs a system call on `rsvg-convert`, nothing
+specific to perl.
+
+## Options
+* librsvg
+* imagemagick
+  http://stackoverflow.com/questions/15119679/converting-an-svg-with-imagemagick
+* batik
+
+See http://stackoverflow.com/questions/4809194/convert-svg-image-to-png-with-php
+for another nice overview.
+We just run `rsvg-convert` [`man rsvg`](http://www.unix.com/man-page/all/1/rsvg/)
+* http://superuser.com/questions/381125/how-do-i-convert-an-svg-to-a-pdf-on-linux
+
+## Implementation
+See here for more details:
+	* https://github.com/agordon/d3export_demo
+
+See here for online demo:
+	http://d3export.housegordon.org/
+
+### Implementation in other languages
+
+Several people have implemented the CGI portion in other languages:
+
+- NodeJS: <https://github.com/gabhi/d3export_demo>
+- Python/Flask: <https://github.com/mgymrek/pybamview/commit/c26de4dde7316d557ccbe9ee4159525950898bea#diff-070773797d6114c159703d8a18c749a2>
+
+## License
+Copyright (C) 2012,2014 by A. Gordon (assafgordon@gmail.com)
+
+All code written by me is released under BSD license: http://opensource.org/licenses/BSD-3-Clause
+(also uses several other libraries that have their own licenses).
+

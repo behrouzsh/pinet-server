@@ -1,0 +1,909 @@
+
+
+#breadcrumbNav2{      /* Position breadcrumbNav1 on webpage relative to other objects */
+    /*margin-top: 0px;*/
+    /*margin-left: 45px;*/
+    color: black;
+}
+#breadcrumbNav3{      /* Position breadcrumbNav1 on webpage relative to other objects */
+     /*margin-top: 0px;*/
+     /*margin-left: 45px;*/
+     color: black;
+     align-content: center;
+
+ }
+#breadcrumbNav4{      /* Position breadcrumbNav1 on webpage relative to other objects */
+    /*margin-top: 0px;*/
+    /*margin-left: 45px;*/
+    color: black;
+    align-content: center;
+
+}
+#arrowBar2{
+    display: inline-block;
+    overflow: hidden;
+    /* Rotate angle affects everything. This width is for .AB2rotate that has 45deg. */
+    /* Calculating width is not complicated, but there is one tedious step. */
+    /* First use very large value like 1000px to make sure #arrowBar1 shows every breadcrumb. */
+    /* Value1: Adjust .color0 margin-left to negative value below. This indirectly affects width(border is included) for "Wonderful" breadcrumb. Example: -120px.*/
+    /* Tedious step: Take screen shot and with image editor measure two distances on a "full crumb arrow" that you see. */
+    /* Value2 from Measurement 1: Center Crumb Tail to Tip: Start from Crumb "butt" (inside arrow border) to Crumb "tip" (with border). Example: 106px */
+    /* Value3 from Measurement 2: Last Crumb No Tip: Start from Crumb "butt" (inside arrow border) to Crumb "shoulder" (NO borders, stay inside). Example: 82px */
+    /* Now treat all Values as positive numbers and add them to get the width required for this #arrowBar2 */
+    /* Example: 120 + (106 x 5 ) + 82 = 732 */
+    /* To be sure, the number 5 above is for 5 full Crumb arrows in #arrowBar1 */
+    /* Although this is a tedious process, it creates a pixel perfect width container! */
+    width: 600px;
+    height: 55px;
+    border: 1px solid #000000;   /* Unlike above Exampe l, #arrowBar2 will have border fully applied */
+    /* For development work, use background-color to insure #arrowBar2 does NOT show RED. If it shows Red, the area will not receive .click() or hover event. */
+    /* background-color: #ff0000; */
+}
+
+#arrowBar3{
+    display: inline-block;
+    overflow: hidden;
+    /* Rotate angle affects everything. This width is for .AB2rotate that has 45deg. */
+    /* Calculating width is not complicated, but there is one tedious step. */
+    /* First use very large value like 1000px to make sure #arrowBar1 shows every breadcrumb. */
+    /* Value1: Adjust .color0 margin-left to negative value below. This indirectly affects width(border is included) for "Wonderful" breadcrumb. Example: -120px.*/
+    /* Tedious step: Take screen shot and with image editor measure two distances on a "full crumb arrow" that you see. */
+    /* Value2 from Measurement 1: Center Crumb Tail to Tip: Start from Crumb "butt" (inside arrow border) to Crumb "tip" (with border). Example: 106px */
+    /* Value3 from Measurement 2: Last Crumb No Tip: Start from Crumb "butt" (inside arrow border) to Crumb "shoulder" (NO borders, stay inside). Example: 82px */
+    /* Now treat all Values as positive numbers and add them to get the width required for this #arrowBar2 */
+    /* Example: 120 + (106 x 5 ) + 82 = 732 */
+    /* To be sure, the number 5 above is for 5 full Crumb arrows in #arrowBar1 */
+    /* Although this is a tedious process, it creates a pixel perfect width container! */
+    width: 1080px;
+
+    /*display: table;*/
+    /*margin: 0 auto;*/
+    border: 1px solid #000000;   /* Unlike above Exampe l, #arrowBar2 will have border fully applied */
+    height: 55px;
+    /* For development work, use background-color to insure #arrowBar2 does NOT show RED. If it shows Red, the area will not receive .click() or hover event. */
+    /* background-color: #ff0000; */
+}
+
+
+#arrowBar4{
+    display: inline-block;
+    overflow: hidden;
+    /* Rotate angle affects everything. This width is for .AB2rotate that has 45deg. */
+    /* Calculating width is not complicated, but there is one tedious step. */
+    /* First use very large value like 1000px to make sure #arrowBar1 shows every breadcrumb. */
+    /* Value1: Adjust .color0 margin-left to negative value below. This indirectly affects width(border is included) for "Wonderful" breadcrumb. Example: -120px.*/
+    /* Tedious step: Take screen shot and with image editor measure two distances on a "full crumb arrow" that you see. */
+    /* Value2 from Measurement 1: Center Crumb Tail to Tip: Start from Crumb "butt" (inside arrow border) to Crumb "tip" (with border). Example: 106px */
+    /* Value3 from Measurement 2: Last Crumb No Tip: Start from Crumb "butt" (inside arrow border) to Crumb "shoulder" (NO borders, stay inside). Example: 82px */
+    /* Now treat all Values as positive numbers and add them to get the width required for this #arrowBar2 */
+    /* Example: 120 + (106 x 5 ) + 82 = 732 */
+    /* To be sure, the number 5 above is for 5 full Crumb arrows in #arrowBar1 */
+    /* Although this is a tedious process, it creates a pixel perfect width container! */
+    width: 750px;
+
+    /*display: table;*/
+    /*margin: 0 auto;*/
+    border: 1px solid #000000;   /* Unlike above Exampe l, #arrowBar2 will have border fully applied */
+    height: 55px;
+    /* For development work, use background-color to insure #arrowBar2 does NOT show RED. If it shows Red, the area will not receive .click() or hover event. */
+    /* background-color: #ff0000; */
+}
+
+
+.color0{
+    z-index: 60;
+
+    border: 1px solid black;
+    /* This negative margin-left value will indirectly affect the width for "Welcome" breadcrumb. */
+    /* This value when changed will require that #arrowBar2 width is adjusted too. */
+    /* When this value is 0px, then "Wonderful" breadcrumb is really long at 244px width. */
+    /* Demo default value of -120px shows nice balance with AB2rotate width of 200px. Simply try different values for longer/shorter word requirements. */
+    margin-left: -100px;
+
+}
+.color1{
+    z-index: 50;
+
+    border: 1px solid black;
+    margin-left: -100px;
+}
+.color2{
+    z-index: 40;
+
+    border: 1px solid black;
+    margin-left: -100px;
+}
+.color3{
+    z-index: 30;
+
+    border: 1px solid black;
+    margin-left: -100px;
+}
+
+.color4{
+    z-index: 20;
+
+    border: 1px solid black;
+    margin-left: -100px;
+}
+
+/* This rotate is for Example 2 */
+.AB2rotate1 {
+    position: relative;
+    display: inline-block;
+    top: -75px;
+    left: -45px;
+    width: 200px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+
+
+    box-shadow:inset 0px 1px 0px 0px #54a3f7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));
+    background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+    background-color:#007dc1;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #124d77;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight: bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #154682;
+}
+.AB2rotate1:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+    background-color:#0061a7;
+}
+
+.AB2rotate2 {
+    position: relative;
+    display: inline-block;
+    top: -75px;
+    left: 10px;
+    width: 200px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+    -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+    background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+    background-color:#3d94f6;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #337fed;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1570cd;
+
+}
+.AB2rotate2:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+    background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+    background-color:#1e62d0;
+}
+
+
+.AB2rotate3 {
+    position: relative;
+    display: inline-block;
+    top: -75px;
+    left: 70px;
+    width: 200px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+    -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5));
+    background:-moz-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-o-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-ms-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);
+    background-color:#79bbff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+
+}
+.AB2rotate3:hover {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
+    background:-moz-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-webkit-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-o-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-ms-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);
+    background-color:#378de5;
+
+}
+
+.AB2rotate4 {
+    position: relative;
+    display: inline-block;
+    top: -75px;
+    left: 100px;
+    width: 200px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+    -moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
+    background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+    background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+    background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+    background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+    background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
+    background-color:#bddbfa;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+
+}
+.AB2rotate4:hover {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #80b5ea), color-stop(1, #bddbfa));
+    background:-moz-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+    background:-webkit-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+    background:-o-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+    background:-ms-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+    background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa',GradientType=0);
+    background-color:#80b5ea;
+
+}
+/*.AB2rotate:active {*/
+/*position:relative;*/
+/*top:1px;*/
+/*}*/
+/* This rotate reset for inner content is for Example 2 */
+.AB2rotateReset {
+    display: inline-block;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(-45deg);  /* FF3.5+ */
+    -ms-transform: rotate(-45deg);  /* IE9 */
+    -o-transform: rotate(-45deg);  /* Opera 10.5 */
+    transform: rotate(-45deg);
+}
+
+.AB2text0{                  /* Wonderful */
+    position: absolute;
+    top: 45px;
+    left: -75px;
+
+}
+.AB2text1{                  /* CSS3 */
+    position: absolute;
+    top: 45px;
+    left: -55px;
+
+}
+.AB2text2{                  /* Accessibility */
+    position: absolute;
+    top: 45px;
+    left: -70px;
+
+}
+.AB2text3{                  /* Breadcrumb */
+    position: absolute;
+    top: 45px;
+    left: -35px;
+
+}
+
+
+
+/*AB3 is for the navbar*/
+
+.AB3rotate1 {
+    position: relative;
+    display: inline-block;
+    left: 0px;
+    top: -250px;
+    width: 200px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+    -moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    box-shadow:inset 0px 1px 0px 0px #dcecfb;
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));*/
+    /*background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
+    background-color:#bddbfa;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+    background: whitesmoke;
+
+}
+.AB3rotate1:hover {
+    background: #dedede;
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #80b5ea), color-stop(1, #bddbfa));*/
+    /*background:-moz-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-webkit-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-o-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-ms-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa',GradientType=0);*/
+    /*background-color:#80b5ea;*/
+
+}
+
+.AB3rotate2 {
+    position: relative;
+    display: inline-block;
+    left: 30px;
+    top: -300px;
+    width: 300px;
+    height: 300px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+
+    box-shadow:inset 0px 1px 0px 0px #54a3f7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));
+    background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+    background-color:#007dc1;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #124d77;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight: bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #154682;
+}
+.AB3rotate2:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+    background-color:#0061a7;
+}
+
+.AB3rotate3 {
+    position: relative;
+    display: inline-block;
+    left: 80px;
+    top: -300px;
+    width: 300px;
+    height: 300px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+    -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+    background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+    background-color:#3d94f6;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #337fed;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1570cd;
+
+}
+.AB3rotate3:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+    background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+    background-color:#1e62d0;
+}
+
+
+.AB3rotate4 {
+    position: relative;
+    display: inline-block;
+    left: 130px;
+    top: -300px;
+    width: 300px;
+    height: 300px;
+
+     /*Cross browser CSS3 Rotate Rules from: CSS3 Please!*/
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+    -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5));
+    background:-moz-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-o-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-ms-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);
+    background-color:#79bbff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+
+}
+.AB3rotate4:hover {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
+    background:-moz-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-webkit-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-o-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-ms-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);
+    background-color:#378de5;
+
+}
+
+
+
+.AB3rotate5 {
+    position: relative;
+    display: inline-block;
+    left: 200px;
+    top: -75px;
+    width: 275px;
+    height: 200px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    /*-webkit-transform: rotate(45deg);  !* Saf3.1+, Chrome *!*/
+    /*-moz-transform: rotate(45deg);  !* FF3.5+ *!*/
+    /*-ms-transform: rotate(45deg);  !* IE9 *!*/
+    /*-o-transform: rotate(45deg);  !* Opera 10.5 *!*/
+    /*transform: rotate(45deg);*/
+    /*-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;*/
+    /*-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;*/
+    /*box-shadow:inset 0px 1px 0px 0px #dcecfb;*/
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));*/
+    /*background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);*/
+    /*background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);*/
+    background-color:whitesmoke;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:steelblue;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:normal;
+    padding:6px 24px;
+    text-decoration:none;
+    /*text-shadow:0px 1px 0px #528ecc;*/
+
+}
+.AB3rotate5:hover {
+    background-color:whitesmoke;
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #80b5ea), color-stop(1, #bddbfa));*/
+    /*background:-moz-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-webkit-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-o-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:-ms-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);*/
+    /*background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa',GradientType=0);*/
+    background-color:#dedede;
+
+}
+/*.AB2rotate:active {*/
+/*position:relative;*/
+/*top:1px;*/
+/*}*/
+/* This rotate reset for inner content is for Example 2 */
+.AB3rotateReset {
+    display: inline-block;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(-45deg);  /* FF3.5+ */
+    -ms-transform: rotate(-45deg);  /* IE9 */
+    -o-transform: rotate(-45deg);  /* Opera 10.5 */
+    transform: rotate(-45deg);
+}
+
+.AB3text0{                  /* Wonderful */
+    position: absolute;
+    top: 75px;
+    left: -50px;
+    font-weight: normal;
+
+
+}
+.AB3text1{                  /* CSS3 */
+    position: absolute;
+    top: 96px;
+    left: 40px;
+    /*font-weight: normal;*/
+    font-weight: bold;
+    color: black;
+    font-family: "Arial";
+    font-style: italic;
+}
+.AB3text2{                  /* Accessibility */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}
+.AB3text3{                  /* Breadcrumb */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}
+.AB3text4{                  /* Breadcrumb */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}
+.AB3text5{                  /* Breadcrumb */
+    position: absolute;
+    top: 84px;
+    left: 115px;
+    font-weight: lighter;
+    color: steelblue;
+    font-family: "Arial";
+    font-style: italic;
+
+}
+
+
+
+
+
+
+
+.AB4rotate2 {
+    position: relative;
+    display: inline-block;
+    left: 30px;
+    top: -125px;
+    width: 300px;
+    height: 300px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+
+    box-shadow:inset 0px 1px 0px 0px #54a3f7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));
+    background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+    background-color:#007dc1;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #124d77;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight: bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #154682;
+}
+.AB4rotate2:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+    background-color:#0061a7;
+}
+
+.AB4rotate3 {
+    position: relative;
+    display: inline-block;
+    left: 80px;
+    top: -125px;
+    width: 300px;
+    height: 300px;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+
+    -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+    background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+    background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+    background-color:#3d94f6;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #337fed;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1570cd;
+
+}
+.AB4rotate3:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+    background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+    background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+    background-color:#1e62d0;
+}
+
+
+.AB4rotate4 {
+    position: relative;
+    display: inline-block;
+    left: 130px;
+    top: -125px;
+    width: 300px;
+    height: 300px;
+
+    /*Cross browser CSS3 Rotate Rules from: CSS3 Please!*/
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(45deg);
+    -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5));
+    background:-moz-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-o-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:-ms-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);
+    background-color:#79bbff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #528ecc;
+
+}
+.AB4rotate4:hover {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff));
+    background:-moz-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-webkit-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-o-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:-ms-linear-gradient(top, #378de5 5%, #79bbff 100%);
+    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);
+    background-color:#378de5;
+
+}
+
+.AB4rotateReset {
+    display: inline-block;
+
+    /* Cross browser CSS3 Rotate Rules from: CSS3 Please! */
+    -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(-45deg);  /* FF3.5+ */
+    -ms-transform: rotate(-45deg);  /* IE9 */
+    -o-transform: rotate(-45deg);  /* Opera 10.5 */
+    transform: rotate(-45deg);
+}
+
+
+.AB4text2{                  /* Accessibility */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}
+.AB4text3{                  /* Breadcrumb */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}
+.AB4text4{                  /* Breadcrumb */
+    position: absolute;
+    top: 165px;
+    left: 0px;
+    font-weight: normal;
+
+}

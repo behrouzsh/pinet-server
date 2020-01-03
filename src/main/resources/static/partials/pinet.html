@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="plnApplication">
+<meta charset="UTF-8">
+<title>piNET/NETWORK</title>
+
+<head>
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom  CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"
+          href="http://www.lincs-dcic.org/images/dcic-logo/favicon.png?v=2"/>
+    <!--http://fontawesome.io/icons/-->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
+          rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+    <script>
+        //This is for syncing the scroll for top and bottom for div1 and div2
+        $(document).ready(function()
+        {
+            $("#div1").scroll(function () {
+                $("#div2").scrollTop($("#div1").scrollTop());
+                $("#div2").scrollLeft($("#div1").scrollLeft());
+            });
+            $("#div2").scroll(function () {
+                $("#div1").scrollTop($("#div2").scrollTop());
+                $("#div1").scrollLeft($("#div2").scrollLeft());
+            });
+
+        });
+
+    </script>
+    <!--This is for the google analytics-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-101774139-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+<body>
+<!--<script src="bower_components/d3/d3v4.js"></script>-->
+<script src="http://d3js.org/d3.v3.js"></script>
+<!--<script src="cola/cola.min.js"></script>-->
+    <div ng-controller="MainCtrl as ctrl" ng-init="retrieveGenes()">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="color:#337AB7;" href="/">PiNET</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                    <ul class="nav navbar-nav col-sm-5">
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com/behrouzsh/PLNconverter-v2" target="_blank">GitHub</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="container" >
+            <h3> About</h3>
+            <hr/>
+            <div class="bs-callout bs-callout-primary">
+                <p>PiNET network analysis has been designed as an extension of <a href="http://eh3.uc.edu/pinet" target="_blank">PiNET</a> project
+                    to reflect the network of genes and post translational modification of the gene products.</p>
+            </div>
+
+        </div>
+
+        <div class="container" style="padding-top: 20px;">
+
+            <div class="well col-sm-12" >
+
+                    <!--<a style="text-decoration: none;">-->
+                    <!--<a class= "collapse in" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; ">-->
+
+                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog"></span> &nbsp;-->
+                    Enter Gene/Phosphogenes or for example try the list of
+                    <button class="btn btn-primary " ng-click="ctrl.changeToP100('table')">
+                        LINCS P100 data set&nbsp;
+                    </button>. Gene names should be sparated by comma, semi-colon or new line. To check the post-translational
+                modification of a gene product, put "gene-name[pA@site]", where p means phosphorylated and A is an amino acid,
+                for example DYRK1A[pY@321].
+                <hr/>
+
+                <div class=" form-group col-sm-4" style="padding-left: 0px;">
+                    <div class="horizontal-scroll" style = padding-bottom:10px;" >
+                        <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
+                        <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>
+                        <label style="padding-bottom: 24px;">Enter genes/PTM genes&nbsp;
+                              <br/>
+                        </label>
+
+
+                        <!--<span style="float:left">-->
+                            <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
+                        <!--</span>-->
+                        <div  >
+
+                            <textarea class="form-control" rows="5" ng-model="ctrl.genes"></textarea>
+                            <!--console.log()-->
+                        </div>
+
+                    </div>
+
+
+                    Delimiter: &nbsp;
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option2" checked="true" disabled="true"> comma
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="true" disabled="true">
+                        semi-colon
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" value="option3" checked="true" disabled="true"> new line
+                    </label>
+                    <!--<a class="nav navbar-nav" style="padding-bottom: 12px;" href="/pln/modification.html" target="_blank">Input Format Description</a>-->
+                    <div style="float:left;">
+                <span >
+                    <hr/>
+                    <p>
+                    &nbsp;<span style='color:blue'>{{ctrl.numberOfAllValidGenes}}</span> out of {{ctrl.numberOfAllInputGenes}} input genes are valid genes.
+                    </p>
+                    <span ng-if="ctrl.flagFoundNPCG" >
+                        &nbsp;Not valid genes are:
+                        <span style='color:blue'>
+                            <div ng-repeat="nonValid in ctrl.nonValidGenes">{{nonValid}}&nbsp</div>
+                        </span>
+                        Gene name identification is case sensitive, Try other names of these genes or copy and paste the gene names again!
+                    </span>
+
+                </span>
+                    </div>
+                </div>
+
+                <div class=" form-group col-sm-2 col-sm-offset-1" >
+                    <label style="padding-bottom: 24px;">Input Gene Symbols&nbsp;
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                              <!--data-delay='{"show":"0", "hide":"100"}'-->
+                              <!--data-toggle="tooltip"-->
+                              <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                        <!--</span>-->
+
+
+                        <br/>
+                    </label>
+                    <div class = " list-responsive-vertical2" style = "word-wrap:break-word;" id="div1">
+                        <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
+                        <div ng-repeat="item in ctrl.inputGeneInfo track by $index">{{item.symbol}}<br/></div>
+                    </div>
+                </div>
+
+                <div class=" form-group col-sm-5 col-sm-offset-0" >
+                <label style="padding-bottom: 24px;">Gene Names&nbsp;
+                <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                <!--data-delay='{"show":"0", "hide":"100"}'-->
+                <!--data-toggle="tooltip"-->
+                <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+
+                <!--</span>-->
+                    <br/>
+                </label>
+                <div class = "list-responsive-vertical3" style="word-wrap:break-word;" id="div2">
+                <div ng-repeat="item in ctrl.inputGeneInfo track by $index">{{item.name}}<br/></div>
+                </div>
+
+                </div>
+
+
+                <button style="float:right" class="btn btn-primary col-sm-offset-10" ng-click="ctrl.onSubmitPathway('table')">
+                    Submit &nbsp;
+                    <span ng-show="ctrl.pathwayWaiting" >
+                            <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                    </span>
+                </button>
+
+
+            </div>
+
+
+
+            <div class="container" ng-show="ctrl.showOutputPathway ">
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label >Search</label>
+                        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+
+                <hr/>
+
+                <div ng-show="ctrl.showGeneNetwork">
+
+                    <div class="well" >
+                    <h3>Input Gene Info</h3>
+                    </div>
+
+                    <div class="well" ng-show="true">
+
+                        <!--<div ng-controller="myCtrl">-->
+                            <button class="btn btn-primary " ng-click="exportDataGeneInfo()">Download Table</button>
+                        <!--</div>-->
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Gene Symbol</th>
+                                <th>Gene Name</th>
+                                <th>HGNC ID</th>
+                                <th>Gene Family</th>
+                                <th>Previous Symbols</th>
+                                <th>Uniprot IDs</th>
+                                <th>Locus Group</th>
+                            </tr>
+                            </thead>
+                            <tbody  dir-paginate= "gene in ctrl.inputGeneInfo | filter:search  | itemsPerPage:10 "  ng-if="gene.symbol != ''" pagination-id="metaData21" >
+                            <!--<tbody pagination-id="metaData21">-->
+                            <!--<tr >-->
+                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                <td>
+                                    <a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{gene.symbol}}"
+                                       target="_blank">{{gene.symbol}}</a>
+                                </td>
+                                <!--New version of http://www.ebi.ac.uk/ols/ontologies/mod/terms?obo_id={{mapping.identifier}}-->
+                                <!--Old version of http://www.ebi.ac.uk/ontology-lookup/?termId={{mapping.identifier}}-->
+                                <td>{{gene.name}}</td>
+                                <td>{{gene.hgnc_id}}</td>
+                                <td>
+                                <span ng-repeat="family in gene.gene_family track by $index">
+                                    {{family}}<br/>
+                                </span>
+                                </td>
+                                <td>
+                                    <span ng-repeat="symbol in gene.prev_symbol track by $index">
+                                    <a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{symbol}}"
+                                          target="_blank">{{symbol}}</a><br/>
+                                </span>
+                                <td>
+                                    <span ng-repeat="uniprot in gene.uniprot_ids track by $index">
+                                        <a ng-href="http://www.uniprot.org/uniprot/{{uniprot}}"
+                                           target="_blank">{{uniprot}}</a><br/>
+                                </span>
+                                </td>
+                                <td>{{gene.locus_group}}</td>
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls
+                                pagination-id="metaData21"
+                                max-size="10"
+                                direction-links="true"
+                                boundary-links="true" >
+                        </dir-pagination-controls>
+                        <!--<dir-pagination-controls-->
+                                <!--max-size="10"-->
+                                <!--direction-links="true"-->
+                                <!--boundary-links="true" >-->
+                        <!--</dir-pagination-controls>-->
+                    </div>
+                    <br/>
+
+                </div>
+
+
+                <div ng-show="ctrl.showPhosphoGeneNetwork">
+                    <div class="well" >
+                        <h3>Blosum50 Kinase to Gene Info Table
+
+                            <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">
+                                    <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                            </span>
+                        </h3>
+                        <div class="bs-callout bs-callout-primary">
+                            <p>Blosum50 Kinase table shows the most similar kinase target motifs based on the similarity scores
+                                more than half of the maximum Blosum50 score of the gene sequence phosphorylated at a specific site.
+                                For example, if the Blosum50 score of sequence S by it self is A, this table shows all of the sequences,
+                                targeted by kinases that has more than more than A/2 similarity score with sequence S.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+
+                        <div class="well" ng-show="true">
+
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>phosphoGene</th>
+                                    <th>validity</th>
+                                    <th>amino</th>
+                                    <th>kinase</th>
+                                    <th>kinase organism</th>
+                                    <th>gene sequence</th>
+                                    <th>kinase peptide</th>
+                                    <th>blosum50 Percent</th>
+                                    <th>max blosum50</th>
+                                </tr>
+                                </thead>
+                                <tbody  dir-paginate= "gene in ctrl.blosum50Table | filter:search | orderBy:'-blosum50ScorePercent' | itemsPerPage:10 "  pagination-id="metaData22" >
+                                <!--<tbody pagination-id="metaData22">-->
+                                <!--<tr >-->
+                                <!--<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                                    <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                    <td>{{gene.phosphoGene}}</td>
+                                    <td>{{gene.valid}}</td>
+                                    <td>{{gene.amino}}</td>
+                                    <td>{{gene.kinase}}</td>
+                                    <td>{{gene.kinaseOrganism}}</td>
+                                    <td>
+                                        <!--<div class="list-responsive-vertical" style="word-wrap:break-word;">-->
+                                            {{gene.geneSequence.slice(0,7)}}<span style='color:red'>{{gene.geneSequence.slice(7,8)}}</span>{{gene.geneSequence.slice(8,gene.geneSequence.length)}}
+                                        <!--</div>-->
+
+                                        <!--{{gene.geneSequence}}-->
+                                    </td>
+                                    <td>
+                                        {{gene.kinasePeptide.slice(0,7)}}<span style='color:red'>{{gene.kinasePeptide.slice(7,8)}}</span>{{gene.kinasePeptide.slice(8,gene.kinasePeptide.length)}}
+                                        <!--{{gene.kinasePeptide}}-->
+                                    </td>
+                                    <td>{{gene.blosum50ScorePercent}}</td>
+                                    <td>{{gene.blosum50MaxScore}}</td>
+
+                                <!--</tr>-->
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls
+                                    pagination-id="metaData22"
+                                    max-size="10"
+                                    direction-links="true"
+                                    boundary-links="true" >
+                            </dir-pagination-controls>
+                            <!--<dir-pagination-controls-->
+                            <!--max-size="10"-->
+                            <!--direction-links="true"-->
+                            <!--boundary-links="true" >-->
+                            <!--</dir-pagination-controls>-->
+                        </div>
+                        <br/>
+                    </div>
+
+                </div>
+
+
+                <div ng-show="ctrl.showGeneNetwork">
+
+                    <div class="well" >
+                        <h3>Pathway View
+                            <span ng-show="!ctrl.showGeneNetworkProcessed">
+                                <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                            </span>
+
+                        </h3>
+                        <div class="bs-callout bs-callout-primary">
+                            <p> Pathway view network shows network of pathways or perturbations that target the input genes.
+                            </p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div ng-show="ctrl.showGeneNetworkProcessed">
+
+
+                        <select
+                                ng-model="selectedPathways"
+                                ng-change="changedValue(selectedPathways)"
+                                ng-options = "x.value for x in pathways">
+                        </select>
+                        <hr/>
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button class="btn btn-primary " id='saveButton'>Download as high resolution PNG</button>
+                            </div>
+
+                            <div class="btn-group" role="group" aria-label="Second group">
+                                <button class="btn btn-primary " id="download">Download as SVG</button>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--<canvas id="canvas" height="1300" width="1300"/>-->
+                        <br/>
+
+                        <!--<canvas id="canvas" height="1300" width="1300">-->
+                        <!--<div id="chartCola"></div>-->
+                        <div id="chart">
+
+                            <div>
+                                <button class="btn1" id='force1' title='Implement force layout'>
+                                    <i class='fa fa-random'></i>
+                                </button>
+                                <button class="btn2" id='circularView1' title='Implement circular layout'>
+                                    <i class='fa fa-circle-o'></i>
+                                </button>
+                                <button class="btn3" id='parallelView1' title='Rearrange nodes in columns'>
+                                    <i class='fa fa-align-justify'></i>
+                                </button>
+                                <button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>
+                                    <i class='fa fa-map-o'></i>
+                                </button>
+                                <button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>
+                                    <i class='fa fa-dot-circle-o'></i>
+                                </button>
+                                <button class="btn6" id='download-png1' title='download as PNG'>
+                                    <i class='fa fa-download'></i>
+                                </button>
+                                <button class="btn7" id='question1' title='Gray nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>
+                                    <i class='fa fa-question-circle'></i>
+                                </button>
+                                <button class="btn8" id='drug1' title='Gray nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>
+                                    <i class='fa fa-eyedropper'></i>
+                                </button>
+
+
+                            </div>
+
+                        </div>
+                        <div ng-show="ctrl.showGrid1"  >
+                            <div id="example" class="parcoords">
+                                <!--<div>-->
+                                    <!--<button class="btn1" id='force1' title='Implement force layout'>-->
+                                        <!--<i class='fa fa-random'></i>-->
+                                    <!--</button>-->
+                                    <!--<button class="btn2" id='parallelNetwork1' title='Implement grid layout'>-->
+                                        <!--<i class='fa fa-align-justify'></i>-->
+                                    <!--</button>-->
+                                    <!--<button class="btn3" id='circularNetwork1' title='Implement circular layout'>-->
+                                        <!--<i class='fa fa-circle-o'></i>-->
+                                    <!--</button>-->
+                                    <!--<button class="btn4" id='download-png1' title='download as PNG'>-->
+                                        <!--<i class='fa fa-download'></i>-->
+                                    <!--</button>-->
+                                    <!--<button class="btn5" id='question1' title='Gray nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-question-circle'></i>-->
+                                    <!--</button>-->
+
+                                    <!--<button class="btn6" id='parallelNetwork1-1' title='Gray nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-question-circle'></i>-->
+                                    <!--</button>-->
+                                <!--</div>-->
+
+                            </div>
+                            <div  id="grid1" >
+                                <h1>
+                                    I am showing grid1
+                                </h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div ng-show="ctrl.showGeneNetwork">
+                    <div class="well" >
+                        <h3>Kinase Network View
+                            <span ng-show="!ctrl.showKinaseNetworkProcessed">
+                                <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                            </span>
+
+
+                        </h3>
+                        <div class="bs-callout bs-callout-primary">
+                            <p> Kinase network view shows network of kinases phosohorylating the input genes and
+                                list of genes getting phosphorylated by the input genes.
+                            </p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div ng-show="ctrl.showKinaseNetworkProcessed">
+
+                        <button>
+                            <a id="download2" href="#">Download SVG
+                            </a>
+                        </button>
+                        <br/>
+                        <div id="chart2"></div>
+                    </div>
+                </div>
+
+                <div ng-show="ctrl.showPhosphoGeneNetwork">
+                    <div class="well" >
+                        <h3>Kinase Network for Phosphorylated Genes View
+                            <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">
+                                <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                            </span>
+
+
+                        </h3>
+                        <div class="bs-callout bs-callout-primary">
+                            <p> Kinase network of phosphorylated genes reflects the connection between kinases and gene products phosphorylated
+                                at specific sites. Solid lines mean known relations between the kinases and target genes (in Known_Kinase_TargetGene) or
+                                exact matching between the kinase target and the peptide sequence in (Known+Predicted_Blosum50_Kinase_TargetGene and
+                                Known+Predicted_Probability_Kinase_TargetGene). Dashed lines show probable inkage between kinase and target genes based on blosum50 similarity scores or phosphosite plus connectivity networks.
+                            </p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+
+                        <select
+                                ng-model="selectedphosphoPathways"
+                                ng-change="changedPhosphoValue(selectedphosphoPathways)"
+                                ng-options = "x.value for x in phosphoOptions">
+                        </select>
+                        <hr/>
+                        <button>
+                            <a id="download3" href="#">Download SVG
+                            </a>
+                        </button>
+                        <br/>
+                        <div id="chart3"></div>
+                    </div>
+                </div>
+
+
+
+        </div>
+
+        <div class="container" style="padding-top: 20px;">
+            <h3> References</h3>
+            <hr/>
+
+            <div class="bs-callout bs-callout-default">
+                <p>Kuleshov MV, Jones MR, Rouillard AD, Fernandez NF, Duan Q, Wang Z, Koplev S, Jenkins SL, Jagodnik KM, Lachmann A, McDermott MG, Monteiro CD, Gundersen GW, Ma'ayan A.
+                    Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research. 2016; gkw377.
+                    </p>
+            </div>
+        </div>
+
+        <!--<div class="container" style="padding-top: 20px;">-->
+            <!--<h3> References</h3>-->
+            <!--<hr/>-->
+
+            <!--<div class="bs-callout bs-callout-default">-->
+                <!--<p>.</p>-->
+                <!--<p>.</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+    <!--{{ctrl.responseRaw}}-->
+    <!--{{ctrl.uniprotResponseRaw[0]}}-->
+    <footer class="footer">
+
+        <div class="container">
+            <p class="text-muted" style="padding-top:5px; text-align: right;">Developed within NIH funded <a
+                    href="http://lincsproject.org" target="_blank">LINCS Project</a>
+            </p>
+        </div>
+
+        <!-- jQuery required by Bootstrap -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+
+        <!-- AngularJS -->
+        <script src="bower_components/angular/angular.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- dirPagination JS -->
+        <script src="bower_components/bootstrap/dist/js/dirPagination.js"></script>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+        <!--d3js-->
+        <!--<script src="https://d3js.org/d3-selection.v1.min.js"></script>-->
+
+        <!--This is for the gui for changing the d3 parameters like gravity, ...-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+        <script src="bower_components/d3/d3.legend.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
+
+        <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
+        <!--This is for downloading the table data-->
+        <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+
+        <!--This is for parallel coordianates-->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+        <script src="parallel-layout/d3.parcoords.js"></script>
+        <script src="parallel-layout/d3.divgrid.js"></script>
+
+        <!--For translating SVG to canvas-->
+        <script type="text/javascript" src="bower_components/canvg/rgbcolor.js"></script>
+        <script type="text/javascript" src="bower_components/canvg/StackBlur.js"></script>
+        <script type="text/javascript" src="bower_components/canvg/canvg.js"></script>
+        <script src="bower_components/canvg/canvas-toBlob.js"></script>
+        <script src="bower_components/canvg/FileSaver.min.js"></script>
+
+        <!--For cola.js-->
+        <script type="text/javascript" src="cola/cola.min.js"></script>
+        <!--<script src="bower_components/d3/d3v4.js"></script>-->
+
+
+        <!-- PLN Angular -->
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+
+    </footer>
+</body>
+
+</html>

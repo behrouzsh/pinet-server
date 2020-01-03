@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*body {*/
+    /*background: url('https://westfieldcc.files.wordpress.com/2011/10/simple-blur-ipad-background.jpg') no-repeat center center fixed;*/
+    /*background-size: cover;*/
+/*}*/
+.wrapper22 {
+    margin: 30px auto;
+    width: 100%;
+    font-family: sans-serif;
+    color: #4753b7;
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 1000px;
+    min-width: 340px;
+    overflow: hidden;
+}
+.tabs222 li {
+    list-style: none;
+    float: left;
+    width: 16.7%;
+}
+.tabs22 li {
+    list-style: none;
+    float: left;
+    width: 20%;
+}
+.tabs222 a {
+    display: block;
+    text-align-all: center;
+
+    text-decoration: none;
+    position: relative;
+    /*text-transform: uppercase;*/
+    color: #374099;
+    height: 50px;
+    line-height: 25px;
+    font-weight: 400;
+    vertical-align:baseline;
+
+    /*background: linear-gradient(transparent 1%, #4753b7, #efefef)*/
+    background: #dddddd url(../images/bright-squares.png) repeat;
+    /*background: #b2b2b2 url(../images/grey-washed-wall.png) repeat;*/
+    /*background: #b2b2b2;*/
+}
+.tabs22 a {
+    display: block;
+    text-align-all: center;
+
+    text-decoration: none;
+    position: relative;
+    /*text-transform: uppercase;*/
+    color: #374099;
+    height: 50px;
+    line-height: 25px;
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align:baseline;
+
+    /*background: linear-gradient(transparent 1%, #4753b7, #efefef)*/
+    background: #dddddd url(../images/bright-squares.png) repeat;
+    /*background: #b2b2b2 url(../images/grey-washed-wall.png) repeat;*/
+    /*background: #b2b2b2;*/
+}
+.tabs222 a:hover{
+    /*background: linear-gradient(180deg, transparent 1%, #efefef 70%);*/
+    /*color: #4753b7;*/
+
+    text-decoration-color: white;
+    /*background: #e2e2e2;*/
+    background: #e2e2e2 url(../images/bright-squares.png) repeat;
+    /*background: #e2e2e2 url(../images/grey-washed-wall.png) repeat;*/
+    color: #374099;
+
+
+}
+.tabs22 a:hover{
+    /*background: linear-gradient(180deg, transparent 1%, #efefef 70%);*/
+    /*color: #4753b7;*/
+    
+    text-decoration-color: white;
+    /*background: #e2e2e2;*/
+    background: #e2e2e2 url(../images/bright-squares.png) repeat;
+    /*background: #e2e2e2 url(../images/grey-washed-wall.png) repeat;*/
+    color: #374099;
+
+
+}
+.tabs222 a.active {
+    /*background: linear-gradient(180deg, transparent 1%, #efefef 50%);*/
+    background: #efefef url(../images/bright-squares.png) repeat;
+    /*background: #efefef;*/
+    color: #2f377f;
+    font-weight: bold;
+}
+.tabs22 a.active {
+    /*background: linear-gradient(180deg, transparent 1%, #efefef 50%);*/
+    background: #efefef url(../images/bright-squares.png) repeat;
+    /*background: #efefef;*/
+    color: #2f377f;
+    font-weight: bold;
+}
+.tabs222 a:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 100%;
+    top: 0%;
+    height: 70px;
+    line-height: 90px;
+    width: 0;
+    border-bottom: 70px solid rgba(1.0, 1.0, 1.0, 1.0);
+    border-right: 1px solid transparent;
+}
+.tabs22 a:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 100%;
+    top: 0%;
+    height: 70px;
+    line-height: 90px;
+    width: 0;
+    border-bottom: 70px solid rgba(1.0, 1.0, 1.0, 1.0);
+    border-right: 1px solid transparent;
+}
+.tabs222 a.active:before {
+    content: '';
+    position: absolute;
+    z-index: 11;
+    left: 100%;
+    top: -100%;
+    height: 70px;
+    line-height: 90px;
+    width: 0;
+    border-bottom: 70px solid rgba(0, 0, 0, 0.0);
+    border-right: 20px solid transparent;
+}
+.tabs22 a.active:before {
+    content: '';
+    position: absolute;
+    z-index: 11;
+    left: 100%;
+    top: -100%;
+    height: 70px;
+    line-height: 90px;
+    width: 0;
+    border-bottom: 70px solid rgba(0, 0, 0, 0.0);
+    border-right: 20px solid transparent;
+}
+.tabgroup {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.tabgroup div {
+    padding: 30px;
+    /*background: #efefef;*/
+    /*background: #efefef url(../images/grey-washed-wall.png) repeat;*/
+    background: #efefef url(../images/bright-squares.png) repeat;
+    /*background:  url(../images/grey-washed-wall.png) repeat;*/
+    /*box-shadow: 0 3px 10px rgba(0, 0, 0, 0.01);*/
+    /*color: #545149;*/
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

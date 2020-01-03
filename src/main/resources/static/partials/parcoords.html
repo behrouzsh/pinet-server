@@ -1,0 +1,58 @@
+<!doctype html>
+
+<title>Linking to Data Table</title> 
+<!-- http://syntagmatic.github.com/parallel-coordinates/ -->
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+<script src="js/d3.parcoords.js"></script>
+<script src="ja/d3.divgrid.js"></script>
+
+<div id="example" class="parcoords"></div>
+<div id="grid"></div>
+
+<script id="brushing">// quantitative colour scale
+var green_to_blue = d3.scale.linear()
+  .domain([9, 50])
+  .range(["#7AC143", "#00B0DD"])
+  .interpolate(d3.interpolateLab);
+
+var color = function(d) { return green_to_blue(d['Length of Day (hours)']); };
+
+var parcoords = d3.parcoords()("#example")
+  //.color("steelblue")
+  .alpha(0.3);
+
+
+// load csv file and create the chart
+d3.csv('/parallel-coor/planet.csv', function(data) {
+  parcoords
+    .data(data)
+    .render()
+    .brushMode("1D-axes");  // enable brushing
+
+  // create data table, row hover highlighting
+  var grid = d3.divgrid();
+  d3.select("#grid")
+    .datum(data.slice(0,10))
+    .call(grid)
+    .selectAll(".row")
+    .on({
+      "mouseover": function(d) { parcoords.highlight([d]) },
+      "mouseout": parcoords.unhighlight
+    });
+
+  // update data table on brush event
+  parcoords.on("brush", function(d) {
+    d3.select("#grid")
+      .datum(d.slice(0,100))
+      .call(grid)
+      .selectAll(".row")
+      .on({
+        "mouseover": function(d) { parcoords.highlight([d]) },
+        "mouseout": parcoords.unhighlight
+      });
+  });
+});
+</script>
+

@@ -24,6 +24,8 @@
 
 # Build Files #
 build/
+.gradle
+.DS_Store
 
 # Irrelevant
 pyhton/

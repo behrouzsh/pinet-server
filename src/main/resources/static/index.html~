@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="plnApplication">
+<meta charset="UTF-8">
+<title>PLN converter</title>
+
+<head>
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom  CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"
+          href="http://www.lincs-dcic.org/images/dcic-logo/favicon.png?v=2"/>
+</head>
+
+<body>
+<div ng-controller="MainCtrl as ctrl">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color:#337AB7;" href="#/">PLN Converter</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav col-sm-5">
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/sajmmon/PLNconverter" target="_blank">GitHub</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <h3> About</h3>
+        <hr/>
+        <div class="bs-callout bs-callout-primary">
+            <p>Protein Line Notation (PLN) is a notation that encodes “protein forms” as a linear string of
+                characters. A protein form is a “splice isoform, mutation variant and co- or post-translationally
+                modified form (and combinations thereof) that can arise from translation from [a] gene,” as defined by
+                the PRO ontology (Natale 2011). It is based on the open-world assumption and can encode both positive
+                and negative information.</p>
+        </div>
+
+    </div>
+
+    <div class="container" style="padding-top: 20px;">
+
+        <!--<h3> Your input</h3>-->
+        <!--<hr/>-->
+
+        <div class="well col-sm-12">
+            <div class="form-group col-sm-4" style="padding-left: 0px;">
+                <label for="input" style="padding-bottom: 17px;">Enter peptides</label>
+
+                <div style="padding-top:2px; padding-bottom:10px;">
+                    <textarea class="form-control" rows="3" id="input" ng-model="ctrl.textArea"></textarea>
+                </div>
+
+                Delimiter: &nbsp;
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox1" value="option2" checked="true" disabled="true"> comma
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox2" value="option1" checked="true" disabled="true">
+                    semi-colon
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox3" value="option3" checked="true" disabled="true"> new line
+                </label>
+            </div>
+
+            <div class="form-group col-sm-3 col-sm-offset-2">
+                <label style="padding-bottom: 24px;">Motifs&nbsp;
+                    <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                          data-delay='{"show":"0", "hide":"100"}'
+                          data-toggle="tooltip"
+                          title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g"></span><br/></label>
+
+                <div ng-repeat="motif in ctrl.parsedMotifs">{{motif}}<br/></div>
+
+            </div>
+
+            <div class="form-group col-sm-3 col-sm-offset-0">
+                <label style="padding-bottom: 24px;">Modifications&nbsp;
+                    <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                          data-delay='{"show":"0", "hide":"100"}'
+                          data-toggle="tooltip"
+                          title="Parsed modifications are used to query PSI-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g"></span><br/></label>
+
+                <div ng-repeat="modification in ctrl.parsedModificationsFormatter">{{modification}}<br/></div>
+
+            </div>
+
+        </div>
+        <div class="accordion well" id="accordion2">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"
+                       style="text-decoration: none;">
+                        <span style="color:steelblue;" class="glyphicon glyphicon-cog"></span> &nbsp;Settings
+                    </a>
+
+                    <button class="btn btn-primary col-sm-offset-10" ng-click="ctrl.onSubmit('table')">
+                        Convert &nbsp;
+                        <span ng-show="ctrl.waiting">
+                        <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                        </span>
+                    </button>
+
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+
+                        Settings are currently hard-coded.
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div></div>
+    </div>
+
+    <div class="container">
+        <div style="float:right;">
+            <span ng-show="ctrl.waiting">&nbsp;Prosite REST API responds usually within 30 - 60 seconds.</span>
+
+        </div>
+    </div>
+
+    <div class="container" ng-hide="ctrl.showOutput">
+        <br/><br/><br/>
+        <strong>Prosite server is busy, please try reconnecting again later. </strong><br/>
+    </div>
+
+    <div class="container" ng-show="ctrl.showOutput">
+
+        <br/><br/><br/>
+        <strong>PLN format </strong><br/>
+
+        <span style="float:right">
+            <a href="javascript:void(0);" ng-click="ctrl.formatAsJsonOrInline=!ctrl.formatAsJsonOrInline"
+               style="text-decoration:none;"
+               ng-style="!ctrl.formatAsJsonOrInline && {'font-weight': 'bold'}">Inline</a>
+            /
+            <a href="javascript:void(0);" ng-click="ctrl.formatAsJsonOrInline=!ctrl.formatAsJsonOrInline"
+               style="text-decoration:none;"
+               ng-style="ctrl.formatAsJsonOrInline && {'font-weight': 'bold'}">JSON</a>
+
+        </span>
+
+
+        All hits:
+        <pre ng-show="!ctrl.formatAsJsonOrInline" style="background-color: #D9EDF7">
+        {{ctrl.pln | inline}}
+        </pre>
+
+        <pre ng-show="ctrl.formatAsJsonOrInline" style="background-color: #D9EDF7">
+        {{ctrl.pln | treeJSON}}
+        </pre>
+
+        <br/><br/>
+
+        <strong>PSI-MOD ontology mapping</strong>
+
+        <div class="well" ng-show="true">
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Modification</th>
+                    <th>Identifier</th>
+                    <th>DiffAvg</th>
+                    <th>Description</th>
+                    <th>Similar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="mapping in ctrl.ontologyMappings">
+                    <td>{{mapping.modification}}</td>
+                    <td><a ng-href="http://www.ebi.ac.uk/ontology-lookup/?termId={{mapping.identifier}}"
+                           target="_blank">
+                        {{mapping.identifier}}</a></td>
+                    <td>{{mapping.diffavg}}</td>
+                    <td>{{mapping.description}}</td>
+                    <td>
+                        <span ng-repeat="similar in mapping.similar">
+                            <a ng-href="http://www.ebi.ac.uk/ontology-lookup/?termId={{similar.string}}"
+                               target="_blank">{{similar.string}}</a><br/>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/>
+
+        <strong>Prosite response</strong><span ng-show="ctrl.waiting">
+                &nbsp; ({{ctrl.numResponsesFromProsite}} / {{ctrl.parsedMotifs.length}})
+            &nbsp; <span class="glyphicon glyphicon-refresh glyphicon-spin"></span></span>
+
+        <div class="well" ng-show="true">
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>motif</th>
+                    <th>sequence_ac</th>
+                    <th>sequence_id</th>
+                    <th>sequence_db</th>
+                    <th>start</th>
+                    <th>stop</th>
+                    <th>signature_ac</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in ctrl.responseRaw">
+                    <td>{{item.motif}}</td>
+                    <td>{{item.sequence_ac}}</td>
+                    <td>{{item.sequence_id}}</td>
+                    <td>{{item.sequence_db}}</td>
+                    <td>{{item.start}}</td>
+                    <td>{{item.stop}}</td>
+                    <td>{{item.signature_ac}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="container" style="padding-top: 20px;">
+        <h3> References</h3>
+        <hr/>
+
+        <div class="bs-callout bs-callout-default">
+            <p>Natale, D. A., Arighi, C. N., Barker, W. C., Blake, J. A., Bult, C. J., Caudy, M., … Wu, C. H. (2011).
+                The Protein Ontology: a structured representation of protein forms and complexes. Nucleic Acids
+                Research, 39(Database issue), D539–D545. doi:10.1093/nar/gkq907.</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+
+    <div class="container">
+        <p class="text-muted" style="padding-top:5px; text-align: right;">Developed within NIH funded <a
+                href="http://lincsproject.org" target="_blank">LINCS Project</a></p>
+    </div>
+
+    <!-- jQuery required by Bootstrap -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <!-- AngularJS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- piLINCS Angular -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+</footer>
+
+</body>
+</html>

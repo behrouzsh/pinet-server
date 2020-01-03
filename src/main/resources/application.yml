@@ -1,0 +1,93 @@
+#spring:
+#  jpa.hibernate.ddl-auto: create-drop
+#  jackson.serialization.INDENT_OUTPUT: true
+#  java.lang.OutOfMemoryError: PermGen space
+
+
+server:
+  contextPath: /pln
+  port: 8090
+  max-http-header-size: 50000000
+  tomcat:
+    max-http-header-size: 50000000
+
+
+
+urls:
+  prosite: https://prosite.expasy.org/cgi-bin/prosite/PSScan.cgi?sig=%s&lineage=%s&db=sp&output=json
+  uniprotFasta: https://www.uniprot.org/uniprot/%s.fasta
+  uniprot: https://www.uniprot.org/uniprot/%s.xml?query=reviewed:yes+AND+organism:9606
+  pir: https://research.bioinformatics.udel.edu/peptidematch/webservices/peptidematch_rest?query=%s&format=xml&organism=%s
+
+  prosite2: https://prosite.expasy.org/cgi-bin/prosite/PSScan.cgi?sig=%s&lineage=%s&db=sp&output=json
+  uniprot2: https://www.uniprot.org/uniprot/%s.xml?query=reviewed:yes+AND+organism:%s
+  pir2: http://research.bioinformatics.udel.edu/peptidematch/webservices/peptidematch_rest?query=%s&format=xml&organism=%s
+
+  harmonizomeGene: http://amp.pharm.mssm.edu/Harmonizome//api/1.0/gene/%s
+  harmonizomeProtein: http://amp.pharm.mssm.edu/Harmonizome//api/1.0/uniprot/%s
+  enrichrAddList: http://amp.pharm.mssm.edu/Enrichr/addList
+  enrichrViewList: http://amp.pharm.mssm.edu/Enrichr/view?userListId=%s
+  enrichrResult: http://amp.pharm.mssm.edu/Enrichr/enrich?userListId=%s&backgroundType=%s
+  enrichrGeneInfo: http://amp.pharm.mssm.edu/Enrichr/genemap?json=true&setup=true&gene=%s
+  enrichrNetwork: http://amp.pharm.mssm.edu/Enrichr/enrich?userListId=%s&backgroundType=%s
+  enrichrGetListId: http://amp.pharm.mssm.edu/Enrichr/addList
+  ilincsSignatureUrl: http://www.ilincs.org/api/SignatureUploads/uploadToiLINCS
+  ilincsSignatureMetaUpload: http://www.ilincs.org/api/SignatureMeta/upload
+  ilincsGetSignatureUrl: http://www.ilincs.org/api/ilincsR/findConcordances
+
+
+resources:
+  mapping: /psi-mod/mapping.csv
+  psiModExtensionMapping: /psi-mod/psimod.json
+  pcg: /PCG/pcgm.json
+  kinase2GeneHuman: /kinase/kinase2Gene.json
+  gene2KinaseHuman: /kinase/gene2Kinase.json
+  geneName2KinaseName: /kinase/geneName2KinaseName.json
+  phosphoGenes2Kinase: /kinase/protein2Kinase_info.json
+  phosphoGeneProbability: /kinase/amino_probability.json
+  phosphoAmino2KinaseSequence: /kinase/kinase_2gene_2sequence.json
+  blosum50Json: /blosum50/blosum50.json
+  ptmMe: /PTM/ptm_me.json
+  ptmPh: /PTM/ptm_ph.json
+  ptmAc: /PTM/ptm_ac.json
+  ptmCg: /PTM/ptm_cg.json
+  ptmMy: /PTM/ptm_my.json
+  ptmNg: /PTM/ptm_ng.json
+  ptmOg: /PTM/ptm_og.json
+  ptmSg: /PTM/ptm_sg.json
+  ptmSn: /PTM/ptm_sn.json
+  ptmSu: /PTM/ptm_su.json
+  ptmUb: /PTM/ptm_ub.json
+  modToPTM: /PTM/modToPTM.json
+  signorProteinToProtein: /signor/signorProteinToProtein.json
+  signorPtmToProtein: /signor/signorPtmToProtein.json
+
+  unimodXml: src/main/resources/pride/unimod.xml
+  pridemodXml: src/main/resources/pride/pride_mods.xml
+  psimodXml: src/main/resources/pride/PSI-MOD.obo
+
+
+
+---
+spring:
+  profiles: default
+#  datasource:
+#    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#    driverClassName: org.h2.Driver
+#
+#    username: sa
+#    password:
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+
+
+---
+#spring:
+#  profiles: mysql
+#  datasource:
+#    url: jdbc:mysql://localhost/pln
+#    driverClassName: com.mysql.jdbc.Driver
+#    username: root
+#    password:
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQLDialect

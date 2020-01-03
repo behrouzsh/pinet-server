@@ -1,0 +1,639 @@
+<!--<!DOCTYPE html>-->
+<!--&lt;!&ndash;<html lang="en" ng-app="plpApplication" xmlns:width="http://www.w3.org/1999/xhtml">&ndash;&gt;-->
+<!--&lt;!&ndash;[if lt IE 7]>-->
+<!--<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if IE 7]>-->
+<!--<html class="no-js lt-ie9 lt-ie8"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if IE 8]>-->
+<!--<html class="no-js lt-ie9"> <![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if gt IE 8]>&lt;!&ndash;>-->
+<!--<html class="no-js"> &lt;!&ndash;<![endif]&ndash;&gt;-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--<title>LINCS Proteomics Landing Page</title>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<meta name="description" content="Free HTML5 Template by FREEHTML5.CO"/>-->
+<!--<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive"/>-->
+<!--<meta name="author" content="FREEHTML5.CO"/>-->
+
+<!--&lt;!&ndash;-->
+<!--//////////////////////////////////////////////////////-->
+
+<!--FREE HTML5 TEMPLATE-->
+<!--DESIGNED & DEVELOPED by FREEHTML5.CO-->
+
+<!--Website: 		http://freehtml5.co/-->
+<!--Email: 			info@freehtml5.co-->
+<!--Twitter: 		http://twitter.com/fh5co-->
+<!--Facebook: 		https://www.facebook.com/fh5co-->
+
+<!--//////////////////////////////////////////////////////-->
+<!--&ndash;&gt;-->
+
+<!--&lt;!&ndash; Facebook and Twitter integration &ndash;&gt;-->
+<!--<meta property="og:title" content=""/>-->
+<!--<meta property="og:image" content=""/>-->
+<!--<meta property="og:url" content=""/>-->
+<!--<meta property="og:site_name" content=""/>-->
+<!--<meta property="og:description" content=""/>-->
+<!--<meta name="twitter:title" content=""/>-->
+<!--<meta name="twitter:image" content=""/>-->
+<!--<meta name="twitter:url" content=""/>-->
+<!--<meta name="twitter:card" content=""/>-->
+
+<!--&lt;!&ndash; Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;-->
+<!--<link rel="shortcut icon"-->
+<!--href="http://www.lincs-dcic.org/images/dcic-logo/favicon.png?v=2"/>-->
+
+<!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'-->
+<!--type='text/css'>-->
+
+<!--&lt;!&ndash; Animate.css &ndash;&gt;-->
+<!--<link rel="stylesheet" href="css/animate.css">-->
+<!--&lt;!&ndash; Flexslider &ndash;&gt;-->
+<!--<link rel="stylesheet" href="css/flexslider.css">-->
+<!--&lt;!&ndash; Icomoon Icon Fonts&ndash;&gt;-->
+<!--<link rel="stylesheet" href="css/icomoon.css">-->
+<!--&lt;!&ndash; Magnific Popup &ndash;&gt;-->
+<!--<link rel="stylesheet" href="css/magnific-popup.css">-->
+<!--&lt;!&ndash; Bootstrap  &ndash;&gt;-->
+<!--<link rel="stylesheet" href="../css/bootstrap.css">-->
+
+<!--&lt;!&ndash;-->
+<!--Default Theme Style-->
+<!--You can change the style.css (default color purple) to one of these styles-->
+<!--&ndash;&gt;-->
+<!--<link rel="stylesheet" href="css/style.css">-->
+
+<!--&lt;!&ndash; Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) &ndash;&gt;-->
+<!--<link rel="stylesheet" id="theme-switch" href="css/style.css">-->
+<!-- End demo purposes only -->
+
+
+<style>
+    /* For demo purpose only */
+
+    /*
+    GREEN
+    8dc63f
+    RED
+    FA5555
+    TURQUOISE
+    27E1CE
+    BLUE
+    2772DB
+    ORANGE
+    FF7844
+    YELLOW
+    FCDA05
+    PINK
+    F64662
+    PURPLE
+    7045FF
+
+    */
+
+    /* For Demo Purposes Only ( You can delete this anytime :-) */
+    #colour-variations {
+        padding: 10px;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        transition: 0.5s;
+        width: 140px;
+        position: fixed;
+        left: 0;
+        top: 100px;
+        z-index: 999999;
+        background: #fff;
+        /*border-radius: 4px;*/
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        -moz-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+    }
+
+    #colour-variations.sleep {
+        margin-left: -160px;
+    }
+
+    #colour-variations h3 {
+        text-align: center;;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #777;
+        margin: 0 0 10px 0;
+        padding: 0;;
+    }
+
+    #colour-variations ul,
+    #colour-variations ul li {
+        padding: 0;
+        margin: 0;
+    }
+
+    #colour-variations ul {
+        margin-bottom: 20px;
+        float: left;
+    }
+
+    #colour-variations li {
+        list-style: none;
+        display: inline;
+    }
+
+    #colour-variations li a {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        float: left;
+        margin: 5px;
+    }
+
+    #colour-variations li a[data-theme="style"] {
+        background: #8dc63f;
+    }
+
+    #colour-variations li a[data-theme="red"] {
+        background: #FA5555;
+    }
+
+    #colour-variations li a[data-theme="turquoise"] {
+        background: #27E1CE;
+    }
+
+    #colour-variations li a[data-theme="blue"] {
+        background: #2772DB;
+    }
+
+    #colour-variations li a[data-theme="orange"] {
+        background: #FF7844;
+    }
+
+    #colour-variations li a[data-theme="yellow"] {
+        background: #FCDA05;
+    }
+
+    #colour-variations li a[data-theme="pink"] {
+        background: #F64662;
+    }
+
+    #colour-variations li a[data-theme="purple"] {
+        background: #7045FF;
+    }
+
+    #colour-variations a[data-layout="boxed"],
+    #colour-variations a[data-layout="wide"] {
+        padding: 2px 0;
+        width: 48%;
+        border: 1px solid #ededed;
+        text-align: center;
+        color: #777;
+        display: block;
+    }
+
+    #colour-variations a[data-layout="boxed"]:hover,
+    #colour-variations a[data-layout="wide"]:hover {
+        border: 1px solid #777;
+    }
+
+    #colour-variations a[data-layout="boxed"] {
+        float: left;
+    }
+
+    #colour-variations a[data-layout="wide"] {
+        float: right;
+    }
+
+    .option-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 5px;
+        margin-right: -30px;
+        width: 30px;
+        height: 30px;
+        background: #8dc63f;
+        text-align: center;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        -moz-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
+    }
+
+    .option-toggle i {
+        top: 2px;
+        position: relative;
+    }
+
+    .option-toggle:hover, .option-toggle:focus, .option-toggle:active {
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #474E69;
+    }
+
+    /* ===========================
+       ====== Contact Form =======
+       =========================== */
+
+    input, textarea {
+        padding: 10px;
+        border: 1px solid #E5E5E5;
+        width: 200px;
+        color: #999999;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    }
+
+    textarea {
+        width: 400px;
+        height: 150px;
+        max-width: 400px;
+        line-height: 18px;
+    }
+
+    input:hover, textarea:hover,
+    input:focus, textarea:focus {
+        /*border-color: 1px solid #C9C9C9;*/
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+    }
+
+    .form label {
+        margin-left: 15px;
+        color: #999999;
+    }
+
+    .form {
+        padding-top: 10px;
+        margin-left: 15px;
+        color: #999999;
+    }
+
+    /* ===========================
+       ====== Submit Button ======
+       =========================== */
+
+    .submit input {
+        padding-top: 10px;
+        width: 100px;
+        height: 40px;
+        background-color: #474E69;
+        color: #FFF;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+    }
+
+</style>
+<!-- End demo purposes only -->
+
+
+<!--&lt;!&ndash; Modernizr JS &ndash;&gt;-->
+<!--<script src="js/modernizr-2.6.2.min.js"></script>-->
+<!--&lt;!&ndash; FOR IE9 below &ndash;&gt;-->
+<!--&lt;!&ndash;[if lt IE 9]>-->
+<!--<script src="js/respond.min.js"></script>-->
+<!--<![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;This is for the google analytics&ndash;&gt;-->
+<!--<script>-->
+<!--(function (i, s, o, g, r, a, m) {-->
+<!--i['GoogleAnalyticsObject'] = r;-->
+<!--i[r] = i[r] || function () {-->
+<!--(i[r].q = i[r].q || []).push(arguments)-->
+<!--}, i[r].l = 1 * new Date();-->
+<!--a = s.createElement(o),-->
+<!--m = s.getElementsByTagName(o)[0];-->
+<!--a.async = 1;-->
+<!--a.src = g;-->
+<!--m.parentNode.insertBefore(a, m)-->
+<!--})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');-->
+
+<!--ga('create', 'UA-101774139-1', 'auto');-->
+<!--ga('send', 'pageview');-->
+
+<!--</script>-->
+
+<!--</head>-->
+
+
+<!--
+    INFO:
+    Add 'boxed' class to body element to make the layout as boxed style.
+    Example:
+    <body class="boxed">
+-->
+<!--<body>-->
+<!--<div ng-controller="ContactCtrl as ctrl" ng-init="initNetwork()">-->
+
+<!-- Loader -->
+<!--<div class="fh5co-loader"></div>-->
+
+<!--<section id="fh5co-page">-->
+<!--<section id="fh5co-header">-->
+<!--<div class="container">-->
+<!--<nav role="navigation">-->
+<!--<ul class="pull-left left-menu">-->
+<!--&lt;!&ndashelp.htmlhref="about.html">About</a></li> &ndash;&gt;-->
+<!--<li><a style="color: #222222" href="assay.html">Assay View</a></li>-->
+<!--<li><a style="color: #222222" href="data.html">Data View</a></li>-->
+<!--<li><a style="color: #222222" href="tools.html">Tools</a></li>-->
+<!--</ul>-->
+<!--<h1 id="fh5co-logo"><a style="color: #222222" href="index.html">LINCS PROTEOMICS<span>.</span></a></h1>-->
+<!--<ul class="pull-right right-menu">-->
+<!--<li class="active"><a style="color: #222222" hrhelp.htmlhtml">About</a></li>-->
+<!--<li><a style="color: #222222" href="http://dev3.ccs.miami.edu:8080/dcic-proteomics/" target="_blank">Download</a></li>-->
+
+<!--</ul>-->
+<!--</nav>-->
+<!--</div>-->
+<!--</section>-->
+<!--This is for showing header when scroll down-->
+<!--<div class="topMenu">-->
+<!--<section id="fh5co-header2">-->
+<!--<div class="container">-->
+<!--<nav role="navigation">-->
+<!--<ul class="pull-left left-menu">-->
+<!--&lt;!&ndashelp.htmlhref="about.html">About</a></li> &ndash;&gt;-->
+<!--<li><a href="assay.html">Assay View</a></li>-->
+<!--<li><a href="data.html">Data View</a></li>-->
+<!--<li><a href="tools.html">Tools</a></li>-->
+
+
+<!--</ul>-->
+<!--<h1 id="fh5co-logo2"><a href="../index.html">LINCS PROTEOMICS</a></h1>-->
+<!--<ul class="pull-right right-menu">-->
+<!--<li><a hrhelp.htmlhtml">About</a></li>-->
+<!--<li><a href="contact.html">Contact Us</a></li>-->
+<!--<li><a href="http://dev3.ccs.miami.edu:8080/dcic-proteomics/" target="_blank">Download</a>-->
+<!--</li>-->
+
+
+<!--</ul>-->
+<!--</nav>-->
+<!--</div>-->
+<!--</section>-->
+<!--</div>-->
+
+
+<!--<section id="fh5co-testimonials" class="boredr-top">-->
+<br/>
+<div class="container" style="padding-top: 50px; background-color: #c9c9c9">
+    <div class="well col-sm-12" style="background-color: #c9c9c9">
+
+        Please let us know your thoughts and ideas about piNET and how PiNET team can
+        collaborate with you.
+    </div>
+</div>
+<div class="container " style="padding-top: 10px;">
+
+
+
+    <div >
+        <form class="form" id="frm">
+
+            <!--<input type="text" name="name" id="uniqueID" value="value" />-->
+
+
+            <p class="name">
+                <input type="text" name="name" id="name" placeholder="John Doe"/>
+                <label for="name">Name (required)</label>
+            </p>
+            <span id="name_validation" style="color: #00b3ee"></span>
+
+            <p class="email">
+                <input type="text" name="email" id="email" placeholder="mail@example.com"/>
+                <label for="email">Email (required)</label>
+            </p>
+            <span id="email_validation" style="color: #00b3ee"></span>
+
+            <p class="web">
+                <input type="text" name="web" id="web" placeholder="www.example.com"/>
+                <label for="web">Website</label>
+            </p>
+
+            <p class="text">
+                <textarea name="text" placeholder="Please give us your feedback."/></textarea>
+            </p>
+            <span id="message_validation" style="color: #00b3ee"></span>
+            <!--<p class="submit">-->
+
+            <button
+                    ng-click="ctrl.onSubmitMessage()">submit
+            </button>
+
+            <!--<input type="submit" value="Send"/>-->
+            <!--</p>-->
+        </form>
+
+        <p id="messageSuccess"></p>
+    </div>
+
+
+</div>
+
+<!--</section>-->
+
+
+<!-- END #fh5co-subscribe -->
+
+
+<!--<footer id="fh5co-footer">-->
+<!--<div class="container">-->
+
+<!--<div class="row row-bottom-padded-md">-->
+
+<!--<div class="col-md-5 col-sm-6 col-xs-10 animate-box">-->
+<!--<div class="fh5co-footer-widget">-->
+<!--&lt;!&ndash;<h3>Company</h3>&ndash;&gt;-->
+<!--<ul class="fh5co-links">-->
+<!--<li class="animate-box"><img src="images/footnote.jpg"-->
+<!--alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+<!--<div class="fh5co-copyright animate-box">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-md-12">-->
+
+<!--<p class="fh5co-left">-->
+
+<!--<small>&copy; 2017 <a href="http://www.lincsproject.org/">LINCS Program. All rights-->
+<!--reserved.</a></small>-->
+<!--</p>-->
+<!--<p class="fh5co-right">-->
+<!--<small class="fh5co-right">Developed within NIH funded <a-->
+<!--href="http://www.lincsproject.org/" target="_blank">LINCS</a> project.-->
+<!--</small>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</footer>-->
+<!-- END #fh5co-footer -->
+<!--</section>-->
+<!--</div>-->
+<!-- END #fh5co-page -->
+
+<!-- For demo purposes Only ( You may delete this anytime :-)
+<div id="colour-variations">
+    <a class="option-toggle"><i class="icon-gear"></i></a>
+    <h3>Preset Colors</h3>
+    <ul>
+        <li><a href="javascript: void(0);" data-theme="style"></a></li>
+        <li><a href="javascript: void(0);" data-theme="red"></a></li>
+        <li><a href="javascript: void(0);" data-theme="turquoise"></a></li>
+        <li><a href="javascript: void(0);" data-theme="blue"></a></li>
+        <li><a href="javascript: void(0);" data-theme="orange"></a></li>
+        <li><a href="javascript: void(0);" data-theme="yellow"></a></li>
+        <li><a href="javascript: void(0);" data-theme="pink"></a></li>
+        <li><a href="javascript: void(0);" data-theme="purple"></a></li>
+    </ul>
+    <a href="#" data-layout="boxed">Boxed</a>
+    <a href="#" data-layout="wide">Wide</a>
+</div> -->
+<!-- End demo purposes only -->
+
+
+<!--&lt;!&ndash; jQuery &ndash;&gt;-->
+<!--<script src="js/jquery.min.js"></script>-->
+<!--&lt;!&ndash; jQuery Easing &ndash;&gt;-->
+<!--<script src="js/jquery.easing.1.3.js"></script>-->
+<!--&lt;!&ndash; Bootstrap &ndash;&gt;-->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!--&lt;!&ndash; Waypoints &ndash;&gt;-->
+<!--<script src="js/jquery.waypoints.min.js"></script>-->
+<!--&lt;!&ndash; Flexslider &ndash;&gt;-->
+<!--<script src="js/jquery.flexslider-min.js"></script>-->
+<!--&lt;!&ndash; Magnific Popup &ndash;&gt;-->
+<!--<script src="js/jquery.magnific-popup.min.js"></script>-->
+<!--<script src="js/magnific-popup-options.js"></script>-->
+
+<!--&lt;!&ndash; For demo purposes only styleswitcher ( You may delete this anytime ) &ndash;&gt;-->
+<!--<script src="js/jquery.style.switcher.js"></script>-->
+<!--<script>-->
+<!--$(function () {-->
+<!--$('#colour-variations ul').styleSwitcher({-->
+<!--defaultThemeId: 'theme-switch',-->
+<!--hasPreview: false,-->
+<!--cookie: {-->
+<!--expires: 30,-->
+<!--isManagingLoad: true-->
+<!--}-->
+<!--});-->
+<!--$('.option-toggle').click(function () {-->
+<!--$('#colour-variations').toggleClass('sleep');-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+<!--&lt;!&ndash; End demo purposes only &ndash;&gt;-->
+
+<!--&lt;!&ndash; Main JS (Do not remove) &ndash;&gt;-->
+<!--<script src="js/main.js"></script>-->
+
+<!--&lt;!&ndash;-->
+<!--INFO:-->
+<!--jQuery Cookie for Demo Purposes Only.-->
+<!--The code below is to toggle the layout to boxed or wide-->
+<!--&ndash;&gt;-->
+<!--<script src="js/jquery.cookie.js"></script>-->
+<!--<script>-->
+<!--$(function () {-->
+
+<!--if ($.cookie('layoutCookie') != '') {-->
+<!--$('body').addClass($.cookie('layoutCookie'));-->
+<!--}-->
+
+<!--$('a[data-layout="boxed"]').click(function (event) {-->
+<!--event.preventDefault();-->
+<!--$.cookie('layoutCookie', 'boxed', {expires: 7, path: '/'});-->
+<!--$('body').addClass($.cookie('layoutCookie')); // the value is boxed.-->
+<!--});-->
+
+<!--$('a[data-layout="wide"]').click(function (event) {-->
+<!--event.preventDefault();-->
+<!--$('body').removeClass($.cookie('layoutCookie')); // the value is boxed.-->
+<!--$.removeCookie('layoutCookie', {path: '/'}); // remove the value of our cookie 'layoutCookie'-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+
+<!--<script>-->
+<!--$(document).ready(function () {-->
+<!--$('[data-toggle="tooltip"]').tooltip();-->
+<!--});-->
+<!--</script>-->
+
+<!--&lt;!&ndash; AngularJS &ndash;&gt;-->
+<!--<script src="../bower_components/angular/angular.min.js"></script>-->
+<!--&lt;!&ndash;<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>&ndash;&gt;-->
+<!--<script src="bower_components/angular-route/angular-route.min.js"></script>-->
+<!--&lt;!&ndash; Bootstrap JS &ndash;&gt;-->
+<!--<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+<!--&lt;!&ndash; Animation/Autocomplete &ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdn.jsdelivr.net/angularjs/1.5.5/angular-animate.min.js" data-semver="1.5.5"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdn.jsdelivr.net/angularjs/1.5.5/angular-sanitize.min.js" data-semver="1.5.5"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+
+
+<!--<script src="bower_components/https/angular-strap.js" data-semver="v2.3.8"></script>-->
+<!--<script src="bower_components/https/angular-strap.tpl.js" data-semver="v2.3.8"></script>-->
+<!--<script src="bower_components/https/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script>-->
+
+<!--&lt;!&ndash;<script src="https://mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="v2.3.8"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="v2.3.8"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://mgcrea.github.io/angular-strap/docs/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/v2.3.8/angular-strap.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/v2.3.8/angular-strap.tpl.min.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash; dirPagination JS &ndash;&gt;-->
+<!--<script src="../bower_components/bootstrap/dist/js/dirPagination.js"></script>-->
+
+
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>&ndash;&gt;-->
+<!--<script src="bower_components/https/angular-filter.min.js"></script>-->
+
+<!--&lt;!&ndash;d3js&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://d3js.org/d3-selection.v1.min.js"></script>&ndash;&gt;-->
+<!--<script src="http://d3js.org/d3.v3.js"></script>-->
+<!--<script src="../bower_components/d3/d3.legend.js"></script>-->
+
+<!--&lt;!&ndash; PLP js &ndash;&gt;-->
+
+<!--&lt;!&ndash; Ng-tags-input&ndash;&gt;-->
+<!--<script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>-->
+
+<!--&lt;!&ndash; Main JS (Do not remove) &ndash;&gt;-->
+<!--<script src="../js/app.js"></script>-->
+<!--<script src="../js/controllers.js"></script>-->
+<!--&lt;!&ndash;<script src="js/main.js"></script>&ndash;&gt;-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+

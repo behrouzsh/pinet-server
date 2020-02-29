@@ -201,6 +201,41 @@
     <script type="text/javascript" src="bower_components/canvg/canvg.js"></script>
     <script src="bower_components/canvg/canvas-toBlob.js"></script>
     <script src="bower_components/canvg/FileSaver.min.js"></script>
+
+
+
+
+
+
+
+    <script type="text/ng-template" id="myModalContent.html">
+
+        <div class="modal-body" >
+
+            <!-- iframe Placeholder -->
+            <!-- {{currentSiteUrl}} -->
+            <div style="float:right;margin-bottom:5px;margin-top:0px;">
+                <a class="btn btn-primary" type="button" ng-click="ok()" ng-href="{{currentSiteUrl}}" target="_blank"><i class="fa fa-external-link "></i> New Tab</a>
+                <!-- <button class="btn btn-primary" type="button" ng-click="ok()">OK</button> -->
+                <button class="btn btn-default" type="button" ng-click="cancel()"><i class="fa fa-close"></i> Close</button>
+                <!-- <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> -->
+            </div>
+
+            <iframe width="100%" height="600" ng-src="{{currentSiteUrl}}"> </iframe>
+            <!-- <iframe width="100%" height="600" src="http://stitch.embl.de/newstring_cgi/show_network_section.pl?identifier=CID000001833&required_score=200&limit=10&network_flavor=evidence"> </iframe> -->
+
+        </div>
+
+
+    </script>
+
+
+    <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">-->
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>-->
+    <!--<script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
+
     <!---->
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>-->
     <!--<script src="js/pie/d3pie.min.js"></script>-->
@@ -913,8 +948,8 @@
                             <span> <a href="http://ilincs.org/" target="_blank">iLINCS</a></span>
                             <br/>
                             <span> <a href="http://lincsproteomics.org/" target="_blank">LINCS Proteomics</a></span>
-                            <br/>
-                            <span> <a href="http://pilincs.org/" target="_blank">piLINCS</a></span>
+                            <!--<br/>-->
+                            <!--<span> <a href="http://pilincs.org/" target="_blank">piLINCS</a></span>-->
                             <br/>
                             <span> <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">LINCS Data Portal</a></span>
                             <br/>

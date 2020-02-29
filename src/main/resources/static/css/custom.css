@@ -358,7 +358,32 @@ caption {
 
     /*position: absolute;*/
 /*}*/
+.btn1top {
+    /*color:black;*/
+    display: block;
+    margin: 30px;
+    padding: 7px 15px;
+    font: 300 150% langdon;
+    /*background: transparent;*/
+    border: 3px solid black;
+    cursor: pointer;
+    margin-top: -300px;
 
+    position: absolute;
+}
+.btn2top {
+    /*color:black;*/
+    display: block;
+    margin: 30px;
+    padding: 7px 15px;
+    font: 300 150% langdon;
+    /*background: transparent;*/
+    border: 3px solid black;
+    cursor: pointer;
+    margin-top: -250px;
+
+    position: absolute;
+}
 .btn1 {
     /*color:black;*/
     display: block;
@@ -470,6 +495,34 @@ caption {
     position: absolute;
 }
 
+.btn9 {
+    /*color:black;*/
+    display: block;
+    margin: 30px;
+    padding: 7px 15px;
+    font: 300 150% langdon;
+    /*background: transparent;*/
+    border: 3px solid black;
+    cursor: pointer;
+    margin-top: 330px;
+
+    position: absolute;
+}
+.btn1top:hover {
+    border: 3px solid;
+    box-shadow: inset 0 0 200px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}
+.btn2top:hover {
+    border: 3px solid;
+    box-shadow: inset 0 0 200px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}
+
 .btn1:hover {
     border: 3px solid;
     box-shadow: inset 0 0 200px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
@@ -526,7 +579,13 @@ caption {
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #427388;
 }
-
+.btn9:hover {
+    border: 3px solid;
+    box-shadow: inset 0 0 200px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}
 /*This is for parallel layout*/
 /*@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);*/
 /*body {*/
@@ -1740,3 +1799,113 @@ ul {
     /*left: 5px;*/
     /*top: 5px;*/
 /*}*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 3.15px 0;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 7.7px;
+    cursor: pointer;
+    box-shadow: 4.6px 4.6px 11.3px rgba(67, 39, 0, 0.22), 0px 0px 4.6px rgba(93, 54, 0, 0.22);
+    background: rgba(232, 255, 0, 0.88);
+    border-radius: 1.3px;
+    border: 1.4px solid rgba(149, 189, 227, 0.49);
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 5.9px rgba(93, 213, 193, 0.45), 0px 0px 0px rgba(113, 218, 201, 0.45);
+    border: 0.4px solid rgba(222, 185, 98, 0.49);
+    height: 14px;
+    width: 14px;
+    border-radius: 31px;
+    background: #ff62ff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -4.55px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: rgba(238, 255, 61, 0.88);
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 7.7px;
+    cursor: pointer;
+    box-shadow: 4.6px 4.6px 11.3px rgba(67, 39, 0, 0.22), 0px 0px 4.6px rgba(93, 54, 0, 0.22);
+    background: rgba(232, 255, 0, 0.88);
+    border-radius: 1.3px;
+    border: 1.4px solid rgba(149, 189, 227, 0.49);
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 5.9px rgba(93, 213, 193, 0.45), 0px 0px 0px rgba(113, 218, 201, 0.45);
+    border: 0.4px solid rgba(222, 185, 98, 0.49);
+    height: 14px;
+    width: 14px;
+    border-radius: 31px;
+    background: #ff62ff;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 7.7px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: rgba(176, 194, 0, 0.88);
+    border: 1.4px solid rgba(149, 189, 227, 0.49);
+    border-radius: 2.6px;
+    box-shadow: 4.6px 4.6px 11.3px rgba(67, 39, 0, 0.22), 0px 0px 4.6px rgba(93, 54, 0, 0.22);
+}
+input[type=range]::-ms-fill-upper {
+    background: rgba(232, 255, 0, 0.88);
+    border: 1.4px solid rgba(149, 189, 227, 0.49);
+    border-radius: 2.6px;
+    box-shadow: 4.6px 4.6px 11.3px rgba(67, 39, 0, 0.22), 0px 0px 4.6px rgba(93, 54, 0, 0.22);
+}
+input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 5.9px rgba(93, 213, 193, 0.45), 0px 0px 0px rgba(113, 218, 201, 0.45);
+    border: 0.4px solid rgba(222, 185, 98, 0.49);
+    height: 14px;
+    width: 14px;
+    border-radius: 31px;
+    background: #ff62ff;
+    cursor: pointer;
+    height: 7.7px;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: rgba(232, 255, 0, 0.88);
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: rgba(238, 255, 61, 0.88);
+}
+
+
+.modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal2-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-dialog {width: 1000px;}

@@ -276,3 +276,198 @@
     max-width: 100em;
     width: 100%;
 }
+
+
+
+
+
+/*++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++*/
+/*
+ CSS for the main interaction
+*/
+.tabset2p > input[type="radio"] {
+    position: absolute;
+    left: -200vw;
+
+}
+
+.tabset2p .tab-panel {
+    display: none;
+}
+
+.tabset2p > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset2p > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset2p > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset2p > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset2p > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset2p > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+    display: block;
+}
+
+/*
+ Styling
+*/
+
+
+.tabset2p > label {
+    position: relative;
+    display: inline-block;
+    padding: 17px 15px 12px;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: 600;
+    width: 49%;
+    color: white;
+    background: steelblue;
+    border-radius: 15px 15px 0px 0px;
+}
+
+/*.tabset3 > label::after {*/
+/*content: "";*/
+/*position: absolute;*/
+/*left: 15px;*/
+/*bottom: 10px;*/
+/*width: 92%;*/
+/*height: 1px;*/
+/*background: black;*/
+/*}*/
+
+
+.tabset2p > label:hover{
+    background:  #3f75a2;
+
+}
+
+/*.tabset3 > label:hover::after,*/
+/*.tabset3 > input:focus + label::after,*/
+/*.tabset3 > input:checked + label::after {*/
+/*background: #06c;*/
+/*}*/
+
+.tabset2p > input:checked + label {
+    color: white;
+    background: #23415a;
+
+}
+/*.tabset3 > input:checked + label:after {*/
+/*border-bottom-color: #333;  !* arrow color *!*/
+
+/*!* positioning *!*/
+/*position: absolute;*/
+/*top: -24px;*/
+/*left: 255px;*/
+/*z-index: 1;*/
+/*}*/
+/*.tabset3 > input:checked::after {*/
+/*content: "";*/
+/*position: absolute;*/
+/*bottom: -15px;*/
+/*left: 50px;*/
+/*border-width: 15px 15px 0;*/
+/*border-style: solid;*/
+/*border-color: #F3961C transparent;*/
+/*display: block;*/
+/*width: 0;*/
+/*}*/
+
+
+/*.tabset3 > input:checked:after {*/
+/*content: '';*/
+/*margin: auto;*/
+/*position: absolute;*/
+/*bottom: -10px;*/
+/*left: 0;*/
+/*right: 0;*/
+/*width: 0;*/
+/*height: 0;*/
+/*border-left: 10px solid transparent;*/
+/*border-right: 10px solid transparent;*/
+/*border-top: 10px solid steelblue;*/
+/*}*/
+.tabset2p > input:checked + label::after {
+    color: transparent;
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-top : 15px solid #23415a;
+    border-left : 15px solid transparent;
+    border-right : 15px solid transparent;
+    width: 0;
+}
+/*.tabset3 > input.checked::after {*/
+/*color: transparent;*/
+/*content: "";*/
+/*position: absolute;*/
+/*bottom: -12px;*/
+/*left: 0;*/
+/*right: 0;*/
+/*margin: auto;*/
+/*border-top : 15px solid steelblue;*/
+/*border-left : 15px solid transparent;*/
+/*border-right : 15px solid transparent;*/
+/*width: 0;*/
+/*}*/
+.tabset2p > label.disabled{
+    color:  white;
+    background: dimgray;
+    cursor: auto;
+}
+/*.tabset3 > label.disabled + label::after {*/
+/*color: transparent;*/
+/*content: "";*/
+/*position: absolute;*/
+/*right: -12px;*/
+/*left: 0;*/
+/*!*right: 0;*!*/
+/*margin: auto;*/
+/*border-top : 15px solid dimgray;*/
+/*border-left : 15px solid transparent;*/
+/*border-right : 15px solid transparent;*/
+/*width: 0;*/
+/*}*/
+/*.tabset3 > label.disabled::after {*/
+/*color: black;*/
+/*background: black;*/
+/*}*/
+.tabset2p > label.disabled:hover{
+    color:  white;
+    background: dimgray;
+
+}
+/*.tabset3 > label:hover::after,*/
+/*.tabset3 > input:focus + label::after,*/
+/*.tabset3 > input:checked + label::after {*/
+/*background: #06c;*/
+/*}*/
+
+.tabset2p > input:checked + label {
+    border-color: #ccc;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.tab-panel {
+    padding: 30px 0;
+    border-top: 1px solid #ccc;
+}
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+.tabset2p {
+    max-width: 100em;
+    width: 100%;
+}

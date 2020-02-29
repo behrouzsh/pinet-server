@@ -1240,7 +1240,10 @@ public class EnrichrService {
         System.out.println("computing network for gene-pathway association");
 //        if (pathwayClass.equals("pathways")){
 
-
+        pathways.add("KEGG_2019_Human");
+        pathways.add("KEGG_2019_Mouse");
+        pathways.add("WikiPathways_2019_Human");
+        pathways.add("WikiPathways_2019_Mouse");
             pathways.add("KEGG_2015");
             pathways.add("WikiPathways_2015");
             pathways.add("Panther_2015");
@@ -1361,18 +1364,22 @@ public class EnrichrService {
         JSONObject newPathNode = new JSONObject();
         JSONObject newEdgeNode = new JSONObject();
         JSONObject network = new JSONObject();
+
         //System.out.println(String.valueOf(pathways));
         for (int index = 0; index < pathways.size(); index++) {
             String queryPathway = pathways.get(index);
-            //System.out.println(queryPathway);
+            System.out.println(queryPathway);
             idx = 0;
             JSONObject unique = new JSONObject();
             JSONArray nodes = new JSONArray();
             JSONArray edges = new JSONArray();
+            JSONArray pathwayTable = new JSONArray();
             for (Object key : input.keySet()) {
                 //based on you key types
                 String keyStr = (String) key;
                 JSONObject keyValue = (JSONObject) input.get(keyStr);
+                System.out.println(keyValue.toJSONString());
+                System.out.println("---------------");
 
                 String pathway;
 
@@ -1403,6 +1410,7 @@ public class EnrichrService {
             JSONObject nodeEdgeJson = new JSONObject();
             nodeEdgeJson.put("nodes", nodes);
             nodeEdgeJson.put("edges", edges);
+            nodeEdgeJson.put("table", pathwayTable);
             //==============================================
             network.put(queryPathway, nodeEdgeJson);
         }

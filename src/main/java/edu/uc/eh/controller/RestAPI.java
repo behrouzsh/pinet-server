@@ -9,10 +9,14 @@ import edu.uc.eh.structures.StringDoubleStringList;
 import edu.uc.eh.utils.CsvToJson;
 import edu.uc.eh.utils.CsvToJson;
 import org.apache.commons.math3.stat.inference.TTest;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.SpreadsheetVersion;
+import org.apache.poi.ss.formula.udf.UDFFinder;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -56,6 +60,7 @@ import static org.apache.commons.math3.stat.inference.TestUtils.t;
 
 /**
  * This endpoint is to test slashes in values of parameters submitted to REST API
+ *
  * @param
  * @return
  */
@@ -86,11 +91,12 @@ public class RestAPI implements ErrorController {
     private final IteratorIncrementService iteratorIncrementService;
     private final NetworkFromCSVService networkFromCSV;
     private final PsiModExtensionService psiModExtensionService;
-//    private final UniprotRepositoryH2 proteinRepositoryH2;
+    //    private final UniprotRepositoryH2 proteinRepositoryH2;
     private final UniprotRepository uniprotRepository;
     private final PrideService prideService;
     private final FastaService fastaService;
     private final PeptideRegexServive peptideRegexServive;
+    private final DeepPhosService deepPhosService;
 
 //    private final HarmonizomeProteinService harmonizomeProteinService;
 //    private final HarmonizomeGeneService harmonizomeGeneService;
@@ -101,7 +107,7 @@ public class RestAPI implements ErrorController {
 
     @Autowired
     //public RestAPI(HarmonizomeGeneService harmonizomeGeneService, HarmonizomeProteinService harmonizomeProteinService, PrositeService prositeService, PsiModService psiModService, UniprotService uniprotService, EnrichrService enrichrService, PCGService pcgService, KinaseService kinaseService, ShorthandService shorthandService, PhosphoService phosphoService, HarmonizomeGeneService harmonizomeGeneServics1) {
-    public RestAPI(ErrorAttributes errorAttributes, PeptideSearchService peptideSearchService, PrositeService prositeService, PrositeService2 prositeService2, PsiModService psiModService, UniprotService uniprotService, UniprotService2 uniprotService2, EnrichrService enrichrService, IlincsService ilincsService, PCGService pcgService, KinaseService kinaseService, ShorthandService shorthandService, PhosphoServiceV2 phosphoServiceV2, PhosphoService phosphoService, PirService pirService, EnrichrServiceV2 enrichrServiceV2, IteratorIncrementService iteratorIncrementService, NetworkFromCSVService networkFromCSV, PsiModExtensionService psiModExtensionService, PtmService ptmService, UniprotRepository uniprotRepository, PrideService prideService, FastaService fastaService, PeptideRegexServive peptideRegexServive) {
+    public RestAPI(ErrorAttributes errorAttributes, PeptideSearchService peptideSearchService, PrositeService prositeService, PrositeService2 prositeService2, PsiModService psiModService, UniprotService uniprotService, UniprotService2 uniprotService2, EnrichrService enrichrService, IlincsService ilincsService, PCGService pcgService, KinaseService kinaseService, ShorthandService shorthandService, PhosphoServiceV2 phosphoServiceV2, PhosphoService phosphoService, PirService pirService, EnrichrServiceV2 enrichrServiceV2, IteratorIncrementService iteratorIncrementService, NetworkFromCSVService networkFromCSV, PsiModExtensionService psiModExtensionService, PtmService ptmService, UniprotRepository uniprotRepository, PrideService prideService, FastaService fastaService, PeptideRegexServive peptideRegexServive, DeepPhosService deepPhosService) {
         this.peptideSearchService = peptideSearchService;
 
         this.prositeService = prositeService;
@@ -126,14 +132,16 @@ public class RestAPI implements ErrorController {
         this.networkFromCSV = networkFromCSV;
         this.psiModExtensionService = psiModExtensionService;
         this.errorAttributes = errorAttributes;
-      //  this.proteinRepositoryH2 = proteinRepositoryH2;
+        //  this.proteinRepositoryH2 = proteinRepositoryH2;
         this.uniprotRepository = uniprotRepository;
         this.prideService = prideService;
         this.fastaService = fastaService;
         this.peptideRegexServive = peptideRegexServive;
+        this.deepPhosService = deepPhosService;
+
     }
 
-//This part is for error handling, going to home page if there was an error in the address
+    //This part is for error handling, going to home page if there was an error in the address
     private ErrorAttributes errorAttributes;
 
     private final static String ERROR_PATH = "/error";
@@ -146,6 +154,7 @@ public class RestAPI implements ErrorController {
 
     /**
      * Supports the HTML Error View
+     *
      * @param request
      * @return
      */
@@ -156,6 +165,7 @@ public class RestAPI implements ErrorController {
 
     /**
      * Supports other formats like JSON, XML
+     *
      * @param request
      * @return
      */
@@ -199,8 +209,7 @@ public class RestAPI implements ErrorController {
         if (statusCode != null) {
             try {
                 return HttpStatus.valueOf(statusCode);
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
             }
         }
         return HttpStatus.INTERNAL_SERVER_ERROR;
@@ -219,8 +228,6 @@ public class RestAPI implements ErrorController {
 //     * @return An http OK status in case of success, an http 4xx status in case
 //     * of errors.
 //     */
-
-
 
 
 //
@@ -244,7 +251,6 @@ public class RestAPI implements ErrorController {
 //    }
 
 
-
 //    @RequestMapping(value="api/upload", method=RequestMethod.POST)
 //    public String handleFileUpload(@RequestParam("name") String name,
 //                                   @RequestParam("file") MultipartFile file){
@@ -265,18 +271,18 @@ public class RestAPI implements ErrorController {
 //        }
 //    }
 
-    @RequestMapping(value="api/uploadCSV", method=RequestMethod.POST)
+    @RequestMapping(value = "api/uploadCSV", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject handleFileUpload(@RequestParam("file") MultipartFile file) {
         JSONArray outputError = new JSONArray();
         JSONObject outputErrorItem = new JSONObject();
         JSONObject net = new JSONObject();
         JSONObject output = new JSONObject();
-        output.put("tag",200);
-        outputErrorItem.put("network","");
+        output.put("tag", 200);
+        outputErrorItem.put("network", "");
 //            outputError.put("peptidesParsed","");
 
-        outputErrorItem.put("tag",400);
+        outputErrorItem.put("tag", 400);
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
 
@@ -285,7 +291,7 @@ public class RestAPI implements ErrorController {
 
                     net = networkFromCSV.computeNetworkFromInputJson(CsvToJson.convert(convertMultipartToFile(file)));
                     System.out.print(net);
-                    output.put("network",net);
+                    output.put("network", net);
                     return net;
 
                 } catch (FileNotFoundException e) {
@@ -303,15 +309,13 @@ public class RestAPI implements ErrorController {
 
                     return outputErrorItem;
                 }
-            }
-            else {
+            } else {
                 outputErrorItem.put("message", "Try uploading a CSV file");
 
 
                 return outputErrorItem;
             }
-        }
-        else{
+        } else {
             outputErrorItem.put("message", "File is Empty");
 
             return outputErrorItem;
@@ -319,10 +323,11 @@ public class RestAPI implements ErrorController {
         }
     }
 
-    @RequestMapping(value="api/upload", method=RequestMethod.POST)
+
+    @RequestMapping(value = "api/upload", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject handleFileUpload(@RequestParam("organism") String organism,
-                                                    @RequestParam("file") MultipartFile file){
+                                       @RequestParam("file") MultipartFile file) {
 //        public ResponseEntity<?> handleFileUpload(@RequestParam("name") String name,
 //                @RequestParam("file") MultipartFile file){
 
@@ -350,350 +355,583 @@ public class RestAPI implements ErrorController {
             String message;
             String fileName = file.getOriginalFilename();
 
+
             JSONObject outputError = new JSONObject();
-            outputError.put("dataForAllPeptides","");
-            outputError.put("inputArray","");
-            outputError.put("volcanoArray","");
-            outputError.put("localMotifs","");
-            outputError.put("localPeptides","");
+            outputError.put("dataForAllPeptides", "");
+            outputError.put("inputArray", "");
+            outputError.put("volcanoArray", "");
+            outputError.put("localMotifs", "");
+            outputError.put("localPeptides", "");
 //            outputError.put("peptidesParsed","");
-            outputError.put("tag",400);
+            outputError.put("tag", 400);
 
 
-
-            if (fileName.endsWith(".csv")) {
-                try {
-
-                    // Create an object of filereader
-                    // class with CSV file as a parameter.
-                    FileReader filereader = new FileReader( convertMultipartToFile(file));
-
-
-
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    outputError.put("message", "Error: " + e);
-                    return outputError;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    outputError.put("message", "Error: " + e);
-                    return outputError;
-                }
-            }
-            else if(fileName.endsWith(".xls") || fileName.endsWith(".xlsx")) {
+//            if (fileName.endsWith(".csv")) {
+//                try {
+//
+//                    // Create an object of filereader
+//                    // class with CSV file as a parameter.
+//                    FileReader filereader = new FileReader( convertMultipartToFile(file));
+//                    XSSFWorkbook workBook = new XSSFWorkbook();
+//                    XSSFSheet sheet = workBook.createSheet("sheet1");
+//                    String currentLine=null;
+//                    int RowNum=0;
+//                    BufferedReader br = new BufferedReader(new FileReader(convertMultipartToFile(file)));
+//                    while ((currentLine = br.readLine()) != null) {
+//                        String str[] = currentLine.split(",");
+//                        RowNum++;
+//                        XSSFRow currentRow=sheet.createRow(RowNum);
+//                        for(int i=0;i<str.length;i++){
+//                            currentRow.createCell(i).setCellValue(str[i]);
+//                        }
+//                    }
+//
+//
+//                    Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
+//
+//
+//                    FileOutputStream fileOutputStream =  new FileOutputStream(xlsxFileAddress);
+//                    workBook.write(fileOutputStream);
+//                    fileOutputStream.close();
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                    outputError.put("message", "Error: " + e);
+//                    return outputError;
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    outputError.put("message", "Error: " + e);
+//                    return outputError;
+//                }
+//            }
+//            else
+            if (fileName.endsWith(".xls") || fileName.endsWith(".xlsx") || fileName.endsWith(".csv")) {
                 try {
 
 
                     int rowIter;
                     int colIter;
                     Boolean first_line = true;
-                    //Boolean second_line = true;
 
-                    // Get the filename and build the local file path
-                    //String filename = file.getOriginalFilename();
-//            String directory = env.getProperty("netgloo.paths.uploadedFiles");
-//            String filepath = Paths.get(directory, filename).toString();
+                    SXSSFWorkbook workbook = new SXSSFWorkbook();
+                    if (fileName.endsWith(".csv")) {
 
-                    // Save the file locally
-//      BufferedOutputStream stream =
-//          new BufferedOutputStream(new FileOutputStream(new File(filepath)));
 
-                    //=====================
-                    Workbook workbook = WorkbookFactory.create(convertMultipartToFile(file));
-
-                    // Retrieving the number of sheets in the Workbook
-                    System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
-
-        /*
-           =============================================================
-           Iterating over all the sheets in the workbook (Multiple ways)
-           =============================================================
-        */
-
-                    // 1. You can obtain a sheetIterator and iterate over it
-//                Iterator<Sheet> sheetIterator = workbook.sheetIterator();
-//                System.out.println("Retrieving Sheets using Iterator");
-//                while (sheetIterator.hasNext()) {
-//                    Sheet sheet = sheetIterator.next();
-//                    System.out.println("=> " + sheet.getSheetName());
-//                }
-
-                    // 2. Or you can use a for-each loop
-                    System.out.println("Retrieving Sheets using for-each loop");
-                    for (Sheet sheet : workbook) {
-                        System.out.println("=> " + sheet.getSheetName());
-                    }
-
-                    // 3. Or you can use a Java 8 forEach with lambda
-//                System.out.println("Retrieving Sheets using Java 8 forEach with lambda");
-//                workbook.forEach(sheet -> {
-//                    System.out.println("=> " + sheet.getSheetName());
-//                });
-
-        /*
-           ==================================================================
-           Iterating over all the rows and columns in a Sheet (Multiple ways)
-           ==================================================================
-        */
-
-                    // Getting the Sheet at index zero
-                    Sheet sheet = workbook.getSheetAt(0);
-
-                    // Create a DataFormatter to format and get each cell's value as String
-                    DataFormatter dataFormatter = new DataFormatter();
-
-                    // 1. You can obtain a rowIterator and columnIterator and iterate over them
-                    System.out.println("\n\nIterating over Rows and Columns using Iterator\n");
-                    Iterator<org.apache.poi.ss.usermodel.Row> rowIterator = sheet.rowIterator();
-
-                    while (rowIterator.hasNext()) {
-                        org.apache.poi.ss.usermodel.Row row = rowIterator.next();
-                        if (first_line) {
-
-                            //System.out.println("first line true");
-                            first_line = false;
-                            colIter = 0;
-                            Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
-                            while (cellIterator.hasNext()) {
-                                org.apache.poi.ss.usermodel.Cell cell = cellIterator.next();
-                                String cellValue = dataFormatter.formatCellValue(cell);
-//                            System.out.print(cellValue + "\t");
-//                            System.out.print(cellValue );
-                                keys.add(cellValue);
-                                colIter += 1;
-
-                            }
-                            //System.out.println(keys);
-                            if (colIter > 2 && colIter < 7) {
-
-                                outputError.put("message", "Error: Data file column size error, there are more than two and less than seven columns.");
+                        org.apache.poi.ss.usermodel.Sheet csvsheet = workbook.createSheet("sheet1");
+                        String currentLine = null;
+                        int RowNum = -1;
+                        BufferedReader br = new BufferedReader(new FileReader(convertMultipartToFile(file)));
+                        colIter = 0;
+                        while ((currentLine = br.readLine()) != null) {
+                            String str[] = currentLine.split(",");
+                            RowNum++;
+                            if (RowNum > 2000) {
+                                outputError.put("message", "Error: please contact pinet support for pinet-stand-alone package to analyze larger files..");
                                 return outputError;
-//                            error1.put("error","data file column size error, there are more than two and less than seven columns.");
-//                            //errorArray1.add(error1);
-//                            return error1;
-                            }
-                            if (colIter > 6) {
-                                int g1 = 0;
-                                int g2 = 0;
-                                JSONObject groups = new JSONObject();
-                                for (int colIterator = 1; colIterator < keys.size(); colIterator++) {
-                                    String splitted = ((String) keys.get(colIterator)).split("_")[0];
-
-                                    if (!groupsJson.containsKey(keys.get(colIterator))) {
-                                        groupsJson.put(keys.get(colIterator), splitted);
-                                        if (!groupsArray.contains(splitted)) {
-                                            groupsArray.add(splitted);
-                                        }
-
-                                    } else {
-
-                                        outputError.put("message", "Error: Duplicate column names. Please see the example for formatting");
-                                        return outputError;
-                                    }
-                                }
-                                if (groupsArray.size() != 2) {
-
-                                    outputError.put("message", String.format("Error: Number of groups is %d which should be 2.", groupsArray.size()));
-                                    return outputError;
-                                } else {
-
-                                    firstGroup = groupsArray.get(0);
-                                    secondGroup = groupsArray.get(1);
-                                    for (Object key : groupsJson.keySet()) {
-                                        String keyStr = (String) key;
-                                        String val = (String) groupsJson.get(keyStr);
-                                        if (val.equals(firstGroup)) {
-                                            g1 += 1;
-                                        }
-                                        if (val.equals(secondGroup)) {
-                                            g2 += 1;
-                                        }
-
-                                    }
-                                    if (g1 < 3) {
-                                        outputError.put("message", String.format("Error: Number of group %s is less than 3.", firstGroup));
-                                        return outputError;
-                                    }
-                                    if (g2 < 3) {
-                                        outputError.put("message", String.format("Error: Number of group %s is less than 3.", secondGroup));
-                                        return outputError;
-                                    }
-
-                                }
-//                            System.out.println(groupsArray);
-//                            System.out.println(groupsJson);
-//                            System.out.println(firstGroup);
-//                            System.out.println(secondGroup);
-//                            System.out.println(g1);
-//                            System.out.println(g2);
 
                             }
 
 
-//                        if (iter < 2)
-//                        {
-//
-//                            error1.put("error","data file column size error, there are more less than two columns.");
-//                            errorArray1.add(error1);
-//                            return errorArray1;
-//                        }
-//                        System.out.print("\n");
-                            //System.out.println(colIter);
 
-                        } else {
-                            colIter = 0;
-                            // Now let's iterate over the columns of the current row
-                            Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
-                            JSONObject responseJSON = new JSONObject();
-                            JSONObject volcanoJSON = new JSONObject();
-                            peptide = "";
+                            Row currentRow = csvsheet.createRow(RowNum);
 
-                            ArrayList list1 = new ArrayList<Double>();
-                            ArrayList list2 = new ArrayList<Double>();
-                            ArrayList pvAndFc = new ArrayList<Double>(2);
-                            Boolean lis1Flag = false;
-                            Boolean lis2Flag = false;
-                            while (cellIterator.hasNext()) {
-                                org.apache.poi.ss.usermodel.Cell cell = cellIterator.next();
-                                String cellValue = dataFormatter.formatCellValue(cell);
-                                //System.out.println(cellValue);
-                                firstGroup = groupsArray.get(0);
-                                secondGroup = groupsArray.get(1);
-                                if (cellValue == null || cellValue.isEmpty()) {
-                                    // doSomething
 
-                                    outputError.put("message", String.format("Error: Null or empty values exist in the uploaded file, please change the null and empty values and submit again.", peptide));
-                                    return outputError;
-                                }
 
-                                if (colIter == 0) {
+                            if (first_line) {
 
-                                    peptide = cellValue;
-                                    if (!peptides.contains(peptide)) {
-                                        peptides.add(peptide);
-                                        parsedPeptide = getMotifAndModificationFromPeptide(peptide);
-                                        //peptidesParsed.add(parsedPeptide);
-                                        motif = (String) parsedPeptide.get("motif");
-                                        motifs.add(motif);
-
-                                    } else {
-
-                                        outputError.put("message", String.format("Error: Duplicate peptide %s in list.", peptide));
-                                        return outputError;
-//                                    error1.put("error",String.format("Duplicate peptide %s in list.",peptide));
-//                                    //errorArray1.add(error1);
-//                                    return error1;
-                                    }
-                                    responseJSON.put("Peptide", cellValue);
-                                    responseJSON.put("sequence", motif);
-                                    responseJSON.put("modification", parsedPeptide.get("modifications"));
-                                    responseJSON.put("group1", firstGroup);
-                                    responseJSON.put("group2", secondGroup);
+                                //System.out.println("first line true");
+                                first_line = false;
+                                colIter = 0;
+                                for (int i = 0; i < str.length; i++) {
+                                    keys.add(str[i]);
                                     colIter += 1;
+                                }
 
-                                } else {
 
+                                System.out.println(keys);
+                                if (colIter > 2 && colIter < 5) {
 
-                                    //System.out.println(keys.get(colIter)+ "  "+cellValue );
-                                    //                            System.out.print(cellValue + "++++++");
+                                    outputError.put("message", "Error: Data file column size error, at least one the groups has less than two samples.");
+                                    return outputError;
+                                }
+                                if (colIter > 4) {
+                                    int g1 = 0;
+                                    int g2 = 0;
+                                    JSONObject groups = new JSONObject();
+                                    for (int colIterator = 1; colIterator < keys.size(); colIterator++) {
+                                        String splitted = ((String) keys.get(colIterator)).split("_")[0];
 
-                                    try {
-                                        Double cellValueDouble = Double.parseDouble(cellValue);
-
-                                        if (groupsJson.get(keys.get(colIter)).equals(firstGroup)) {
-                                            list1.add(cellValueDouble);
-                                            if (cellValueDouble != 0.0) lis1Flag = true;
+                                        if (!groupsJson.containsKey(keys.get(colIterator))) {
+                                            groupsJson.put(keys.get(colIterator), splitted);
+                                            if (!groupsArray.contains(splitted)) {
+                                                groupsArray.add(splitted);
+                                            }
 
                                         } else {
-                                            list2.add(cellValueDouble);
-                                            if (cellValueDouble != 0.0) lis2Flag = true;
+
+                                            outputError.put("message", "Error: Duplicate column names. Please see the example for formatting");
+                                            return outputError;
                                         }
-                                        responseJSON.put(keys.get(colIter), cellValueDouble);
-                                        colIter += 1;
-                                    } catch (Exception e) {
-                                        outputError.put("message", String.format("Error: Value %s is not double.", cellValue));
+                                    }
+                                    if (groupsArray.size() != 2) {
+
+                                        outputError.put("message", String.format("Error: Number of groups is %d which should be 2.", groupsArray.size()));
                                         return outputError;
+                                    } else {
+
+                                        firstGroup = groupsArray.get(0);
+                                        secondGroup = groupsArray.get(1);
+                                        for (Object key : groupsJson.keySet()) {
+                                            String keyStr = (String) key;
+                                            String val = (String) groupsJson.get(keyStr);
+                                            if (val.equals(firstGroup)) {
+                                                g1 += 1;
+                                            }
+                                            if (val.equals(secondGroup)) {
+                                                g2 += 1;
+                                            }
+
+                                        }
+                                        if (g1 < 2) {
+                                            outputError.put("message", String.format("Error: Number of group %s is less than 2.", firstGroup));
+                                            return outputError;
+                                        }
+                                        if (g2 < 2) {
+                                            outputError.put("message", String.format("Error: Number of group %s is less than 2.", secondGroup));
+                                            return outputError;
+                                        }
+
+                                    }
+
+                                }
+
+                            } else { //Not first line for csv
+
+                                colIter = 0;
+                                //RowNum += 1;
+                                firstGroup = groupsArray.get(0);
+                                secondGroup = groupsArray.get(1);
+                                System.out.println("\n" + RowNum + "------------");
+
+                                JSONObject responseJSON = new JSONObject();
+                                JSONObject volcanoJSON = new JSONObject();
+                                peptide = "";
+
+                                ArrayList list1 = new ArrayList<Double>();
+                                ArrayList list2 = new ArrayList<Double>();
+                                ArrayList pvAndFc = new ArrayList<Double>(2);
+                                Boolean lis1Flag = false;
+                                Boolean lis2Flag = false;
+                                Boolean eachRowError = false;
+
+
+                                for (colIter = 0; colIter < str.length; colIter++) {
+                                    currentRow.createCell(colIter)
+                                            .setCellValue(str[colIter]);
+                                    System.out.print(str[colIter] + "    ");
+
+
+                                    if (colIter == 0) {
+
+                                        peptide = str[colIter];
+                                        if (!peptides.contains(peptide)) {
+                                            peptides.add(peptide);
+                                            parsedPeptide = getMotifAndModificationFromPeptide(peptide);
+
+                                            motif = (String) parsedPeptide.get("motif");
+                                            motifs.add(motif);
+
+                                        } else {
+
+                                            outputError.put("message", String.format("Error: Duplicate peptide %s in list.", peptide));
+                                            return outputError;
+                                            //                                    error1.put("error",String.format("Duplicate peptide %s in list.",peptide));
+                                            //                                    //errorArray1.add(error1);
+                                            //                                    return error1;
+                                        }
+                                        responseJSON.put("Peptide", peptide);
+                                        responseJSON.put("sequence", motif);
+                                        responseJSON.put("modification", parsedPeptide.get("modifications"));
+                                        responseJSON.put("group1", firstGroup);
+                                        responseJSON.put("group2", secondGroup);
+
+
+                                    } else {
+
+
+                                        //System.out.println(keys.get(colIter)+ "  "+cellValue );
+                                        //                            System.out.print(cellValue + "++++++");
+
+                                        try {
+                                            Double cellValueDouble = Double.parseDouble(str[colIter]);
+
+                                            if (groupsJson.get(keys.get(colIter)).equals(firstGroup)) {
+                                                list1.add(cellValueDouble);
+                                                if (cellValueDouble != 0.0) lis1Flag = true;
+
+                                            } else {
+                                                list2.add(cellValueDouble);
+                                                if (cellValueDouble != 0.0) lis2Flag = true;
+                                            }
+                                            responseJSON.put(keys.get(colIter), cellValueDouble);
+
+                                            if(cellValueDouble.isNaN()){
+                                                eachRowError = true;
+                                                System.out.println(eachRowError.toString() + "--------------");
+                                            }
+
+                                        } catch (Exception e) {
+                                            outputError.put("message", String.format("Error: Value %s is not double.", str[colIter]));
+                                            //return outputError;
+                                            eachRowError = true;
+                                            System.out.println(eachRowError.toString() + ".........");
+                                        }
+
+
                                     }
 
 
                                 }
 
-                            }
 
 //                        System.out.println(list1);
-//                        System.out.println(list2 );
+                        System.out.println(eachRowError );
+                                if (!eachRowError) {
+                                    if (lis1Flag && lis2Flag) {
 
-                            if (lis1Flag && lis2Flag) {
-                                pvAndFc = computePValueAndFoldChange(list1, list2);
-                                //System.out.println(pvAndFc);
-                                pv = (Double) pvAndFc.get(0);
-                                fc = (Double) pvAndFc.get(1);
+                                        if(list1.size() > 0 && list2.size() > 0) {
+                                            pvAndFc = computePValueAndFoldChange(list1, list2);
+                                            //System.out.println(pvAndFc);
+                                            pv = (Double) pvAndFc.get(0);
+                                            fc = (Double) pvAndFc.get(1);
 
-                            } else {
-                                pvAndFc = computePValueAndFoldChange(list1, list2);
-                                //System.out.println(pvAndFc);
+                                            responseJSON.put("pv", pv);
+                                            responseJSON.put("fc", fc);
 
-                                pv = (Double) pvAndFc.get(0);
-                                fc = (Double) pvAndFc.get(1);
-                                if (fc.isInfinite()) {
-                                    fc = Math.signum(fc) * 10.0;
+                                            volcanoJSON.put("Peptide", peptide);
+                                            volcanoJSON.put("p_value", pv);
+                                            volcanoJSON.put("log2(fold_change)", fc);
+
+                                            inputArray.add(responseJSON);
+                                            volcanoArray.add(volcanoJSON);
+                                        }
+
+                                    } else {
+
+                                        if(list1.size() > 0 && list2.size() > 0) {
+                                            pvAndFc = computePValueAndFoldChange(list1, list2);
+                                            //System.out.println(pvAndFc);
+
+                                            pv = (Double) pvAndFc.get(0);
+                                            fc = (Double) pvAndFc.get(1);
+                                            if (fc.isInfinite()) {
+                                                fc = Math.signum(fc) * 10.0;
+                                            }
+
+                                            responseJSON.put("pv", pv);
+                                            responseJSON.put("fc", fc);
+
+                                            volcanoJSON.put("Peptide", peptide);
+                                            volcanoJSON.put("p_value", pv);
+                                            volcanoJSON.put("log2(fold_change)", fc);
+
+                                            inputArray.add(responseJSON);
+                                            volcanoArray.add(volcanoJSON);
+
+
+
+                                        }
+
+
+                                    }
+                                    if (!lis1Flag && !lis2Flag) {
+                                        // Since one of the groups are zero
+                                        //message += String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.",peptide);
+                                        outputError.put("message", String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.", peptide));
+                                        //return outputError;
+                                    }
+
+
+
+
+
                                 }
+                                else{
+
+                                    }
 //                            System.out.println(fc);
 //                            System.out.println("-------------");
 //                            System.out.println("-------------");
 //                            System.out.println("-------------");
 //                            pv = 0.0000001;
 //                            fc = 3.0 + 3.0 * Math.random();
-                                // Since one of the groups are zero
+                                    // Since one of the groups are zero
 //                            outputError.put("message",String.format("Error: list of control or treatment for peptide %s is all zeros. Please delete the row and submit again.",peptide));
 //                            return outputError;
+
+
+
+
                             }
 
-                            if (!lis1Flag && !lis2Flag) {
-                                // Since one of the groups are zero
-                                //message += String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.",peptide);
-                                outputError.put("message", String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.", peptide));
-                                return outputError;
-                            }
-
-                            responseJSON.put("pv", pv);
-                            responseJSON.put("fc", fc);
-
-                            volcanoJSON.put("Peptide", peptide);
-                            volcanoJSON.put("p_value", pv);
-                            volcanoJSON.put("log2(fold_change)", fc);
-
-                            inputArray.add(responseJSON);
-                            volcanoArray.add(volcanoJSON);
-                            //System.out.println(responseJSON.toString());
 
                         }
 
+
+//
+//                        FileReader filereader = new FileReader(convertMultipartToFile(file));
+//                        InputStream inputFS = new FileInputStream(convertMultipartToFile(file));
+//                        workbook = convertCsvToXlsx(file);
+                    } else { //If we have xls or xlsx
+
+
+                        workbook = (SXSSFWorkbook) WorkbookFactory.create(convertMultipartToFile(file));
+                        System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
+
+
+                        // 2. Or you can use a for-each loop
+                        System.out.println("Retrieving Sheets using for-each loop");
+                        for (Sheet sheet : workbook) {
+                            System.out.println("=> " + sheet.getSheetName());
+                        }
+
+
+                        // Getting the Sheet at index zero
+                        Sheet sheet = workbook.getSheetAt(0);
+
+
+                        // Create a DataFormatter to format and get each cell's value as String
+                        DataFormatter dataFormatter = new DataFormatter();
+
+                        // 1. You can obtain a rowIterator and columnIterator and iterate over them
+                        System.out.println("\n\nIterating over Rows and Columns using Iterator\n");
+                        Iterator<org.apache.poi.ss.usermodel.Row> rowIterator = sheet.rowIterator();
+                        int rowiternum = 0;
+                        while (rowIterator.hasNext()) {
+                            org.apache.poi.ss.usermodel.Row row = rowIterator.next();
+                            if (first_line) {
+
+                                //System.out.println("first line true");
+                                first_line = false;
+                                colIter = 0;
+                                Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
+                                while (cellIterator.hasNext()) {
+                                    org.apache.poi.ss.usermodel.Cell cell = cellIterator.next();
+                                    String cellValue = dataFormatter.formatCellValue(cell);
+//                            System.out.print(cellValue + "\t");
+//                            System.out.print(cellValue );
+                                    keys.add(cellValue);
+                                    colIter += 1;
+
+                                }
+                                System.out.println(keys);
+
+                                if (colIter > 2 && colIter < 5) {
+
+                                    outputError.put("message", "Error: Data file column size error, number of samples in each group is less than two. ");
+                                    return outputError;
+//                            error1.put("error","data file column size error, there are more than two and less than seven columns.");
+//                            //errorArray1.add(error1);
+//                            return error1;
+                                }
+                                if (colIter > 4) {
+                                    int g1 = 0;
+                                    int g2 = 0;
+                                    JSONObject groups = new JSONObject();
+                                    for (int colIterator = 1; colIterator < keys.size(); colIterator++) {
+                                        String splitted = ((String) keys.get(colIterator)).split("_")[0];
+
+                                        if (!groupsJson.containsKey(keys.get(colIterator))) {
+                                            groupsJson.put(keys.get(colIterator), splitted);
+                                            if (!groupsArray.contains(splitted)) {
+                                                groupsArray.add(splitted);
+                                            }
+
+                                        } else {
+
+                                            outputError.put("message", "Error: Duplicate column names. Please see the example for formatting");
+                                            return outputError;
+                                        }
+                                    }
+                                    if (groupsArray.size() != 2) {
+
+                                        outputError.put("message", String.format("Error: Number of groups is %d which should be 2.", groupsArray.size()));
+                                        return outputError;
+                                    } else {
+
+                                        firstGroup = groupsArray.get(0);
+                                        secondGroup = groupsArray.get(1);
+                                        for (Object key : groupsJson.keySet()) {
+                                            String keyStr = (String) key;
+                                            String val = (String) groupsJson.get(keyStr);
+                                            if (val.equals(firstGroup)) {
+                                                g1 += 1;
+                                            }
+                                            if (val.equals(secondGroup)) {
+                                                g2 += 1;
+                                            }
+
+                                        }
+                                        if (g1 < 2) {
+                                            outputError.put("message", String.format("Error: Number of group %s is less than 2.", firstGroup));
+                                            return outputError;
+                                        }
+                                        if (g2 < 2) {
+                                            outputError.put("message", String.format("Error: Number of group %s is less than 2.", secondGroup));
+                                            return outputError;
+                                        }
+
+                                    }
+
+
+                                }
+
+
+                            } else { // not first line xls
+                                colIter = 0;
+                                rowiternum += 1;
+
+                                System.out.println(rowiternum + "------------");
+
+                                // Now let's iterate over the columns of the current row
+                                Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
+                                JSONObject responseJSON = new JSONObject();
+                                JSONObject volcanoJSON = new JSONObject();
+                                peptide = "";
+
+                                ArrayList list1 = new ArrayList<Double>();
+                                ArrayList list2 = new ArrayList<Double>();
+                                ArrayList pvAndFc = new ArrayList<Double>(2);
+                                Boolean lis1Flag = false;
+                                Boolean lis2Flag = false;
+                                while (cellIterator.hasNext()) {
+                                    org.apache.poi.ss.usermodel.Cell cell = cellIterator.next();
+                                    String cellValue = dataFormatter.formatCellValue(cell);
+                                    System.out.print(cellValue + "  ");
+                                    firstGroup = groupsArray.get(0);
+                                    secondGroup = groupsArray.get(1);
+                                    if (cellValue == null || cellValue.isEmpty()) {
+                                        // doSomething
+
+                                        outputError.put("message", String.format("Error: Null or empty values exist in the uploaded file, please change the null and empty values and submit again.", peptide));
+                                        return outputError;
+                                    }
+
+                                    if (colIter == 0) {
+
+                                        peptide = cellValue;
+                                        if (!peptides.contains(peptide)) {
+                                            peptides.add(peptide);
+                                            parsedPeptide = getMotifAndModificationFromPeptide(peptide);
+                                            //peptidesParsed.add(parsedPeptide);
+                                            motif = (String) parsedPeptide.get("motif");
+                                            motifs.add(motif);
+
+                                        } else {
+
+                                            outputError.put("message", String.format("Error: Duplicate peptide %s in list.", peptide));
+                                            return outputError;
+//                                    error1.put("error",String.format("Duplicate peptide %s in list.",peptide));
+//                                    //errorArray1.add(error1);
+//                                    return error1;
+                                        }
+                                        responseJSON.put("Peptide", cellValue);
+                                        responseJSON.put("sequence", motif);
+                                        responseJSON.put("modification", parsedPeptide.get("modifications"));
+                                        responseJSON.put("group1", firstGroup);
+                                        responseJSON.put("group2", secondGroup);
+                                        colIter += 1;
+
+                                    } else {
+
+
+                                        //System.out.println(keys.get(colIter)+ "  "+cellValue );
+                                        //                            System.out.print(cellValue + "++++++");
+
+                                        try {
+                                            Double cellValueDouble = Double.parseDouble(cellValue);
+
+                                            if (groupsJson.get(keys.get(colIter)).equals(firstGroup)) {
+                                                list1.add(cellValueDouble);
+                                                if (cellValueDouble != 0.0) lis1Flag = true;
+
+                                            } else {
+                                                list2.add(cellValueDouble);
+                                                if (cellValueDouble != 0.0) lis2Flag = true;
+                                            }
+                                            responseJSON.put(keys.get(colIter), cellValueDouble);
+                                            colIter += 1;
+                                        } catch (Exception e) {
+                                            outputError.put("message", String.format("Error: Value %s is not double.", cellValue));
+                                            return outputError;
+                                        }
+
+
+                                    }
+
+                                }
+
+//                        System.out.println(list1);
+//                        System.out.println(list2 );
+
+                                if (lis1Flag && lis2Flag) {
+                                    pvAndFc = computePValueAndFoldChange(list1, list2);
+                                    //System.out.println(pvAndFc);
+                                    pv = (Double) pvAndFc.get(0);
+                                    fc = (Double) pvAndFc.get(1);
+
+                                } else {
+                                    pvAndFc = computePValueAndFoldChange(list1, list2);
+                                    //System.out.println(pvAndFc);
+
+                                    pv = (Double) pvAndFc.get(0);
+                                    fc = (Double) pvAndFc.get(1);
+                                    if (fc.isInfinite()) {
+                                        fc = Math.signum(fc) * 10.0;
+                                    }
+//                            System.out.println(fc);
+//                            System.out.println("-------------");
+//                            System.out.println("-------------");
+//                            System.out.println("-------------");
+//                            pv = 0.0000001;
+//                            fc = 3.0 + 3.0 * Math.random();
+                                    // Since one of the groups are zero
+//                            outputError.put("message",String.format("Error: list of control or treatment for peptide %s is all zeros. Please delete the row and submit again.",peptide));
+//                            return outputError;
+                                }
+
+                                if (!lis1Flag && !lis2Flag) {
+                                    // Since one of the groups are zero
+                                    //message += String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.",peptide);
+                                    outputError.put("message", String.format("Error: control and treatment lists for peptide %s are all zeros. Please delete the row and submit again.", peptide));
+                                    return outputError;
+                                }
+
+                                responseJSON.put("pv", pv);
+                                responseJSON.put("fc", fc);
+
+                                volcanoJSON.put("Peptide", peptide);
+                                volcanoJSON.put("p_value", pv);
+                                volcanoJSON.put("log2(fold_change)", fc);
+
+                                inputArray.add(responseJSON);
+                                volcanoArray.add(volcanoJSON);
+                                //System.out.println(responseJSON.toString());
+
+                            }
+
+                        }
+
+
                     }
-
-                    // 2. Or you can use a for-each loop to iterate over the rows and columns
-//                System.out.println("\n\nIterating over Rows and Columns using for-each loop\n");
-//                for (org.apache.poi.ss.usermodel.Row row: sheet) {
-//                    for(org.apache.poi.ss.usermodel.Cell cell: row) {
-//                        String cellValue = dataFormatter.formatCellValue(cell);
-//                        System.out.print(cellValue + "\t");
-//                    }
-//                    System.out.println();
-//                }
-
-                    // 3. Or you can use Java 8 forEach loop with lambda
-//                System.out.println("\n\nIterating over Rows and Columns using Java 8 forEach with lambda\n");
-//                sheet.forEach(row -> {
-//                    row.forEach(cell -> {
-//                        String cellValue = dataFormatter.formatCellValue(cell);
-//                        System.out.print(cellValue + "\t");
-//                    });
-//                    System.out.println();
-//                });
-
-                    // Closing the workbook
-                    //System.out.println("End of Query");
                     workbook.close();
 
 
@@ -703,7 +941,7 @@ public class RestAPI implements ErrorController {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
 
-                    outputError.put("message", "Error: Read input file error.");
+                    outputError.put("message", "Error: Read input file error, please check supported browsers and check the format of input file with the provided example.");
                     return outputError;
 //                error1.put("error",e.getMessage() + "/ Read input file error, please check for the format.");
 //                //errorArray1.add(error1);
@@ -712,24 +950,24 @@ public class RestAPI implements ErrorController {
                     //return new JSONArray();
 //                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body( null);
                 }
+            } else {
+                outputError.put("message", "Error: Unsupported file format, please check supported browsers and check the format of input file with the provided example.");
+                return outputError;
             }
-                else {
-                    outputError.put("message", "Error: Unsupported file format.");
-                    return outputError;
-                }
 
 
             String[] motifArray = motifs.toArray(new String[0]);
             JSONObject motifMatch = searchForPeptides(organism, motifArray);
             //System.out.println(inputArrayJson);
-            output.put("dataForAllPeptides",motifMatch);
-            output.put("inputArray",inputArray);
-            output.put("volcanoArray",volcanoArray);
-            output.put("localMotifs",motifs);
-            output.put("localPeptides",peptides);
+            output.put("dataForAllPeptides", motifMatch);
+            output.put("inputArray", inputArray);
+            output.put("volcanoArray", volcanoArray);
+            output.put("localMotifs", motifs);
+            output.put("localPeptides", peptides);
 //            output.put("peptidesParsed",peptidesParsed);
-            output.put("tag",200);
-            output.put("message","");
+            output.put("tag", 200);
+            output.put("message", "");
+            System.out.println(output);
             return output;
             //return ResponseEntity.ok(null);
         }
@@ -737,7 +975,7 @@ public class RestAPI implements ErrorController {
         //return ResponseEntity.ok(null);
     }
 
-    public ArrayList<Double> computePValueAndFoldChange(ArrayList<Double>list1,ArrayList<Double>list2){
+    public ArrayList<Double> computePValueAndFoldChange(ArrayList<Double> list1, ArrayList<Double> list2) {
 
         ArrayList pvAndFc = new ArrayList<Double>();
         Double mean1 = 0.0;
@@ -747,14 +985,14 @@ public class RestAPI implements ErrorController {
         Double fc;
 
 
-        double[] objArray1 =  new double[list1.size()];
-        double[] objArray2 =  new double[list2.size()];
-        for (int i =0; i < list1.size(); i++) {
+        double[] objArray1 = new double[list1.size()];
+        double[] objArray2 = new double[list2.size()];
+        for (int i = 0; i < list1.size(); i++) {
             objArray1[i] = list1.get(i);
             mean1 += list1.get(i);
 
         }
-        for (int i =0; i < list2.size(); i++) {
+        for (int i = 0; i < list2.size(); i++) {
             objArray2[i] = list2.get(i);
             mean2 += list2.get(i);
 
@@ -762,7 +1000,7 @@ public class RestAPI implements ErrorController {
         }
         mean1 /= list1.size();
         mean2 /= list2.size();
-        fc = Math.log(mean2/mean1)/Math.log(2);
+        fc = Math.log(mean2 / mean1) / Math.log(2);
         ttest = tt.homoscedasticTTest(objArray1, objArray2);
 //        System.out.println(ttest);
 //        System.out.println(fc);
@@ -892,9 +1130,8 @@ public class RestAPI implements ErrorController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    } // method uploadFile
 
-    public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
-    {
-        File convFile = new File( multipart.getOriginalFilename());
+    public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException {
+        File convFile = new File(multipart.getOriginalFilename());
         multipart.transferTo(convFile);
         return convFile;
     }
@@ -908,17 +1145,17 @@ public class RestAPI implements ErrorController {
         return convFile;
     }
 
-    public JSONObject convertFileReaderToJson(FileReader filereader ) throws IOException {
+    public JSONObject convertFileReaderToJson(FileReader filereader) throws IOException {
 
 
         CSVReader csvReader = new CSVReader(filereader);
         String[] nextRecord;
-        JSONObject jsonOutput =  new JSONObject();
+        JSONObject jsonOutput = new JSONObject();
         boolean firstLine = true;
         // we are going to read data line by line
 
         while ((nextRecord = csvReader.readNext()) != null) {
-            if (firstLine){
+            if (firstLine) {
                 for (String cell : nextRecord) {
 
                     System.out.print(cell + "\t");
@@ -930,15 +1167,6 @@ public class RestAPI implements ErrorController {
 
         return jsonOutput;
     }
-
-
-
-
-
-
-
-
-
 
 
     @RequestMapping(value = "api/uniprot2/{protein}", method = RequestMethod.GET)
@@ -963,7 +1191,7 @@ public class RestAPI implements ErrorController {
 
 
             //MultipartFile result = new MockMultipartFile(name,
-             //  originalFileName, contentType, content);
+            //  originalFileName, contentType, content);
 
             //uploadFile(result);
         } catch (final IOException e) {
@@ -972,9 +1200,6 @@ public class RestAPI implements ErrorController {
 
         return uniprotService.getTable(protein);
     }
-
-
-
 
 
     @RequestMapping(value = "api/proteinptm/{mod}", method = RequestMethod.GET)
@@ -991,6 +1216,7 @@ public class RestAPI implements ErrorController {
 //        }
         return prideService.findPTMByID(mod);
     }
+
     @RequestMapping(value = "api/proteinptmbydescription/{description}", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -1125,6 +1351,16 @@ public class RestAPI implements ErrorController {
 
     }
 
+    @RequestMapping(value = "api/phosphoPredict/organism/{organism}/ptms/{ptmList}", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    JSONObject getFromDeepPhos(@PathVariable String organism, @PathVariable String ptmList) throws Exception {
+        JSONObject results = new JSONObject();
+
+        results = deepPhosService.getPhosphoPrediction(organism, ptmList);
+        return results;
+    }
+
 
     @RequestMapping(value = "api/enrichment/target/{pathway}/genes/{geneList}", method = RequestMethod.GET)
     public
@@ -1214,7 +1450,7 @@ public class RestAPI implements ErrorController {
     @RequestMapping(value = "api/peptide/organism/{organism}/peptides/{peptides}", method = RequestMethod.GET)
     public
     @ResponseBody
-    JSONObject searchForPeptides(@PathVariable String organism,@PathVariable String[] peptides) {
+    JSONObject searchForPeptides(@PathVariable String organism, @PathVariable String[] peptides) {
         //log.info(String.format("Run convertToPLN with argument: %s", peptide));
 //        try {
 //            incrementList(4);
@@ -1295,8 +1531,6 @@ public class RestAPI implements ErrorController {
 
         return pcgService.getTable(genePositions);
     }
-
-
 
 
     @RequestMapping(value = "api/pathway/genes/{type}/{geneList}", method = RequestMethod.GET)
@@ -1426,6 +1660,7 @@ public class RestAPI implements ErrorController {
 //        }
         JSONObject kinaseNetwork = new JSONObject();
         kinaseNetwork = kinaseService.computeKinaseNetwork(geneList);
+
         return kinaseNetwork;
     }
 
@@ -1440,7 +1675,7 @@ public class RestAPI implements ErrorController {
 //            System.out.println(e);
 //        }
         JSONObject phosphoNetwork = new JSONObject();
-        phosphoNetwork = ptmService.computePtmNetwork(organism,geneList);
+        phosphoNetwork = ptmService.computePtmNetwork(organism, geneList);
         //phosphoNetwork = phosphoService.computePtmNetwork(organism,geneList);
         return phosphoNetwork;
 
@@ -1457,7 +1692,7 @@ public class RestAPI implements ErrorController {
 //            System.out.println(e);
 //        }
         JSONObject ptmNetwork = new JSONObject();
-        ptmNetwork = phosphoService.computePtmNetwork(organism,geneList);
+        ptmNetwork = phosphoService.computePtmNetwork(organism, geneList);
         //phosphoNetwork = phosphoService.computePtmNetwork(organism,geneList);
         return ptmNetwork;
 
@@ -1474,13 +1709,14 @@ public class RestAPI implements ErrorController {
 //            System.out.println(e);
 //        }
         JSONObject ptmNetwork = new JSONObject();
-        ptmNetwork = phosphoServiceV2.computePhosphoNetwork(organism,geneList);
+        ptmNetwork = phosphoServiceV2.computePhosphoNetwork(organism, geneList);
         //phosphoNetwork = phosphoService.computePtmNetwork(organism,geneList);
-        
+
         return ptmNetwork;
 
     }
-//    @RequestMapping(value = "api/uniprotaccession/{accession}", method = RequestMethod.GET)
+
+    //    @RequestMapping(value = "api/uniprotaccession/{accession}", method = RequestMethod.GET)
 //    @ResponseBody
 //    public String getFromUniprotAccession(@PathVariable String accession) {
 //        System.out.println(String.format("Get the uniprot information from uniprot with argument: %s", accession));
@@ -1488,71 +1724,67 @@ public class RestAPI implements ErrorController {
 //        response = proteinRepositoryH2.findByAccession(accession);
 //        return response.toString();
 //    }
-@RequestMapping(value = "api/uniprotdb/organism/{organism}/accession/{accession}", method = RequestMethod.GET)
-@ResponseBody
-public JSONObject getFromUniprotDBAccession(@PathVariable String organism, @PathVariable String accession) {
-    System.out.println(String.format("Get the protein information from uniprot with argument: %s", accession));
-    Uniprot response = new Uniprot();
+    @RequestMapping(value = "api/uniprotdb/organism/{organism}/accession/{accession}", method = RequestMethod.GET)
+    @ResponseBody
+    public JSONObject getFromUniprotDBAccession(@PathVariable String organism, @PathVariable String accession) {
+        System.out.println(String.format("Get the protein information from uniprot with argument: %s", accession));
+        Uniprot response = new Uniprot();
 //    try {
 //        incrementList(5);
 //    }catch (Exception e)
 //    {
 //        System.out.println(e);
 //    }
-    JSONObject responseUniprot = new JSONObject();
+        JSONObject responseUniprot = new JSONObject();
 
-    String[] canonicalAccessionList = accession.split("-");
+        String[] canonicalAccessionList = accession.split("-");
 
-    String canonicalAccession = canonicalAccessionList[0];
-    try {
-
-
-        response = uniprotRepository.findByAccession(canonicalAccession);
-        responseUniprot = response.toJson();
-
-
-    } catch (Exception e) {
-
-
-        String msg =  String.format("Uniprot %s not found in uniprot localdb", accession);
-        log.warn(msg);
-        //throw new RuntimeException(msg);
+        String canonicalAccession = canonicalAccessionList[0];
         try {
-            responseUniprot =  uniprotService2.getTable(organism, canonicalAccession);
 
 
-        }
-        catch(Exception e2){
-            String msg2 =  String.format("Uniprot %s not found  in uniprot localdb", accession);
-            log.warn(msg2);
+            response = uniprotRepository.findByAccession(canonicalAccession);
+            responseUniprot = response.toJson();
 
-        }
+
+        } catch (Exception e) {
+
+
+            String msg = String.format("Uniprot %s not found in uniprot localdb", accession);
+            log.warn(msg);
+            //throw new RuntimeException(msg);
+            try {
+                responseUniprot = uniprotService2.getTable(organism, canonicalAccession);
+
+
+            } catch (Exception e2) {
+                String msg2 = String.format("Uniprot %s not found  in uniprot localdb", accession);
+                log.warn(msg2);
+
+            }
 //        response = new Uniprot();
 
-    }
-
-    if (canonicalAccession != accession)
-    {
-        try {
-            JSONObject fastaResult = fastaService.getTable(accession);
-            String fastaSeq = (String) fastaResult.get("sequence");
-            responseUniprot.remove("sequence");
-            responseUniprot.put("sequence", fastaSeq);
-            responseUniprot.remove("length");
-            responseUniprot.put("length", fastaSeq.length());
-
         }
-        catch (Exception e2)
-        {
-            String msg =  String.format("Uniprot %s not found in uniprot localdb", accession);
-            log.warn(msg);
+
+        if (canonicalAccession != accession) {
+            try {
+                JSONObject fastaResult = fastaService.getTable(accession);
+                String fastaSeq = (String) fastaResult.get("sequence");
+                responseUniprot.remove("sequence");
+                responseUniprot.put("sequence", fastaSeq);
+                responseUniprot.remove("length");
+                responseUniprot.put("length", fastaSeq.length());
+
+            } catch (Exception e2) {
+                String msg = String.format("Uniprot %s not found in uniprot localdb", accession);
+                log.warn(msg);
+            }
         }
+        return responseUniprot;
+        //System.out.print(response.toString());
+
+
     }
-    return responseUniprot;
-    //System.out.print(response.toString());
-
-
-}
 
 //    @RequestMapping(value = "api/uniproth2db/accession/{accession}", method = RequestMethod.GET)
 //    @ResponseBody

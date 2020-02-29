@@ -125,381 +125,1037 @@
     </div>
 
 
-    <div class="container-fluid" style="padding-top: 10px;">
 
-        <div class="well col-sm-12">
 
-            <!--<a style="text-decoration: none;">-->
-            <!--<a class= "collapse in" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; ">-->
 
-            <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog"></span> &nbsp;-->
-            <!--Enter Gene/Phosphogenes or for example try the list of-->
-            <!--<button class="btn btn-primary " ng-click="ctrl.changeToP100('table')">-->
-            <!--LINCS P100 data set&nbsp;-->
-            <!--</button>-->
-            <!--. Gene names should be sparated by comma, semi-colon or new line.-->
-            <!--<hr/>-->
+        <div class="tabset2p" style="padding-top: 10px;">
 
-            <div class=" form-group col-sm-4" style="padding-left: 0px;">
-                <div class="horizontal-scroll" style=padding-bottom:10px;">
-                    <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
-                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>-->
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Mass Diff. /
-                        Shorthand PTM/Proteins Info
-                    </button>
+            <!--<input type="radio" name="tabset3" id="nomActiveId" value="extab0" disabled aria-controls="ex0">-->
+            <!--<label for="nomActiveId" class="disabled">Try Different Forms of Submissions-->
+            <!--<i class='fa fa-arrow-right' ></i>-->
+            <!--</label>-->
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog  modal-lg">
+            <input type="radio" name="tabset2p" id="ex1Id" value="extab1" aria-controls="ex1">
+            <label for="ex1Id">Interactive Submission
+                <span style="color:white;" class="glyphicon glyphicon-question-sign"
+                      data-delay='{"show":"0", "hide":"100"}'
+                      data-toggle="tooltip"
+                      title="The results of Peptides2Proteins are already transferred to this page, but this submission can be used as an stand-alone process.
+                       ">
+                </span>
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">PTM/Protein Mass Difference / Shorthand Notation
-                                        Information</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="bs-callout bs-callout-primary">
-                                        <p>This table shows the different Post Translational Modifications (PTMs) that
-                                            may occur in each amino acid.
-                                            The shorthand and mass difference notations for the modifications are also
-                                            provided with an
-                                            example. <span style="font-weight:bold">The shorthand notation is case sensitive.</span>
-                                        </p>
+            </label>
+
+            <!-- Tab 2 -->
+            <!--<input type="radio" name="tabset3" id="ex2Id" value="extab2" aria-controls="ex2">-->
+            <!--<label for="ex2Id">File Submission</label>-->
+
+            <!-- Tab 3 -->
+            <input type="radio" name="tabset2p" id="ex3Id" value="extab3" aria-controls="ex3">
+            <label for="ex3Id" >
+                Useful APIs
+                <span style="color:white;" class="glyphicon glyphicon-question-sign"
+                      data-delay='{"show":"0", "hide":"100"}'
+                      data-toggle="tooltip"
+                      title="The Application Programming Interface (API) is for developers who want to programmatically analyze their data.
+                Please check help tab for complete list of APIs. ">
+                </span>
+
+
+                <!--Try Different Forms of Submissions-->
+                <!--<i class='fa fa-arrow-right' ></i>-->
+            </label>
+
+
+            <!-- Tab 3 -->
+            <!-- Tab 1 -->
+
+
+            <div class="tab-panels">
+
+
+                <section id="ex1" class="tab-panel">
+                    <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
+                    <div class="container">
+                    <div class="well col-sm-12">
+
+                        <!--<a style="text-decoration: none;">-->
+                        <!--<a class= "collapse in" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; ">-->
+
+                        <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog"></span> &nbsp;-->
+                        <!--Enter Gene/Phosphogenes or for example try the list of-->
+                        <!--<button class="btn btn-primary " ng-click="ctrl.changeToP100('table')">-->
+                        <!--LINCS P100 data set&nbsp;-->
+                        <!--</button>-->
+                        <!--. Gene names should be sparated by comma, semi-colon or new line.-->
+                        <!--<hr/>-->
+
+                        <div class=" form-group col-sm-4" style="padding-left: 0px;">
+                            <div class="horizontal-scroll" style=padding-bottom:10px;">
+                                <!--<div class="horizontal-scroll" style="padding-top:8px; padding-bottom:10px;" >-->
+                                <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span>-->
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Mass Diff. /
+                                    Shorthand PTM/Proteins Info
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog  modal-lg">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">PTM/Protein Mass Difference / Shorthand Notation
+                                                    Information</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="bs-callout bs-callout-primary">
+                                                    <p>This table shows the different Post Translational Modifications (PTMs) that
+                                                        may occur in each amino acid.
+                                                        The shorthand and mass difference notations for the modifications are also
+                                                        provided with an
+                                                        example. <span style="font-weight:bold">The shorthand notation is case sensitive.</span>
+                                                    </p>
+                                                </div>
+
+
+                                                <div class="panel panel-default">
+                                                    <table class="table table-striped table-bordered">
+
+                                                        <caption>Shorthand Notation Table</caption>
+                                                        <tr>
+                                                            <th>Modification</th>
+                                                            <th>Identifier</th>
+                                                            <th>Amino Acids</th>
+                                                            <th>Diff. Avg.</th>
+                                                            <th>Shorthand Example</th>
+                                                            <th>Mass Difference Example</th>
+                                                            <th>UNIMOD/PSI-MOD Ids</th>
+                                                        </tr>
+                                                        <!--<tr>-->
+                                                        <!--<td>Any PTM/Any Amino-Acid@110</td>-->
+                                                        <!--<td></td>-->
+                                                        <!--<td></td>-->
+                                                        <!--<td></td>-->
+                                                        <!--Uniprottein[..@110]</td>-->
+                                                        <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                        <!--<td>Specific PTM/Any Amino-Acid@110</td>-->
+                                                        <!--<td></td>-->
+                                                        <!--<td></td>-->
+                                                        <!--<td></td>-->
+                                                        <!--Uniprottein[ac.@110]</td>-->
+                                                        <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <tr>
+                                                            <td>Acetylation</td>
+                                                            <td>a</td>
+                                                            <td>"K", "A", "M", "S", "T", "G", "R", "V", "C", "D", "Y", "P", "E"</td>
+                                                            <td>42.037</td>
+                                                            <td>Protein{[aK]@110}</td>
+                                                            <td>Protein{K[+42.037]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Methylation</td>
+                                                            <td>me</td>
+                                                            <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                                "G"
+                                                            </td>
+                                                            <td>14.027</td>
+                                                            <td>Protein{[meK]@110}</td>
+                                                            <td>Protein{K[+14.027]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>DiMethylation</td>
+                                                            <td>me2</td>
+                                                            <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                                "G"
+                                                            </td>
+                                                            <td>28.05</td>
+                                                            <td>Protein{[me2K]@110}</td>
+                                                            <td>Protein{K[+28.05]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>TriMethylation</td>
+                                                            <td>me3</td>
+                                                            <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
+                                                                "G"
+                                                            </td>
+                                                            <td>42.08</td>
+                                                            <td>Protein{[me3K]@110}</td>
+                                                            <td>Protein{K[+42.046]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Phosphorylation</td>
+                                                            <td>p</td>
+                                                            <td>"T", "S", "Y", "H", "D", "P", "R", "C", "M", "N", "G", "A", "K"</td>
+                                                            <td>79.98</td>
+                                                            <td>Protein{[pT]@110}</td>
+                                                            <td>Protein{T[+79.966]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>C-Glycosylation</td>
+                                                            <td>cg</td>
+                                                            <td>"W"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[cgW]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>S-Glycosylation</td>
+                                                            <td>sg</td>
+                                                            <td>"C"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[sgC]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>O-Glycosylation</td>
+                                                            <td>og</td>
+                                                            <td>"T", "S"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[ogT]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>N-Glycosylation</td>
+                                                            <td>ng</td>
+                                                            <td>"N"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[ngN]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>S-Nitrosylation</td>
+                                                            <td>sn</td>
+                                                            <td>"C"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[snC]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Myristoylation</td>
+                                                            <td>my</td>
+                                                            <td>"K", "G", "C"</td>
+                                                            <td>210.36</td>
+                                                            <td>Protein{[myC]@110}</td>
+                                                            <td>Protein{C[+210.198]@110}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sumoylation</td>
+                                                            <td>su</td>
+                                                            <td>"K"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[suK]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ubiquitination</td>
+                                                            <td>ub</td>
+                                                            <td>"K", "S", "C"</td>
+                                                            <td>varies</td>
+                                                            <td>Protein{[ubK]@110}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
                                     </div>
-
-
-                                    <div class="panel panel-default">
-                                        <table class="table table-striped table-bordered">
-
-                                            <caption>Shorthand Notation Table</caption>
-                                            <tr>
-                                                <th>Modification</th>
-                                                <th>Identifier</th>
-                                                <th>Amino Acids</th>
-                                                <th>Diff. Avg.</th>
-                                                <th>Shorthand Example</th>
-                                                <th>Mass Difference Example</th>
-                                                <th>UNIMOD/PSI-MOD Ids</th>
-                                            </tr>
-                                            <!--<tr>-->
-                                            <!--<td>Any PTM/Any Amino-Acid@110</td>-->
-                                            <!--<td></td>-->
-                                            <!--<td></td>-->
-                                            <!--<td></td>-->
-                                            <!--Uniprottein[..@110]</td>-->
-                                            <!--<td></td>-->
-                                            <!--</tr>-->
-                                            <!--<tr>-->
-                                            <!--<td>Specific PTM/Any Amino-Acid@110</td>-->
-                                            <!--<td></td>-->
-                                            <!--<td></td>-->
-                                            <!--<td></td>-->
-                                            <!--Uniprottein[ac.@110]</td>-->
-                                            <!--<td></td>-->
-                                            <!--</tr>-->
-                                            <tr>
-                                                <td>Acetylation</td>
-                                                <td>a</td>
-                                                <td>"K", "A", "M", "S", "T", "G", "R", "V", "C", "D", "Y", "P", "E"</td>
-                                                <td>42.037</td>
-                                                <td>Protein{[aK]@110}</td>
-                                                <td>Protein{K[+42.037]@110}</td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Methylation</td>
-                                                <td>me</td>
-                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
-                                                    "G"
-                                                </td>
-                                                <td>14.027</td>
-                                                <td>Protein{[meK]@110}</td>
-                                                <td>Protein{K[+14.027]@110}</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>DiMethylation</td>
-                                                <td>me2</td>
-                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
-                                                    "G"
-                                                </td>
-                                                <td>28.05</td>
-                                                <td>Protein{[me2K]@110}</td>
-                                                <td>Protein{K[+28.05]@110}</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>TriMethylation</td>
-                                                <td>me3</td>
-                                                <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
-                                                    "G"
-                                                </td>
-                                                <td>42.08</td>
-                                                <td>Protein{[me3K]@110}</td>
-                                                <td>Protein{K[+42.08]@110}</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Phosphorylation</td>
-                                                <td>p</td>
-                                                <td>"T", "S", "Y", "H", "D", "P", "R", "C", "M", "N", "G", "A", "K"</td>
-                                                <td>79.98</td>
-                                                <td>Protein{[pT]@110}</td>
-                                                <td>Protein{T[+79.98]@110}</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>C-Glycosylation</td>
-                                                <td>cg</td>
-                                                <td>"W"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[cgW]@110}</td>
-                                                <td></td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>S-Glycosylation</td>
-                                                <td>sg</td>
-                                                <td>"C"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[sgC]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>O-Glycosylation</td>
-                                                <td>og</td>
-                                                <td>"T", "S"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[ogT]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>N-Glycosylation</td>
-                                                <td>ng</td>
-                                                <td>"N"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[ngN]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>S-Nitrosylation</td>
-                                                <td>sn</td>
-                                                <td>"C"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[snC]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Myristoylation</td>
-                                                <td>my</td>
-                                                <td>"K", "G", "C"</td>
-                                                <td>210.36</td>
-                                                <td>Protein{[myC]@110}</td>
-                                                <td>Protein{C[+210.36]@110}</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sumoylation</td>
-                                                <td>su</td>
-                                                <td>"K"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[suK]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ubiquitination</td>
-                                                <td>ub</td>
-                                                <td>"K", "S", "C"</td>
-                                                <td>varies</td>
-                                                <td>Protein{[ubK]@110}</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+                                <!--<label style="padding-bottom: 24px;">Enter PTM/Proteins&nbsp;-->
+                                <!--<br/>-->
+                                <!--</label>-->
+
+
+                                <!--<span style="float:left">-->
+                                <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
+                                <!--</span>-->
+                                <div style="padding-top:8px;">
+
+                            <textarea class="form-control" rows="5"
+                                      ng-model="ctrl.inputMassPtmProteins"></textarea>
+                                    <!--console.log()-->
+                                </div>
+
+                            </div>
+
+
+                            Delimiter: &nbsp;
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox4" value="option2" checked="true"
+                                       disabled="true"> comma
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox5" value="option1" checked="true"
+                                       disabled="true">
+                                semi-colon
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox6" value="option3" checked="true"
+                                       disabled="true"> new line
+                            </label>
+                            <!--<a class="nav navbar-nav" style="padding-bottom: 12px;" href="/pln/modification.html" target="_blank">Input Format Description</a>-->
+                            <!--<div style="float:left;">-->
+                            <!--<span>-->
+                            <!--<hr/>-->
+                            <!--<p>-->
+                            <!--&nbsp;<span style='color:blue'>{{ctrl.numberOfAllValidGenes}}</span> out of {{ctrl.numberOfAllInputGenes}} input genes are common with Homo Sapiens.-->
+                            <!--</p>-->
+
+                            <!--<span ng-show="ctrl.flagFoundNPCG" >-->
+                            <!--<a href="#" title="{{ctrl.nonValidGenes}}">Mouse over to see the non conforming genes with Homo Sapiens genes</a>-->
+
+                            <!--</span>-->
+
+
+                            <!--<span ng-if="ctrl.flagFoundNPCG">-->
+                            <!--&nbsp;Not valid genes are:-->
+                            <!--<span style='color:blue'>-->
+                            <!--<div ng-repeat="nonValid in ctrl.nonValidGenes">{{nonValid}}&nbsp</div>-->
+                            <!--</span>-->
+                            <!--Gene name identification is case sensitive, Try other names of these genes or copy and paste the gene names again!-->
+                            <!--</span>-->
+
+                            <!--</span>-->
+                            <!--</div>-->
+                        </div>
+
+
+                        <div class=" form-group col-sm-2 col-sm-offset-0">
+                            <label style="padding-bottom: 15px;margin-left: -10px;">Proteins&nbsp;
+                                <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                <!--data-toggle="tooltip"-->
+                                <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                                <!--</span>-->
+
+
+                                <!--<br/>-->
+                            </label>
+                            <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div11">
+                                <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
+                                <span ng-repeat="parsedPTMProtein in ctrl.parsedPTMProteins track by $index">
+                        {{parsedPTMProtein}}<br/></span>
+                            </div>
+                        </div>
+
+                        <div class=" form-group col-sm-4 col-sm-offset-0">
+                            <label style="padding-bottom: 15px;margin-left: -10px;">Post Translational Modification&nbsp;
+                                <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                <!--data-toggle="tooltip"-->
+                                <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+
+                                <!--</span>-->
+                                <br/>
+                            </label>
+                            <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12">
+                                <div ng-repeat="parsedPTM in ctrl.parsedPTMs ">
+                        <span ng-repeat="PTM in parsedPTM ">
+                        {{PTM}}&nbsp;&nbsp;
+                        </span>
+
+                                    <!--{{ctrl.parsedPTMs}}-->
+                                    <!--<div ng-repeat="parsedPTMItem in parsedPTM ">-->
+                                    <!--{{parsedPTMItem}}</div> &nbsp;-->
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div class=" form-group col-sm-2 col-sm-offset-0">
+                            <label style="padding-bottom: 15px; margin-left: -10px;">Log-Diff-Expression&nbsp;
+                                <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                      data-delay='{"show":"0", "hide":"100"}'
+                                      data-toggle="tooltip"
+                                      title="This column can be used to reflect the logarithm of differential expression (or other similar measurement) between two conditions. If this value is not inserted, it is assumed to be 'NA'."
+                                >
+                </span>
+                                <br/>
+                            </label>
+                            <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12-1">
+                                <div ng-repeat="abundance in ctrl.proteinAbundance track by $index">
+                                    {{abundance | limitTo:6}}
+                                    <br/>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <button style="float:right" class="btn btn-primary col-sm-offset-3" ng-show=" ctrl.showPtmSubmit"
+                                    ng-click="ctrl.onSubmitPtm('table')">
+                                Submit &nbsp;
+                                <span ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">
+                         <span class="glyphicon glyphicon-refresh glyphicon-spin">
+
+                                </span>
+                                    <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+                    </span>
+                            </button>
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<p>ptmWaiting:{{ctrl.ptmWaiting}}</p>-->
+                            <!--<p>phosphoWaiting:{{ctrl.phosphoWaiting}}</p>-->
+                            <!--<p>phosphoError:{{!ctrl.phosphoError}}</p>-->
+                            <!--<p>ptmError:{{!ctrl.ptmError}}</p>-->
+
+
+                            <!--<div ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">-->
+
+
+                            <!--<div class="progress-bar-striped" id="progress2">-->
+                            <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
+                            <!--aria-valuenow="60" aria-valuemin="20" aria-valuemax="100"-->
+                            <!--ng-style="{width : getPtmPercentage() + '%'  }">-->
+                            <!--<b>{{getPtmPercentage()}}%</b>-->
+                            <!--&lt;!&ndash;ng-style="{width : getPercentage() + '%'  }">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<b>{{getPercentage()}}%</b>&ndash;&gt;-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                        </div>
+
+
+                    </div>
+
+                    </div>
+
+                    <!--<div class="container"-->
+                         <!--style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">-->
+                        <!--<div class="well col-sm-12" style="border-color: black ">-->
+                            <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                            <!--Enter peptide sequences with PTM sites indicated using PSIMOD, UNIMOD,-->
+                            <!--mass difference or shorthand notations, and their (optional) abundance-->
+                            <!--values.-->
+                            <!--Enter-->
+                            <!--peptides or-->
+                            <!--for-->
+                            <!--example use the list of-->
+                            <!--<a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToP100Peptides('table')"-->
+                               <!--ng-style="{'font-weight': 'bold'}">-->
+                                <!--LINCS P100 peptides&nbsp;-->
+                            <!--</a><span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                      <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                      <!--data-toggle="tooltip"-->
+                                      <!--title="List of P100 phospho-peptides-->
+                    <!--and their abundances measured in response to a non-selective kinase inhibitor,-->
+                     <!--Staurosporine.">-->
+                                    <!--</span>-->
+                            <!--&lt;!&ndash;or <a href="javascript:void(0);" class="onerow2" ng-click="ctrl.changeToGCPPeptides('table')"&ndash;&gt;-->
+                            <!--&lt;!&ndash;ng-style="{'font-weight': 'bold'}">&ndash;&gt;-->
+                            <!--&lt;!&ndash;LINCS GCP peptides&nbsp;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                            <!--. Peptides can be sparated by comma, semi-colon or a new line.-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="container" style="padding-top: 10px;">-->
+
+                        <!--&lt;!&ndash;<div class="row" >&ndash;&gt;-->
+                        <!--<div class="well col-md-12 col-sm-12" style="background-color: #e8e8e8">-->
+
+
+                            <!--<div class="form-group col-md-4 col-sm-4" style="padding-left: 0px;">-->
+
+                                <!--&lt;!&ndash;<span style="float:left">&ndash;&gt;-->
+
+
+                                <!--&lt;!&ndash;&lt;!&ndash;<a href="javascript:void(0);" ng-click="ctrl.formatInput=false"&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;style="text-decoration:none;"&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;ng-style="!ctrl.formatInput && {'font-weight': 'bold'}">Mass Difference</a>&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;/&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;<a href="javascript:void(0);" ng-click="ctrl.formatInput=true"&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;style="text-decoration:none;"&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;ng-style="ctrl.formatInput && {'font-weight': 'bold'}">Shorthand Notation</a>&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;Input Peptides&ndash;&gt;-->
+                                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label style="padding-bottom: 24px;">Input Peptides&nbsp;&ndash;&gt;-->
+                                <!--<div id="firstModal" class="modal fade" >-->
+                                    <!--<div class="modal-dialog">-->
+                                        <!--<div class="modal-content">-->
+                                            <!--<div class="modal-header">-->
+                                                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                                                <!--<h4 class="modal-title">Please Use Chrome or Firefox for your best Experience.</h4>-->
+                                            <!--</div>-->
+                                            <!--<div class="modal-body">-->
+                                                <!--<p> Some functionalities like download figures or upload files may counter unexpected errors.</p>-->
+                                                <!--&lt;!&ndash;<form>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Name">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<input type="email" class="form-control" placeholder="Email Address">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<button type="submit" class="btn btn-primary">Subscribe</button>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</form>&ndash;&gt;-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Mass Diff.-->
+                                    <!--/ Shorthand Notation Info-->
+                                <!--</button>-->
+
+                                <!--&lt;!&ndash; Modal &ndash;&gt;-->
+                                <!--<div class="modal fade" id="myModal" role="dialog">-->
+                                    <!--<div class="modal-dialog modal-lg">-->
+
+                                        <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+                                        <!--<div class="modal-content">-->
+                                            <!--<div class="modal-header">-->
+                                                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                                                <!--<h4 class="modal-title">Mass Difference / Shorthand Notation For Input-->
+                                                    <!--Peptides</h4>-->
+                                            <!--</div>-->
+                                            <!--<div class="modal-body">-->
+                                                <!--<div class="bs-callout bs-callout-primary">-->
+                                                    <!--<p>This table shows the different Post Translational Modifications (PTMs)-->
+                                                        <!--that may occur in each amino acid.-->
+                                                        <!--The shorthand and mass difference notations for the modifications are-->
+                                                        <!--also provided with an-->
+                                                        <!--example. <span style="font-weight:bold">The shorthand notation is case sensitive. UNIMOD/PSI-MOD Ids should be selected by discretion.</span>-->
+                                                    <!--</p>-->
+                                                <!--</div>-->
+
+
+                                                <!--<div class="panel panel-default">-->
+                                                    <!--<table class="table table-striped table-bordered">-->
+
+                                                        <!--<caption>Shorthand Notation Table</caption>-->
+                                                        <!--<tr>-->
+                                                            <!--<th>Modification</th>-->
+                                                            <!--<th>Identifier</th>-->
+                                                            <!--<th>Amino Acids</th>-->
+
+                                                            <!--<th>Shorthand Example</th>-->
+                                                            <!--<th>Mass Difference Example</th>-->
+                                                            <!--<th>UNIMOD/PSI-MOD Ids</th>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>Acetylation</td>-->
+                                                            <!--<td>a</td>-->
+                                                            <!--<td>"K", "A", "M", "S", "T", "G", "R", "V", "C", "D", "Y", "P",-->
+                                                                <!--"E"-->
+                                                            <!--</td>-->
+
+                                                            <!--<td>[aK]</td>-->
+                                                            <!--<td>K[+42.037]</td>-->
+                                                            <!--<td>(MOD:00646),(MOD:00647),...</td>-->
+
+                                                        <!--</tr>-->
+
+                                                        <!--<tr>-->
+                                                            <!--<td>Methylation</td>-->
+                                                            <!--<td>me</td>-->
+                                                            <!--<td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",-->
+                                                                <!--"G"-->
+                                                            <!--</td>-->
+
+                                                            <!--<td>[meK]</td>-->
+                                                            <!--<td>K[+14.027]</td>-->
+                                                            <!--<td>(UNIMOD:34),(MOD:00277),...</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>DiMethylation</td>-->
+                                                            <!--<td>me2</td>-->
+                                                            <!--<td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",-->
+                                                                <!--"G"-->
+                                                            <!--</td>-->
+
+                                                            <!--<td>[me2K]</td>-->
+                                                            <!--<td>K[+28.05]</td>-->
+                                                            <!--<td>(UNIMOD:36),(MOD:01983),...</td>-->
+
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>TriMethylation</td>-->
+                                                            <!--<td>me3</td>-->
+                                                            <!--<td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",-->
+                                                                <!--"G"-->
+                                                            <!--</td>-->
+
+                                                            <!--<td>[me3K]</td>-->
+                                                            <!--<td>K[+42.046]</td>-->
+                                                            <!--<td>(UNIMOD:37),(MOD:00445),...</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>Phosphorylation</td>-->
+                                                            <!--<td>p</td>-->
+                                                            <!--<td>"T", "S", "Y", "H", "D", "P", "R", "C", "M", "N", "G", "A",-->
+                                                                <!--"K"-->
+                                                            <!--</td>-->
+
+                                                            <!--<td>[pT]</td>-->
+                                                            <!--<td>T[+79.966]</td>-->
+                                                            <!--<td>(UNIMOD:21),(MOD:00259),...</td>-->
+
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>C-Glycosylation</td>-->
+                                                            <!--<td>cg</td>-->
+                                                            <!--<td>"W"</td>-->
+
+                                                            <!--<td>[cgW@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>S-Glycosylation</td>-->
+                                                            <!--<td>sg</td>-->
+                                                            <!--<td>"C"</td>-->
+
+                                                            <!--<td>[sgC@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>O-Glycosylation</td>-->
+                                                            <!--<td>og</td>-->
+                                                            <!--<td>"T", "S"</td>-->
+
+                                                            <!--<td>[ogT@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>N-Glycosylation</td>-->
+                                                            <!--<td>ng</td>-->
+                                                            <!--<td>"N"</td>-->
+
+                                                            <!--<td>[ngN@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+
+                                                        <!--<tr>-->
+                                                            <!--<td>S-Nitrosylation</td>-->
+                                                            <!--<td>sn</td>-->
+                                                            <!--<td>"C"</td>-->
+
+                                                            <!--<td>[snC@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>Myristoylation</td>-->
+                                                            <!--<td>my</td>-->
+                                                            <!--<td>"K", "G", "C"</td>-->
+
+                                                            <!--<td>[myC]</td>-->
+                                                            <!--<td>C[+210.198]</td>-->
+                                                            <!--<td>(MOD:00655),(MOD:00650),...</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>Sumoylation</td>-->
+                                                            <!--<td>su</td>-->
+                                                            <!--<td>"K"</td>-->
+
+                                                            <!--<td>[suK@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr>-->
+                                                            <!--<td>Ubiquitination</td>-->
+                                                            <!--<td>ub</td>-->
+
+                                                            <!--<td>"S", "C"</td>-->
+
+                                                            <!--<td>[ubK@110]</td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                        <!--</tr>-->
+                                                    <!--</table>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="modal-footer">-->
+                                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close-->
+                                                <!--</button>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+
+
+                                <!--&lt;!&ndash;<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"&ndash;&gt;-->
+                                <!--&lt;!&ndash;data-delay='{"show":"0", "hide":"100"}'&ndash;&gt;-->
+                                <!--&lt;!&ndash;data-toggle="tooltip"&ndash;&gt;-->
+                                <!--&lt;!&ndash;title="Please input post translationally modified peptides. Use below example or use predefined examples.">&ndash;&gt;-->
+
+                                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+
+
+                                <!--<div style=" padding-top:8px;padding-bottom:10px;">-->
+
+                                    <!--<textarea class="form-control " rows="5" ng-model="ctrl.textArea"></textarea>-->
+
+                                <!--</div>-->
+
+
+                                <!--Delimiter: &nbsp;-->
+                                <!--<label class="checkbox-inline">-->
+                                    <!--<input type="checkbox" id="inlineCheckbox1" value="option2" checked="true"-->
+                                           <!--disabled="true">-->
+                                    <!--comma-->
+                                <!--</label>-->
+                                <!--<label class="checkbox-inline">-->
+                                    <!--<input type="checkbox" id="inlineCheckbox2" value="option1" checked="true"-->
+                                           <!--disabled="true">-->
+                                    <!--semi-colon-->
+                                <!--</label>-->
+                                <!--<label class="checkbox-inline">-->
+                                    <!--<input type="checkbox" id="inlineCheckbox3" value="option3" checked="true"-->
+                                           <!--disabled="true">-->
+                                    <!--new-->
+                                    <!--line-->
+                                <!--</label>-->
+
+                            <!--</div>-->
+
+                            <!--<div class="form-group col-md-3 col-sm-3 col-sm-offset-0">-->
+                                <!--<label style="padding-bottom: 15px;margin-left: -10px;">Peptides&nbsp;-->
+                                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                          <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                          <!--data-toggle="tooltip"-->
+                                          <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
+
+                                <!--</span>-->
+                                    <!--<br/>-->
+                                <!--</label>-->
+                                <!--<div class=" list-responsive-vertical3" style=" word-wrap:break-word;" id="div11">-->
+                                    <!--<div ng-repeat="motif in ctrl.parsedMotifs track by $index">{{motif}}<br/></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="form-group col-md-3 col-sm-3 col-sm-offset-0">-->
+                                <!--<label style="padding-bottom: 15px;margin-left: -10px;">Modifications&nbsp;-->
+                                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                          <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                          <!--data-toggle="tooltip"-->
+                                          <!--title="Parsed modifications are used to query PSI-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
+                                    <!--</span>-->
+                                    <!--<br/>-->
+                                <!--</label>-->
+                                <!--<div class=" list-responsive-vertical3" style="word-wrap:break-word;" id="div12">-->
+                                    <!--<div ng-repeat="modification in ctrl.parsedModificationsFormatter track by $index">-->
+                                        <!--{{modification}}-->
+                                        <!--<br/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="form-group col-md-2 col-sm-2 col-sm-offset-0" style="position: relative">-->
+                                <!--<label style="padding-bottom: 15px;margin-left: -10px;">Log-Diff-Expression&nbsp;-->
+                                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                          <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                          <!--data-toggle="tooltip"-->
+                                          <!--title="This column can be used to reflect the logarithm of differential expression (or other similar measurement) between two conditions. If this value is not inserted, it is assumed to be 'NA'."-->
+                                    <!--&gt;-->
+                                    <!--</span>-->
+                                    <!--<br/>-->
+                                <!--</label>-->
+                                <!--<div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div13">-->
+                                    <!--<div ng-repeat="abundance in ctrl.peptideAbundance track by $index">-->
+                                        <!--{{abundance | limitTo:9}}-->
+                                        <!--&lt;!&ndash;{{abundance.toFixed(2)}}&ndash;&gt;-->
+                                        <!--<br/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br/>-->
+                                <!--<br/>-->
+                                <!--<br/>-->
+                                <!--<button class="btn btn-primary col-sm-offset-3" ng-click="ctrl.onSubmit('table')"-->
+                                        <!--style="position: relative; bottom: 0px; right: 0px;">-->
+                                    <!--Submit &nbsp;-->
+                                    <!--<span ng-show="ctrl.waiting">-->
+                                        <!--<span class="glyphicon glyphicon-refresh glyphicon-spin">-->
+
+                                        <!--</span>-->
+                                    <!--</span>-->
+                                <!--</button>-->
+                                <!--<br/>-->
+                                <!--<br/>-->
+                                <!--&lt;!&ndash;{{getPercentage()}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;{{ctrl.waiting}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;{{ctrl.showOutput}}&ndash;&gt;-->
+
+                                <!--<div ng-show="ctrl.waiting && ctrl.showOutput">-->
+
+                                    <!--&lt;!&ndash;here- {{getPercentage()}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="progress-bar progress-bar-warning " id="progress"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;role="progressbar" aria-valuenow="{{getPercentage()}}" aria-valuemin="5"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;aria-valuemax="100" ng-style="{width : ( getPercentage() + '%' ) }">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<span class="sr-only">{{getPercentage()}}% Complete (warning)</span>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="progress " id="progress2"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;role="progressbar" aria-valuenow="20" aria-valuemin="0"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;aria-valuemax="100" ng-style="width : 20%">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<span class="sr-only">20% </span>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                                    <!--<div class="progress-bar-striped" id="progress3">-->
+                                        <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
+                                             <!--aria-valuenow="60" aria-valuemin="20" aria-valuemax="100"-->
+                                             <!--ng-style="{width : getPercentage() + '%'  }">-->
+                                            <!--<b>{{getPercentage()}}%</b>-->
+                                            <!--&lt;!&ndash;ng-style="{width : getPercentage() + '%'  }">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<b>{{getPercentage()}}%</b>&ndash;&gt;-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--&lt;!&ndash;<div data-bind="progressBar: { value : percentage }"></div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div data-bind="progress: ctrl.total_remain_percent"></div>&ndash;&gt;-->
+
+                            <!--</div>-->
+                            <!--&lt;!&ndash;<div class="well col-sm-12" style="border-color: lightgrey ">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<button class="btn btn-primary"&ndash;&gt;-->
+                            <!--&lt;!&ndash;ng-click="ctrl.showExampleForPeptide = !ctrl.showExampleForPeptide">Use Predefined Examples&ndash;&gt;-->
+                            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+
+                        <!--</div>-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+                </section>
+                <!--<section id="ex2" class="tab-panel">-->
+                    <!--&lt;!&ndash;<h4>Network Analysis of site Specific PTM Proteins</h4>&ndash;&gt;-->
+                    <!--<div class="container"-->
+                         <!--style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">-->
+                        <!--<div class="well col-sm-12" style="border-color: black ">-->
+
+                            <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--<div class="col-sm-8 col-md-8 col-lg-8">-->
+                                <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                                <!--Submit a file in .csv format containing (in the first column) a list of peptide-->
+                                <!--sequences with PTM sites indicated using PSIMOD, UNIMOD,-->
+                                <!--mass difference or shorthand notations, and (in the subsequent columns) their-->
+                                <!--corresponding abundance values for samples divided into two categories by common-->
+                                <!--prefixes (e.g. ctrl_ vs. treat_) of their sample IDs (included in the first row). Download-->
+
+
+                                <!--&lt;!&ndash;Alternatively,&ndash;&gt;-->
+                                <!--&lt;!&ndash;you&ndash;&gt;-->
+                                <!--&lt;!&ndash;can enter&ndash;&gt;-->
+                                <!--&lt;!&ndash;peptides file with control and treatments in .xlsx format.&ndash;&gt;-->
+                                <!--&lt;!&ndash;Download&ndash;&gt;-->
+                                <!--&lt;!&ndash;<a href="#"&ndash;&gt;-->
+                                <!--&lt;!&ndash;class="onerow"&ndash;&gt;-->
+                                <!--&lt;!&ndash;ng-click="downloadCSVExample1()"&ndash;&gt;-->
+                                <!--&lt;!&ndash;ng-style="{'font-weight': 'bold'}">&ndash;&gt;-->
+                                <!--&lt;!&ndash;example 1 </a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p style="display:inline"><span class="boldText"> with probe and expression values <span&ndash;&gt;-->
+                                <!--&lt;!&ndash;style="color:steelblue;" class="glyphicon glyphicon-question-sign"&ndash;&gt;-->
+                                <!--&lt;!&ndash;data-delay='{"show":"0", "hide":"100"}'&ndash;&gt;-->
+                                <!--&lt;!&ndash;data-toggle="tooltip"&ndash;&gt;-->
+                                <!--&lt;!&ndash;title="Data set contains two columns of 'peptide' and 'value'. Please see the example 1 for formatting. ">&ndash;&gt;-->
+                                <!--&lt;!&ndash;</span></span></p> and&ndash;&gt;-->
+
+                                <!--<a href="javascript:void(0);"-->
+                                   <!--class="onerow"-->
+                                   <!--ng-click="downloadCSVExample2()"-->
+                                   <!--ng-style="{'font-weight': 'bold'}">-->
+                                    <!--example 1</a>-->
+                                <!--<p style="display:inline">-->
+                            <!--<span class="boldText">containing probe with control and treatment.-->
+                            <!--<span-->
+                                    <!--style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
+                                    <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                    <!--data-toggle="tooltip"-->
+                                    <!--title="Data set contains at least 5 columns, 1 for 'peptide' and at least 2 controls and at least 2 treatments. Please note that treatment and control samples have '_number' after their names. Please see the example 1 for formatting. ">-->
+                            <!--</span> </span></p> here.-->
+                                <!--<p style="display:inline">-->
+                                <!--<span class="boldText">-->
+                                    <!--please contact pinet support for pinet-stand-alone package to analyze larger files.-->
+                            <!--</span></p> Due to different types of data normalization methods, the data is sought to be normalized.-->
+                            <!--</div>-->
+                            <!--<div class="col-md-4 col-lg-4 col-sm-4">-->
+                                <!--<div class="onerow">-->
+                                    <!--<input type="file"  file-model="myFile" type="submit"-->
+                                           <!--class="onerow"/>-->
+                                    <!--<button ng-click="uploadFileAndOnSubmit()" class="btn btn-primary onerow">Upload .csv File-->
+                                        <!--and Start-->
+                                        <!--Analysis-->
+                                        <!--<span ng-show="ctrl.waiting || ctrl.uploadWaiting">-->
+                                                    <!--<span class="glyphicon glyphicon-refresh glyphicon-spin">-->
+
+                                                    <!--</span>-->
+                                                <!--</span>-->
+                                    <!--</button>-->
+                                    <!--<br/>-->
+                                    <!--<span ng-show="ctrl.uploadWaiting" style="color: steelblue;">-->
+                                <!--<p>-->
+                                    <!--&nbsp;Server queries 500 peptides/sec, please wait.-->
+                                <!--</p>-->
+
+                            <!--</span>-->
+                                    <!--<span ng-if="ctrl.uploadErrorTag == 400" style="color: #464bb4; font-weight: bold">-->
+
+                                   <!--{{ctrl.uploadErrorText}}-->
+                            <!--</span>-->
+                                    <!--&lt;!&ndash;<p ng-show="ctrl.uploadWaiting" style="color: steelblue; font-weight: bold">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;Server queries 50 peptides/sec, please wait.&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                                    <!--<div ng-show="ctrl.waiting">-->
+
+
+                                        <!--<div class="progress-bar-striped" id="progress4">-->
+                                            <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
+                                                 <!--aria-valuenow="60" aria-valuemin="20" aria-valuemax="100"-->
+                                                 <!--ng-style="{width : getPercentage() + '%'  }">-->
+                                                <!--<b>{{getPercentage()}}%</b>-->
+                                                <!--&lt;!&ndash;ng-style="{width : getPercentage() + '%'  }">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<b>{{getPercentage()}}%</b>&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<br/>-->
+                                            <!--<div ng-show="ctrl.showOutputex1orex2 == 'ex2Id'">-->
+                                                <!--<p style="color: steelblue">{{ctrl.progressText}}</p>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<br/>-->
+
+                                    <!--</div>-->
+
+
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</section>-->
+
+                <section id="ex3" class="tab-panel">
+                    <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
+                    <div class="container"
+                         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">
+                        <div class="well col-sm-12" style="border-color: black ">
+                            This document describes the REST APIs provided by piNET. These APIs are for developers who want to programmatically analyze their data using pinet APIs.
+
+                            In this documentation, we will use Python and urls to demo the API requests. The code can be used as is or as a template for your own modifications in Python or another language.
+                        </div>
+                        <hr/>
+
+                        <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
+                            <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
+                                For Search for a List of Peptides:
+                            </h4>
+
+                            <blockquote><pre><code>
+import requests
+PINET_URL_BASE = 'http://eh3.uc.edu/pinet/api/'
+PINET_URL_LINEAGE = '9606'
+PEPTIDE_API_EXTENSION_1 = 'phosphoandptm/organism/'
+PEPTIDE_API_EXTENSION_2 = '/ptmprotein/'
+TIMEOUT = 120
+RETRIES = 3
+
+
+
+def map_ptms(params):
+    url = PINET_URL_BASE + PEPTIDE_API_EXTENSION_1 + PINET_URL_LINEAGE + PEPTIDE_API_EXTENSION_2 + params
+
+    peptide_json = {}
+    try:
+        peptide_json = _request(url)
+    except:
+        print "error in map_peptides"
+        return peptide_json
+
+    return peptide_json
+
+def _request(url, params=None):
+    response = requests.get(url)
+    return response.json()
+
+if __name__ == '__main__':
+    # Example
+    # http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR
+    results = map_ptms("Q9Y463{[Y+80]@273}{[R+42]@277},Q13627{[Y+80]@321}{[R+42]@325},Q71DI3{[K+112.1]@28}{[K+42]@37}{[K+56]@38},Q16695{[K+112.1]@28}{[K+42]@37}{[K+56]@38},P68431{[K+112.1]@28}{[K+42]@37}{[K+56]@38}")
+
+    for item in results:
+        print item
+        print results[item]
+        print("---")
+
+                </code></pre>
+                            </blockquote>
+                            <!--padding-left:5em-->
+
+
+                        </div>
+
+                        <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
+                            <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
+                                For PTMProtein Query:
+                            </h4>
+
+                            http://eh3.uc.edu/pinet/api/phosphoandptm/organism/{organism}/ptmprotein/{PTMProteinList} is sent for
+                            the
+                            query in the URL, e.g.
+                            , please note that + is encoded to %2B in the URL. This returns the phosphorylation kinase-substrate
+                            analysis, results of iPTMnet and SIGNOR analysis.
+                            <br/>
+                            <a href="http://eh3.uc.edu/pinet/api/phosphoandptm/organism/9606/ptmprotein/Q9Y463{[Y+80]@273}{[R+42]@277},Q13627{[Y+80]@321}{[R+42]@325},Q71DI3{[K+112.1]@28}{[K+42]@37}{[K+56]@38},Q16695{[K+112.1]@28}{[K+42]@37}{[K+56]@38},P68431{[K+112.1]@28}{[K+42]@37}{[K+56]@38}"
+                               target="_blank">
+                                http://eh3.uc.edu/pinet/api/phosphoandptm/organism/9606/ptmprotein/Q9Y463{[Y+80]@273}{[R+42]@277},Q13627{[Y+80]@321}{[R+42]@325},Q71DI3{[K+112.1]@28}{[K+42]@37}{[K+56]@38},Q16695{[K+112.1]@28}{[K+42]@37}{[K+56]@38},P68431{[K+112.1]@28}{[K+42]@37}{[K+56]@38}</a>
 
                         </div>
                     </div>
 
 
-                    <!--<label style="padding-bottom: 24px;">Enter PTM/Proteins&nbsp;-->
-                    <!--<br/>-->
-                    <!--</label>-->
+                </section>
 
-
-                    <!--<span style="float:left">-->
-                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;Enter genes/PTM genes-->
-                    <!--</span>-->
-                    <div style="padding-top:8px;">
-
-                            <textarea class="form-control" rows="5"
-                                      ng-model="ctrl.inputMassPtmProteins"></textarea>
-                        <!--console.log()-->
-                    </div>
-
-                </div>
-
-
-                Delimiter: &nbsp;
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="inlineCheckbox4" value="option2" checked="true"
-                           disabled="true"> comma
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="inlineCheckbox5" value="option1" checked="true"
-                           disabled="true">
-                    semi-colon
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="inlineCheckbox6" value="option3" checked="true"
-                           disabled="true"> new line
-                </label>
-                <!--<a class="nav navbar-nav" style="padding-bottom: 12px;" href="/pln/modification.html" target="_blank">Input Format Description</a>-->
-                <!--<div style="float:left;">-->
-                <!--<span>-->
-                <!--<hr/>-->
-                <!--<p>-->
-                <!--&nbsp;<span style='color:blue'>{{ctrl.numberOfAllValidGenes}}</span> out of {{ctrl.numberOfAllInputGenes}} input genes are common with Homo Sapiens.-->
-                <!--</p>-->
-
-                <!--<span ng-show="ctrl.flagFoundNPCG" >-->
-                <!--<a href="#" title="{{ctrl.nonValidGenes}}">Mouse over to see the non conforming genes with Homo Sapiens genes</a>-->
-
-                <!--</span>-->
-
-
-                <!--<span ng-if="ctrl.flagFoundNPCG">-->
-                <!--&nbsp;Not valid genes are:-->
-                <!--<span style='color:blue'>-->
-                <!--<div ng-repeat="nonValid in ctrl.nonValidGenes">{{nonValid}}&nbsp</div>-->
-                <!--</span>-->
-                <!--Gene name identification is case sensitive, Try other names of these genes or copy and paste the gene names again!-->
-                <!--</span>-->
-
-                <!--</span>-->
-                <!--</div>-->
-            </div>
-
-
-            <div class=" form-group col-sm-2 col-sm-offset-0">
-                <label style="padding-bottom: 15px;margin-left: -10px;">Proteins&nbsp;
-                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
-                    <!--data-delay='{"show":"0", "hide":"100"}'-->
-                    <!--data-toggle="tooltip"-->
-                    <!--title="Parsed motifs are used to query ProSite API. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[^A-Z]/g">-->
-
-                    <!--</span>-->
-
-
-                    <!--<br/>-->
-                </label>
-                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div11">
-                    <!--<div ng-repeat="gene in ctrl.parsedGenes track by $index">{{gene}}<br/></div>-->
-                    <span ng-repeat="parsedPTMProtein in ctrl.parsedPTMProteins track by $index">
-                        {{parsedPTMProtein}}<br/></span>
-                </div>
-            </div>
-
-            <div class=" form-group col-sm-4 col-sm-offset-0">
-                <label style="padding-bottom: 15px;margin-left: -10px;">Post Translational Modification&nbsp;
-                    <!--<span style="color:steelblue;" class="glyphicon glyphicon-question-sign"-->
-                    <!--data-delay='{"show":"0", "hide":"100"}'-->
-                    <!--data-toggle="tooltip"-->
-                    <!--title="Parsed modifications are used to query PSIsty-MOD ontology. They are obtained from entered peptides by parsing them with JavaScript regular expression: /[A-Z]\[\+[\d\.]+]/g">-->
-
-                    <!--</span>-->
-                    <br/>
-                </label>
-                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12">
-                    <div ng-repeat="parsedPTM in ctrl.parsedPTMs ">
-                        <span ng-repeat="PTM in parsedPTM ">
-                        {{PTM}}&nbsp;&nbsp;
-                        </span>
-
-                        <!--{{ctrl.parsedPTMs}}-->
-                        <!--<div ng-repeat="parsedPTMItem in parsedPTM ">-->
-                        <!--{{parsedPTMItem}}</div> &nbsp;-->
-                    </div>
-                </div>
 
             </div>
-
-            <div class=" form-group col-sm-2 col-sm-offset-0">
-                <label style="padding-bottom: 15px; margin-left: -10px;">Abundance&nbsp;
-                    <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
-                          data-delay='{"show":"0", "hide":"100"}'
-                          data-toggle="tooltip"
-                          title="This is the abundance of PTM/Proteins separated by space from the PTM/Proteins, if not inserted, it is assumed to be 'NA'.">
-                </span>
-                    <br/>
-                </label>
-                <div class="list-responsive-vertical3" style="word-wrap:break-word;" id="div12-1">
-                    <div ng-repeat="abundance in ctrl.proteinAbundance track by $index">
-                        {{abundance | limitTo:6}}
-                        <br/>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-                <button style="float:right" class="btn btn-primary col-sm-offset-3" ng-show=" ctrl.showPtmSubmit"
-                        ng-click="ctrl.onSubmitPtm('table')">
-                    Submit &nbsp;
-                    <span ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">
-                         <span class="glyphicon glyphicon-refresh glyphicon-spin">
-
-                                </span>
-                        <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
-                    </span>
-                </button>
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--<p>ptmWaiting:{{ctrl.ptmWaiting}}</p>-->
-                <!--<p>phosphoWaiting:{{ctrl.phosphoWaiting}}</p>-->
-                <!--<p>phosphoError:{{!ctrl.phosphoError}}</p>-->
-                <!--<p>ptmError:{{!ctrl.ptmError}}</p>-->
-
-
-                <!--<div ng-show="ctrl.phosphoWaiting && !ctrl.phosphoError && !ctrl.ptmError">-->
-
-
-                <!--<div class="progress-bar-striped" id="progress2">-->
-                <!--<div class="progress-bar progress-bar-striped active" role="progressbar"-->
-                <!--aria-valuenow="60" aria-valuemin="20" aria-valuemax="100"-->
-                <!--ng-style="{width : getPtmPercentage() + '%'  }">-->
-                <!--<b>{{getPtmPercentage()}}%</b>-->
-                <!--&lt;!&ndash;ng-style="{width : getPercentage() + '%'  }">&ndash;&gt;-->
-                <!--&lt;!&ndash;<b>{{getPercentage()}}%</b>&ndash;&gt;-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-
-            </div>
-
 
         </div>
+
+
+
+
+
+
+
         <!--<div>{{ctrl.showGeneSubmit}}-->
         <!--{{ctrl.showPtmSubmit}}</div>-->
-
-        <div ng-show="ctrl.showPhosphoGeneNetwork ">
+    <div class="container-fluid" style="padding-top: 10px;" ng-show="ctrl.showPhosphoGeneNetwork && ctrl.ex1orex2Protein == 'ex1Id'">
+        <div >
 
             <div class="well col-sm-12"
                  style="background-color: transparent; border-color: #999999" ng-show="ctrl.showPhosphoGeneNetwork">
                 <h4>Network Representation of Targeted PTMs/Proteins</h4>
+                <hr/>
                 <div class="tabPanel-widget">
                     <label for="tab-1" tabindex="0"></label>
                     <input id="tab-1" type="radio" name="tabs" aria-hidden="true">
@@ -543,7 +1199,7 @@
 
                             <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
                                 <button class="btn btn-primary "
-                                        ng-click="makePtmGraph(ctrl.ptmNetwork, ctrl.ptmProteinToAbundanceMap)">Show
+                                        ng-click="makePtmGraph(ctrl.ptmNetwork, ctrl.ptmProteinToAbundanceMap, graphType4ptm, circleSliderValue4ptm, nodeSliderValue4ptm, fontSliderValue4ptm, widthSliderValue4ptm)">Show
                                     Network of Targeted PTM/Proteins via iPTMnet
                                 </button>
                                 <!--<button class="btn btn-primary "-->
@@ -578,7 +1234,7 @@
                                     <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
 
                                     <!--<div class="well" ng-show="true">-->
-                                    <button class="btn btn-primary " ng-click="exportiPTMNetMappings()">Download Table
+                                    <button class="btn btn-primary " ng-click="exportCsvGeneral(ctrl.PTM_table,'pinet-iPTMNet-PTMProteinMapping')">Download Table
                                     </button>
                                     <table class="table table-striped table-bordered">
                                         <thead>
@@ -643,7 +1299,99 @@
                                 <!--</button>-->
                                 <br/>
 
-                                <div id="chart4" style="max-width: 100vw;overflow-x: auto;">
+                                <div class="well col-sm-12" >
+
+
+
+                                    <div class=" form-group col-sm-3 ">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Width Size:</strong>
+                                            </div>
+                                            <input type="range" id="width_slider4ptm" value="1500" min="900" max="2700" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{widthSliderValue4ptm}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Node Size:</strong>
+                                            </div>
+                                            <input type="range" id="node_slider4ptm" value="15" min="5" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{nodeSliderValue4ptm}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Font Size:</strong>
+                                            </div>
+                                            <input type="range" id="font_slider4ptm" value="20" min="10" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{fontSliderValue4ptm}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0" style="padding-left: 0px;">
+
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Inner Circle Size:</strong>
+                                                <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="This slider is not active in bipartite or tripartite views."
+                                                >
+                                                </span>
+                                            </div>
+                                            <input type="range" id="circle_slider4ptm" value="1100" min="400" max="2000" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{circleSliderValue4ptm}}</span>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="container" id="chart4" style="max-width: 100vw;overflow-x: auto;">
 
                                     <div>
                                         <button class="btn1" id='force4'>
@@ -654,38 +1402,58 @@
                                           title="Implement force layout">
                                     </span>
                                         </button>
-                                        <button class="btn2" id='circularView4'>
 
-                                    <span style="color:#1c3448;" class="fa fa-circle-o"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Implement circular layout">
-                                    </span>
-                                        </button>
-                                        <button class="btn3" id='parallelView4'>
+                                        <button class="btn2" id='parallelView4'>
 
-                                    <span style="color:#1c3448;" class="fa fa-align-justify"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Rearrange nodes in columns">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-align-justify"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Rearrange nodes in columns">
+                                            </span>
                                         </button>
+                                        <button class="btn3" id='circularView4'>
+
+                                            <span style="color:#1c3448;" class="fa fa-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circular layout">
+                                            </span>
+                                        </button>
+
+                                        <button class="btn6" id='circosView4'>
+
+                                            <span style="color:#1c3448;" class="fa fa-dot-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circos layout">
+                                            </span>
+                                        </button>
+
                                         <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
                                         <!--<i class='fa fa-map-o'></i>-->
                                         <!--</button>-->
                                         <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
                                         <!--<i class='fa fa-dot-circle-o'></i>-->
                                         <!--</button>-->
-                                        <button class="btn6" id='download-png4'>
+                                        <button class="btn7" id='download-png4'>
 
-                                    <span style="color:#1c3448;" class="fa fa-download"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="download as PNG">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as PNG">
+                                            </span>
                                         </button>
 
-                                        <button class="btn7" id='question4'>
+                                        <button class="btn8" id='download-svg4'>
+
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as SVG">
+                                            </span>
+                                        </button>
+
+                                        <button class="btn9" id='question4'>
                                             <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
                                             <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
                                             <!--<a  href="#"  title="Submit">-->
@@ -695,17 +1463,17 @@
                                                   data-delay='{"show":"0", "hide":"100"}'
                                                   data-toggle="tooltip"
                                                   title="Query Gene Set is colored based on input abundance values based on the legend,
-                                        Red nodes: phosphorylation enzymes(kinases),
-                                        Green: acetylation enzymes, Pink: methylation enzymes,
-                                        Olive: C-Glycosylation, Navy: Myristoylation,
-                                        Purple: N-Glycosylation, Aqua: O-Glycosylation,
-                                        Beige: S-Glycosylation, Brown: S-Nitrosylation,
-                                        DarkRed: Sumoylation, Orange: Ubiquitination.
-                                        Dashed border for input nodes shows no connection, and solid border
-                                        reflects at least one connection to a known or unknown enzyme.
-                                        Based on the provided table the targeting enzyme might not be known.">
+                                                Red nodes: phosphorylation enzymes(kinases),
+                                                Green: acetylation enzymes, Pink: methylation enzymes,
+                                                Olive: C-Glycosylation, Navy: Myristoylation,
+                                                Purple: N-Glycosylation, Aqua: O-Glycosylation,
+                                                Beige: S-Glycosylation, Brown: S-Nitrosylation,
+                                                DarkRed: Sumoylation, Orange: Ubiquitination.
+                                                Dashed border for input nodes shows no connection, and solid border
+                                                reflects at least one connection to a known or unknown enzyme.
+                                                Based on the provided table the targeting enzyme might not be known.">
 
-                                    </span>
+                                            </span>
                                         </button>
                                         <!--<button class="btn8" id='drug1'-->
                                         <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
@@ -723,6 +1491,10 @@
                         </div>
 
                     </div>
+
+
+
+
                     <label for="tab-2" tabindex="0"></label>
                     <input id="tab-2" type="radio" name="tabs" aria-hidden="true">
                     <h2>
@@ -769,7 +1541,7 @@
 
                             <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
                                 <button class="btn btn-primary "
-                                        ng-click="makeSignorGraph(ctrl.signor_Network, ctrl.ptmProteinToAbundanceMap)">
+                                        ng-click="makeSignorGraph(ctrl.signor_Network, ctrl.ptmProteinToAbundanceMap, graphType4signor, circleSliderValue4signor, nodeSliderValue4signor, fontSliderValue4signor, widthSliderValue4signor)">
                                     Show
                                     Network of Targeted PTM/Proteins via SIGNOR
                                 </button>
@@ -808,7 +1580,7 @@
                                     <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
 
                                     <!--<div class="well" ng-show="true">-->
-                                    <button class="btn btn-primary " ng-click="exportSignorMappings()">Download Table
+                                    <button class="btn btn-primary " ng-click="exportCsvGeneral(enrichmentTable,'pinet-SIGNOR-PTMProteinMapping')">Download Table
                                     </button>
                                     <table class="table table-striped table-bordered">
                                         <thead>
@@ -888,49 +1660,159 @@
                                 <!--</button>-->
                                 <br/>
 
-                                <div id="chart6" style="max-width: 100vw;overflow-x: auto;">
+                                <div class="well col-sm-12" >
+
+
+
+                                    <div class=" form-group col-sm-3 ">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Width Size:</strong>
+                                            </div>
+                                            <input type="range" id="width_slider4signor" value="1500" min="900" max="2700" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{widthSliderValue4signor}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Node Size:</strong>
+                                            </div>
+                                            <input type="range" id="node_slider4signor" value="15" min="5" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{nodeSliderValue4signor}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Font Size:</strong>
+                                            </div>
+                                            <input type="range" id="font_slider4signor" value="20" min="10" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{fontSliderValue4signor}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0" style="padding-left: 0px;">
+
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Inner Circle Size:</strong>
+                                                <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="This slider is only active for circular and circos views."
+                                                >
+                                                </span>
+                                            </div>
+                                            <input type="range" id="circle_slider4signor" value="1100" min="400" max="2000" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{circleSliderValue4signor}}</span>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container" id="chart6" style="max-width: 100vw;overflow-x: auto;">
 
                                     <div>
                                         <button class="btn1" id='force6'>
 
-                                    <span style="color:#1c3448;" class="fa fa-random"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Implement force layout">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-random"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement force layout">
+                                            </span>
                                         </button>
-                                        <button class="btn2" id='circularView6'>
+                                        <button class="btn2" id='parallelView6'>
 
-                                    <span style="color:#1c3448;" class="fa fa-circle-o"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Implement circular layout">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-align-justify"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Rearrange nodes in columns">
+                                            </span>
                                         </button>
-                                        <button class="btn3" id='parallelView6'>
+                                        <button class="btn3" id='circularView6'>
 
-                                    <span style="color:#1c3448;" class="fa fa-align-justify"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Rearrange nodes in columns">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circular layout">
+                                            </span>
                                         </button>
+
+                                        <button class="btn6" id='circosView6'>
+
+                                            <span style="color:#1c3448;" class="fa fa-dot-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circos layout">
+                                            </span>
+                                        </button>
+
                                         <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
                                         <!--<i class='fa fa-map-o'></i>-->
                                         <!--</button>-->
                                         <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
                                         <!--<i class='fa fa-dot-circle-o'></i>-->
                                         <!--</button>-->
-                                        <button class="btn6" id='download-png6'>
+                                        <button class="btn7" id='download-png6'>
 
-                                    <span style="color:#1c3448;" class="fa fa-download"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="download as PNG">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as PNG">
+                                            </span>
                                         </button>
 
-                                        <button class="btn7" id='question6'>
+                                        <button class="btn8" id='download-svg6'>
+
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as SVG">
+                                            </span>
+                                        </button>
+
+                                        <button class="btn9" id='question6'>
                                             <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
                                             <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
                                             <!--<a  href="#"  title="Submit">-->
@@ -940,19 +1822,19 @@
                                                   data-delay='{"show":"0", "hide":"100"}'
                                                   data-toggle="tooltip"
                                                   title="Query Gene Set is colored based on input abundance values based on the legend,
-                                        Red nodes: phosphorylation enzymes(kinases),
-                                        Green: acetylation enzymes, Pink: methylation enzymes,
-                                        Olive: C-Glycosylation, Navy: Myristoylation,
-                                        Purple: N-Glycosylation, Aqua: O-Glycosylation,
-                                        Beige: S-Glycosylation, Brown: S-Nitrosylation,
-                                        DarkRed: Sumoylation, Orange: Ubiquitination,
-                                        Black: Protein-Protein Interaction.
-                                        Blue and red edges reflect down and up regulation activity, respectively.
-                                        Dashed border for input nodes shows no connection, and solid border
-                                        reflects at least one connection.
-                                        ">
+                                                Red nodes: phosphorylation enzymes(kinases),
+                                                Green: acetylation enzymes, Pink: methylation enzymes,
+                                                Olive: C-Glycosylation, Navy: Myristoylation,
+                                                Purple: N-Glycosylation, Aqua: O-Glycosylation,
+                                                Beige: S-Glycosylation, Brown: S-Nitrosylation,
+                                                DarkRed: Sumoylation, Orange: Ubiquitination,
+                                                Black: Protein-Protein Interaction.
+                                                Blue and red edges reflect down and up regulation activity, respectively.
+                                                Dashed border for input nodes shows no connection, and solid border
+                                                reflects at least one connection.
+                                                ">
 
-                                    </span>
+                                            </span>
                                         </button>
                                         <!--<button class="btn8" id='drug1'-->
                                         <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
@@ -974,6 +1856,10 @@
                         <!--</div>-->
 
                     </div>
+
+
+
+
                     <label for="tab-3" tabindex="0"></label>
                     <input id="tab-3" type="radio" name="tabs" aria-hidden="true">
                     <h2>
@@ -1021,7 +1907,7 @@
 
 
                             <div ng-show="genePathwayError">
-                                <p style="color: steelblue"> Error in obtaining the Kinase-Gene network network, please
+                                <p style="color: steelblue"> Error in obtaining the Kinase-Gene network, please
                                     try again later.
                                 </p>
 
@@ -1033,12 +1919,12 @@
 
                             <div ng-show="ctrl.phosphoError" style="color: red">
                                 <p>
-                                    Error in obtaining the Kinase-Gene network network, please try again later!
+                                    Error in obtaining the Kinase-Gene network, please try again later!
                                 </p>
                             </div>
                             <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
                                 <button class="btn btn-primary "
-                                        ng-click="makePhosphoGraph(ctrl.phosphoNetwork, ctrl.ptmProteinToAbundanceMap )">
+                                        ng-click="makePhosphoGraph(ctrl.phosphoNetwork, ctrl.ptmProteinToAbundanceMap, graphType4phos, circleSliderValue4phos,nodeSliderValue4phos, fontSliderValue4phos, widthSliderValue4phos )">
                                     Show Kinase Network for
                                     Phosphorylated Genes
                                 </button>
@@ -1084,7 +1970,7 @@
                                     <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
 
                                     <!--<div class="well" ng-show="true">-->
-                                    <button class="btn btn-primary " ng-click="exportPhosphositePlusMappings()">Download
+                                    <button class="btn btn-primary " ng-click="exportCsvGeneral(ctrl.blosum50Table,'pinet-phosphositePlus-PTMProteinMapping')">Download
                                         Table
                                     </button>
 
@@ -1165,7 +2051,98 @@
                                 <!--</button>-->
                                 <br/>
 
-                                <div id="chart3" style="max-width: 100vw;overflow-x: auto;" >
+                                <div class="well col-sm-12" >
+
+
+
+                                    <div class=" form-group col-sm-3 ">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Width Size:</strong>
+                                            </div>
+                                            <input type="range" id="width_slider4phos" value="1500" min="900" max="2700" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{widthSliderValue4phos}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Node Size:</strong>
+                                            </div>
+                                            <input type="range" id="node_slider4phos" value="15" min="5" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{nodeSliderValue4phos}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Font Size:</strong>
+                                            </div>
+                                            <input type="range" id="font_slider4phos" value="20" min="10" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{fontSliderValue4phos}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0" style="padding-left: 0px;">
+
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Inner Circle Size:</strong>
+                                                <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="This slider is only active for circular and circos views."
+                                                >
+                                                </span>
+                                            </div>
+                                            <input type="range" id="circle_slider4phos" value="1100" min="400" max="2000" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{circleSliderValue4phos}}</span>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container" id="chart3" style="max-width: 100vw;overflow-x: auto;" >
 
                                     <div>
                                         <button class="btn1" id='force3'>
@@ -1176,38 +2153,59 @@
                                           title="Implement force layout">
                                     </span>
                                         </button>
-                                        <button class="btn2" id='circularView3'>
 
-                                    <span style="color:#1c3448;" class="fa fa-circle-o"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Implement circular layout">
-                                    </span>
-                                        </button>
-                                        <button class="btn3" id='parallelView3'>
+                                        <button class="btn2" id='parallelView3'>
 
-                                    <span style="color:#1c3448;" class="fa fa-align-justify"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="Rearrange nodes in columns">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-align-justify"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Rearrange nodes in columns">
+                                            </span>
                                         </button>
+
+                                        <button class="btn3" id='circularView3'>
+
+                                            <span style="color:#1c3448;" class="fa fa-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circular layout">
+                                            </span>
+                                        </button>
+
+                                        <button class="btn6" id='circosView3'>
+
+                                            <span style="color:#1c3448;" class="fa fa-dot-circle-o"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement circos layout">
+                                            </span>
+                                        </button>
+
                                         <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
                                         <!--<i class='fa fa-map-o'></i>-->
                                         <!--</button>-->
                                         <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
                                         <!--<i class='fa fa-dot-circle-o'></i>-->
                                         <!--</button>-->
-                                        <button class="btn6" id='download-png3'>
+                                        <button class="btn7" id='download-png3'>
 
-                                    <span style="color:#1c3448;" class="fa fa-download"
-                                          data-delay='{"show":"0", "hide":"100"}'
-                                          data-toggle="tooltip"
-                                          title="download as PNG">
-                                    </span>
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as PNG">
+                                            </span>
                                         </button>
 
-                                        <button class="btn7" id='question3'>
+                                        <button class="btn8" id='download-svg3'>
+
+                                            <span style="color:#1c3448;" class="fa fa-download"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="download as SVG">
+                                            </span>
+                                        </button>
+
+                                        <button class="btn9" id='question3'>
                                             <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
                                             <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
                                             <!--<a  href="#"  title="Submit">-->
@@ -1217,9 +2215,385 @@
                                                   data-delay='{"show":"0", "hide":"100"}'
                                                   data-toggle="tooltip"
                                                   title="Query Gene Set is colored based on input abundance values based on the legend,
-                                        Red nodes: phosphorylation enzymes(kinases).">
+                                                Red nodes: phosphorylation enzymes(kinases).">
 
-                                    </span>
+                                            </span>
+                                        </button>
+                                        <!--<button class="btn8" id='drug1'-->
+                                        <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->
+                                        <!--<i class='fa fa-eyedropper'></i>-->
+                                        <!--</button>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <!--<div id="chart3"></div>-->
+                        </div>
+
+                    </div>
+
+
+
+
+                    <label for="tab-4" tabindex="0"></label>
+                    <input id="tab-4" type="radio" name="tabs" aria-hidden="true">
+                    <h2>
+                        <!--<a href=https://www.phosphosite.org/homeAction.action" target="_blank" style="color: #b5cde1">PhosphoSitePlus</a>-->
+                        <!--Network of-->
+                        <!--Targeted Phosphosites-->
+
+                        DeepPhos
+                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed && !ctrl.phosphoError">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                    </span>
+                    </h2>
+                    <div class="container"
+                         style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+                        <!--<div class="well col-sm-12" style="background-color: transparent; border-color: #999999">-->
+
+                        <!--<div ng-show="ctrl.showGeneNetwork">-->
+
+                        <!--<div class="well">-->
+                        <div class="well well-sm" style="background-color: #c9c9c9">
+                            <!--<h4>Pathway Membership-->
+
+
+                            <!--<span ng-show="!showGeneNetworkProcessed && !genePathwayError">-->
+
+                            <!--<span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>-->
+                            <!--</span>-->
+
+                            <!--</h4>-->
+                            <div class="bs-callout bs-callout-primary">
+                                <p> <a href="https://academic.oup.com/bioinformatics/article/35/16/2766/5270665" target="_blank">DeepPhos</a>
+                                    is a novel deep learning architecture for phosphorylation site prediction.
+                                    <!--<br/>-->
+                                    <!--Solid lines in the graph represent known relations between-->
+                                    <!--kinases and their target sites (in Known_Kinase_TargetGene),-->
+                                    <!--whereas dashed lines represent predicted relationships using consensus sequences-->
+                                    <!--derived from PhosphoSitePlus. Two different prediction modes can be used, based-->
+                                    <!--on Position Weight Matrices for consensus motifs-->
+                                    <!--(Known+Predicted_Probability_Kinase_TargetGene),-->
+                                    <!--or simply using sequence similarity between known targets and query peptides-->
+                                    <!--(Known+Predicted_Blosum50_Kinase_TargetGene), with the latter providing predictions-->
+                                    <!--even when very few examples of known phosphorylation sites are available.-->
+                                </p>
+                            </div>
+
+
+                            <div ng-show="geneDeepPhosError">
+                                <p style="color: steelblue"> Error in obtaining the Kinase-ptmProtein network from DeepPhos, please
+                                    try again later.
+                                </p>
+
+
+                                <!--<button class="btn btn-primary "-->
+                                <!--ng-click="tryEnrichmentGraph()">Try Again-->
+                                <!--</button>-->
+                            </div>
+
+                            <div ng-show="ctrl.phosphoError" style="color: red">
+                                <p>
+                                    Error in obtaining the Kinase-Gene networkfrom DeepPhos, please try again later!
+                                </p>
+                            </div>
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+                                <button class="btn btn-primary "
+                                        ng-click="makeDeepPhosGraph(ctrl.deepPhosNetwork, ctrl.ptmProteinToAbundanceMap, graphType4deep, circleSliderValue4deep,nodeSliderValue4deep, fontSliderValue4deep, widthSliderValue4deep)">
+                                    Show DeepPhos network for
+                                    phosphorylation site prediction.
+                                </button>
+                                <!--<button class="btn btn-primary "-->
+                                <!--ng-click="hidePhosphoGraph()">Hide-->
+                                <!--</button>-->
+                            </div>
+
+                        </div>
+
+
+                        <div ng-show="ctrl.showDeepPhosGraph">
+
+
+                            <div ng-show="ctrl.showPhosphoGeneNetwork">
+                                <div class="well">
+                                    <h4>Mapping Kinases to Targeted Phosphosite
+
+                                        <span ng-show="!ctrl.showPhosphoGeneNetworkProcessed">
+                            <span class="fa fa-spinner fa-pulse fa-1x fa-fw"></span>
+                            </span>
+                                    </h4>
+                                    <div class="bs-callout bs-callout-primary">
+                                        <p>This table shows the known and predicted kinases targeting the input PTM
+                                            proteins. The kinases shown here
+                                            are based on the known kinases in the phosphositePlus and predicted kinases
+                                            based on the blosum50 similarity score
+                                            of the phosphosite sequence and known kinase target sequences.
+                                        </p>
+                                    </div>
+
+
+                                    <!--</div>-->
+
+                                    <div ng-show="ctrl.phosphoError" style="color: red">
+                                        <p>
+                                            Error in obtaining DeepPhos network for
+                                            phosphorylation site prediction, please try
+                                            again
+                                            later!
+                                        </p>
+                                    </div>
+
+                                    <!--<div ng-show="ctrl.showPhosphoGeneNetworkProcessed">-->
+
+                                    <!--<div class="well" ng-show="true">-->
+                                    <button class="btn btn-primary " ng-click="exportCsvGeneral(ctrl.deepPhosTable,'pinet-deepPhos-kinaseSubstratePrediction')">Download
+                                        Table
+                                    </button>
+
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+
+                                            <th>kinaseGroup</th>
+                                            <th>PTM/Protein</th>
+                                            <th>PTM</th>
+
+                                            <th>position</th>
+                                            <th>score</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!--<tbody pagination-id="metaData22">-->
+                                        <tr dir-paginate="gene in ctrl.deepPhosTable | filter:search | orderBy:'-score' | itemsPerPage:10 "
+                                            pagination-id="metaData222deep">
+                                            <!--<tr ng-repeat="gene in ctrl.blosum50Table |filter:search | itemsPerPage:10 "  ng-if="gene.symbol != ''" >-->
+                                            <!--<tr ng-repeat="gene in ctrl.inputGeneInfo |filter:search | itemsPerPage:10:'genesPagination'" current-page="currentPage" pagination-id="genesPagination" ng-if="gene.symbol != ''">-->
+                                            <td>{{gene.kinaseGroup}}</td>
+                                            <!--<td>{{gene.ptm}}</td>-->
+                                            <td>{{gene.PTMProtein}}</td>
+                                            <td>{{gene.PTM}}</td>
+                                            <td>{{gene.position}}</td>
+                                            <td>{{gene.score}}</td>
+
+
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls
+                                            pagination-id="metaData222deep"
+                                            max-size="10"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                    </dir-pagination-controls>
+                                    <!--<dir-pagination-controls-->
+                                    <!--max-size="10"-->
+                                    <!--direction-links="true"-->
+                                    <!--boundary-links="true" >-->
+                                    <!--</dir-pagination-controls>-->
+                                </div>
+                                <br/>
+                                <!--</div>-->
+                            </div>
+
+
+                            <div ng-show="ctrl.showPhosphoGeneNetworkProcessed">
+
+                                <!--<select-->
+                                        <!--ng-model="selectedphosphoPathways"-->
+                                        <!--ng-change="changedPhosphoValue(selectedphosphoPathways)"-->
+                                        <!--ng-options="x.value for x in phosphoOptions">-->
+                                <!--</select>-->
+                                <hr/>
+                                <!--<button>-->
+                                <!--<a id="download3" href="#">Download SVG-->
+                                <!--</a>-->
+                                <!--</button>-->
+                                <br/>
+
+
+                                <div class="well col-sm-12" >
+
+
+                                    <div class=" form-group col-sm-3 ">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Width Size:</strong>
+                                            </div>
+                                            <input type="range" id="width_slider4deep" value="1500" min="900" max="2700" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{widthSliderValue4deep}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Node Size:</strong>
+                                            </div>
+                                            <input type="range" id="node_slider4deep" value="15" min="5" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{nodeSliderValue4deep}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0">
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Font Size:</strong>
+                                            </div>
+                                            <input type="range" id="font_slider4deep" value="20" min="10" max="30" step="1"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{fontSliderValue4deep}}</span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class=" form-group col-sm-3 col-sm-offset-0" style="padding-left: 0px;">
+
+                                        <div style=" text-align: left">
+                                            <div style="text-align: center;">
+                                                <strong>Change Inner Circle Size:</strong>
+                                                <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="This slider is only active for circular and circos views."
+                                                >
+                                                </span>
+                                            </div>
+                                            <input type="range" id="circle_slider4deep" value="1100" min="400" max="2000" step="100"/>
+                                            <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{ctrl.sliderFoldChangeValue}}</span><br/>-->
+                                            <!--Log<sub>2</sub>Fold Change:&nbsp;<span >{{ctrl.sliderLogFoldChangeValue}}</span><br/>-->
+                                            <!--Fold Change:&nbsp;<span >{{sliderFoldChangeValue}}</span><br/>-->
+                                            <div style="text-align: center;">
+
+                                                <span style="color: steelblue">{{circleSliderValue4deep}}</span>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="container" id="chart4deep" style="max-width: 100vw;overflow-x: auto;" >
+
+                                    <div>
+                                        <button class="btn1" id='force4deep'>
+
+                                            <span style="color:#1c3448;" class="fa fa-random"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Implement force layout">
+                                            </span>
+                                        </button>
+
+                                        </button>
+                                        <button class="btn2" id='parallelView4deep'>
+
+                                            <span style="color:#1c3448;" class="fa fa-align-justify"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Rearrange nodes in columns">
+                                            </span>
+                                        </button>
+
+
+                                            <button class="btn3" id='circularView4deep'>
+
+                                                <span style="color:#1c3448;" class="fa fa-circle-o"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="Implement circular layout">
+                                                </span>
+
+                                            <!--<button class="btn4" id='customizedParallelView1' title='Implement parallel layout'>-->
+                                            <!--<i class='fa fa-map-o'></i>-->
+                                            <!--</button>-->
+                                            <!--<button class="btn5" id='customizedCircularView1' title='Implement customized circular layout'>-->
+                                            <!--<i class='fa fa-dot-circle-o'></i>-->
+                                            </button>
+
+
+                                            <button class="btn6" id='circosView4deep'>
+                                                <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
+                                                <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+                                                <!--<a  href="#"  title="Submit">-->
+                                                <!--<i class='fa fa-question-circle'></i>-->
+                                                <!--</a>-->
+                                                <span style="color:#1c3448;" class="fa fa-dot-circle-o"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="Implement circos layout.">
+
+                                                </span>
+                                            </button>
+
+                                            <button class="btn7" id='download-png4deep'>
+
+                                                <span style="color:#1c3448;" class="fa fa-download"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="download as PNG">
+                                                </span>
+                                            </button>
+
+                                            <button class="btn8" id='download-svg4deep'>
+
+                                                <span style="color:#1c3448;" class="fa fa-download"
+                                                      data-delay='{"show":"0", "hide":"100"}'
+                                                      data-toggle="tooltip"
+                                                      title="download as SVG">
+                                                </span>
+                                            </button>
+
+                                        <button class="btn9" id='question4deep'>
+                                            <!--title='Grey or colored nodes based on abundance: Query Gene Set, Red nodes: Pathways / Kinases Perturbation, Darker color reflects lower p-value in the enrichment analysis.'>-->
+                                            <!--&lt;!&ndash;<i class='fa fa-question-circle'></i>&ndash;&gt;-->
+                                            <!--<a  href="#"  title="Submit">-->
+                                            <!--<i class='fa fa-question-circle'></i>-->
+                                            <!--</a>-->
+                                            <span style="color:#1c3448;" class="fa fa-question-circle"
+                                                  data-delay='{"show":"0", "hide":"100"}'
+                                                  data-toggle="tooltip"
+                                                  title="Query Gene Set is colored based on input abundance values based on the legend,
+                                                Red nodes: phosphorylation enzymes(kinases).">
+
+                                            </span>
                                         </button>
                                         <!--<button class="btn8" id='drug1'-->
                                         <!--title='grey nodes: Query Gene Set, Red nodes: Pathways / Kinases Perturbation'>-->

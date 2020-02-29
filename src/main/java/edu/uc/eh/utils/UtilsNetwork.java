@@ -6,6 +6,9 @@ package edu.uc.eh.utils;
 import edu.uc.eh.peptideMatch.Fasta;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.json.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -20,6 +23,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -61,6 +65,21 @@ System.out.println(instance);
         }
     }
 
+//    public JSONObject parseNestedJSONObject(String jsonDataString) throws ParseException {
+//
+//
+//        JSONParser parser = new JSONParser();
+//        JSONObject jsonObject = (JSONObject) parser.parse(jsonDataString);
+//
+//        //JSONObject jsonObject = new JSONObject(jsonDataString);
+//        List<String> list = new ArrayList<String>();
+//        JSONArray jsonArray = jsonObject..getJSONArray("userInfo");
+//        for(int i = 0 ; i < jsonArray.length(); i++) {
+//            list.add(jsonArray.getJSONObject(i).getString("username"));
+//            System.out.println(jsonArray.getJSONObject(i).getString("username")); // display usernames
+//        }
+//
+//    }
     public JSONObject readFastaUrl(String urlString, String pr) throws Exception {
         JSONObject proteinJson = new JSONObject();
         JSONObject nullJson = new JSONObject();

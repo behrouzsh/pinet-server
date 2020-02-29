@@ -34,6 +34,7 @@ urls:
   ilincsSignatureUrl: http://www.ilincs.org/api/SignatureUploads/uploadToiLINCS
   ilincsSignatureMetaUpload: http://www.ilincs.org/api/SignatureMeta/upload
   ilincsGetSignatureUrl: http://www.ilincs.org/api/ilincsR/findConcordances
+  deepPhosUrl: http://localhost:5000/api/predict/organism/%s/%s
 
 
 resources:

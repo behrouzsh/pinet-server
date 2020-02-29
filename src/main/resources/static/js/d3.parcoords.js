@@ -2326,19 +2326,19 @@ pc.brushMode = function(mode) {
       .call(drag);
   }
 
-  brush.modes["angular"] = {
-    install: install,
-    uninstall: function() {
-      pc.selection.select("svg").select("g#arcs").remove();
-      pc.selection.select("svg").select("rect#arc-events").remove();
-      pc.on("axesreorder.arcs", undefined);
-      delete pc.brushReset;
-
-      strumRect = undefined;
-    },
-    selected: selected,
-    brushState: function () { return arcs; }
-  };
+  // brush.modes["angular"] = {
+  //   install: install,
+  //   uninstall: function() {
+  //     pc.selection.select("svg").select("g#arcs").remove();
+  //     pc.selection.select("svg").select("rect#arc-events").remove();
+  //     pc.on("axesreorder.arcs", undefined);
+  //     delete pc.brushReset;
+  //
+  //     strumRect = undefined;
+  //   },
+  //   selected: selected,
+  //   brushState: function () { return arcs; }
+  // };
 
 }());
 pc.interactive = function() {

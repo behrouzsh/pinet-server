@@ -83,7 +83,7 @@
 
                     <div class="well " style="border-color: black; font-weight: bold">
 
-                        To support piNET, sincerely consider citing PiNET (http://pinet-server.org) via <a href="https://www.biorxiv.org/content/10.1101/607432v1" target="_blank">
+                        Cite PiNET (http://pinet-server.org) via <a href="https://www.biorxiv.org/content/10.1101/607432v1" target="_blank">
                         piNET: a versatile web platform for downstream analysis and visualization of proteomics data</a>, doi: https://doi.org/10.1101/607432
 
 
@@ -285,19 +285,34 @@ if __name__ == '__main__':
 
                     </div>
 
+
                     <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
                         <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
-                            For Enrichment Analysis via Enrichr:
+                            For Kinase Network:
                         </h4>
 
-                        http://eh3.uc.edu/pinet/api/enrichment/target/{pathway}/genes/{geneList} is sent for the query in the
+                        http://eh3.uc.edu/pinet/api/kinase/genes/{geneList} is sent for the query in the
                         URL, e.g.
                         <br/>
-                        <a href="http://eh3.uc.edu/pinet/api/enrichment/target/KEGG_2016/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53"
+                        <a href="http://eh3.uc.edu/pinet/api/kinase/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53"
                            target="_blank">
-                            http://eh3.uc.edu/pinet/api/enrichment/target/KEGG_2016/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53</a>
+                            http://eh3.uc.edu/pinet/api/kinase/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53</a>
 
                     </div>
+
+                    <!--<div class="bs-callout bs-callout-default" style="padding-top: 40px;">-->
+                        <!--<h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;-->
+                            <!--For Enrichment Analysis via Enrichr:-->
+                        <!--</h4>-->
+
+                        <!--http://eh3.uc.edu/pinet/api/enrichment/target/{pathway}/genes/{geneList} is sent for the query in the-->
+                        <!--URL, e.g.-->
+                        <!--<br/>-->
+                        <!--<a href="http://eh3.uc.edu/pinet/api/enrichment/target/KEGG_2016/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53"-->
+                           <!--target="_blank">-->
+                            <!--http://eh3.uc.edu/pinet/api/enrichment/target/KEGG_2016/genes/OCIAD1,NCOR2,ZC3HC1,RPS6KA3,PDPK1,PDPK2P,HN1,BRAF,TP53</a>-->
+
+                    <!--</div>-->
 
                     <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
                         <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
@@ -454,7 +469,13 @@ if __name__ == '__main__':
 
                                 <div style=" text-align: left">
                                     <div style="text-align: center;">
-                                        <strong>Change Circular Layout Size:</strong>
+                                        <strong>Change Inner Circle Size:</strong>
+                                        <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
+                                              data-delay='{"show":"0", "hide":"100"}'
+                                              data-toggle="tooltip"
+                                              title="This slider is not active in bipartite or tripartite views."
+                                        >
+                                                </span>
                                     </div>
                                     <input type="range" id="circle_slider" value="1100" min="500" max="2000" step="100"/>
                                     <!--Fold Change:&nbsp;<span id="h_slider_value">2.0</span><br/>-->

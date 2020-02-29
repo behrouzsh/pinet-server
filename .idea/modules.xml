@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pinet-server.iml" filepath="$PROJECT_DIR$/pinet-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pinet-server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/pinet-server_main.iml" group="pinet-server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pinet-server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/pinet-server_test.iml" group="pinet-server" />
+    </modules>
+  </component>
+</project>

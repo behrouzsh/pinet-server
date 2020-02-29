@@ -97,7 +97,7 @@
             Use the options below to select the reference proteome and other parameters.
         </span>
         <hr/>
-        <div class="form-group col-sm-3" style="padding-left: 0px;">
+        <div class="form-group col-sm-4" style="padding-left: 0px;">
             <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span
                 style="font-weight: bold">Select Organism</span>
             <br/>
@@ -118,7 +118,7 @@
                 </div>
             </form>
         </div>
-        <div class="form-group col-sm-3" style="padding-left: 0px;">
+        <div class="form-group col-sm-4" style="padding-left: 0px;">
             <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span
                 style="font-weight: bold">Select Data Base</span>
             <br/>
@@ -140,7 +140,7 @@
                 </div>
             </form>
         </div>
-        <div class="form-group col-sm-3" style="padding-left: 0px;">
+        <div class="form-group col-sm-4" style="padding-left: 0px;">
             <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span
                 style="font-weight: bold">Select Protein Form</span>
             <br/>
@@ -157,23 +157,23 @@
                 </div>
             </form>
         </div>
-        <div class="form-group col-sm-3" style="padding-left: 0px;">
-            <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span
-                style="font-weight: bold">Z-Score Transformation of Abundance Levels</span>
-            <br/>
-            <form>
-                <div id='type4'>
-                    <input type="radio" id="norm-yes" name="r4" value="true"/>
-                    <label for="norm-yes" style="font-weight: normal"><span></span>Yes
-                    </label>
-                    <p>
-                        <input type="radio" id="norm-no" name="r4" value="false"/>
-                        <label for="norm-no" style="font-weight: normal"><span></span>No
-                        </label>
-                    </p>
-                </div>
-            </form>
-        </div>
+        <!--<div class="form-group col-sm-3" style="padding-left: 0px;">-->
+            <!--<span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;<span-->
+                <!--style="font-weight: bold">Z-Score Transformation of Abundance Levels</span>-->
+            <!--<br/>-->
+            <!--<form>-->
+                <!--<div id='type4'>-->
+                    <!--<input type="radio" id="norm-yes" name="r4" value="true"/>-->
+                    <!--<label for="norm-yes" style="font-weight: normal"><span></span>Yes-->
+                    <!--</label>-->
+                    <!--<p>-->
+                        <!--<input type="radio" id="norm-no" name="r4" value="false"/>-->
+                        <!--<label for="norm-no" style="font-weight: normal"><span></span>No-->
+                        <!--</label>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
         <!--<div class="form-group col-sm-12" style="padding-left: 0px;">-->
 
         <!--<hr>-->
@@ -238,10 +238,10 @@
 
 <div class="tabset3" style="padding-top: 10px;">
 
-    <input type="radio" name="tabset3" id="nomActiveId" value="extab0" disabled aria-controls="ex0">
-    <label for="nomActiveId" class="disabled">Try Different Forms of Submissions
-        <i class='fa fa-arrow-right' ></i>
-    </label>
+    <!--<input type="radio" name="tabset3" id="nomActiveId" value="extab0" disabled aria-controls="ex0">-->
+    <!--<label for="nomActiveId" class="disabled">Try Different Forms of Submissions-->
+        <!--<i class='fa fa-arrow-right' ></i>-->
+    <!--</label>-->
 
     <input type="radio" name="tabset3" id="ex1Id" value="extab1" aria-controls="ex1">
     <label for="ex1Id">Interactive Submission</label>
@@ -250,6 +250,20 @@
     <input type="radio" name="tabset3" id="ex2Id" value="extab2" aria-controls="ex2">
     <label for="ex2Id">File Submission</label>
 
+    <!-- Tab 3 -->
+    <input type="radio" name="tabset3" id="ex3Id" value="extab3" aria-controls="ex3">
+    <label for="ex3Id" >
+        Useful APIs
+        <span style="color:white;" class="glyphicon glyphicon-question-sign"
+              data-delay='{"show":"0", "hide":"100"}'
+              data-toggle="tooltip"
+              title="The Application Programming Interface (API) is for developers who want to programmatically analyze their data.
+Please check help tab for complete list of APIs.">
+                                    </span>
+        <!--Try Different Forms of Submissions-->
+        <!--<i class='fa fa-arrow-right' ></i>-->
+    </label>
+
 
     <!-- Tab 3 -->
     <!-- Tab 1 -->
@@ -257,15 +271,7 @@
 
     <div class="tab-panels">
 
-        <section id="ex0" class="tab-panel">
-            <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
-            <div class="container"
-                 style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">
-                <div class="well col-sm-12" style="border-color: black ">
-                    exxx
-                </div>
-            </div>
-        </section>
+
         <section id="ex1" class="tab-panel">
             <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
             <div class="container"
@@ -318,6 +324,29 @@
                         <!--Input Peptides-->
                         <!--</span>-->
                         <!--<label style="padding-bottom: 24px;">Input Peptides&nbsp;-->
+                        <div id="firstModal" class="modal fade" >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Please Use Chrome or Firefox for your best Experience.</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p> Some functionalities like download figures or upload files may counter unexpected errors.</p>
+                                        <!--<form>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<input type="text" class="form-control" placeholder="Name">-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<input type="email" class="form-control" placeholder="Email Address">-->
+                                            <!--</div>-->
+                                            <!--<button type="submit" class="btn btn-primary">Subscribe</button>-->
+                                        <!--</form>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Mass Diff.
                             / Shorthand Notation Info
                         </button>
@@ -352,7 +381,7 @@
                                                     <th>Modification</th>
                                                     <th>Identifier</th>
                                                     <th>Amino Acids</th>
-                                                    <th>Diff. Avg.</th>
+
                                                     <th>Shorthand Example</th>
                                                     <th>Mass Difference Example</th>
                                                     <th>UNIMOD/PSI-MOD Ids</th>
@@ -363,7 +392,7 @@
                                                     <td>"K", "A", "M", "S", "T", "G", "R", "V", "C", "D", "Y", "P",
                                                         "E"
                                                     </td>
-                                                    <td>42.037</td>
+
                                                     <td>[aK]</td>
                                                     <td>K[+42.037]</td>
                                                     <td>(MOD:00646),(MOD:00647),...</td>
@@ -376,7 +405,7 @@
                                                     <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
                                                         "G"
                                                     </td>
-                                                    <td>14.027</td>
+
                                                     <td>[meK]</td>
                                                     <td>K[+14.027]</td>
                                                     <td>(UNIMOD:34),(MOD:00277),...</td>
@@ -387,7 +416,7 @@
                                                     <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
                                                         "G"
                                                     </td>
-                                                    <td>28.05</td>
+
                                                     <td>[me2K]</td>
                                                     <td>K[+28.05]</td>
                                                     <td>(UNIMOD:36),(MOD:01983),...</td>
@@ -399,9 +428,9 @@
                                                     <td>"R", "K", "Q", "S", "H", "M", "N", "A", "F", "P", "C", "L", "T",
                                                         "G"
                                                     </td>
-                                                    <td>42.08</td>
+
                                                     <td>[me3K]</td>
-                                                    <td>K[+42.08]</td>
+                                                    <td>K[+42.046]</td>
                                                     <td>(UNIMOD:37),(MOD:00445),...</td>
                                                 </tr>
                                                 <tr>
@@ -410,78 +439,86 @@
                                                     <td>"T", "S", "Y", "H", "D", "P", "R", "C", "M", "N", "G", "A",
                                                         "K"
                                                     </td>
-                                                    <td>79.98</td>
+
                                                     <td>[pT]</td>
-                                                    <td>T[+79.98]</td>
+                                                    <td>T[+79.966]</td>
                                                     <td>(UNIMOD:21),(MOD:00259),...</td>
 
                                                 </tr>
-                                                <!--<tr>-->
-                                                <!--<td>C-Glycosylation</td>-->
-                                                <!--<td>cg</td>-->
-                                                <!--<td>"W"</td>-->
-                                                <!--<td>varies</td>-->
-                                                <!--<td>[cgW@110]</td>-->
-                                                <!--<td></td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                <!--<td>S-Glycosylation</td>-->
-                                                <!--<td>sg</td>-->
-                                                <!--<td>"C"</td>-->
-                                                <!--<td>varies</td>-->
-                                                <!--<td>[sgC@110]</td>-->
-                                                <!--<td></td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                <!--<td>O-Glycosylation</td>-->
-                                                <!--<td>og</td>-->
-                                                <!--<td>"T", "S"</td>-->
-                                                <!--<td>varies</td>-->
-                                                <!--<td>[ogT@110]</td>-->
-                                                <!--<td></td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                <!--<td>N-Glycosylation</td>-->
-                                                <!--<td>ng</td>-->
-                                                <!--<td>"N"</td>-->
-                                                <!--<td>307.2573</td>-->
-                                                <!--<td>[ngN@110]</td>-->
-                                                <!--<td>[N+307@110]</td>-->
-                                                <!--</tr>-->
+                                                <tr>
+                                                    <td>C-Glycosylation</td>
+                                                    <td>cg</td>
+                                                    <td>"W"</td>
 
-                                                <!--<tr>-->
-                                                <!--<td>S-Nitrosylation</td>-->
-                                                <!--<td>sn</td>-->
-                                                <!--<td>"C"</td>-->
-                                                <!--<td>varies</td>-->
-                                                <!--<td>[snC@110]</td>-->
-                                                <!--<td></td>-->
-                                                <!--</tr>-->
+                                                    <td>[cgW@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>S-Glycosylation</td>
+                                                    <td>sg</td>
+                                                    <td>"C"</td>
+
+                                                    <td>[sgC@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>O-Glycosylation</td>
+                                                    <td>og</td>
+                                                    <td>"T", "S"</td>
+
+                                                    <td>[ogT@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>N-Glycosylation</td>
+                                                    <td>ng</td>
+                                                    <td>"N"</td>
+
+                                                    <td>[ngN@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>S-Nitrosylation</td>
+                                                    <td>sn</td>
+                                                    <td>"C"</td>
+
+                                                    <td>[snC@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                                 <tr>
                                                     <td>Myristoylation</td>
                                                     <td>my</td>
                                                     <td>"K", "G", "C"</td>
-                                                    <td>210.36</td>
+
                                                     <td>[myC]</td>
-                                                    <td>C[+210.36]</td>
+                                                    <td>C[+210.198]</td>
                                                     <td>(MOD:00655),(MOD:00650),...</td>
                                                 </tr>
-                                                <!--<tr>-->
-                                                <!--<td>Sumoylation</td>-->
-                                                <!--<td>su</td>-->
-                                                <!--<td>"K"</td>-->
-                                                <!--<td>varies</td>-->
-                                                <!--<td>[suK@110]</td>-->
-                                                <!--<td></td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                <!--<td>Ubiquitination</td>-->
-                                                <!--<td>ub</td>-->
-                                                <!--<td>"K", "S", "C"</td>-->
-                                                <!--<td>8800</td>-->
-                                                <!--<td>[ubK@110]</td>-->
-                                                <!--<td>[K+8800@110]</td>-->
-                                                <!--</tr>-->
+                                                <tr>
+                                                    <td>Sumoylation</td>
+                                                    <td>su</td>
+                                                    <td>"K"</td>
+
+                                                    <td>[suK@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ubiquitination</td>
+                                                    <td>ub</td>
+
+                                                    <td>"S", "C"</td>
+
+                                                    <td>[ubK@110]</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>
@@ -563,11 +600,12 @@
                     </div>
 
                     <div class="form-group col-md-2 col-sm-2 col-sm-offset-0" style="position: relative">
-                        <label style="padding-bottom: 15px;margin-left: -10px;">Abundance&nbsp;
+                        <label style="padding-bottom: 15px;margin-left: -10px;">Log-Diff-Expression&nbsp;
                             <span style="color:steelblue;" class="glyphicon glyphicon-question-sign"
                                   data-delay='{"show":"0", "hide":"100"}'
                                   data-toggle="tooltip"
-                                  title="This is the abundance of peptides separated by space from each peptide, if not inserted, it is assumed to be 'NA'.">
+                                  title="This column can be used to reflect the logarithm of differential expression (or other similar measurement) between two conditions. If this value is not inserted, it is assumed to be 'NA'."
+                            >
                                     </span>
                             <br/>
                         </label>
@@ -644,11 +682,11 @@
                     <!--<div class="row">-->
                     <div class="col-sm-8 col-md-8 col-lg-8">
                         <span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
-                        Submit a file in .xlsx format containing (in the first column) a list of peptide
+                        Submit a file in .csv format containing (in the first column) a list of peptide
                         sequences with PTM sites indicated using PSIMOD, UNIMOD,
                         mass difference or shorthand notations, and (in the subsequent columns) their
                         corresponding abundance values for samples divided into two categories by common
-                        prefixes (e.g. ctrl_ vs. treat_) of their sample IDs (included in the first row). Download an
+                        prefixes (e.g. ctrl_ vs. treat_) of their sample IDs (included in the first row). Download
 
 
                         <!--Alternatively,-->
@@ -679,14 +717,18 @@
                                 style="color:steelblue;" class="glyphicon glyphicon-question-sign"
                                 data-delay='{"show":"0", "hide":"100"}'
                                 data-toggle="tooltip"
-                                title="Data set contains at least 7 columns, 1 for 'peptide' and at least 3 controls and at least 3 treatments. Please note that treatment and control samples have '_number' after their names. Please see the example 1 for formatting. ">
+                                title="Data set contains at least 5 columns, 1 for 'peptide' and at least 2 controls and at least 2 treatments. Please note that treatment and control samples have '_number' after their names. Please see the example 1 for formatting. ">
                             </span> </span></p> here.
+                            <p style="display:inline">
+                                <span class="boldText">
+                                    please contact pinet support for pinet-stand-alone package to analyze larger files.
+                            </span></p> Due to different types of data normalization methods, the data is sought to be normalized.
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-4">
                         <div class="onerow">
                             <input type="file"  file-model="myFile" type="submit"
                                    class="onerow"/>
-                            <button ng-click="uploadFileAndOnSubmit()" class="btn btn-primary onerow">Upload .xlsx File
+                            <button ng-click="uploadFileAndOnSubmit()" class="btn btn-primary onerow">Upload .csv File
                                 and Start
                                 Analysis
                                 <span ng-show="ctrl.waiting || ctrl.uploadWaiting">
@@ -741,10 +783,51 @@
             </div>
         </section>
 
+        <section id="ex3" class="tab-panel">
+            <!--<h4>Network Analysis of site Specific PTM Proteins</h4>-->
+            <div class="container"
+                 style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);border-radius: 5px;">
+                <div class="well col-sm-12" style="border-color: black ">
+                    This document describes the REST APIs provided by piNET. These APIs are for developers who want to programmatically analyze their data using pinet APIs.
+
+                    In this documentation, we will use Python and urls to demo the API requests. The code can be used as is or as a template for your own modifications in Python or another language.
+                </div>
+                <hr/>
+
+
+            </div>
+
+
+        </section>
+
 
     </div>
 
 </div>
+
+
+    <!--<div class="container-fluid" ng-show="ctrl.ex1orex2 == ex3Id" >-->
+
+
+
+        <!--&lt;!&ndash;<div class="well container container-fluid" ng-show="true" style="margin-top: 20px;">&ndash;&gt;-->
+
+        <!--<div class="well col-sm-12"-->
+             <!--style="background-color: transparent; border-color: #999999">-->
+            <!--<div class="well well-sm" style="background-color: #c9c9c9">-->
+                <!--<h4>More Analysis</h4>-->
+            <!--</div>-->
+            <!--<button class="btn btn-primary " ng-click="goToPtmToModifier()">-->
+                <!--<i class='fa fa-angle-double-right'></i>&nbsp; Go To PTMs2Modifiers-->
+            <!--</button>-->
+            <!--<button class="btn btn-primary " ng-click="goToProteinToPathway()">-->
+                <!--<i class='fa fa-angle-double-right'></i>&nbsp;<i class='fa fa-angle-double-right'></i>&nbsp;Go To Proteins2Pathways-->
+            <!--</button>-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+
 
 
 <div class="container-fluid" ng-show="ctrl.showOutput && !ctrl.waiting && ctrl.ex1orex2 == ctrl.showOutputex1orex2">
@@ -1046,10 +1129,15 @@
                                         <!--{{mapping.proteins}}-->
                                         <span ng-repeat="prot in mapping.proteins">
 
-                                            <a class="sprite_stumbleupon" href="http://www.uniprot.org/uniprot/{{prot}}" target="_blank" onclick="return windowpop(this.href, 545, 433)"></a>
+                                            <!--<a class="sprite_stumbleupon" href="http://www.uniprot.org/uniprot/{{prot}}" target="_blank" onclick="return windowpop(this.href, 545, 433)"></a>-->
 
-                                            <a ng-href="http://www.uniprot.org/uniprot/{{prot}}"
-                                               target="_blank">{{prot}}</a>
+                                            <!--<a ng-href="http://www.uniprot.org/uniprot/{{prot}}"-->
+                                               <!--target="_blank">{{prot}}</a>-->
+
+                                            <a   href="#" ng-click="openIframeModal(prot,'pinetUniprot')" >{{prot}} </a>
+
+
+
                                         </span>
                                     </div>
                                 </td>
@@ -1111,12 +1199,15 @@
 
                                 <td style="font-weight: 400" title="'Id'" filter="{ id: 'text'}"
                                     sortable="'id'" ng-if="mapping.id != 'NA' ">
-                                    <a class="tabled"
-                                       ng-href="https://www.ebi.ac.uk/QuickGO/term/{{mapping.id}}"
-                                       target="_blank">
+                                    <!--<a class="tabled"-->
+                                       <!--ng-href="https://www.ebi.ac.uk/QuickGO/term/{{mapping.id}}"-->
+                                       <!--target="_blank">-->
 
-                                        {{mapping.id}}
-                                    </a>
+                                        <!--{{mapping.id}}-->
+                                    <!--</a>-->
+
+
+                                    <a class="tabled"  href="#" ng-click="openIframeModal(mapping.id,'pinetGO')" >{{mapping.id}} </a>
 
                                 </td>
                                 <td style="font-weight: 400" title="'Value'" filter="{ value: 'text'}"
@@ -1127,8 +1218,12 @@
                                     title="'Proteins'">
                                     <div class="list-responsive-vertical">
                                         <span ng-repeat="prot in mapping.proteins">
-                                            <a ng-href="http://www.uniprot.org/uniprot/{{prot}}"
-                                                                                       target="_blank">{{prot}}</a>
+                                            <!--<a ng-href="http://www.uniprot.org/uniprot/{{prot}}"-->
+                                                                                       <!--target="_blank">{{prot}}</a>-->
+
+
+
+                                    <a   href="#" ng-click="openIframeModal(prot,'pinetUniprot')" >{{prot}} </a>
                                         </span>
                                     </div>
                                 </td>
@@ -1184,12 +1279,15 @@
 
                                 <td style="font-weight: 400" title="'Id'" filter="{ id: 'text'}"
                                     sortable="'id'" ng-if="mapping.id != 'NA' ">
-                                    <a class="tabled"
-                                       ng-href="https://reactome.org/content/detail/{{mapping.id}}"
-                                       target="_blank">
+                                    <!--<a class="tabled"-->
+                                       <!--ng-href="https://reactome.org/content/detail/{{mapping.id}}"-->
+                                       <!--target="_blank">-->
 
-                                        {{mapping.id}}
-                                    </a>
+                                        <!--{{mapping.id}}-->
+                                    <!--</a>-->
+
+
+                                    <a  class="tabled" href="#" ng-click="openIframeModal(mapping.id,'pinetReactome')" >{{mapping.id}} </a>
                                 </td>
 
                                 <td style="font-weight: 400" title="'Value'" filter="{ value: 'text'}"
@@ -1201,8 +1299,10 @@
                                     <div class="list-responsive-vertical">
                                         <span ng-repeat="prot in mapping.proteins">
 
-                                            <a ng-href="http://www.uniprot.org/uniprot/{{prot}}"
-                                               target="_blank">{{prot}}</a>
+                                            <!--<a ng-href="http://www.uniprot.org/uniprot/{{prot}}"-->
+                                               <!--target="_blank">{{prot}}</a>-->
+
+                                            <a  href="#" ng-click="openIframeModal(prot,'pinetUniprot')" >{{prot}} </a>
 
                                         </span>
                                     </div>
@@ -1250,7 +1350,10 @@
                         Peptide to
                         Protein Mapping for Selected Peptides
                     </button>
-                    <div class="panel panel-default " ng-show="ctrl.showOverAllParallelSVG">
+                    <div ng-show="ctrl.showOutputex1orex2 == 'ex2Id'">
+                        <p>The mapping gets updated based on the volcano plot selection.</p>
+                    </div>
+                        <div class="panel panel-default " ng-show="ctrl.showOverAllParallelSVG">
 
                         <!--<div class="well well-sm" style="background-color: #c9c9c9">-->
 
@@ -1268,8 +1371,31 @@
                             </select>
                             <button id="btnReset">Reset Brushes</button>
                         </p>
-                        <div id="parallelForPeptideToProtein" class="parcoords"></div>
 
+                        <div id="parallelForPeptideToProtein" class="parcoords">
+
+
+                        </div>
+
+                        <!--<div>-->
+                            <!--<button class="btn1top" id='download-pngParallel'>-->
+
+                                    <!--<span style="color:#1c3448;" class="fa fa-download"-->
+                                          <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                          <!--data-toggle="tooltip"-->
+                                          <!--title="download as PNG">-->
+                                    <!--</span>-->
+                            <!--</button>-->
+
+                            <!--<button class="btn2top" id='download-svgParallel'>-->
+
+                                    <!--<span style="color:#1c3448;" class="fa fa-cloud-download"-->
+                                          <!--data-delay='{"show":"0", "hide":"100"}'-->
+                                          <!--data-toggle="tooltip"-->
+                                          <!--title="download as SVG">-->
+                                    <!--</span>-->
+                            <!--</button>-->
+                        <!--</div>-->
 
                     </div>
                 </div>
@@ -1330,7 +1456,7 @@
 
                                     <th style="background-color: #E9E9E9">Input PTM</th>
                                     <th style="background-color: #E9E9E9">Input PTM-Mass</th>
-                                    <th style="background-color: lightgrey">PSI-MOD Accession</th>
+                                    <th style="background-color: lightgrey">Accession</th>
                                     <th style="background-color: lightgrey">PSI-MOD Avg. Mass</th>
 
 
@@ -1338,7 +1464,7 @@
 
                                     <th style="background-color: lightgrey">PSI-MOD Description</th>
                                     <th style="background-color: #E9E9E9">Select Between Suggested Modifications<br/>
-                                        <p style="font-weight: bold">Selected PSI-MOD Accession Will be Reflected in
+                                        <p style="font-weight: bold">Selected Accession Will be Reflected in
                                             PLN.</p>
 
                                     </th>
@@ -1357,12 +1483,8 @@
                                     <!--Old version of http://www.ebi.ac.uk/ontology-lookup/?termId={{mapping.identifier}}-->
                                     <td style="background-color: #E9E9E9">
 
-                                        <a ng-href="http://www.ebi.ac.uk/ols/ontologies/mod/terms?obo_id={{mapping.identifier}}"
-                                           target="_blank" ng-model="mapping.identifier"
-                                           ng-class="{'boldText':mapping.identifier == mapping.original}">
+                                        <a  href="#" ng-click="openIframeModal(mapping.identifier,'modOntology')" >{{mapping.identifier}} </a>
 
-                                            {{mapping.identifier}}
-                                        </a>
 
                                     </td>
                                     <td ng-model="mapping.diffavg" style="background-color: #E9E9E9">
@@ -1465,6 +1587,22 @@
                 </div>
 
 
+                <!--<div id="modal1" class="modal">-->
+                    <!--<span>&times;</span>-->
+                    <!--<iframe id="iframe1" height="300px" width="100%" src="" ></iframe>-->
+                <!--</div>-->
+
+
+                <div id="modal1" class="modal2">
+                    <div class="modal2-content">
+                    <span onclick="document.getElementById('modal1').style.display='none'; document.getElementById('iframe1').src =''" class="">&times;</span>
+                    <iframe id="iframe1" height="800px" width="100%" src="" name="iframe_modal" scrolling="yes"></iframe>
+                    </div>
+                </div>
+
+
+
+
                 <div class="well col-sm-12" ng-show="ctrl.showOutput && !ctrl.waiting"
                      style="background-color: transparent; border-color: #999999">
 
@@ -1474,6 +1612,7 @@
 
                         <div class="well well-sm" style="background-color: #c9c9c9">
                             <h4>Peptide to Protein Mapping</h4>
+
                         </div>
                         <!--<div class="panel panel-default">-->
                         <button class="btn btn-primary " ng-click="exportDataprResponseList()">Download Table
@@ -1518,8 +1657,11 @@
                                     </td>
                                     <td style="word-wrap: break-word; width:10%" ng-if="$index == 0 || item.expanded">
                                                 <span>
-                                                        <a ng-href="http://www.uniprot.org/uniprot/{{member.sequence_ac}}"
-                                                           target="_blank">{{member.sequence_ac}}</a>
+
+                                                    <a  href="#" ng-click="openIframeModal(member.sequence_ac,'pinetUniprot')" >{{member.sequence_ac}} </a>
+
+                                                        <!--<a ng-href="http://www.uniprot.org/uniprot/{{member.sequence_ac}}"-->
+                                                           <!--target="_blank">{{member.sequence_ac}}</a>-->
                                                 </span>
                                     </td>
                                     <!--<td>{{member.sequence_ac}}</td>-->
@@ -1592,8 +1734,10 @@
                                 <tr ng-repeat="member in item.members">
                                     <td style="word-wrap: break-word; width:10%" ng-if="$index == 0 || item.expanded">
                                                 <span>
-                                                    <a ng-href="http://www.uniprot.org/uniprot/{{item.name}}"
-                                                       target="_blank">{{item.name}}</a>
+                                                    <a  href="#" ng-click="openIframeModal(item.name,'pinetUniprot')" >{{item.name}} </a>
+
+                                                    <!--<a ng-href="http://www.uniprot.org/uniprot/{{item.name}}"-->
+                                                       <!--target="_blank">{{item.name}}</a>-->
                                                 </span>
                                     </td>
                                     <!--<td rowspan="{{item.length}}" ng-if="$index == 0">{{item.name}}</td>-->
@@ -1614,8 +1758,10 @@
                                     </td>
                                     <td style="word-wrap: break-word; width:10%" ng-if="$index == 0 || item.expanded">
                                                 <span ng-repeat="gene_id in member.primary_gene_name track by $index">
-                                                    <a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{gene_id}}"
-                                                       target="_blank">{{gene_id}}</a><br/>
+                                                    <!--<a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{gene_id}}"-->
+                                                       <!--target="_blank">{{gene_id}}</a><br/>-->
+                                                    <a  href="#" ng-click="openIframeModal(gene_id,'pinetGeneCards')" >{{gene_id}} </a><br/>
+
                                                 </span>
                                     </td>
                                     <!--<td>-->
@@ -1701,14 +1847,17 @@
                                     <!--<td rowspan="{{item.response.length}}" ng-if="$index == 0">{{item.length}}</td>-->
                                     <td ng-if="$index == 0 || item.expanded">
                                                 <span>
-                                                        <a ng-href="http://www.uniprot.org/uniprot/{{member.sequence_ac}}"
-                                                           target="_blank">{{member.sequence_ac}}</a>
+                                                        <!--<a ng-href="http://www.uniprot.org/uniprot/{{member.sequence_ac}}"-->
+                                                           <!--target="_blank">{{member.sequence_ac}}</a>-->
+
+                                                    <a  href="#" ng-click="openIframeModal(member.sequence_ac,'pinetUniprot')" >{{member.sequence_ac}} </a>
                                                 </span>
                                     </td>
                                     <td ng-if="$index == 0 || item.expanded">
                                                 <span ng-repeat="gene_id in member.geneArray track by $index">
-                                                    <a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{gene_id}}"
-                                                       target="_blank">{{gene_id}}</a><br/>
+                                                    <!--<a ng-href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{gene_id}}"-->
+                                                       <!--target="_blank">{{gene_id}}</a><br/>-->
+                                                      <a  href="#" ng-click="openIframeModal(gene_id,'pinetGeneCards')" >{{gene_id}} </a><br/>
                                                 </span>
                                     </td>
                                     <!--<td ng-if="$index == 0 || item.expanded">-->
@@ -1862,8 +2011,10 @@
 
                         <button class="btn btn-primary "
                                 ng-click="downloadPLN(ctrl.plnFormatOne, ctrl.plnFormatTwo, ctrl.plnFormatThree, ctrl.formatAsInchOrAllhits)">
-                            Download PLN
+                            Download PLN as CSV
                         </button>
+
+                        <p>Or copy and paste the provided text for inLine or JSON format.</p>
                         <!--<a ng-href="{{ctrl.plnFormatted}}" target="_blank">download</a>-->
                         <!--<pre class="boxed" ng-model="ctrl.plnFormatOne" ng-model="ctrl.plnFormatTwo"-->
                         <!--style="background-color: #D9EDF7">-->
@@ -1949,6 +2100,8 @@
 
     </div>
 </div>
+
+
 </div>
 <!--</div>-->
 

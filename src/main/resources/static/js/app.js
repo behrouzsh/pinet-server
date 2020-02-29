@@ -3,7 +3,7 @@
  * Created by Behrouz on 8/22/16.
  */
 //var app = angular.module('plnApplication', ['ngRoute','ngTagsInput','plnModule']);
-var app = angular.module('plnApplication', ['ngRoute','ngTagsInput','ngTable', 'plnModule']);
+var app = angular.module('plnApplication', ['ngRoute','ngTagsInput','ngTable', 'plnModule', 'ui.bootstrap']);
 //var app = angular.module('plnApplication', ['plnModule','ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

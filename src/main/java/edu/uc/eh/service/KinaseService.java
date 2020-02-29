@@ -38,6 +38,8 @@ public class KinaseService {
 
     public JSONObject computeKinaseNetwork(String[] input) {
 
+        System.out.println("In computeKinaseNetwork");
+
         int idx = 0;
         String kinase;
         String gene;
@@ -57,6 +59,7 @@ public class KinaseService {
 
         JSONObject network = new JSONObject();
         JSONObject nodeUnique = new JSONObject();
+        JSONObject nodeUniqueTable = new JSONObject();
         JSONArray edges = new JSONArray();
         JSONArray nodes = new JSONArray();
 
@@ -135,6 +138,13 @@ public class KinaseService {
                 idx = idx + 1;
                 nodes.add(newNode);
                 nodeUnique.put(inputGene, newNode);
+
+                JSONObject nodeUniqueTableElem = new JSONObject();
+                nodeUniqueTableElem.put("gene", inputGene.toUpperCase());
+//                nodeUniqueTableElem.put("upstream", "");
+//                nodeUniqueTableElem.put("downstream", "");
+
+                nodeUniqueTable.put(inputGene.toUpperCase(), nodeUniqueTableElem);
             }
         }
 
@@ -154,13 +164,23 @@ public class KinaseService {
             if (kinase2GeneJson.containsKey(inputGene.toUpperCase())) {
                 log.info("kinase2GeneList");
                 kinase2GeneList = (JSONArray) (kinase2GeneJson.get(inputGene.toUpperCase()));
+
                 log.info(kinase2GeneList.toString());
+                ((JSONObject) nodeUniqueTable.get(inputGene.toUpperCase())).put("downstream", kinase2GeneList);
+
+            }
+            else{
+                ((JSONObject) nodeUniqueTable.get(inputGene.toUpperCase())).put("downstream", new JSONArray());
             }
 
             if (gene2KinaseJson.containsKey(inputGene.toUpperCase())) {
                 log.info("gene2KinaseList");
                 gene2KinaseList = (JSONArray) (gene2KinaseJson.get(inputGene.toUpperCase()));
                 log.info(gene2KinaseList.toString());
+                ((JSONObject) nodeUniqueTable.get(inputGene.toUpperCase())).put("upstream", gene2KinaseList);
+            }
+            else{
+                ((JSONObject) nodeUniqueTable.get(inputGene.toUpperCase())).put("upstream", new JSONArray());
             }
 
 //kinase2Gene ========================================
@@ -228,14 +248,27 @@ public class KinaseService {
             }
         }
         //==============================================
+        JSONArray table = new JSONArray();
+        for(Object key : nodeUniqueTable.keySet()) {
+
+            String keyStr = (String) key;
 
 
+            Object keyvalue = nodeUniqueTable.get(keyStr);
+            table.add(keyvalue);
 
+        }
+
+        JSONObject output = new JSONObject();
         network.put("nodes", nodes);
         network.put("edges", edges);
-        log.info("Kinase Network");
-        log.info(network.toString());
-        return network;
+
+        output.put("table", table);
+        output.put("network", network);
+        //log.info("Kinase Network");
+        System.out.println(network.toString());
+        //System.out.println(nodeUniqueTable.toJSONString());
+        return output;
     }
 
 

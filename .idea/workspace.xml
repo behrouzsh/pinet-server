@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/DeepPhosService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/EnrichrService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/EnrichrService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/KinaseService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/KinaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PhosphoService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PhosphoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/increment/increment.json" afterPath="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/custom.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/lib/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/src/main/resources/static/lib/bootstrap/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/help.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -144,8 +125,8 @@
       <file leaf-file-name="PeptideMatchCMD.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="491" column="96" lean-forward="false" selection-start-line="491" selection-start-column="96" selection-end-line="491" selection-end-column="96" />
+            <state relative-caret-position="245">
+              <caret line="491" column="8" lean-forward="false" selection-start-line="491" selection-start-column="8" selection-end-line="491" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -1566,12 +1547,12 @@
       <workItem from="1580418850507" duration="27582000" />
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
-      <workItem from="1582572148035" duration="66643000" />
+      <workItem from="1582572148035" duration="66820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229257000" />
+    <option name="totallyTimeSpent" value="229434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="209" width="1369" height="728" extended-state="0" />
@@ -2374,8 +2355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="491" column="96" lean-forward="false" selection-start-line="491" selection-start-column="96" selection-end-line="491" selection-end-column="96" />
+        <state relative-caret-position="245">
+          <caret line="491" column="8" lean-forward="false" selection-start-line="491" selection-start-column="8" selection-end-line="491" selection-end-column="8" />
           <folding />
         </state>
       </provider>

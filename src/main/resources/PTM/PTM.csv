@@ -1,0 +1,33 @@
+Modification,Identifier,Modification Annotation,Amino Acid Name,Amino Acid Notation,Diff. Avg.
+Acetylation,aA,Acetylalanine,alanine,A,42.0373
+Acetylation,aR,Acetylarginine,arginine,R,42.0373
+Acetylation,aD,Acetylaspartate,Aspartic acid,D,42.0373
+Acetylation,aC,Acetylcysteine,Cysteine,C,42.0373
+Acetylation,aE,Acetylglutamate,Glutamic acid,E,42.0373
+Acetylation,aG,Acetylglycine,Glycine,G,42.0373
+Acetylation,aK,Acetyllysine,Lysine,K,42.0373
+Acetylation,aM,Acetylmethionine,Methionine,M,42.0373
+Acetylation,aP,Acetylproline,Proline,P,42.0373
+Acetylation,aS,Acetylserine,Serine,S,42.0373
+Acetylation,aT,Acetylthreonine,Threonine,T,42.0373
+Acetylation,aY,Acetyltyrosine,Tyrosine,Y,42.0373
+Acetylation,aV,Acetylvaline,Valine,V,42.0373
+Methylation,mR,Methylarginine,Arginine,R,14.0269
+Methylation,mQ,Methylglutamine,Glutamine,Q,14.0269
+Methylation,mH,Methylhistidine,Histidine,H,14.0269
+Methylation,mA,Methylalanine,Alanine,A,14.0269
+Methylation,mI,Methylisoleucine,Isoleucine,I,14.0269
+Methylation,mL,Methylleucine,Leucine,L,14.0269
+Methylation,mM,Methylmethionine,Methionine,M,14.0269
+Methylation,mF,Methylphenylalanine,Phenylalanine,F,14.0269
+Methylation,mP,Methylproline,Proline,P,14.0269
+Methylation,mY,Methyltyrosine,Tyrosine,Y,14.0269
+Methylation,mN,Methylasparagine,Asparagine,N,14.0269
+Methylation,mK,Methyllysine,Lysine,K,14.0269
+Methylation,mC,Methylcysteine,Cysteine,C,14.0269
+Phosphorylation,pR,Phosphoarginine,Arginine,R,79.9799
+Phosphorylation,pC,Phosphocysteine,Cysteine,C,79.9799
+Phosphorylation,pH,Phosphohistidine,Histidine,H,79.9799
+Phosphorylation,pS,Phosphoserine,Serine,S,79.9799
+Phosphorylation,pT,Phosphothreonine,Threonine,T,79.9799
+Phosphorylation,pY,Phosphotyrosine,Tyrosine,Y,79.9799

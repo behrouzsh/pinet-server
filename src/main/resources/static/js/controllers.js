@@ -13375,7 +13375,14 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
                                                 // //console.log(uniprotJsonObject["primary_gene_name"]);
                                                 // //console.log("-------------");
                                                 //Some times TREMBL proteins don't match any genes!!!!!
-                                                if (valueOfGeneId.length == 0) {
+                                               
+
+                                                if (valueOfGeneId){
+                                                    if (valueOfGeneId.length == 0) {
+                                                        valueOfGeneId = ['NA'];
+                                                    }
+                                                }
+                                                else{
                                                     valueOfGeneId = ['NA'];
                                                 }
                                                 // //console.log("valueOfGeneId");

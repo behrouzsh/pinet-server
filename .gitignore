@@ -20,11 +20,13 @@
 *.txt
 *.csv
 *.xlsx
+.idea
 
 # Build Files #
 build/
 .gradle
 .DS_Store
+.idea/
 
 # Irrelevant
 pyhton/

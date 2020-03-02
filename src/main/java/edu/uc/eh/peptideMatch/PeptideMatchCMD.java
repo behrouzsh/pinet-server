@@ -489,8 +489,8 @@ public class PeptideMatchCMD {
         JSONObject peptideMatchJson = new JSONObject();
         JSONObject peptideMatchJsonArrayPlusMatch = new JSONObject();
         JSONArray peptideMatchJsonArray = new JSONArray();
-        String index_file = "/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/jan-30-2019/" + indexDir + "_index";
-        //String index_file = "/Users/shamsabz/Documents/uniprot+peptideMatch/PeptideMatchCMD_src_1.0/jan-30-2019/" + indexDir + "_index";
+        //String index_file = "/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/jan-30-2019/" + indexDir + "_index";
+        String index_file = "/Users/shamsabz/Documents/uniprot+peptideMatch/PeptideMatchCMD_src_1.0/jan-30-2019/" + indexDir + "_index";
         try {
 
             reader = DirectoryReader.open(FSDirectory.open(new File(index_file)));

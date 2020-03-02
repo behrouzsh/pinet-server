@@ -66,6 +66,7 @@ resources:
   unimodXml: src/main/resources/pride/unimod.xml
   pridemodXml: src/main/resources/pride/pride_mods.xml
   psimodXml: src/main/resources/pride/PSI-MOD.obo
+  mappingInfo: src/main/resources/psi-mod/mapping2.csv
 
 
 

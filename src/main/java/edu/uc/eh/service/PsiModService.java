@@ -8,6 +8,7 @@ import edu.uc.eh.utils.UtilsFormat;
 import edu.uc.eh.utils.UtilsIO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,12 +25,20 @@ import java.util.Map;
 public class PsiModService {
 
     private static final Logger log = LoggerFactory.getLogger(PsiModService.class);
-    private final Map<Character, List<DiffIdentifier>> mapping;
 
-    public PsiModService() {
-        mapping = UtilsIO.getInstance().readResource("/psi-mod/mapping2.csv");
-    }
 
+//    public PsiModService() {
+//
+//        mapping = UtilsIO.getInstance().readResource("/psi-mod/mapping2.csv");
+//    }
+
+
+    @Value("${resources.mappingInfo}")
+    String mappingInfo;
+
+//    public PsiModService(Map<Character, List<DiffIdentifier>> mapping) {
+//        this.mapping = mapping;
+//    }
 
     /**
      * Get ontology identifier for given peptide modification.html (e.g. K[+80])
@@ -39,6 +48,19 @@ public class PsiModService {
      */
     public StringDoubleStringList getIdentifier(String modification, double epsilon) {
 //        log.info(mapping.toString());
+        Map<Character, List<DiffIdentifier>> mapping;
+
+        try {
+
+            mapping = UtilsIO.getInstance().readResource(mappingInfo);
+
+
+        } catch (Exception e) {
+            String msg =  String.format("Error in obtaining mappingInfo");
+            log.warn(msg);
+            throw new RuntimeException(msg);
+        }
+
         CharacterDouble cd = UtilsFormat.getInstance().modificationToCharDouble(modification);
         List<DiffIdentifier> list = mapping.get(cd.getCharacter());
         String currentIdentifier = "";

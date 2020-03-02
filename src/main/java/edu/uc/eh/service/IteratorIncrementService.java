@@ -48,7 +48,10 @@ public class IteratorIncrementService {
 
         try {
 
-            Object obj = parser.parse(new FileReader("src/main/resources/increment/increment.json"));
+            String fileName = "/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/increment.json";
+            //String fileName = "/Users/shamsabz/Documents/uniprot+peptideMatch/PeptideMatchCMD_src_1.0/increment.json";
+
+            Object obj = parser.parse(new FileReader(fileName));
 
             JSONObject incrementJson = (JSONObject) obj;
 //        try {
@@ -147,7 +150,12 @@ public class IteratorIncrementService {
 //
 //    public JSONObject writeBack(JSONObject incrementJsonOut) {
 
-        try (FileWriter file = new FileWriter("src/main/resources/increment/increment.json", false)) {
+        try (
+                //String fileName2 = "/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/increment.json";
+                //String fileName2 = "/Users/shamsabz/Documents/uniprot+peptideMatch/PeptideMatchCMD_src_1.0/increment.json";
+                FileWriter file = new FileWriter("/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/increment.json", false)) {
+
+                //FileWriter file = new FileWriter("/Users/shamsabz/Documents/uniprot+peptideMatch/PeptideMatchCMD_src_1.0/increment.json", false)) {
 
             file.write(incrementJsonOut.toJSONString());
             file.flush();

@@ -22,4 +22,4 @@ To change that, whatever is in this folder should be copied to the new folder an
 /src/main/java/edu.uc.eh/peptideMatch/PeptideMatchCMD.java
 
 
-##### 3- The usage submission increment file is in the /src/main/resources/increment/increment.json 
+##### 3- The usage submission increment file is in the /opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/increment.json 

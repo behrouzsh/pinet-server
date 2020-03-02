@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/increment/increment.json" afterPath="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -28,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="13377" column="47" lean-forward="false" selection-start-line="13377" selection-start-column="47" selection-end-line="13377" selection-end-column="47" />
+            <state relative-caret-position="206">
+              <caret line="13379" column="63" lean-forward="false" selection-start-line="13379" selection-start-column="48" selection-end-line="13379" selection-end-column="67" />
               <folding>
                 <element signature="e#78405#122913#0" expanded="false" />
                 <element signature="e#123107#155699#0" expanded="false" />
@@ -40,32 +44,55 @@
                 <element signature="e#388050#389852#0" expanded="false" />
                 <element signature="e#389937#391655#0" expanded="false" />
                 <element signature="e#391758#393477#0" expanded="false" />
-                <element signature="e#769797#787887#0" expanded="false" />
-                <element signature="e#807716#827010#0" expanded="false" />
-                <element signature="e#910860#924987#0" expanded="false" />
-                <element signature="e#916325#918170#0" expanded="false" />
-                <element signature="e#925035#942243#0" expanded="false" />
-                <element signature="e#949355#958081#0" expanded="false" />
-                <element signature="e#962627#964472#0" expanded="false" />
-                <element signature="e#972086#1000739#0" expanded="false" />
-                <element signature="e#976604#980746#0" expanded="false" />
-                <element signature="e#1017953#1032372#0" expanded="false" />
-                <element signature="e#1065943#1096444#0" expanded="false" />
-                <element signature="e#1145059#1170404#0" expanded="false" />
-                <element signature="e#1170482#1183356#0" expanded="false" />
-                <element signature="e#1183397#1197924#0" expanded="false" />
-                <element signature="e#1275327#1277538#0" expanded="false" />
-                <element signature="e#1290429#1315387#0" expanded="false" />
-                <element signature="e#1329574#1342022#0" expanded="false" />
-                <element signature="e#1342066#1355934#0" expanded="false" />
-                <element signature="e#1383463#1408116#0" expanded="false" />
-                <element signature="e#1408160#1420304#0" expanded="false" />
-                <element signature="e#1434187#1447975#0" expanded="false" />
-                <element signature="e#1504579#1533007#0" expanded="false" />
-                <element signature="e#1533368#1551125#0" expanded="false" />
-                <element signature="e#1551165#1568290#0" expanded="false" />
-                <marker date="1583182676000" expanded="true" signature="234833:234846" ph="..." />
+                <element signature="e#769750#787840#0" expanded="false" />
+                <element signature="e#807669#826963#0" expanded="false" />
+                <element signature="e#910813#924940#0" expanded="false" />
+                <element signature="e#916278#918123#0" expanded="false" />
+                <element signature="e#924988#942196#0" expanded="false" />
+                <element signature="e#949308#958034#0" expanded="false" />
+                <element signature="e#962580#964425#0" expanded="false" />
+                <element signature="e#972039#1000692#0" expanded="false" />
+                <element signature="e#976557#980699#0" expanded="false" />
+                <element signature="e#1017906#1032325#0" expanded="false" />
+                <element signature="e#1065896#1096397#0" expanded="false" />
+                <element signature="e#1145012#1170357#0" expanded="false" />
+                <element signature="e#1170435#1183309#0" expanded="false" />
+                <element signature="e#1183350#1197877#0" expanded="false" />
+                <element signature="e#1275280#1277491#0" expanded="false" />
+                <element signature="e#1290382#1315340#0" expanded="false" />
+                <element signature="e#1329527#1341975#0" expanded="false" />
+                <element signature="e#1342019#1355887#0" expanded="false" />
+                <element signature="e#1383416#1408069#0" expanded="false" />
+                <element signature="e#1408113#1420257#0" expanded="false" />
+                <element signature="e#1434140#1447928#0" expanded="false" />
+                <element signature="e#1504532#1532960#0" expanded="false" />
+                <element signature="e#1533321#1551078#0" expanded="false" />
+                <element signature="e#1551118#1568243#0" expanded="false" />
+                <marker date="1583182710000" expanded="true" signature="234833:234846" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IteratorIncrementService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="408">
+                <caret line="24" column="107" lean-forward="false" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -129,8 +156,8 @@
       <file leaf-file-name="PeptideMatchCMD.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
+            <state relative-caret-position="213">
+              <caret line="490" column="58" lean-forward="true" selection-start-line="490" selection-start-column="58" selection-end-line="492" selection-end-column="138" />
               <folding />
             </state>
           </provider>
@@ -184,28 +211,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="780">
               <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="82" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PsiModService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="54" column="68" lean-forward="false" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -654,7 +659,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PirService.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
@@ -665,6 +669,8 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java" />
       </list>
     </option>
   </component>
@@ -1529,12 +1535,12 @@
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
       <workItem from="1582572148035" duration="66869000" />
-      <workItem from="1583099886925" duration="9466000" />
+      <workItem from="1583099886925" duration="11148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238949000" />
+    <option name="totallyTimeSpent" value="240631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="75" width="1369" height="728" extended-state="0" />
@@ -1634,13 +1640,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModExtensionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/pride-mod.jar!/uk/ac/ebi/pride/utilities/pridemod/utils/Utilities.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1985,17 +1984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="170">
-            <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2119,14 +2107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -2177,10 +2157,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="490" column="58" lean-forward="true" selection-start-line="490" selection-start-column="58" selection-end-line="492" selection-end-column="138" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="408">
+            <caret line="24" column="107" lean-forward="false" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="13377" column="47" lean-forward="false" selection-start-line="13377" selection-start-column="47" selection-end-line="13377" selection-end-column="47" />
+        <state relative-caret-position="206">
+          <caret line="13379" column="63" lean-forward="false" selection-start-line="13379" selection-start-column="48" selection-end-line="13379" selection-end-column="67" />
           <folding>
             <element signature="e#78405#122913#0" expanded="false" />
             <element signature="e#123107#155699#0" expanded="false" />
@@ -2188,32 +2187,40 @@
             <element signature="e#388050#389852#0" expanded="false" />
             <element signature="e#389937#391655#0" expanded="false" />
             <element signature="e#391758#393477#0" expanded="false" />
-            <element signature="e#769797#787887#0" expanded="false" />
-            <element signature="e#807716#827010#0" expanded="false" />
-            <element signature="e#910860#924987#0" expanded="false" />
-            <element signature="e#916325#918170#0" expanded="false" />
-            <element signature="e#925035#942243#0" expanded="false" />
-            <element signature="e#949355#958081#0" expanded="false" />
-            <element signature="e#962627#964472#0" expanded="false" />
-            <element signature="e#972086#1000739#0" expanded="false" />
-            <element signature="e#976604#980746#0" expanded="false" />
-            <element signature="e#1017953#1032372#0" expanded="false" />
-            <element signature="e#1065943#1096444#0" expanded="false" />
-            <element signature="e#1145059#1170404#0" expanded="false" />
-            <element signature="e#1170482#1183356#0" expanded="false" />
-            <element signature="e#1183397#1197924#0" expanded="false" />
-            <element signature="e#1275327#1277538#0" expanded="false" />
-            <element signature="e#1290429#1315387#0" expanded="false" />
-            <element signature="e#1329574#1342022#0" expanded="false" />
-            <element signature="e#1342066#1355934#0" expanded="false" />
-            <element signature="e#1383463#1408116#0" expanded="false" />
-            <element signature="e#1408160#1420304#0" expanded="false" />
-            <element signature="e#1434187#1447975#0" expanded="false" />
-            <element signature="e#1504579#1533007#0" expanded="false" />
-            <element signature="e#1533368#1551125#0" expanded="false" />
-            <element signature="e#1551165#1568290#0" expanded="false" />
-            <marker date="1583182676000" expanded="true" signature="234833:234846" ph="..." />
+            <element signature="e#769750#787840#0" expanded="false" />
+            <element signature="e#807669#826963#0" expanded="false" />
+            <element signature="e#910813#924940#0" expanded="false" />
+            <element signature="e#916278#918123#0" expanded="false" />
+            <element signature="e#924988#942196#0" expanded="false" />
+            <element signature="e#949308#958034#0" expanded="false" />
+            <element signature="e#962580#964425#0" expanded="false" />
+            <element signature="e#972039#1000692#0" expanded="false" />
+            <element signature="e#976557#980699#0" expanded="false" />
+            <element signature="e#1017906#1032325#0" expanded="false" />
+            <element signature="e#1065896#1096397#0" expanded="false" />
+            <element signature="e#1145012#1170357#0" expanded="false" />
+            <element signature="e#1170435#1183309#0" expanded="false" />
+            <element signature="e#1183350#1197877#0" expanded="false" />
+            <element signature="e#1275280#1277491#0" expanded="false" />
+            <element signature="e#1290382#1315340#0" expanded="false" />
+            <element signature="e#1329527#1341975#0" expanded="false" />
+            <element signature="e#1342019#1355887#0" expanded="false" />
+            <element signature="e#1383416#1408069#0" expanded="false" />
+            <element signature="e#1408113#1420257#0" expanded="false" />
+            <element signature="e#1434140#1447928#0" expanded="false" />
+            <element signature="e#1504532#1532960#0" expanded="false" />
+            <element signature="e#1533321#1551078#0" expanded="false" />
+            <element signature="e#1551118#1568243#0" expanded="false" />
+            <marker date="1583182710000" expanded="true" signature="234833:234846" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

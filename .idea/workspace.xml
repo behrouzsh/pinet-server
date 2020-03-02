@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/increment/increment.json" afterPath="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -68,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
-              <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
+              <caret line="491" column="8" lean-forward="false" selection-start-line="491" selection-start-column="8" selection-end-line="491" selection-end-column="8" />
               <folding>
                 <element signature="e#9873#9880#0" expanded="true" />
                 <element signature="e#10598#10605#0" expanded="true" />
@@ -76,6 +71,16 @@
                 <element signature="e#29712#29726#0" expanded="true" />
                 <element signature="e#30317#30326#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="increment.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/increment/increment.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,7 +107,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -148,11 +153,11 @@
       <find>enrichr</find>
       <find>httpPos</find>
       <find>PsiM</find>
-      <find>/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/jan-30-2019/</find>
       <find>psiModService</find>
       <find>http</find>
       <find>httpPostService</find>
       <find>psiM</find>
+      <find>/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/jan-30-2019/</find>
     </findStrings>
     <replaceStrings>
       <replace>+79.966</replace>
@@ -534,10 +539,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PirService.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
       </list>
     </option>
   </component>
@@ -643,6 +649,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="psi-mod" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kinase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="increment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1144,12 +1202,12 @@
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
       <workItem from="1582572148035" duration="66869000" />
-      <workItem from="1583099886925" duration="5188000" />
+      <workItem from="1583099886925" duration="5477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234671000" />
+    <option name="totallyTimeSpent" value="234960000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="75" width="1369" height="728" extended-state="0" />
@@ -1245,43 +1303,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#78405#122913#0" expanded="false" />
-            <element signature="e#123107#155699#0" expanded="false" />
-            <element signature="e#229366#231943#0" expanded="false" />
-            <element signature="e#768850#786940#0" expanded="false" />
-            <element signature="e#806769#826063#0" expanded="false" />
-            <element signature="e#909913#924040#0" expanded="false" />
-            <element signature="e#915378#917223#0" expanded="false" />
-            <element signature="e#924088#941296#0" expanded="false" />
-            <element signature="e#948408#957134#0" expanded="false" />
-            <element signature="e#961680#963525#0" expanded="false" />
-            <element signature="e#971139#999792#0" expanded="false" />
-            <element signature="e#975657#979799#0" expanded="false" />
-            <element signature="e#1017006#1031425#0" expanded="false" />
-            <element signature="e#1064996#1095497#0" expanded="false" />
-            <element signature="e#1144112#1169457#0" expanded="false" />
-            <element signature="e#1169535#1182409#0" expanded="false" />
-            <element signature="e#1182450#1196977#0" expanded="false" />
-            <element signature="e#1274380#1276591#0" expanded="false" />
-            <element signature="e#1289482#1314440#0" expanded="false" />
-            <element signature="e#1328627#1341075#0" expanded="false" />
-            <element signature="e#1341119#1354987#0" expanded="false" />
-            <element signature="e#1382516#1407169#0" expanded="false" />
-            <element signature="e#1407213#1419357#0" expanded="false" />
-            <element signature="e#1433240#1447028#0" expanded="false" />
-            <element signature="e#1503632#1532060#0" expanded="false" />
-            <element signature="e#1532421#1550178#0" expanded="false" />
-            <element signature="e#1550218#1567343#0" expanded="false" />
-            <marker date="1582915415000" expanded="true" signature="234833:234846" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PrideService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -1800,20 +1821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
-          <folding>
-            <element signature="e#9873#9880#0" expanded="true" />
-            <element signature="e#10598#10605#0" expanded="true" />
-            <element signature="e#14285#14303#0" expanded="true" />
-            <element signature="e#29712#29726#0" expanded="true" />
-            <element signature="e#30317#30326#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -1852,6 +1859,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="491" column="8" lean-forward="false" selection-start-line="491" selection-start-column="8" selection-end-line="491" selection-end-column="8" />
+          <folding>
+            <element signature="e#9873#9880#0" expanded="true" />
+            <element signature="e#10598#10605#0" expanded="true" />
+            <element signature="e#14285#14303#0" expanded="true" />
+            <element signature="e#29712#29726#0" expanded="true" />
+            <element signature="e#30317#30326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/increment/increment.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>

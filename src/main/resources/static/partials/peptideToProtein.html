@@ -794,7 +794,90 @@ Please check help tab for complete list of APIs.">
                 </div>
                 <hr/>
 
+                <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
+                    <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
+                        For Search for a List of Peptides:
+                    </h4>
 
+                    <blockquote><pre><code>
+import requests
+PINET_URL_BASE = 'http://eh3.uc.edu/pinet/api/'
+PINET_URL_LINEAGE = '9606'
+PEPTIDE_API_EXTENSION_1 = 'peptide/organism/'
+PEPTIDE_API_EXTENSION_2 = '/peptides/'
+TIMEOUT = 120
+RETRIES = 3
+
+
+def map_peptides(params):
+    url = PINET_URL_BASE + PEPTIDE_API_EXTENSION_1 + PINET_URL_LINEAGE + PEPTIDE_API_EXTENSION_2 + params
+
+    peptide_json = {}
+    try:
+        peptide_json = _request(url)
+    except:
+        print "error in map_peptides"
+        return peptide_json
+
+    return peptide_json
+
+def _request(url, params=None):
+    response = requests.get(url)
+    return response.json()
+
+if __name__ == '__main__':
+    # Example
+    # http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR
+    print map_peptides("KSAPATGGVKKPHR,IYQYIQSR")
+
+
+                </code></pre>
+                    </blockquote>
+                    <!--padding-left:5em-->
+
+
+                </div>
+
+                <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
+                    <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
+                        For Peptide Query
+                    </h4>
+                    Search Peptides by Sequence in Canonical Protein  http://eh3.uc.edu/pinet/api/peptide/organism/{organism}/peptides/{peptides separated by commas}
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
+                        http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
+                    <br/>
+                    Search Peptides by Sequence in Canonical+Isoforms Protein http://eh3.uc.edu/pinet/api/peptide/organism/{organism}_iso/peptides/{peptides separated by commas}
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
+                        http://eh3.uc.edu/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
+
+                    <hr/>
+                    <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
+                        For Preotein Modification Query
+                    </h4>
+                    Search by Mass and Delta, http://eh3.uc.edu/pinet/api/proteinptmbymass/{mass}/delta/{delta}
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbymass/80/delta/0.5" target="_blank">
+                        http://eh3.uc.edu/pinet/api/proteinptmbymass/80/delta/0.5</a>
+                    <br/>
+                    Search by UNIMOD of MOD ids, http://eh3.uc.edu/pinet/api/proteinptm/{mod}
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/proteinptm/UNIMOD:1255" target="_blank">
+                        http://eh3.uc.edu/pinet/api/proteinptm/UNIMOD:1255</a>
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/proteinptm/MOD:00912" target="_blank">
+                        http://eh3.uc.edu/pinet/api/proteinptm/MOD:00912</a>
+                    <br/>
+                    Search by specifications, http://eh3.uc.edu/pinet/api/proteinptmbydescription/{description}
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbydescription/phospho" target="_blank">
+                        http://eh3.uc.edu/pinet/api/proteinptmbydescription/phospho</a>
+                    <br/>
+                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbydescription/serine" target="_blank">
+                        http://eh3.uc.edu/pinet/api/proteinptmbydescription/serine</a>
+
+                </div>
             </div>
 
 

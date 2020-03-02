@@ -47,7 +47,7 @@ public class PirService {
             System.out.println("pirMap:" + pirJson.toString());
         } catch (Exception e) {
 
-            String msg =  String.format("Error is finding Peptide %s from PIR", peptide);
+            String msg =  String.format("Error is finding Peptide from PIR");
             log.warn(msg);
             throw new RuntimeException(msg);
 

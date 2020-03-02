@@ -9152,6 +9152,9 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
                                                 .success(function (data) {
 
                                                     var uniprotJsonObject = data;
+                                                    console.log(self.organismForm);
+                                                    console.log(uniprotIdForInsideQuery);
+                                                    console.log(uniprotJsonObject);
                                                     if ("reactome" in uniprotJsonObject) {
                                                         var uniprotReactome = uniprotJsonObject["reactome"];
                                                         for (var i = 0; i < uniprotReactome.length; i++) {
@@ -9264,7 +9267,12 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
                                                     // //console.log(uniprotJsonObject["primary_gene_name"]);
                                                     // //console.log("-------------");
                                                     //Some times TREMBL proteins don't match any genes!!!!!
-                                                    if (valueOfGeneId.length == 0) {
+                                                    if (valueOfGeneId){
+                                                        if (valueOfGeneId.length == 0) {
+                                                            valueOfGeneId = ['NA'];
+                                                        }
+                                                    }
+                                                    else{
                                                         valueOfGeneId = ['NA'];
                                                     }
                                                     // //console.log("valueOfGeneId");

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/increment/increment.json" afterPath="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -29,11 +33,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-36">
+              <caret line="9275" column="79" lean-forward="false" selection-start-line="9275" selection-start-column="79" selection-end-line="9275" selection-end-column="79" />
+              <folding>
+                <element signature="e#78405#122913#0" expanded="false" />
+                <element signature="e#123107#155699#0" expanded="false" />
+                <element signature="e#229366#231943#0" expanded="false" />
+                <element signature="e#388050#389852#0" expanded="false" />
+                <element signature="e#389937#391655#0" expanded="false" />
+                <element signature="e#391758#393477#0" expanded="false" />
+                <element signature="e#769438#787528#0" expanded="false" />
+                <element signature="e#807357#826651#0" expanded="false" />
+                <element signature="e#910501#924628#0" expanded="false" />
+                <element signature="e#915966#917811#0" expanded="false" />
+                <element signature="e#924676#941884#0" expanded="false" />
+                <element signature="e#948996#957722#0" expanded="false" />
+                <element signature="e#962268#964113#0" expanded="false" />
+                <element signature="e#971727#1000380#0" expanded="false" />
+                <element signature="e#976245#980387#0" expanded="false" />
+                <element signature="e#1017594#1032013#0" expanded="false" />
+                <element signature="e#1065584#1096085#0" expanded="false" />
+                <element signature="e#1144700#1170045#0" expanded="false" />
+                <element signature="e#1170123#1182997#0" expanded="false" />
+                <element signature="e#1183038#1197565#0" expanded="false" />
+                <element signature="e#1274968#1277179#0" expanded="false" />
+                <element signature="e#1290070#1315028#0" expanded="false" />
+                <element signature="e#1329215#1341663#0" expanded="false" />
+                <element signature="e#1341707#1355575#0" expanded="false" />
+                <element signature="e#1383104#1407757#0" expanded="false" />
+                <element signature="e#1407801#1419945#0" expanded="false" />
+                <element signature="e#1433828#1447616#0" expanded="false" />
+                <element signature="e#1504220#1532648#0" expanded="false" />
+                <element signature="e#1533009#1550766#0" expanded="false" />
+                <element signature="e#1550806#1567931#0" expanded="false" />
+                <marker date="1583181173000" expanded="true" signature="234833:234846" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RestAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="1491" column="19" lean-forward="false" selection-start-line="1491" selection-start-column="15" selection-end-line="1491" selection-end-column="19" />
+            <state relative-caret-position="128">
+              <caret line="1756" column="49" lean-forward="false" selection-start-line="1756" selection-start-column="34" selection-end-line="1756" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UniprotService2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UtilsNetwork.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="193" column="65" lean-forward="true" selection-start-line="193" selection-start-column="65" selection-end-line="193" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PeptideMatchCMD.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -82,16 +158,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestUploadController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestUploadController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="KinaseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/KinaseService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,7 +190,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="peptideToProtein.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="peptideToProtein.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
@@ -161,8 +227,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.ex1orex2</find>
-      <find>showOutputex1orex2</find>
       <find>Useful</find>
       <find>For P</find>
       <find>iso</find>
@@ -191,6 +255,8 @@
       <find>httpPostService</find>
       <find>/opt/raid10/genomics/behrouz/PeptideMatchCMD_src_1.0/jan-30-2019/</find>
       <find>psiM</find>
+      <find>api/uniprotdb/organism/</find>
+      <find>readUrlXml</find>
     </findStrings>
     <replaceStrings>
       <replace>+79.966</replace>
@@ -553,7 +619,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/DeepPhosService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PhosphoService.java" />
@@ -561,11 +626,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/lib/bootstrap/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/custom.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/EnrichrService.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/KinaseService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/help.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
@@ -575,8 +638,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/increment/increment.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -741,6 +808,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -846,6 +943,96 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="peptideMatch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1321,15 +1508,16 @@
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
       <workItem from="1582572148035" duration="66869000" />
-      <workItem from="1583099886925" duration="6534000" />
+      <workItem from="1583099886925" duration="9217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236017000" />
+    <option name="totallyTimeSpent" value="238700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="75" width="1369" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1408,11 +1596,11 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js</url>
-          <line>34008</line>
+          <line>34016</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js</url>
-          <line>28971</line>
+          <line>28979</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -1425,13 +1613,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PrideService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="70" column="41" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModExtensionService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1524,13 +1705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1137">
           <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="233" column="60" lean-forward="false" selection-start-line="233" selection-start-column="60" selection-end-line="233" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1638,43 +1812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367693">
-          <caret line="28069" column="68" lean-forward="false" selection-start-line="28069" selection-start-column="53" selection-end-line="28069" selection-end-column="68" />
-          <folding>
-            <element signature="e#78405#122913#0" expanded="false" />
-            <element signature="e#123107#155699#0" expanded="false" />
-            <element signature="e#229366#231943#0" expanded="false" />
-            <element signature="e#768850#786940#0" expanded="false" />
-            <element signature="e#806769#826063#0" expanded="false" />
-            <element signature="e#909913#924040#0" expanded="false" />
-            <element signature="e#915378#917223#0" expanded="false" />
-            <element signature="e#924088#941296#0" expanded="false" />
-            <element signature="e#948408#957134#0" expanded="false" />
-            <element signature="e#961680#963525#0" expanded="false" />
-            <element signature="e#971139#999792#0" expanded="false" />
-            <element signature="e#975657#979799#0" expanded="false" />
-            <element signature="e#1017006#1031425#0" expanded="false" />
-            <element signature="e#1064996#1095497#0" expanded="false" />
-            <element signature="e#1144112#1169457#0" expanded="false" />
-            <element signature="e#1169535#1182409#0" expanded="false" />
-            <element signature="e#1182450#1196977#0" expanded="false" />
-            <element signature="e#1274380#1276591#0" expanded="false" />
-            <element signature="e#1289482#1314440#0" expanded="false" />
-            <element signature="e#1328627#1341075#0" expanded="false" />
-            <element signature="e#1341119#1354987#0" expanded="false" />
-            <element signature="e#1382516#1407169#0" expanded="false" />
-            <element signature="e#1407213#1419357#0" expanded="false" />
-            <element signature="e#1433240#1447028#0" expanded="false" />
-            <element signature="e#1503632#1532060#0" expanded="false" />
-            <element signature="e#1532421#1550178#0" expanded="false" />
-            <element signature="e#1550218#1567343#0" expanded="false" />
-            <marker date="1582915415000" expanded="true" signature="234833:234846" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1854,14 +1991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="1491" column="19" lean-forward="false" selection-start-line="1491" selection-start-column="15" selection-end-line="1491" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1884,20 +2013,6 @@
           <caret line="54" column="68" lean-forward="false" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
-          <folding>
-            <element signature="e#9873#9880#0" expanded="true" />
-            <element signature="e#10598#10605#0" expanded="true" />
-            <element signature="e#14285#14303#0" expanded="true" />
-            <element signature="e#29712#29726#0" expanded="true" />
-            <element signature="e#30317#30326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1979,6 +2094,78 @@
             <marker date="1583173239000" expanded="false" signature="8613:8632" ph="..." />
             <marker date="1583173239000" expanded="false" signature="79257:79271" ph="..." />
             <marker date="1583173239000" expanded="false" signature="79770:79784" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="1756" column="49" lean-forward="false" selection-start-line="1756" selection-start-column="34" selection-end-line="1756" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="193" column="65" lean-forward="true" selection-start-line="193" selection-start-column="65" selection-end-line="193" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="9275" column="79" lean-forward="false" selection-start-line="9275" selection-start-column="79" selection-end-line="9275" selection-end-column="79" />
+          <folding>
+            <element signature="e#78405#122913#0" expanded="false" />
+            <element signature="e#123107#155699#0" expanded="false" />
+            <element signature="e#229366#231943#0" expanded="false" />
+            <element signature="e#388050#389852#0" expanded="false" />
+            <element signature="e#389937#391655#0" expanded="false" />
+            <element signature="e#391758#393477#0" expanded="false" />
+            <element signature="e#769438#787528#0" expanded="false" />
+            <element signature="e#807357#826651#0" expanded="false" />
+            <element signature="e#910501#924628#0" expanded="false" />
+            <element signature="e#915966#917811#0" expanded="false" />
+            <element signature="e#924676#941884#0" expanded="false" />
+            <element signature="e#948996#957722#0" expanded="false" />
+            <element signature="e#962268#964113#0" expanded="false" />
+            <element signature="e#971727#1000380#0" expanded="false" />
+            <element signature="e#976245#980387#0" expanded="false" />
+            <element signature="e#1017594#1032013#0" expanded="false" />
+            <element signature="e#1065584#1096085#0" expanded="false" />
+            <element signature="e#1144700#1170045#0" expanded="false" />
+            <element signature="e#1170123#1182997#0" expanded="false" />
+            <element signature="e#1183038#1197565#0" expanded="false" />
+            <element signature="e#1274968#1277179#0" expanded="false" />
+            <element signature="e#1290070#1315028#0" expanded="false" />
+            <element signature="e#1329215#1341663#0" expanded="false" />
+            <element signature="e#1341707#1355575#0" expanded="false" />
+            <element signature="e#1383104#1407757#0" expanded="false" />
+            <element signature="e#1407801#1419945#0" expanded="false" />
+            <element signature="e#1433828#1447616#0" expanded="false" />
+            <element signature="e#1504220#1532648#0" expanded="false" />
+            <element signature="e#1533009#1550766#0" expanded="false" />
+            <element signature="e#1550806#1567931#0" expanded="false" />
+            <marker date="1583181173000" expanded="true" signature="234833:234846" ph="..." />
           </folding>
         </state>
       </provider>

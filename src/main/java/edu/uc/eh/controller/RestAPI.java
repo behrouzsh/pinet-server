@@ -433,7 +433,7 @@ public class RestAPI implements ErrorController {
                         while ((currentLine = br.readLine()) != null) {
                             String str[] = currentLine.split(",");
                             RowNum++;
-                            if (RowNum > 2000) {
+                            if (RowNum > 3000) {
                                 outputError.put("message", "Error: please contact pinet support for pinet-stand-alone package to analyze larger files..");
                                 return outputError;
 
@@ -1750,7 +1750,7 @@ public class RestAPI implements ErrorController {
         } catch (Exception e) {
 
 
-            String msg = String.format("Uniprot %s not found in uniprot localdb", accession);
+            String msg = String.format("Uniprot %s not found in uniprot localdb 1", accession);
             log.warn(msg);
             //throw new RuntimeException(msg);
             try {
@@ -1758,7 +1758,7 @@ public class RestAPI implements ErrorController {
 
 
             } catch (Exception e2) {
-                String msg2 = String.format("Uniprot %s not found  in uniprot localdb", accession);
+                String msg2 = String.format("Uniprot %s not found  in uniprot localdb 2", accession);
                 log.warn(msg2);
 
             }

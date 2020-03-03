@@ -9152,9 +9152,9 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
                                                 .success(function (data) {
 
                                                     var uniprotJsonObject = data;
-                                                    console.log(self.organismForm);
-                                                    console.log(uniprotIdForInsideQuery);
-                                                    console.log(uniprotJsonObject);
+                                                    // console.log(self.organismForm);
+                                                    // console.log(uniprotIdForInsideQuery);
+                                                    // console.log(uniprotJsonObject);
                                                     if ("reactome" in uniprotJsonObject) {
                                                         var uniprotReactome = uniprotJsonObject["reactome"];
                                                         for (var i = 0; i < uniprotReactome.length; i++) {
@@ -9267,6 +9267,11 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
                                                     // //console.log(uniprotJsonObject["primary_gene_name"]);
                                                     // //console.log("-------------");
                                                     //Some times TREMBL proteins don't match any genes!!!!!
+
+                                                    // if (valueOfGeneId.length == 0) {
+                                                    //     valueOfGeneId = ['NA'];
+                                                    // }
+
                                                     if (valueOfGeneId){
                                                         if (valueOfGeneId.length == 0) {
                                                             valueOfGeneId = ['NA'];
@@ -15718,28 +15723,38 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
         self.proteinIdListMassCombinedWithAbundance = [];
         self.genesWithAbundance = [];
         for (var keyIter in self.ptmProteinToAbundance) {
-            if (self.ptmProteinToAbundance.hasOwnProperty(keyIter)) {
-                var valueIter = self.ptmProteinToAbundance[keyIter];
-                if(!isNaN(valueIter))
-                {
-                    self.proteinIdListMassCombinedWithAbundance.push(keyIter + " " + valueIter)
-                }
-                else {
-                    self.proteinIdListMassCombinedWithAbundance.push(keyIter)
+            if (keyIter != "NA" && keyIter != "undefined") {
+                if (self.ptmProteinToAbundance.hasOwnProperty(keyIter)) {
+                    var valueIter = self.ptmProteinToAbundance[keyIter];
+                    if (!isNaN(valueIter)) {
+                        self.proteinIdListMassCombinedWithAbundance.push(keyIter + " " + valueIter)
+                    }
+                    else {
+                        self.proteinIdListMassCombinedWithAbundance.push(keyIter)
+                    }
                 }
             }
         }
 
         for (var keyIter in self.geneToAbundance) {
-            if (self.geneToAbundance.hasOwnProperty(keyIter)) {
-                var valueIter = self.geneToAbundance[keyIter];
-                if(!isNaN(valueIter))
-                {
-                    self.genesWithAbundance.push(keyIter + " " + valueIter)
-                }
-                else {
-                    self.genesWithAbundance.push(keyIter)
-                }
+            //console.log(keyIter);
+            if (keyIter != "NA" && keyIter != "undefined") {
+                // console.log(keyIter);
+                // if ( keyIter != "undefined") {
+                //     console.log(keyIter);
+                //     if (!isNaN(keyIter) ) {
+                        //console.log(keyIter);
+                        if (self.geneToAbundance.hasOwnProperty(keyIter)) {
+                            var valueIter = self.geneToAbundance[keyIter];
+                            if (!isNaN(valueIter)) {
+                                self.genesWithAbundance.push(keyIter + " " + valueIter)
+                            }
+                            else {
+                                self.genesWithAbundance.push(keyIter)
+                            }
+                        }
+                //     }
+                // }
             }
         }
 
@@ -16321,7 +16336,7 @@ appModule.controller("ProteinCtrl", ['$scope', '$http', '$location', '$window', 
     self.organismForm = SharedService.getVar('organismForm');
 
     self.inputMassPtmProteins = SharedService.getVar('inputMassPtmProteins').toString();
-    //console.log(self.inputMassPtmProteins);
+    console.log(self.inputMassPtmProteins);
     self.inputShorthandPtmProteins = SharedService.getVar('inputShorthandPtmProteins').toString();
     //console.log('in protein2pathway, inputMassPtmProteins are:');
     //console.log(self.inputMassPtmProteins);

@@ -67,7 +67,7 @@
     <div class="well col-sm-12"
          style="background-color: transparent; border-color: #999999" >
 
-        <div class=" tabPanel-widget5">
+        <div class="tabPanel-widget5">
             <!--=============================================-->
             <!--=============================================-->
             <!--=============================================-->
@@ -103,25 +103,12 @@
                             PiNET:
                         </h4>
 
-                        <p>piNET is a versatile tool that can be used to annotate, map and analyze a set of peptide moieties
-                            (including post-translationally modified peptides) identified by either
-                            targeted (SRM type) or SWATH (discovery) proteomic assays, or another
-                            related mass spectrometry based protein moieties identification and
-                            quantification technique. Starting from a set of peptides, and optional
-                            modifications within those peptides, piNET provides mapping into
-                            canonical UniProt protein entries, standardized annotation of
-                            modifications using PsiMOD ontology, and mapping of the sites of PTMs in
-                            the full UniProt entries. piNET further generates Protein Line Notation
-                            tokens to represent each peptide moiety with modifications for automated
-                            annotation exchange systems. The set of proteins and PTM sites can be
-                            further projected onto biological pathways using enrichment analysis and
-                            a comprehensive library of biological gene/protein sets through Enrichr.
-                            For phosphorylation, PhosphoSitePlus known kinase - target peptides (and
-                            extrapolations form known examples to sufficiently similar putative
-                            target peptides) are used to provide a site specific network and
-                            pathways views. Work is in progress to extend the capabilities to
-                            include other PTMs in network projections, and to enable annotation of
-                            mouse and rat proteomics data.</p>
+                        <p>piNET is a versatile tool that can be used to annotate,
+                            map and analyze a set of peptide moieties, including
+                            those with post-translationally modified sites (PTMs),
+                            identified (and quantified) by targeted (SRM type), SWATH (discovery)
+                            or related mass spectrometry based techniques. Starting from a set of peptides,
+                            and optional modifications within those peptides, piNET provides mapping into canonical UniProt protein entries, standardized annotation of modifications using PsiMOD and UNIMOD ontologies, and mapping of the sites of PTMs in the full UniProt entries. Validated modifying enzymes, including protein kinases, acetyl or methyl transferases, that are known to target these PTM sites, are mapped using iPTMnet and Signor. For phosphorylation, known kinase - target peptides are also mapped using PhosphoSitePlus, whereas DeepPhos is used to map predicted kinase – target site pairs. These annotations can be visualized using versatile d3 library to provide site specific network and pathways views. The set of proteins (with PTMs mapped) can be further projected onto biological pathways using enrichment analysis and a comprehensive library of biological gene/protein sets through Enrichr, while protein abundance vectors can be compared with LINCS chemical and genetic perturbation signatures through iLINCS.</p>
                     </div>
 
                 </div>
@@ -351,14 +338,17 @@ if __name__ == '__main__':
             <!--=============================================-->
             <label for="tab5-4" tabindex="0"></label>
             <input id="tab5-4" type="radio" name="tabs" aria-hidden="true">
-            <h2>Interactive Visualization</h2>
+            <h2>Network Visualization and Circos-like Plots</h2>
             <div class="container"
                  style=" box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
 
                 <div class="well well-sm" style="background-color: #c9c9c9">
                     <div class="well " style="border-color: black ">
-                        PiNET Visualization Engine is developed as a stand alone javascript package that generates
-                        multiple publication ready graphics for network visualization.
+                        PiNET can be used to generate publication ready
+                        network visualization, including circus plots for user defined networks.
+                        Follow the format of examples below to define nodes and edges for
+                        your plots. Note that one of the nodes can be highlighted in the plot as
+                        illustrated in an example below.
 
                     </div>
 
@@ -383,7 +373,7 @@ if __name__ == '__main__':
                             </div>
                             <hr/>
 
-                            <div class=" form-group col-sm-6" style="padding-left: 0px;">
+                            <div class=" form-group col-sm-4" style="padding-left: 0px;">
                                 <form>
                                     Add Optional Name of the Node of Interest: <input type="text" ng-model="interest">
                                 </form>
@@ -392,24 +382,30 @@ if __name__ == '__main__':
                             </div>
 
 
-                            <div class=" form-group col-sm-6 col-sm-offset-0">
+                            <div class=" form-group col-sm-4 col-sm-offset-0">
 
-                                <input type="file"  file-model="myFileCSV" type="submit"
-                                       class="onerow"/>
-                                <button ng-click="uploadFileGraph()" class="btn btn-primary onerow">Upload .CSV File
 
-                                    <span ng-show="ctrl.uploadGraphWaiting">
-                                <span class="glyphicon glyphicon-refresh glyphicon-spin">
+                                    <input type="file"  file-model="myFileCSV" type="submit"
+                                           class="onerow"/>
+                                    <button ng-click="uploadFileGraph()" class="btn btn-primary onerow">Upload .CSV File
 
-                                </span>
-                                </span>
-                                </button>
-                                <br/>
+                                        <span ng-show="ctrl.uploadGraphWaiting">
+                                    <span class="glyphicon glyphicon-refresh glyphicon-spin">
 
-                                <span ng-if="ctrl.uploadErrorTag == 400" style="color: #464bb4; font-weight: bold">
+                                    </span>
+                                    </span>
+                                    </button>
+                                    <br/>
 
-                                    {{ctrl.uploadErrorText}}
-                                </span>
+                                    <span ng-if="ctrl.uploadErrorTag == 400" style="color: #464bb4; font-weight: bold">
+
+                                        {{ctrl.uploadErrorText}}
+                                    </span>
+
+
+                            </div>
+                            <div class=" form-group col-sm-4 col-sm-offset-0" >
+                                <div class=" pictureCircos " ></div>
                             </div>
                         </div>
 

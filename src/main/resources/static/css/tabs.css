@@ -821,7 +821,7 @@ dl {
 .tabPanel-widget5 > h2 {
     font-size: 1.1em;
     width: 14em;
-    height: 2em;
+    height: 4em;
     line-height: 2em;
 }
 .tabPanel-widget2 > label,
@@ -1065,6 +1065,7 @@ dl {
     .tabPanel-widget2 h2,
     .tabPanel-widget h2 {
         width: auto;
+        height: auto;
         position: static !important;
         background: #999 !important;
     }

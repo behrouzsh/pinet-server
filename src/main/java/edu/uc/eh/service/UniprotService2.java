@@ -33,19 +33,19 @@ public class UniprotService2 {
         //String xmlResponse;
         String uniprotUrl = String.format(uniprotTemplate, protein, organism);
         Map uniprotMap;
-        System.out.println("Querying: " + uniprotUrl);
+        System.out.println("Querying: " + uniprotUrl + "from uniprot database");
 
 
         try {
             response = UtilsNetwork.getInstance().readUrlXml(uniprotUrl);
-            //log.info("Response from readXml: ");
+            System.out.println("Response from readXml: " + response);
 
             uniprotMap = UtilsNetwork.loadXMLFromString(response);
-            //System.out.println("uniprotMap:" + uniprotMap.toString());
+            System.out.println("uniprotMap:" + uniprotMap.toString());
         } catch (Exception e) {
 
-            String msg =  String.format("Uniprot %s not found", protein);
-            log.warn(msg);
+            String msg =  String.format("Uniprot %s not found even in uniprot database!", protein);
+            System.out.println(msg);
             throw new RuntimeException(msg);
 
         }

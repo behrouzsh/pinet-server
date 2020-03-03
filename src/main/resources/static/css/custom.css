@@ -1909,3 +1909,14 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .modal-dialog {width: 1000px;}
+
+
+div.pictureCircos {
+    width:200px; /*width of your image*/
+    height:200px; /*height of your image*/
+    content:url('../images/circos2.png');
+    opacity: 1;
+    margin:0; /* If you want no margin */
+    padding:0; /*if your want to padding */
+    //position: relative;
+}

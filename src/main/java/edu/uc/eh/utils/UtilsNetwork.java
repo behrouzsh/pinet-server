@@ -192,6 +192,7 @@ System.out.println(instance);
 //    }
 
     public String readUrlXml(String urlString) throws Exception {
+        System.out.println("inside readUrlXml");
         BufferedReader reader = null;
         try {
             URL url = new URL(urlString);
@@ -201,13 +202,14 @@ System.out.println(instance);
             char[] chars = new char[1024];
             while ((read = reader.read(chars)) != -1)
                 buffer.append(chars, 0, read);
-            //System.out.println(buffer.toString());
+            System.out.println(buffer.toString());
             return buffer.toString();
         } finally {
             if (reader != null)
                 reader.close();
         }
     }
+
 
 
     public static Map loadJSONFromStringHarmonizomeGene(String json) throws Exception {

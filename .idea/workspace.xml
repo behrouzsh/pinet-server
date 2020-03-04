@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/help.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/help.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -80,6 +81,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PeptideMatchCMD.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UniprotService2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,7 +121,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="help.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="help.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/help.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
@@ -126,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="peptideToProtein.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="peptideToProtein.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="728" column="84" lean-forward="false" selection-start-line="728" selection-start-column="84" selection-end-line="728" selection-end-column="84" />
+            <state relative-caret-position="181">
+              <caret line="1350" column="58" lean-forward="false" selection-start-line="1350" selection-start-column="54" selection-end-line="1350" selection-end-column="58" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#section#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
@@ -139,13 +150,12 @@
                 <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-                <marker date="1583273807000" expanded="false" signature="7955:7971" ph="..." />
-                <marker date="1583273807000" expanded="false" signature="8057:8074" ph="..." />
-                <marker date="1583273807000" expanded="false" signature="8359:8378" ph="..." />
-                <marker date="1583273807000" expanded="false" signature="8613:8632" ph="..." />
-                <marker date="1583273807000" expanded="false" signature="79578:79592" ph="..." />
-                <marker date="1583273807000" expanded="false" signature="80091:80105" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="7955:7971" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="8057:8074" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="8359:8378" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="8613:8632" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="79961:79975" ph="..." />
+                <marker date="1583344114000" expanded="false" signature="80474:80488" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,8 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>api/uniprotdb/organism/</find>
-      <find>valueOfGeneId.length == 0</find>
       <find>Workflows</find>
       <find>splash</find>
       <find>undefined</find>
@@ -209,9 +217,11 @@
       <find>pictureCircos</find>
       <find>inputMassPtmProteins</find>
       <find>2000</find>
-      <find>Connec</find>
       <find>updateP</find>
       <find>/splash</find>
+      <find>SubCellular</find>
+      <find>Connec</find>
+      <find>Gene</find>
     </findStrings>
     <replaceStrings>
       <replace>+79.966</replace>
@@ -592,16 +602,16 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/IteratorIncrementService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/tabs.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/custom.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/utils/UtilsNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/UniprotService2.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/help.html" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
       </list>
     </option>
   </component>
@@ -901,6 +911,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pinet-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="peptideMatch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1377,12 +1417,12 @@
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
       <workItem from="1582572148035" duration="66869000" />
-      <workItem from="1583099886925" duration="22593000" />
+      <workItem from="1583099886925" duration="23305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252076000" />
+    <option name="totallyTimeSpent" value="252788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="75" width="1369" height="728" extended-state="0" />
@@ -1768,14 +1808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="492" column="8" lean-forward="false" selection-start-line="492" selection-start-column="8" selection-end-line="492" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -1900,41 +1932,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="728" column="84" lean-forward="false" selection-start-line="728" selection-start-column="84" selection-end-line="728" selection-end-column="84" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-            <marker date="1583273807000" expanded="false" signature="7955:7971" ph="..." />
-            <marker date="1583273807000" expanded="false" signature="8057:8074" ph="..." />
-            <marker date="1583273807000" expanded="false" signature="8359:8378" ph="..." />
-            <marker date="1583273807000" expanded="false" signature="8613:8632" ph="..." />
-            <marker date="1583273807000" expanded="false" signature="79578:79592" ph="..." />
-            <marker date="1583273807000" expanded="false" signature="80091:80105" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/controller/RestAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="435" column="42" lean-forward="false" selection-start-line="435" selection-start-column="42" selection-end-line="435" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="2284" column="39" lean-forward="true" selection-start-line="2284" selection-start-column="39" selection-end-line="2284" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1989,6 +1990,44 @@
             <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <marker date="1583343116000" expanded="false" signature="14646:14664" ph="..." />
             <marker date="1583343116000" expanded="false" signature="14715:14731" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="491" column="10" lean-forward="false" selection-start-line="491" selection-start-column="10" selection-end-line="491" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="2284" column="39" lean-forward="true" selection-start-line="2284" selection-start-column="39" selection-end-line="2284" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="1350" column="58" lean-forward="false" selection-start-line="1350" selection-start-column="54" selection-end-line="1350" selection-end-column="58" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#section#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1583344114000" expanded="false" signature="7955:7971" ph="..." />
+            <marker date="1583344114000" expanded="false" signature="8057:8074" ph="..." />
+            <marker date="1583344114000" expanded="false" signature="8359:8378" ph="..." />
+            <marker date="1583344114000" expanded="false" signature="8613:8632" ph="..." />
+            <marker date="1583344114000" expanded="false" signature="79961:79975" ph="..." />
+            <marker date="1583344114000" expanded="false" signature="80474:80488" ph="..." />
           </folding>
         </state>
       </provider>

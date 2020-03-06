@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b7d2ad-71b7-4b34-a380-94ffae6b872f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/css/layout.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/js/end.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" afterPath="$PROJECT_DIR$/src/main/java/edu/uc/eh/peptideMatch/PeptideMatchCMD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/layout.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -36,68 +31,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="17280" column="40" lean-forward="false" selection-start-line="17280" selection-start-column="31" selection-end-line="17280" selection-end-column="40" />
-              <folding>
-                <element signature="e#78405#122913#0" expanded="false" />
-                <element signature="e#123107#155699#0" expanded="false" />
-                <element signature="e#229366#231943#0" expanded="false" />
-                <element signature="e#388059#389861#0" expanded="false" />
-                <element signature="e#389946#391664#0" expanded="false" />
-                <element signature="e#391767#393486#0" expanded="false" />
-                <element signature="e#770566#788656#0" expanded="false" />
-                <element signature="e#808485#827779#0" expanded="false" />
-                <element signature="e#911629#925756#0" expanded="false" />
-                <element signature="e#917094#918939#0" expanded="false" />
-                <element signature="e#925804#943012#0" expanded="false" />
-                <element signature="e#950124#958850#0" expanded="false" />
-                <element signature="e#963396#965241#0" expanded="false" />
-                <element signature="e#972855#1001508#0" expanded="false" />
-                <element signature="e#977373#981515#0" expanded="false" />
-                <element signature="e#1018722#1033141#0" expanded="false" />
-                <element signature="e#1066712#1097213#0" expanded="false" />
-                <element signature="e#1145828#1171173#0" expanded="false" />
-                <element signature="e#1171251#1184125#0" expanded="false" />
-                <element signature="e#1184166#1198693#0" expanded="false" />
-                <element signature="e#1276096#1278307#0" expanded="false" />
-                <element signature="e#1291198#1316156#0" expanded="false" />
-                <element signature="e#1330343#1342791#0" expanded="false" />
-                <element signature="e#1342835#1356703#0" expanded="false" />
-                <element signature="e#1384232#1408885#0" expanded="false" />
-                <element signature="e#1408929#1421073#0" expanded="false" />
-                <element signature="e#1434956#1448744#0" expanded="false" />
-                <element signature="e#1505348#1533776#0" expanded="false" />
-                <element signature="e#1534137#1551894#0" expanded="false" />
-                <element signature="e#1551934#1569059#0" expanded="false" />
-                <marker date="1583444046000" expanded="true" signature="234833:234846" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="proteinToPathway.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-611">
-              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="29" />
+            <state relative-caret-position="173">
+              <caret line="2502" column="53" lean-forward="false" selection-start-line="2502" selection-start-column="44" selection-end-line="2502" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimensions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/dimensions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -136,6 +79,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="peptideToProtein.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2852">
+              <caret line="238" column="19" lean-forward="false" selection-start-line="238" selection-start-column="12" selection-end-line="238" selection-end-column="19" />
+              <folding>
+                <element signature="n#nav#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1583442753000" expanded="false" signature="7967:7983" ph="..." />
+                <marker date="1583442753000" expanded="false" signature="8069:8086" ph="..." />
+                <marker date="1583442753000" expanded="false" signature="8371:8390" ph="..." />
+                <marker date="1583442753000" expanded="false" signature="8625:8644" ph="..." />
+                <marker date="1583442753000" expanded="false" signature="80009:80023" ph="..." />
+                <marker date="1583442753000" expanded="false" signature="80522:80536" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AB.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/AB.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,8 +116,18 @@
       <file leaf-file-name="tabs.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/tabs.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="823" column="13" lean-forward="false" selection-start-line="823" selection-start-column="13" selection-end-line="823" selection-end-column="13" />
+            <state relative-caret-position="181">
+              <caret line="560" column="8" lean-forward="false" selection-start-line="560" selection-start-column="8" selection-end-line="560" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="outerTabs.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="470" column="15" lean-forward="false" selection-start-line="470" selection-start-column="6" selection-end-line="470" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -159,8 +136,8 @@
       <file leaf-file-name="layout.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -169,8 +146,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="915" column="29" lean-forward="false" selection-start-line="915" selection-start-column="29" selection-end-line="915" selection-end-column="29" />
+            <state relative-caret-position="181">
+              <caret line="244" column="47" lean-forward="false" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -187,11 +164,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dimensionsForParCoordsPepToProt</find>
-      <find>cl</find>
-      <find>class=&quot;</find>
-      <find>class=&quot;d</find>
-      <find>class=&quot;di</find>
       <find>class=&quot;dimension</find>
       <find>class=&quot;dimensio</find>
       <find>class=&quot;dimensi</find>
@@ -215,8 +187,13 @@
       <find>updateP</find>
       <find>parallel</find>
       <find>goTo</find>
-      <find>container</find>
       <find>siteVisit</find>
+      <find>tabset2</find>
+      <find>tabset3</find>
+      <find>max-width</find>
+      <find>Inter</find>
+      <find>container</find>
+      <find>layout.css</find>
     </findStrings>
     <replaceStrings>
       <replace>+79.966</replace>
@@ -586,7 +563,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/lib/bootstrap/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/EnrichrService.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/KinaseService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PirService.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uc/eh/service/PsiModService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
@@ -605,9 +581,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/ptmToModifier.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/d3.parcoords.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/custom.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/layout.css" />
       </list>
     </option>
@@ -1444,12 +1421,12 @@
       <workItem from="1580918245178" duration="4676000" />
       <workItem from="1581606909082" duration="85356000" />
       <workItem from="1582572148035" duration="66869000" />
-      <workItem from="1583099886925" duration="29831000" />
+      <workItem from="1583099886925" duration="31260000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259314000" />
+    <option name="totallyTimeSpent" value="260743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="75" width="1369" height="728" extended-state="0" />
@@ -1636,14 +1613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7973">
-          <caret line="469" column="9" lean-forward="false" selection-start-line="469" selection-start-column="9" selection-end-line="469" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1867,28 +1836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="1470" column="78" lean-forward="false" selection-start-line="1470" selection-start-column="69" selection-end-line="1470" selection-end-column="78" />
-          <folding>
-            <element signature="n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1583442753000" expanded="false" signature="7967:7983" ph="..." />
-            <marker date="1583442753000" expanded="false" signature="8069:8086" ph="..." />
-            <marker date="1583442753000" expanded="false" signature="8371:8390" ph="..." />
-            <marker date="1583442753000" expanded="false" signature="8625:8644" ph="..." />
-            <marker date="1583442753000" expanded="false" signature="80009:80023" ph="..." />
-            <marker date="1583442753000" expanded="false" signature="80522:80536" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/dimensions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1947,18 +1894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-611">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/end.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1995,24 +1930,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/tabs.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="823" column="13" lean-forward="false" selection-start-line="823" selection-start-column="13" selection-end-line="823" selection-end-column="13" />
+        <state relative-caret-position="181">
+          <caret line="560" column="8" lean-forward="false" selection-start-line="560" selection-start-column="8" selection-end-line="560" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/outerTabs.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="470" column="15" lean-forward="false" selection-start-line="470" selection-start-column="6" selection-end-line="470" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/peptideToProtein.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2852">
+          <caret line="238" column="19" lean-forward="false" selection-start-line="238" selection-start-column="12" selection-end-line="238" selection-end-column="19" />
+          <folding>
+            <element signature="n#nav#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#div#0;n#section#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1583442753000" expanded="false" signature="7967:7983" ph="..." />
+            <marker date="1583442753000" expanded="false" signature="8069:8086" ph="..." />
+            <marker date="1583442753000" expanded="false" signature="8371:8390" ph="..." />
+            <marker date="1583442753000" expanded="false" signature="8625:8644" ph="..." />
+            <marker date="1583442753000" expanded="false" signature="80009:80023" ph="..." />
+            <marker date="1583442753000" expanded="false" signature="80522:80536" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/proteinToPathway.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="2502" column="53" lean-forward="false" selection-start-line="2502" selection-start-column="44" selection-end-line="2502" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="915" column="29" lean-forward="false" selection-start-line="915" selection-start-column="29" selection-end-line="915" selection-end-column="29" />
+        <state relative-caret-position="181">
+          <caret line="244" column="47" lean-forward="false" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>

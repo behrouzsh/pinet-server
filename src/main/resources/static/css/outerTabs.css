@@ -82,7 +82,7 @@
 
 
 .tabset {
-    max-width: 100em;
+    /*max-width: 100em;*/
     width: 100%;
 }
 
@@ -273,7 +273,7 @@
 
 
 .tabset3 {
-    max-width: 100em;
+    /*max-width: 100em;*/
     width: 100%;
 }
 
@@ -468,6 +468,6 @@
 
 
 .tabset2p {
-    max-width: 100em;
+    /*max-width: 100em;*/
     width: 100%;
 }

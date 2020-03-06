@@ -2,16 +2,23 @@
 
 .container {
     margin: 0 auto;
-    max-width: 1680px;
-    width: 90%;
+    max-width: 2000px;
+    width: 95%;
 }
 @media only screen and (min-width: 601px) {
     .container {
-        width: 85%;
+        width: 95%;
     }
 }
 @media only screen and (min-width: 993px) {
     .container {
-        width: 85%;
+        width: 95%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 95%;
+        max-width: 95%;
     }
 }

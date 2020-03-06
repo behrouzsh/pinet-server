@@ -14195,7 +14195,7 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
             //.color(color)
             //.alpha(0.4)
                 .height(Math.max(parallelNrows * 12, 400))
-                .width(960);
+                .width(1200);
             self.parallelHeight = parcoords2.height() + 20;
             self.parallelWidth = parcoords2.width() + 20;
 
@@ -14240,7 +14240,7 @@ appModule.controller("MainCtrl", ['$scope', '$http', '$location', '$window', '$t
             // });
 
             var min = 0;
-            var max = 960;
+            var max = 1000;
             var log = d3.scale.log().domain([min, max]).range([range, 1]);
             //name,economy (mpg),cylinders,displacement (cc)
             var dimensionsForParCoordsPepToProt = {

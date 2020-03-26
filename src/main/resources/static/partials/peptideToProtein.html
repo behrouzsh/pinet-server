@@ -9,21 +9,30 @@
 
                 <div id="arrowBar3" ng-model="ctrl.siteVisit">
 
-                    <a href="javascript:void(0);" ng-click="goToAbout()"> <span
-                            class="AB3rotate1 color0"><span class="AB3rotateReset">
+                    <a href="javascript:void(0);" ng-click="goToAbout()">
+                        <span class="AB3rotate1 color0">
+
+                            <span class="AB3rotateReset">
                                     <span class="AB3text1">
                                         <!--<span-->
                                         <!--style="background: url(images/pathway.png); width:200px; height:50px;"/>-->
                                         Help
-                                </span></span></span></a>
+                                </span>
+                            </span>
+
+                        </span>
+                    </a>
 
 
                     <a href="javascript:void(0);" ng-click="goToPeptideToProtein();">
 
-                                    <span class="AB3rotate2 color1">
+                                    <span class="AB3rotate2  color1">
                                         <span class="AB3rotateReset">
-                                            <span class="AB3text2">
-                                                Peptides2Proteins
+                                            <span class="AB3text2 ">
+
+                                                    Peptides2Proteins
+
+
 
                                             </span>
                                         </span>
@@ -38,11 +47,15 @@
                     <!--ng-click="ctrl.peptideOrGenes=false"-->
                     <a href="javascript:void(0);" ng-click="goToPtmToModifier();">
 
-                                <span
-                                        class="AB3rotate3 color2"><span class="AB3rotateReset"><span
-                                        class="AB3text3">PTMs2Modifiers
+                                <span class="AB3rotate3 color2">
+                                    <span class="AB3rotateReset">
+                                        <span class="AB3text3">
+                                            PTMs2Modifiers
 
-                                </span></span></span></a>
+                                        </span>
+                                    </span>
+                                </span>
+                    </a>
                     <a href="javascript:void(0);" ng-click="goToProteinToPathway()">
 
                                     <span
@@ -91,6 +104,12 @@
 
 
         <!--</div>-->
+
+        <span>
+            <p style="font-weight: 800; font-style: italic">/Peptide2Protein workflow </p>
+
+        </span>
+
         <span>Peptide2Protein workflow can be used to map peptide moieties
             with post-translational modifications (PTMs) into proteins using
             a fast peptide to protein matching and PTM meta-data harmonization.
@@ -801,12 +820,12 @@ https://github.com/behrouzsh/pinet-server
 
                 <div class="bs-callout bs-callout-default" style="padding-top: 40px;">
                     <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
-                        For Search for a List of Peptides:
+                        Python Code Snippet for Searching for Peptides:
                     </h4>
 
                     <blockquote><pre><code>
 import requests
-PINET_URL_BASE = 'http://eh3.uc.edu/pinet/api/'
+PINET_URL_BASE = 'http://pinet-server.org/pinet/api/'
 PINET_URL_LINEAGE = '9606'
 PEPTIDE_API_EXTENSION_1 = 'peptide/organism/'
 PEPTIDE_API_EXTENSION_2 = '/peptides/'
@@ -832,7 +851,7 @@ def _request(url, params=None):
 
 if __name__ == '__main__':
     # Example
-    # http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR
+    # http://pinet-server.org/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR
     print map_peptides("KSAPATGGVKKPHR,IYQYIQSR")
 
 
@@ -847,40 +866,40 @@ if __name__ == '__main__':
                     <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
                         For Peptide Query
                     </h4>
-                    Search Peptides by Sequence in Canonical Protein  http://eh3.uc.edu/pinet/api/peptide/organism/{organism}/peptides/{peptides separated by commas}
+                    Search Peptides by Sequence in Canonical Protein  http://pinet-server.org/pinet/api/peptide/organism/{organism}/peptides/{peptides separated by commas}
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
-                        http://eh3.uc.edu/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
+                    <a href="http://pinet-server.org/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
+                        http://pinet-server.org/pinet/api/peptide/organism/9606/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
                     <br/>
-                    Search Peptides by Sequence in Canonical+Isoforms Protein http://eh3.uc.edu/pinet/api/peptide/organism/{organism}_iso/peptides/{peptides separated by commas}
+                    Search Peptides by Sequence in Canonical+Isoforms Protein http://pinet-server.org/pinet/api/peptide/organism/{organism}_iso/peptides/{peptides separated by commas}
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
-                        http://eh3.uc.edu/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
+                    <a href="http://pinet-server.org/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR" target="_blank">
+                        http://pinet-server.org/pinet/api/peptide/organism/9606_iso/peptides/KSAPATGGVKKPHR,IYQYIQSR</a>
 
                     <hr/>
                     <h4><span style="color:steelblue;" class="glyphicon glyphicon-cog">  </span> &nbsp;
                         For Preotein Modification Query
                     </h4>
-                    Search by Mass and Delta, http://eh3.uc.edu/pinet/api/proteinptmbymass/{mass}/delta/{delta}
+                    Search by Mass and Delta, http://pinet-server.org/pinet/api/proteinptmbymass/{mass}/delta/{delta}
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbymass/80/delta/0.5" target="_blank">
-                        http://eh3.uc.edu/pinet/api/proteinptmbymass/80/delta/0.5</a>
+                    <a href="http://pinet-server.org/pinet/api/proteinptmbymass/80/delta/0.5" target="_blank">
+                        http://pinet-server.org/pinet/api/proteinptmbymass/80/delta/0.5</a>
                     <br/>
-                    Search by UNIMOD of MOD ids, http://eh3.uc.edu/pinet/api/proteinptm/{mod}
+                    Search by UNIMOD of MOD ids, http://pinet-server.org/pinet/api/proteinptm/{mod}
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/proteinptm/UNIMOD:1255" target="_blank">
-                        http://eh3.uc.edu/pinet/api/proteinptm/UNIMOD:1255</a>
+                    <a href="http://pinet-server.org/pinet/api/proteinptm/UNIMOD:1255" target="_blank">
+                        http://pinet-server.org/pinet/api/proteinptm/UNIMOD:1255</a>
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/proteinptm/MOD:00912" target="_blank">
-                        http://eh3.uc.edu/pinet/api/proteinptm/MOD:00912</a>
+                    <a href="http://pinet-server.org/pinet/api/proteinptm/MOD:00912" target="_blank">
+                        http://pinet-server.org/pinet/api/proteinptm/MOD:00912</a>
                     <br/>
-                    Search by specifications, http://eh3.uc.edu/pinet/api/proteinptmbydescription/{description}
+                    Search by specifications, http://pinet-server.org/pinet/api/proteinptmbydescription/{description}
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbydescription/phospho" target="_blank">
-                        http://eh3.uc.edu/pinet/api/proteinptmbydescription/phospho</a>
+                    <a href="http://pinet-server.org/pinet/api/proteinptmbydescription/phospho" target="_blank">
+                        http://pinet-server.org/pinet/api/proteinptmbydescription/phospho</a>
                     <br/>
-                    <a href="http://eh3.uc.edu/pinet/api/proteinptmbydescription/serine" target="_blank">
-                        http://eh3.uc.edu/pinet/api/proteinptmbydescription/serine</a>
+                    <a href="http://pinet-server.org/pinet/api/proteinptmbydescription/serine" target="_blank">
+                        http://pinet-server.org/pinet/api/proteinptmbydescription/serine</a>
 
                 </div>
             </div>
@@ -1185,7 +1204,7 @@ if __name__ == '__main__':
                         <p>
                             &nbsp;<STRONG>SubCellular Locations</STRONG>
                             <br/>
-                            &nbsp;This information is not available TrEMBL database.
+                            &nbsp;This information is shown when available..
                         </p>
 
                     </span>
@@ -1266,7 +1285,7 @@ if __name__ == '__main__':
                                     <p>
                                         &nbsp;<STRONG>Gene Ontology Terms</STRONG>
                                         <br/>
-                            &nbsp;This information is not available TrEMBL database.
+                            &nbsp;This information is shown when available..
                                     </p>
 
 
@@ -1350,7 +1369,7 @@ if __name__ == '__main__':
                                     <p>
                                         &nbsp;<STRONG>Reactome Networks</STRONG>
                                         <br/>
-                            &nbsp;This information is not available TrEMBL database.
+                            &nbsp;This information is shown when available..
                                     </p>
 
 
@@ -1535,7 +1554,7 @@ if __name__ == '__main__':
 
                     <div class="panel panel-default" ng-show="true">
                         <div class="well well-sm" style="background-color: #c9c9c9">
-                            <h4>PSI-MOD ontology mapping</h4>
+                            <h4>Modification ontology mapping</h4>
                         </div>
                         <!--{{ctrl.ontologyMappings}}-->
                         <!--<div class="panel panel-default">-->

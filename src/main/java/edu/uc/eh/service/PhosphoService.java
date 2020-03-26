@@ -3318,6 +3318,8 @@ public class PhosphoService {
 //            try {
             System.out.println("==========================================");
             System.out.println("Computing deepPhosResults");
+            System.out.println(ptmPhArray.toJSONString());
+            System.out.println("------");
             JSONObject phosphoSiteToPhosphoProtein = new JSONObject();
             for (int i = 0; i < ptmPhArray.size(); i++) {
 
@@ -3333,9 +3335,9 @@ public class PhosphoService {
             if(urlString.length() > 0){
                 urlString = urlString.substring(0, urlString.length() - 1);
             }
-//                System.out.println("deepPhosurlString=");
-//                System.out.println(urlString);
-//                System.out.println("deepPhosResults=");
+                System.out.println("deepPhosurlString=");
+                System.out.println(urlString);
+                System.out.println("deepPhosResults=");
             deepPhosResults = deepPhosService.getPhosphoPrediction(organism, urlString);
             System.out.println(deepPhosResults);
 

@@ -10,6 +10,8 @@
      /*margin-left: 45px;*/
      color: black;
      align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 
  }
 #breadcrumbNav4{      /* Position breadcrumbNav1 on webpage relative to other objects */
@@ -60,10 +62,38 @@
     /*margin: 0 auto;*/
     border: 1px solid #000000;   /* Unlike above Exampe l, #arrowBar2 will have border fully applied */
     height: 55px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
     /* For development work, use background-color to insure #arrowBar2 does NOT show RED. If it shows Red, the area will not receive .click() or hover event. */
     /* background-color: #ff0000; */
 }
 
+.crumb{}
+
+#arrowBar32{
+    display: inline-block;
+    overflow: hidden;
+    /* Rotate angle affects everything. This width is for .AB2rotate that has 45deg. */
+    /* Calculating width is not complicated, but there is one tedious step. */
+    /* First use very large value like 1000px to make sure #arrowBar1 shows every breadcrumb. */
+    /* Value1: Adjust .color0 margin-left to negative value below. This indirectly affects width(border is included) for "Wonderful" breadcrumb. Example: -120px.*/
+    /* Tedious step: Take screen shot and with image editor measure two distances on a "full crumb arrow" that you see. */
+    /* Value2 from Measurement 1: Center Crumb Tail to Tip: Start from Crumb "butt" (inside arrow border) to Crumb "tip" (with border). Example: 106px */
+    /* Value3 from Measurement 2: Last Crumb No Tip: Start from Crumb "butt" (inside arrow border) to Crumb "shoulder" (NO borders, stay inside). Example: 82px */
+    /* Now treat all Values as positive numbers and add them to get the width required for this #arrowBar2 */
+    /* Example: 120 + (106 x 5 ) + 82 = 732 */
+    /* To be sure, the number 5 above is for 5 full Crumb arrows in #arrowBar1 */
+    /* Although this is a tedious process, it creates a pixel perfect width container! */
+    width: 1080px;
+
+    /*display: table;*/
+    /*margin: 0 auto;*/
+    border: 1px solid #000000;   /* Unlike above Exampe l, #arrowBar2 will have border fully applied */
+    height: 15px;
+    /* For development work, use background-color to insure #arrowBar2 does NOT show RED. If it shows Red, the area will not receive .click() or hover event. */
+    /* background-color: #ff0000; */
+}
 
 #arrowBar4{
     display: inline-block;
@@ -486,6 +516,31 @@
     background-color:#0061a7;
 }
 
+.AB3rotate2:active {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+    background-color:#0061a7;
+}
+/*.AB3rotate2:active {*/
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));*/
+    /*background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);*/
+    /*background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);*/
+    /*background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);*/
+    /*background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);*/
+    /*background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);*/
+    /*background-color:#0061a7;*/
+    /*color:black;*/
+
+/*}*/
+
+
+
 .AB3rotate3 {
     position: relative;
     display: inline-block;
@@ -687,6 +742,7 @@
     font-weight: normal;
 
 }
+
 .AB3text3{                  /* Breadcrumb */
     position: absolute;
     top: 165px;
